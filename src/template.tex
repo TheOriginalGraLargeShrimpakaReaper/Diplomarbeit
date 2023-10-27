@@ -1,0 +1,84 @@
+%Vorlage fuer Thesen an der FFHS
+\documentclass{grathesis}
+
+\usepackage[utf8]{inputenc}
+\usepackage{float} % Hold figures and tables on place
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{paracol}
+\usepackage{hyperref}
+%\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+%\usepackage{longtable}
+\usepackage[toc, xindy]{glossaries}
+\usepackage{textcomp}
+\usepackage{rotating}
+\usepackage{pdflscape}
+%\usepackage{natbib}
+%\usepackage{biblatex}
+%\usepackage[acronym]{glossaries}
+%\usepackage[backend=biber,style=ieee,]{biblatex}
+\input{content/glossary/glossary}
+
+% Fortlaufende Nummerierung
+\usepackage{enumitem}
+
+% Bibliography Packages
+\usepackage{amsmath}
+\usepackage[style=numeric,backend=biber,sortlocale=de_DE,bibencoding=utf8,sorting=nty,minbibnames=1,maxbibnames=6,autopunct=true,natbib=true,hyperref=false,doi=false,isbn=false,url=false,eprint=false]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{source/Disposition_Michael_Graber.bib}
+%\addbibresource{disposition_michael_graber.bib}
+\geometry{
+   left=2cm,
+   right=2cm,
+   top=1.25cm,
+   bottom=2cm,
+   textwidth=8cm,
+   marginpar=3cm}
+
+\begin{document}
+
+    \dokumentTyp{Disposition Diplomarbeit}
+    \studiengang{Dipl. Informatiker HF}
+    \title{Disposition Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
+    \subtitle{PostgreSQL HA Cluster - Konzeption und Implementation} % optional
+%    \titelbild[height=2cm,width=10cm]{}  % optional
+    \author{Michael Graber}
+% \date{}
+    \wohnort{Azmoos}
+%\referent{Name des Referenten\\ Titel\\Unterrichtetes Fach}
+    %\referentin{Name der Referentin\\ Titel\\Unterrichtetes Fach}
+    %\eingereichtBei{Dr.\ Oliver Kamin\\Departement Informatik\\Departementsleiter}
+    \dozent{Thomas Leemann\\ \\EINFÜHRUNG DIPLOMARBEIT IN}
+    \eingereichtBei{Markus Müller\\Fachbereich Informatik\\Fachvorsteher HF Informatik}
+    \eingereichtBei{Thomas Leemann\\Fachbereich Wirtschaftsinformatik\\Fachvorsteher HF Wirtschaftsinformatik}
+    %\dedication{Diese Thesis widme ich\\\dots}
+
+    \maketitle
+
+    \begin{zusammenfassung}
+        Disposition Michael Graber
+    \end{zusammenfassung}
+
+%    \begin{abstract}
+%        ... English summary ...
+%    \end{abstract}
+
+    \tableofcontents
+    \input{content/abbreviations/abbreviations}
+    \startThesis % Befehl muss vor dem ersten chapter stehen (Seitennummerierung!)
+    \input{content/initial_situation/initial_situation}
+    \input{content/goals_benefits/goals_benefits}
+    \input{content/delimitations/delimitations}
+    \input{content/dependencies_risks/dependencis_risks}
+    \input{content/planned_procedure/planned_procedure}
+    \input{content/provisional_table_of_content/provisional_table_of_content}
+    \input{content/allowance/allowance}
+    \input{content/appendix/appendix}
+
+\end{document}
