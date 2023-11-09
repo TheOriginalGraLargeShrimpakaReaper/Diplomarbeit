@@ -1,0 +1,51 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'Diplomarbeit_Michael_Graber.blg'
+[71] biber:340> INFO - === Do Nov  9, 2023, 22:12:52
+[85] Biber.pm:418> INFO - Reading 'Diplomarbeit_Michael_Graber.bcf'
+[142] Biber.pm:972> INFO - Found 35 citekeys in bib section 0
+[153] Biber.pm:4383> INFO - Processing section 0
+[163] Biber.pm:4574> INFO - Looking for bibtex file 'source/Diplomarbeit_Michael_Graber.bib' for section 0
+[164] bibtex.pm:1713> INFO - LaTeX decoding ...
+[169] bibtex.pm:1518> INFO - Found BibTeX data source '/home/ibw/LaTex/Diplomarbeit/src/source/Diplomarbeit_Michael_Graber.bib'
+[177] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[177] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[178] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de_DE'
+[178] Biber.pm:4209> INFO - No sort tailoring available for locale 'de_DE'
+[178] bbl.pm:654> INFO - Writing 'Diplomarbeit_Michael_Graber.bbl' with encoding 'UTF-8'
+[178] bbl.pm:757> INFO - Output to Diplomarbeit_Michael_Graber.bbl
+[178] Biber.pm:130> WARN - I didn't find a database entry for 'ER2J77MB' (section 0)
+[178] Biber.pm:130> WARN - I didn't find a database entry for 'LEZ4SPDD' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '3L8EIPUP' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'TTVGIG2P' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '5TA9H3I4' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'IFLSFQU4' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'RJFW5WUH' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'DPBK2HT5' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '9EUWGEF8' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'KA934RSV' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'I65F7WAQ' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '8XWD67EM' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'LUHWDIWV' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '33C32L9G' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'SCE846MP' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'MPSC6ELK' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'PV6GD72X' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'DJX54K3M' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'QVZZTCG6' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '44L9YDSR' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '6LRCXMLC' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'YCYFBRLE' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'W5LMN5ZM' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '5D3IPPGJ' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'Z9WAAQ2U' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '57XLMIRR' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'ZRRXBFRA' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '7ZTCYW5G' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'JWVC9B7L' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for '78JPTB5R' (section 0)
+[179] Biber.pm:130> WARN - I didn't find a database entry for 'QCM8CD5A' (section 0)
+[180] Biber.pm:130> WARN - I didn't find a database entry for '7VWNV2V4' (section 0)
+[180] Biber.pm:130> WARN - I didn't find a database entry for 'GUPY8F7E' (section 0)
+[180] Biber.pm:130> WARN - I didn't find a database entry for 'PH3HQUCR' (section 0)
+[180] Biber.pm:130> WARN - I didn't find a database entry for 'JCLXWZSR' (section 0)
+[180] Biber.pm:132> INFO - WARNINGS: 35
