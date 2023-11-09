@@ -7,6 +7,10 @@ Titel der Diplomarbeit ist "PostgreSQL HA Cluster - Konzeption und Implementatio
 - Dokumentation in der Diplomarbeit
 
 ## Python Dependence
+Folgende Packages müssen installiert werden, damit folgende Python-Skripte ausgeführt werden können:
+- riskmatrix.py
+- zotero.py
+
 ``
 pip install --upgrade pip
 pip install matplotlib
