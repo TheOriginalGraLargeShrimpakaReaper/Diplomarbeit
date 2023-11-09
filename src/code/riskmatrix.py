@@ -220,7 +220,7 @@ matrix = {
 
 # load the configuration file
 riskmatrix_conf_filename = 'conf.csv'
-riskmatrix_conf_dir = 'src/source/configuration/'
+riskmatrix_conf_dir = 'source/configuration/'
 conf_riskmatrix_path = os.path.join(os.path.dirname(os.getcwd()), riskmatrix_conf_dir)
 conf_csv_path = os.path.join(conf_riskmatrix_path, riskmatrix_conf_filename)
 with open(conf_csv_path) as f:

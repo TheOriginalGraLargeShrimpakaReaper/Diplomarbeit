@@ -4,8 +4,299 @@
 % Preamble
 %\makeglossaries
 \makenoidxglossaries
-\newglossaryentry{glossary}
+\newglossaryentry{HP-UX}
 {
-        name=glossary,
-        description={glossary text}
+        name=HP-UX,
+        description={Dieses UNIX-Derivat ist ein abkömmling von System III, System V R3 und System V R4 und wurde von HP zum ersten Mal 1982 veröffentlicht.}
+}
+\newglossaryentry{UNIX}
+{
+        name=UNIX,
+        description={Die erste Version von UNIX wurde im Jahr 1969 in den Bell Labs entwickelt und übernahm viele Komponenten aus dem gescheiterten Multics-Projekt.
+        Aus dem Ursprünglichen UNIX enstanden im Laufe der Zeit viele offene und Proprioritäre Derivate deren Einfluss weit über die Welt der Informatik reicht.}
+}
+\newglossaryentry{PostgreSQL}
+{
+        name=PostgreSQL,
+        description={Die OpenSource Datenbank PostgreSQL wurde in Form von POSTGRES zum ersten Mal 1986 von der University of California at Berkeley veröffentlicht.
+und zählt zu den beliebstesten OpenSource Datenbanken.
+Zudem besteht in vielen bereichen eine gewisse ähnlichkeit zu Oracles Oracle Database.}
+}
+\newglossaryentry{Linux}
+{
+        name=Linux,
+        description={Linux ist ein Open-Source Betriebssystem, welches von Linus Torvalds 1991 in seiner frühesten Form entwickelt wurde und lose vom UNIX Derivat MINIX inspiert war.
+        Linux besteht heute aus einer enorm grossen Anzahl an Distributionen und läuft auf einer grossen Anzahl von Plattformen.}
+}
+\newglossaryentry{Debian}
+{
+        name=Debian,
+        description={Debian gehört nebst Slackware Linux zu den ältesten Linux Distribution die noch immer gepflegt und eingesetzt werden.
+        Sie wurde im August 1993 gestartet und brachte im Laufe der Zeit einige der beliebstesten Distributionen wie Ubuntu hervor.}
+}
+\newglossaryentry{RHEL}
+{
+        name=RedHat Enterpise Linux (RHEL),
+        description={RHEL wurde in seiner Ursprüglichen Form Red Hat Linux (RHL) bis in den Oktober 1994 zurück, wobei die erste Version von RHEL wie es heute existiert im Jahr 2002 erfolgte.
+        RHEL ist auf lange Wartungszyklen von fünf Jahren und grosskunden ausgelegt.
+        Ohne entsprechenden Supportvertrag kann keine ISO-Datei bezogen werden.
+        Somit hebt sich RHEL stark von aderen Linux Distributionen ab.}
+}
+\newglossaryentry{Rocky Linux}
+{
+        name=Rocky Linux,
+        description={Rocky Linux basierte auf der offen zugänglichen Linux Distribution CentOS welche RHEL Binärkompatibel war und gilt als inoffizieller Nachfolger von CentOS.}
+}
+\newglossaryentry{Oracle Linux}
+{
+        name=Oracle Linux,
+        description={Oracle Linux ist eine RHEL-Distribution der Firma Oracle und ist mit RHL Binärkompatibel.
+        Sie wird primär für den Betrieb von Oracle Datenbanken verwendet und komnt auf den Oracle Eigenenen Appliances ODA und Exadata zum Einsatz.
+        Für den Zweck als DB Plattform kann ein für Oracle Datenbanken optimimierter Kernel verwendet werden.
+        Zu Oracle Linux kann ein kostenpflichtiger Support bezogen werden, allerdings ist die Distribution anders als RHEL auch ohne Lizenz erhältlich.}
+}
+\newglossaryentry{MINIX}
+{
+        name=MINIX,
+        description={Ist ein freies unixoides Betriebssystem des Infromatikers Andrew S. Tanenbaum welches zum ersten Mal 1987 Entwickelt wurde und als Inspiration von Linux diente.
+        MINIX wurde in der Lehre eingesetzt und wird in der Intel Active Management Technology von Intel-Chips verwendet und gehört damit zu den am meisten eingesetzten Betriebssystemen überhaupt.}
+}
+\newglossaryentry{Oracle Database}
+{
+        name=Oracle Database,
+        description={Die erste verfügbare Version der Oracle Datenbank kam im Jahr 1979 mit Version 2 (statt Version 1) heraus, damals allerdings nur mit den Basisfunktionen.
+        Im Laufe der Zeit wuchs der Funktionsumfang sehr stark an, die Grundlage des Client-Server-Designs kam erstmals im Jahr 1985 mit Version auf den Markt und hat sich im Prinzip bis heute gehalten.
+        Mit der mit Version 8/8i 1997 erschienen Optimizer und mit der Version 9i 2001 erschienenn Flashback-Funktionalität (die ein schnelles Online Recovery sowie einen Blick in die Vergangheit ermöglichen) konnte Oracle sich stark von der Konkurenz absetzen.
+        Heute gilt die Datenbank als erste Wahl, wenn es um Hochverfügbare Systeme, hohe Perforamce oder grosse Datenmengen geht.}
+}
+\newglossaryentry{MySQL}
+{
+        name=MySQL,
+        description={Die Datenbank MySQL wurde Ursprünglich als reine Relationale Open-Source Datenbank von Firma MySQL AB 1994 Entwickelt.
+        Der Name My leitet sich vom Namen My der Tochter des Mitbegründers Michael Widenius ab.
+        Als Sun Microsystem 2008 MySQL übernahm, hielt sich die Option frei, bei einem Kauf von Sun Microsyszem durch Oracle gründen zu dürfen.
+        Seit Oracle Sun Microsystem 2010 gekauft hat, wurden immer mehr Funktionalitäten von der Community Edition zu der Enterprise Edition verschoben worden.
+        Aus diesem Grund hat heute der MySQL Fork MariaDB MySQL mehrheitlich aus allen Linux Distributionen als Standard Datenbank verdrängt.}
+}
+\newglossaryentry{MariaDB}
+{
+        name=MariaDB,
+        description={MariaDB ist ein MySQL Fork des ehemaligen MySQL Mitbegründers Michael Widenius, wobei sich der Name Maria aus dem VOrnamen einer seiner Töchter ableitet.
+        NAch dem Fork 2009 blieb MariaDB für eine Zeitlang sehr ähnlich mit MySQL und behielt ein ähnliches Versionierungsschema bei.
+        Dies änderte sich 2012 wo dann direkt mit der Version 10 weitergefahren wurde.
+        Beide Datenbanken entfernen sich im Lauf eder Zeit immer mehr voneinander undf sind nicht mehr in jdem Fall kompatibel oder beliebig austauschbar.
+        Auf den Linux Distributionen tratt MariaDB die Nachfolge von MySQL als Standard Datenbank an.}
+}
+\newglossaryentry{Zabbix}
+{
+        name=Zabbix,
+        description={Das 2001 veröffentlichte Open-Source Monitoring System Zabbix gilt zwar als Netzwerk-Monitoring System, allerdings kann heute nahezu jedes IT-System damit überwacht werden.
+        Zabbrix speichert die Metriken und nicht die Auswertungen, das heisst, solange die Daten vorhanden sind können Grafiken zu jedem Zeitpunkt generiert worden.
+        Zabbix ist grundsätzlich Open-Source, man kann allerdings Supportverträge Abschliessen.}
+}
+\newglossaryentry{PRTG}
+{
+        name=PRTG,
+        description={Das Monitoring System Paessler Router Traffic Grapher der Firma Paessler wurde 2003 zum erstmals veröffentlicht und war ebenfalls als Netzwerkmonitoring System konzipiert.
+        Wie bei Zabbix lässt sich heute damit ebenfalls fast jedes IT-System damit Überwachen.
+        Reichen die Zahlreich vorhanden Standard Sensoren nicht, können eigene Sensoren geschrieben werden.
+        PRTG ist nicht Open-Source, man bezahlt anhand gewisser Sensor Packages.}
+}
+\newglossaryentry{Foreman}
+{
+        name=Foreman,
+        description={Foreman ist ein Lifecycle Management und Provisioning System für Virtuelle und Physische Server.
+        Ab Version 6 basierte der Red Hat Satellite auf Foreman}
+}
+\newglossaryentry{VMware vSphere}
+{
+        name=VMware vSphere,
+        description={Die vSphere® ist ein Typ-1 Hypervisor der Firma VMware® der eine reihe leistungsstarker Tools und Funktionen mitbringt.}
+}
+\newglossaryentry{Kubernetes}
+{
+        name=Kubernetes,
+        description={Kubernetes, oder k8s, ist eine Open-Source Containerplattform die ursprünglich von Google 2014 für die Bereitstellung und Orchestrierung von Containern entwickelt wurde aber 2015 an eine Tochter Foundation der Linux Foundation gespendet.
+        Kubernetes kommt aus dem Griechischen und bedeutet Steuermann.}
+}
+\newglossaryentry{PostgreSQL Failure}
+{
+        name=PostgreSQL Failure,
+        description={Ein PostgreSQL Failure, der zu einem Failover führt, entsteht dann, wenn ein \Gls{PostgreSQL Cluster} nicht mehr auf Anfragen reagieren kann wegen Netzwerkproblemen oder weil interne Prozesse hängen.
+        Ein weiterer Grund kann sein, dass das Betriebssystem nicht mehr reagiert oder abgestürzt ist.}
+}
+\newglossaryentry{PostgreSQL Cluster}
+{
+        name=PostgreSQL Cluster,
+        description={Ein PostgreSQL Cluster entspricht einer Instanz bei MS SQL oder einer Container Database wei Oracle.}
+}
+\newglossaryentry{PostgreSQL HA Cluster}
+{
+        name=PostgreSQL HA Cluster,
+        description={Der HA Cluster des \Gls{PostgreSQL Cluster}s}
+}
+\newglossaryentry{GitLab}
+{
+        name=GitLab,
+        description={GitLab ist ein \Gls{Git} basierendes System für die Versionierung und bietet dabei auch noch Dienste für CI/CD.
+        GitLab kann sowohl als Online Dienst als auch als On-premises Service konsumiert werden\cite{MPSC6ELK}.}
+}
+\newglossaryentry{CI/CD}
+{
+        name=CI/CD,
+        description={Continuous Integration/Continuous Delivery bedeutet,
+        das Anpassungen kontinuirlich in die Entwicklungsumgebungen integriert und
+        auf die Zielplattformen verteilt werden\cite{I65F7WAQ}.}
+}
+\newglossaryentry{Harbor}
+{
+        name=Harbor,
+        description={Harbor ist ein Open-Source-Tool zur Registrierung von Richtlinien rollenbasierten Zugriffssteuerung\cite{PV6GD72X}.
+Harbor wird beim KSGR zur Verwaltung der \Gls{Kubernetes}-Plattform verwendet.}
+}
+\newglossaryentry{Failover}
+{
+        name=Failover,
+        description={In einem Fehlerfall wird in einem HA-System meist ein Primary Node auf den Secondary ungeplant geswitched.}
+}
+\newglossaryentry{Switchover}
+{
+        name=Switchover,
+        description={In einem Maintenance-Fall in einem HA-System meist ein Primary Node auf den Secondary geplant geswitched.}
+}
+\newglossaryentry{SAN}
+{
+        name=SAN,
+        description={Ein Storage Area Network ist ein dediziertes Netzwerk aus Storage Komponenten.
+        SAN Systeme bieten redundante Pools an Speicher.
+        Die Physischen Festplatten werden zu Virtuellen Lunes, also logischen Einheiten, zusammengefasst.
+        Dies werden nach aussen den Konsumenten präsentiert\cite{ZRRXBFRA,7ZTCYW5G,JWVC9B7L}}
+}
+\newglossaryentry{SIEM}
+{
+        name=SIEM,
+        description={Ein sammelt Daten aus verschieden Netzwerkkomponenten oder Geräten von Agents oder Logs.
+        Diese Daten werden permanent analysiert und mit einem definierten Regelwerk gegengeprüft.
+        Ziel ist es, verdächtige Events zu erkennen und einem Angriff zuvorzukommen oder ihn möglichst früh zu unterbinden\cite{78JPTB5R}.}
+}
+\newglossaryentry{Redis}
+{
+        name=Redis,
+        description={Redis ist eine Key-Value-orientierte \Gls{NoSQL} In-Memory-Datenbank, dh.
+        die Daten liegen Primär im Memory und nicht auf dem Storage\cite{57XLMIRR}.
+Redis wurde 2009 zum ersten Mal veröffentlicht.}
+}
+\newglossaryentry{NoSQL}
+{
+        name=NoSQL,
+        description={NoSQL steht für Not only SQL. Das heisst, Relationale Datenbanken haben komponenten wie Dokumentendatenbanken,
+Graphendatenbanken, Key-Value-Datenbanken und Spaltenorientiert Datenbanken.
+Viele der grossen Datenbanklösungen wie \Gls{Oracle Database} oder \Gls{Microsoft SQL Server} sind NoSQL Datenbanken resp.
+bieten diese option an.}
+}
+\newglossaryentry{MongoDB}
+{
+        name=MongoDB,
+        description={MongoDB ist eine dokumentenorientierte \Gls{NoSQL}-Datenbank, die zurm ersten Mal 2007 veröffentlicht wurde\cite{YCYFBRLE}.}
+}
+\newglossaryentry{Elasticsearch}
+{
+        name=Elasticsearch,
+        description={Elasticsearch ist eine 2010 veröffentlichte Open-Source Suchmaschine die auf Basis von JSON-Dokumenten und einer \Gls{NoSQL}-Datenbank arbeitet\cite{LUHWDIWV}.}
+}
+\newglossaryentry{IBM DB2}
+{
+        name=IBM DB2,
+        description={IBM DB2 ist eine Relationale Datenbank\cite{DJX54K3M} deren Vorläufer System-R von IBM zwischen 1975 und 1979 entwickelt wurde.
+DB2 selber wurde 1983 von IBM veröffentlicht.}
+}
+\newglossaryentry{SQLite}
+{
+        name=SQLite,
+        description={SQLite ist eine Relationale Embedded Datenbank welche seit 2000 existiert.
+Sie verzichtet auf eine Client-Server-Architektur und kann in vielen Frameworks eingebunden werden\cite{JCLXWZSR}.}
+}
+\newglossaryentry{Snowflake}
+{
+        name=Snowflake,
+        description={Snowflake ist eine Big Data Plattform die Data Warehousing, Data Lakes, Data Engineering und Data Science in einem Service vereint.
+Die Daten werden in eigenen internen Relationalen und \Gls{NoSQL}-Datenbanken gespeichert\cite{QCM8CD5A,7VWNV2V4}}
+}
+\newglossaryentry{Microsoft Access}
+{
+        name=Microsoft Access,
+        description={Access wurde 1992 veröffentlicht und ist Entwicklungsumgebung, Front- und Backend-Software und Relationale Datenbank in einem\cite{44L9YDSR}.}
+}
+\newglossaryentry{Cassandra}
+{
+        name=Cassandra,
+        description={Cassandra ist eine Spaltenorganisierte \Gls{NoSQL}-Datenbank die 2008 veröffentlicht\cite{KA934RSV} wurde.}
+}
+\newglossaryentry{Splunk}
+{
+        name=Splunk,
+        description={Splunk ist Big Data Plattform, Monitoring- und Security-Tool in einem\cite{GUPY8F7E, PH3HQUCR}.
+}
+}
+\newglossaryentry{Microsoft Azure SQL Database}
+{
+        name=Microsoft Azure SQL Database,
+        description={Microsoft Azure SQL Database oder auch Azure SQL ist eine Relationale Datenbank die von Microsoft für die Azure Cloud optimiert 2010 Entwickelt wurde\cite{QVZZTCG6}.}
+}
+\newglossaryentry{OLAP}
+{
+        name=OLAP,
+        description={Eine Online Analytical Processing, kurz OLAP, ist eine Multirelationale resp.
+        Multidimensionale Datenbanklösung.
+Sie wird oft in Form eines Datenwürfels erklärt, kann aber auf verschiedene Arten umgesetzt werden\cite{W5LMN5ZM, 5D3IPPGJ}.
+OLAP-Systeme bieten eine Hochperformante Analyse grosser Datenmengen und sind oftmals zentraler Teil eines Data-Warehouses.}
+}
+\newglossaryentry{SWOT}
+{
+        name=SWOT-Analyse,
+        description={Eine SWOT-Analyse soll die Stärken (Strengths), Schwächen (Weaknesses), Chancen (Opportunities) und Risiken (Threads) für ein Unternehmen oder ein Projekt aufzueigen.
+Anhand einer SWOT-Analyse werden i.d.R. anschliessend Strategien abgeleitet um mit den Stärken und Chancen die Schwächen und Risiken abzufangen oder anzumildern.}
+}
+\newglossaryentry{AUTOVACUUM}
+{
+        name=AUTOVACUUM,
+        description={Der AUTOVACUUM Job räumt die Tablespaces und Data Files innerhalb von PostgreSQL sowie auf dem Filesystem nach Lösch- und Manipulations-Transaktionen auf,
+aktualisiert Datenbank interne Statistiken und verhindert Datenverlust von selten genutzten Datensätzen\cite{9EUWGEF8}.}
+}
+\newglossaryentry{Microsoft SQL Server}
+{
+        name=Microsoft SQL Server,
+        description={MS SQL Server ist das RDBMS von Microsoft\cite{6LRCXMLC}.
+Nebst Microsoft Windows und Windows Server lässt es sich seit Version 2014 ebenfalls auf \Gls{Linux} Betreiben.
+        In der Wirtschaft ist die primäre Plattform aber Windows Server.}
+}
+\newglossaryentry{Ansible}
+{
+        name=Ansible,
+        description={Ansible ist ein Open-Soure Automatisierungstool zur Provisionierung, Konfiguration, Deployment und Orchestrierung.
+Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten Module aus. Oft werden die verschieden Aufgaben in einem Skript, in einem sogenannten Playbook geschrieben werden\cite{7SPK583Y}.}
+}
+\newglossaryentry{Terraform}
+{
+        name=Terraform,
+        description={Terraform ist ein Werkzeug für die Verwaltung von Infrastruktur mit Software zu steuern, sogenanntes Infrastructure as Code.
+        Terraform wird sehr oft dafür benutzt um Container- und Cloudinfrastruktur ansteuern und verwalten zu können\cite{FMIBZY6N,U29WWCXR}.}
+}
+\newglossaryentry{RDBMS}
+{
+        name=RDBMS,
+        description={Ein RDBMS ist ein Datenbankmanagementsystem für eine Relationale Datenbank.
+        Relationale Datenbanken sind Tabellenorgansierte Datenmodelle die auf Relationen aufbauen, deren Schematas sich Normalisieren lassen.
+        Dabei müssen Relationale Datenbanken müssen dabei auch Mengenoperationen, Selektion, Projektion und Joins erfüllen um als Relationale Datenbanken zu gelten\cite{Z9WAAQ2U}.}
+}
+\newglossaryentry{Git}
+{
+        name=Git,
+        description={Git ist eine Versionierungssoftware und bietet die Möglichkeit, Repositories erstellen zu können.
+        Die Repositories sind dabei nicht zentral sondern dezentral organsiert und arbeiten daher mit Working Copies von Repositories\cite{33C32L9G, SCE846MP}.}
+}
+\newglossaryentry{DBMS}
+{
+        name=DBMS,
+        description={Ein Database Management System regelt und organisiert die Datenbasis einer Datenbank\cite{8XWD67EM}.}
 }

@@ -5,3 +5,12 @@ Titel der Diplomarbeit ist "PostgreSQL HA Cluster - Konzeption und Implementatio
 - Evaluation von mindestens 3 Möglichkeiten PostgreSQL HA zu implementieren
 - Ein Testsystem erstellen das Lauffähig ist
 - Dokumentation in der Diplomarbeit
+
+## Python Dependence
+``
+pip install --upgrade pip
+pip install matplotlib
+pip install pandas
+pip install pybtex
+pip install requests
+``
