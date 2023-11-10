@@ -12,6 +12,7 @@
 \contentsline {section}{\numberline {1.4}Risikomanagement}{19}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Vorgehensweise und Methoden}{22}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Projektmanagement}{22}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Rapport}{22}{subsection.1.6.1}%
 \contentsline {chapter}{\numberline {2}Umsetzung}{23}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Evaluation}{23}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Erheben und Gewichten der Anforderungen}{23}{subsection.2.1.1}%
@@ -49,5 +50,6 @@
 \contentsline {chapter}{Glossar}{31}{section*.23}%
 \contentsline {chapter}{Anhang}{36}{chapter*.25}%
 \addtokomafont {chapterentry}{Anhang\ } 
-\contentsline {subsection}{\numberline {.0.1}pgpoolII}{36}{subsection.Alph0.0.1}%
+\contentsline {subsection}{\numberline {.0.1}Rapport}{36}{subsection.Alph0.0.1}%
+\contentsline {subsection}{\numberline {.0.2}pgpoolII}{36}{subsection.Alph0.0.2}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
