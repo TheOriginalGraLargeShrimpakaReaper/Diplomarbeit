@@ -32,7 +32,7 @@
 \newenvironment{zusammenfassung}{
 \begingroup
 \let\clearpage\relax
-\chapter*{Zusammenfassung}
+\chapter*{Management Summary}
 \endgroup
 \noindent}{}
 

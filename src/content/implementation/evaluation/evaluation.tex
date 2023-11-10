@@ -4,8 +4,40 @@
 % Preamble
 \section{Evaluation}
 \subsection{Erheben und Gewichten der Anforderungen}
+\subsection{Exkurs Architektur}
+\subsubsection{High Availability und Replikation}
+Wenn eine Datenbank HA (High Availability), also Hochverfügbar, sein soll, braucht es eine Primäre und mindestens eine Sekundäre- oder Filover-Datenbank.
+Um Datenverlust zu vermeiden, müssen die Daten permanent von der Primären auf die sekundäre Datenbank repliziert werden, dies nennt man Replikation\cite{D9RDXENY}.
+Dabei wird zwischen den folgenden beiden Replikationen unterschieden:
+\\\textbf{Synchrone Replikation}\\
+Wenn bei einer Synchronen Replikation eine Transaktion abgesetzt wird, wird der Commit auf der primären Seite erst gesetzt, wenn die Änderung auf der sekundären Seite oder den sekundären Seiten ebenfalls eingetragen und Committed ist.
+Bis zu diesem Moment ist die Transaktion nicht als Committed.
+
+Dies wird dann zum Problem, wenn keine Verbindung mehr zu mindesten einer sekundären Seite vorhanden ist.
+Zudem wird die Synchrone Replikation bei hohen Latenzen zum Bottleneck der Datenbank.
+
+\textbf{Asynchrone Replikation}\\
+Bei der Asynchronen Replikation wird eine Transaktion erst auf der eigenen primären Seite Committed und erst dann an die sekundären Nodes gesendet.
+Besonders bei hohen Latenzen bleibt die Datenbank immer perfomant, allerdings kann es je nach Latenz und genereller Auslastung zu Datenverlusten kommen, wenn es zum \Gls{Failover} kommt.
+\subsubsection{Split-brain}
+\subsubsection{CAP Theorem}
+Das CAP Theorem besagt, das nur zwei der drei folgenden drei Merkmale von verteilten Systeme gewährleistet werden können\cite{EE6EQHU2}.
+\textbf{Konsistenz - Consistency}
+Die Datenbank ist Konsistent, alle Clients seher gleichzeitig die gleichen Daten unabhänig auf welchem Node das Zugegriffen wird.
+Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit zurückgegeben werden, also eine Synchrone Replikation stattfinden.
+\textbf{Verfügbarkeit - Availability}
+\textbf{Ausfalltoleranz / Partitionstoleranz - Partition tolerance}
+
+\Gls{PostgreSQL}, \Gls{Oracle Database}oder \Gls{IBM DB2}präferieren CA, also Konsistenz und Verfügbarkeit.
+
 \subsection{Testziele erarbeiten}
 \subsection{Analyse gängiger PostgreSQL HA Cluster Lösungen}
+\subsubsection{PostgreSQL Replikation}
+PostgreSQL bietet von Haus aus Möglichkeit
+\subsubsection{pgpoolII}
+\subsubsection{pg\_auto\_failover}
+\subsubsection{Patroni}
+\subsubsection{CloudNativePG}
 \subsection{Installation verschiedener Lösungen}
 \subsection{Gegenüberstellung der Lösungen}
 \subsection{Entscheid}

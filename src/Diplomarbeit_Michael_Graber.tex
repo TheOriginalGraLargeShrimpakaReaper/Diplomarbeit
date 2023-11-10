@@ -27,6 +27,34 @@
 % Fortlaufende Nummerierung
 \usepackage{enumitem}
 
+% Index
+%\usepackage{imakeidx}
+%\usepackage{splitidx}
+%\makeatletter
+%\renewenvironment{theindex}
+% {\if@twocolumn
+%    \@restonecolfalse
+%  \else
+%    \@restonecoltrue
+%  \fi
+%  \twocolumn[\section*{\indexname}%
+%    %%% ADDED
+%    \this@index@prologue\global\let\this@index@prologue\relax
+%    %%%
+%    ]%
+%  \@mkboth{\MakeUppercase\indexname}%
+%          {\MakeUppercase\indexname}%
+%  \thispagestyle{plain}\parindent\z@
+%  \parskip\z@ \@plus .3\p@\relax
+%  \columnseprule \z@
+%  \columnsep 35\p@
+%  \let\item\@idxitem}
+% {\if@restonecol\onecolumn\else\clearpage\fi}
+%\newcommand{\indexprologue}[1]{\gdef\this@index@prologue{#1\par\bigskip}}
+%\let\this@index@prologue\relax
+%\makeatletter
+
+
 % Bibliography Packages
 \usepackage{amsmath}
 \usepackage[style=numeric,backend=biber,sortlocale=de_DE,bibencoding=utf8,sorting=nty,minbibnames=1,maxbibnames=6,autopunct=true,natbib=true,hyperref=false,doi=false,isbn=false,url=false,eprint=false]{biblatex}
@@ -43,9 +71,9 @@
 
 \begin{document}
 
-    \dokumentTyp{Disposition Diplomarbeit}
+    \dokumentTyp{Diplomarbeit}
     \studiengang{Dipl. Informatiker HF}
-    \title{Disposition Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
+    \title{Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
     \subtitle{PostgreSQL HA Cluster - Konzeption und Implementation} % optional
 %    \titelbild[height=2cm,width=10cm]{}  % optional
     \author{Michael Graber}
