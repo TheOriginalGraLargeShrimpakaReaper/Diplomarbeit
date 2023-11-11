@@ -300,3 +300,16 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
         name=DBMS,
         description={Ein Database Management System regelt und organisiert die Datenbasis einer Datenbank\cite{8XWD67EM}.}
 }
+\newglossaryentry{Split-brain}
+{
+        name=Split-brain,
+        description={}
+}
+\newglossaryentry{Quorum}
+{
+        name=Quorum,
+        description={In verteilten Systemen resp. Cluster muss sichergestellt werden, das bei einem Ausfall oder ein Netzwerktrennung zwischen den Nodes es zu keiner \Gls{Split-brain}-Situation kommt.
+        Hierzu wird i.d.R. ein Quorum verwendet.
+        I.d.R. wird jener Teil des Quorums zum Primary oder alleinigen Node, der mit der die Mehrheit aller Nodes vereint. Daraus ergeben sich bestimmte grössen, mit 5 Nodes braucht es 3 Nodes um aktiv zu bleiben und mit 3 Nodes deren 2.
+        Bei diesen Konstelationen wird daher darauf geachtet, eine ungerade Anzahl Nodes im Cluster zu halten um keine Pat-Situation zu provozieren.}
+}

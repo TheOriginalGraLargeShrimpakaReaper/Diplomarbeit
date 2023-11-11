@@ -34,8 +34,20 @@ Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit 
 \subsection{Analyse gängiger PostgreSQL HA Cluster Lösungen}
 \subsubsection{PostgreSQL Replikation}
 PostgreSQL bietet von Haus aus Möglichkeit
-\subsubsection{pgpoolII}
-pgpoolII ist eine Middleware die
+\subsubsection{pgpool-II}
+pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
+pgpoolII bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:
+\textbf{High Availability}
+pgpool-II bietet einen automatic \Gls{Failover} genannten Service an.
+Dieser schwenkt auf einen Standby-Server und entfernt den Defekten Server.
+Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf einen eigens entwickelten \Gls{Quorum}-Algorithmus.
+\textbf{Connection Pooling}
+\textbf{Replikation}
+\textbf{Load Balancing}
+\textbf{Limiting Exceeding Connections}
+\textbf{Watchdog}
+\textbf{In Memory Query Caching}
+
 \subsubsection{pg\_auto\_failover}
 \subsubsection{Patroni}
 \subsubsection{CloudNativePG}
