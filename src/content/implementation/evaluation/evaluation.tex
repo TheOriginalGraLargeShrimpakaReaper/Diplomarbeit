@@ -65,6 +65,16 @@ Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit 
 \subsection{Analyse gängiger PostgreSQL HA Cluster Lösungen}
 \subsubsection{\Gls{PostgreSQL} Replikation}
 PostgreSQL bietet von Haus aus Möglichkeit
+\subsubsection{KSGR Lösung}
+Das Kantonsspital Graubünden hat basierend auf \gls{keepalived} wird geprüft ob die primäre Seite erreichbar und betriebsbereit ist.
+Trifft dies nicht mehr zu, wird ein \Gls{Failover} durchgeführt\cite{NLF2IDBZ}.
+Ist die primäre Seite wieder verfügbar, wird ein Restore auf die primäre Seite gefahren.
+
+Es wird beim Restore immer ein komplettes Backup der sekundären Seite auf die primäre Seite übertragen.
+Ursache ist, dass die normalerweise für den Datenrestore benötigten \Gls{PostgreSQL} Board mittel nur für eine relativ kurze Zeit eingesetzt werden können ehe die differenzen zwischen den beiden Seiten zu gross werden.
+
+Bei kleinen Datenbanken wie jene für \Gls{Harbor} und \Gls{GitLab} ist die Zeit die hierfür benötigt wird, nicht relevant.
+Sind die Datenbanken auf dem \Gls{PostgreSQL Cluster} jedoch grösser, kann der Restore mehrere Minuten dauern.
 \subsubsection{pgpool-II}
 pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
 pgpoolII bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:

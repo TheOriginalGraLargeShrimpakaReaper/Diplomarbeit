@@ -93,6 +93,35 @@
       \field{howpublished}{\url{https://about.gitlab.com/}}
       \field{title}{The DevSecOps Platform | GitLab}
     \endentry
+    \entry{ZW4PA3EQ}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=f5bbb970a495c0f489479cc79116341d}{%
+           family={Cassen},
+           familyi={C\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0606c10a254930d5bcfc091eb26f8b85}{%
+           family={Docs},
+           familyi={D\bibinitperiod},
+           given={Read},
+           giveni={R\bibinitperiod},
+           prefix={the},
+           prefixi={t\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \strng{fullhash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \strng{bibnamehash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \strng{authorbibnamehash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \strng{authornamehash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \strng{authorfullhash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://keepalived.readthedocs.io/en/latest/introduction.html}}
+      \field{title}{Introduction — Keepalived 1.2.15 documentation}
+      \field{year}{2017}
+    \endentry
     \entry{QVZZTCG6}{misc}{}
       \name{author}{1}{}{%
         {{hash=91da9dc9e484daf8dc9ed72055907025}{%
@@ -698,6 +727,30 @@
       \field{howpublished}{\url{https://www.redhat.com/de/topics/devops/what-is-ci-cd}}
       \field{title}{Was ist CI/CD? Konzepte und CI/CD Tools im Überblick}
     \endentry
+    \entry{5IP362SV}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4eb43b125d02f25d17f90c40eeb61de8}{%
+           family={Linuxfabrik\bibnamedelima GmbH},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Switzerland},
+           giveni={S\bibinitperiod},
+           suffix={Zurich},
+           suffixi={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \strng{fullhash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \strng{bibnamehash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \strng{authorbibnamehash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \strng{authornamehash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \strng{authorfullhash}{4eb43b125d02f25d17f90c40eeb61de8}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.linuxfabrik.ch/software/keepalived.html}}
+      \field{title}{Keepalived — Open Source Admin-Handbuch der Linuxfabrik}
+      \field{year}{2023}
+    \endentry
     \entry{LUHWDIWV}{misc}{}
       \name{author}{3}{}{%
         {{hash=47db407ac66669da54b848de91cee6ed}{%
@@ -793,6 +846,33 @@
       \field{labeltitlesource}{title}
       \field{title}{Consensus: Bridging Theory and Practice}
       \field{year}{2014}
+    \endentry
+    \entry{NLF2IDBZ}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=c29c13e401278c5c0c676ca919883585}{%
+           family={Queirós},
+           familyi={Q\bibinitperiod},
+           given={Bruno},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ae7220413326f766bc82909437455aa0}{%
+           family={Company},
+           familyi={C\bibinitperiod},
+           given={LinkedIn\bibnamedelimb Ireland\bibnamedelima Unlimited},
+           giveni={L\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+      }
+      \strng{namehash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \strng{fullhash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \strng{bibnamehash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \strng{authorbibnamehash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \strng{authornamehash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \strng{authorfullhash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.linkedin.com/pulse/postgresql-replication-automatic-failover-bruno-queir\%C3\%B3s}}
+      \field{title}{Postgresql replication with automatic failover}
+      \field{year}{2020}
     \endentry
     \entry{LEZ4SPDD}{misc}{}
       \name{author}{2}{}{%
