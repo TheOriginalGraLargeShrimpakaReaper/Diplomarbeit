@@ -431,6 +431,29 @@
       \field{howpublished}{\url{https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/InstitutionenGesundeitswesens/Spitaeler/Dok\%20Spitler/Kenndaten\%202016\%20Spit\%C3\%A4ler.pdf}}
       \field{title}{Kenndaten 2016 Spitäler und Kliniken September 2018}
     \endentry
+    \entry{3XWCD3KX}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e2122cf6f39720f69166bd6d1897a1db}{%
+           family={Group},
+           familyi={G\bibinitperiod},
+           given={The\bibnamedelimb Pgpool\bibnamedelimb Global\bibnamedelima Development},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2122cf6f39720f69166bd6d1897a1db}
+      \strng{fullhash}{e2122cf6f39720f69166bd6d1897a1db}
+      \strng{bibnamehash}{e2122cf6f39720f69166bd6d1897a1db}
+      \strng{authorbibnamehash}{e2122cf6f39720f69166bd6d1897a1db}
+      \strng{authornamehash}{e2122cf6f39720f69166bd6d1897a1db}
+      \strng{authorfullhash}{e2122cf6f39720f69166bd6d1897a1db}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.pgpool.net/docs/44/en/html/intro-whatis.html}}
+      \field{title}{What is Pgpool-II?}
+      \field{year}{2023}
+    \endentry
     \entry{9EUWGEF8}{misc}{}
       \name{author}{1}{}{%
         {{hash=d781737818ef106c8cbc5c8de5c56546}{%
@@ -445,6 +468,7 @@
       \strng{authorbibnamehash}{d781737818ef106c8cbc5c8de5c56546}
       \strng{authornamehash}{d781737818ef106c8cbc5c8de5c56546}
       \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
+      \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
@@ -452,6 +476,42 @@
       \field{howpublished}{\url{https://www.postgresql.org/docs/16/routine-vacuuming.html}}
       \field{title}{25.1. Routine Vacuuming}
       \field{year}{2023}
+    \endentry
+    \entry{V4XLXN7W}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3a2e1959421872856a362cbb0330458c}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=8b93ae40256569029e816a03304344e7}{%
+           family={Konar},
+           familyi={K\bibinitperiod},
+           given={Mahadev},
+           giveni={M\bibinitperiod}}}%
+        {{hash=57f1bc1d9fabba629afcfcc5fdbf6d6b}{%
+           family={Junqueira},
+           familyi={J\bibinitperiod},
+           given={Flavio\bibnamedelima P},
+           giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=85be743b01aead39c2e95bfc9228cc8b}{%
+           family={Reed},
+           familyi={R\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2fd50a41c33376211bcf43c7c9ed3ce}
+      \strng{fullhash}{d23c1c81b9c64c1302c8edde498d2ebc}
+      \strng{bibnamehash}{d23c1c81b9c64c1302c8edde498d2ebc}
+      \strng{authorbibnamehash}{d23c1c81b9c64c1302c8edde498d2ebc}
+      \strng{authornamehash}{a2fd50a41c33376211bcf43c7c9ed3ce}
+      \strng{authorfullhash}{d23c1c81b9c64c1302c8edde498d2ebc}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ZooKeeper: Wait-free coordination for Internet-scale systems}
+      \field{year}{2010}
     \endentry
     \entry{GUPY8F7E}{misc}{}
       \name{author}{1}{}{%
@@ -498,6 +558,28 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://minervadb.xyz/postgresql-dba-daily-checklist/}}
       \field{title}{PostgreSQL DBA Daily Checklist}
+      \field{year}{2020}
+    \endentry
+    \entry{UMIGLCCI}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9aea916b0a018951b2027c48dcdbbefe}{%
+           family={Joshi},
+           familyi={J\bibinitperiod},
+           given={Unmesh},
+           giveni={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{9aea916b0a018951b2027c48dcdbbefe}
+      \strng{fullhash}{9aea916b0a018951b2027c48dcdbbefe}
+      \strng{bibnamehash}{9aea916b0a018951b2027c48dcdbbefe}
+      \strng{authorbibnamehash}{9aea916b0a018951b2027c48dcdbbefe}
+      \strng{authornamehash}{9aea916b0a018951b2027c48dcdbbefe}
+      \strng{authorfullhash}{9aea916b0a018951b2027c48dcdbbefe}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://martinfowler.com/articles/patterns-of-distributed-systems/quorum.html}}
+      \field{title}{Quorum}
       \field{year}{2020}
     \endentry
     \entry{DJX54K3M}{misc}{}
@@ -648,6 +730,28 @@
       \field{title}{Was ist Elasticsearch?}
       \field{year}{2020}
     \endentry
+    \entry{EXVNLICT}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f9d6ce96a4e6dd435b43d77c122cb232}{%
+           family={LLC},
+           familyi={L\bibinitperiod},
+           given={SRA\bibnamedelima OSS},
+           giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \strng{fullhash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \strng{bibnamehash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \strng{authorbibnamehash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \strng{authornamehash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \strng{authorfullhash}{f9d6ce96a4e6dd435b43d77c122cb232}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.pgpool.net/mediawiki/index.php/Main\_Page}}
+      \field{title}{pgpool Wiki}
+      \field{year}{2023}
+    \endentry
     \entry{7ZTCYW5G}{misc}{}
       \name{author}{1}{}{%
         {{hash=bb1f43d1baf664afe6c9ef2d1ebe8966}{%
@@ -668,6 +772,27 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.hpe.com/ch/de/what-is/san-storage.html}}
       \field{title}{Was ist SAN-Speicher? | Glossar}
+    \endentry
+    \entry{YDS7DTYM}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7cd6def2de460a2efcd2ef9fb4ce7f68}{%
+           family={Ongaro},
+           familyi={O\bibinitperiod},
+           given={Diego},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \strng{fullhash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \strng{bibnamehash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \strng{authorbibnamehash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \strng{authornamehash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \strng{authorfullhash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Consensus: Bridging Theory and Practice}
+      \field{year}{2014}
     \endentry
     \entry{LEZ4SPDD}{misc}{}
       \name{author}{2}{}{%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.29)  10 NOV 2023 22:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.29)  11 NOV 2023 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -829,58 +829,102 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count376
 \enitdp@description=\count377
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count378
+\lst@gtempboxa=\box118
+\lst@token=\toks43
+\lst@length=\count379
+\lst@currlwidth=\dimen263
+\lst@column=\count380
+\lst@pos=\count381
+\lst@lostspace=\dimen264
+\lst@width=\dimen265
+\lst@newlines=\count382
+\lst@lineno=\count383
+\lst@maxwidth=\dimen266
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count384
+\lst@skipnumbers=\count385
+\lst@framebox=\box119
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
+\csq@reset=\count386
+\csq@gtype=\count387
+\csq@glevel=\count388
+\csq@qlevel=\count389
+\csq@maxlvl=\count390
+\csq@tshold=\count391
+\csq@ltx@everypar=\toks44
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+))
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count378
+\lrq@indent=\count392
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count379
-\c@listtotal=\count380
-\c@listcount=\count381
-\c@liststart=\count382
-\c@liststop=\count383
-\c@citecount=\count384
-\c@citetotal=\count385
-\c@multicitecount=\count386
-\c@multicitetotal=\count387
-\c@instcount=\count388
-\c@maxnames=\count389
-\c@minnames=\count390
-\c@maxitems=\count391
-\c@minitems=\count392
-\c@citecounter=\count393
-\c@maxcitecounter=\count394
-\c@savedcitecounter=\count395
-\c@uniquelist=\count396
-\c@uniquename=\count397
-\c@refsection=\count398
-\c@refsegment=\count399
-\c@maxextratitle=\count400
-\c@maxextratitleyear=\count401
-\c@maxextraname=\count402
-\c@maxextradate=\count403
-\c@maxextraalpha=\count404
-\c@abbrvpenalty=\count405
-\c@highnamepenalty=\count406
-\c@lownamepenalty=\count407
-\c@maxparens=\count408
-\c@parenlevel=\count409
-\blx@tempcnta=\count410
-\blx@tempcntb=\count411
-\blx@tempcntc=\count412
-\c@blx@maxsection=\count413
-\c@blx@maxsegment@0=\count414
-\blx@notetype=\count415
-\blx@parenlevel@text=\count416
-\blx@parenlevel@foot=\count417
-\c@blx@sectionciteorder@0=\count418
-\blx@entrysetcounter=\count419
-\blx@biblioinstance=\count420
+\c@tabx@nest=\count393
+\c@listtotal=\count394
+\c@listcount=\count395
+\c@liststart=\count396
+\c@liststop=\count397
+\c@citecount=\count398
+\c@citetotal=\count399
+\c@multicitecount=\count400
+\c@multicitetotal=\count401
+\c@instcount=\count402
+\c@maxnames=\count403
+\c@minnames=\count404
+\c@maxitems=\count405
+\c@minitems=\count406
+\c@citecounter=\count407
+\c@maxcitecounter=\count408
+\c@savedcitecounter=\count409
+\c@uniquelist=\count410
+\c@uniquename=\count411
+\c@refsection=\count412
+\c@refsegment=\count413
+\c@maxextratitle=\count414
+\c@maxextratitleyear=\count415
+\c@maxextraname=\count416
+\c@maxextradate=\count417
+\c@maxextraalpha=\count418
+\c@abbrvpenalty=\count419
+\c@highnamepenalty=\count420
+\c@lownamepenalty=\count421
+\c@maxparens=\count422
+\c@parenlevel=\count423
+\blx@tempcnta=\count424
+\blx@tempcntb=\count425
+\blx@tempcntc=\count426
+\c@blx@maxsection=\count427
+\c@blx@maxsegment@0=\count428
+\blx@notetype=\count429
+\blx@parenlevel@text=\count430
+\blx@parenlevel@foot=\count431
+\c@blx@sectionciteorder@0=\count432
+\blx@entrysetcounter=\count433
+\blx@biblioinstance=\count434
 \labelnumberwidth=\skip93
 \labelalphawidth=\skip94
 \biblabelsep=\skip95
@@ -892,9 +936,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language88
-\c@mincomprange=\count421
-\c@maxcomprange=\count422
-\c@mincompwidth=\count423
+\c@mincomprange=\count435
+\c@maxcomprange=\count436
+\c@mincompwidth=\count437
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -905,74 +949,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count424
-\c@savedafterword=\count425
-\c@annotator=\count426
-\c@savedannotator=\count427
-\c@author=\count428
-\c@savedauthor=\count429
-\c@bookauthor=\count430
-\c@savedbookauthor=\count431
-\c@commentator=\count432
-\c@savedcommentator=\count433
-\c@editor=\count434
-\c@savededitor=\count435
-\c@editora=\count436
-\c@savededitora=\count437
-\c@editorb=\count438
-\c@savededitorb=\count439
-\c@editorc=\count440
-\c@savededitorc=\count441
-\c@foreword=\count442
-\c@savedforeword=\count443
-\c@holder=\count444
-\c@savedholder=\count445
-\c@introduction=\count446
-\c@savedintroduction=\count447
-\c@namea=\count448
-\c@savednamea=\count449
-\c@nameb=\count450
-\c@savednameb=\count451
-\c@namec=\count452
-\c@savednamec=\count453
-\c@translator=\count454
-\c@savedtranslator=\count455
-\c@shortauthor=\count456
-\c@savedshortauthor=\count457
-\c@shorteditor=\count458
-\c@savedshorteditor=\count459
-\c@labelname=\count460
-\c@savedlabelname=\count461
-\c@institution=\count462
-\c@savedinstitution=\count463
-\c@lista=\count464
-\c@savedlista=\count465
-\c@listb=\count466
-\c@savedlistb=\count467
-\c@listc=\count468
-\c@savedlistc=\count469
-\c@listd=\count470
-\c@savedlistd=\count471
-\c@liste=\count472
-\c@savedliste=\count473
-\c@listf=\count474
-\c@savedlistf=\count475
-\c@location=\count476
-\c@savedlocation=\count477
-\c@organization=\count478
-\c@savedorganization=\count479
-\c@origlocation=\count480
-\c@savedoriglocation=\count481
-\c@origpublisher=\count482
-\c@savedorigpublisher=\count483
-\c@publisher=\count484
-\c@savedpublisher=\count485
-\c@language=\count486
-\c@savedlanguage=\count487
-\c@origlanguage=\count488
-\c@savedoriglanguage=\count489
-\c@pageref=\count490
-\c@savedpageref=\count491
+\c@afterword=\count438
+\c@savedafterword=\count439
+\c@annotator=\count440
+\c@savedannotator=\count441
+\c@author=\count442
+\c@savedauthor=\count443
+\c@bookauthor=\count444
+\c@savedbookauthor=\count445
+\c@commentator=\count446
+\c@savedcommentator=\count447
+\c@editor=\count448
+\c@savededitor=\count449
+\c@editora=\count450
+\c@savededitora=\count451
+\c@editorb=\count452
+\c@savededitorb=\count453
+\c@editorc=\count454
+\c@savededitorc=\count455
+\c@foreword=\count456
+\c@savedforeword=\count457
+\c@holder=\count458
+\c@savedholder=\count459
+\c@introduction=\count460
+\c@savedintroduction=\count461
+\c@namea=\count462
+\c@savednamea=\count463
+\c@nameb=\count464
+\c@savednameb=\count465
+\c@namec=\count466
+\c@savednamec=\count467
+\c@translator=\count468
+\c@savedtranslator=\count469
+\c@shortauthor=\count470
+\c@savedshortauthor=\count471
+\c@shorteditor=\count472
+\c@savedshorteditor=\count473
+\c@labelname=\count474
+\c@savedlabelname=\count475
+\c@institution=\count476
+\c@savedinstitution=\count477
+\c@lista=\count478
+\c@savedlista=\count479
+\c@listb=\count480
+\c@savedlistb=\count481
+\c@listc=\count482
+\c@savedlistc=\count483
+\c@listd=\count484
+\c@savedlistd=\count485
+\c@liste=\count486
+\c@savedliste=\count487
+\c@listf=\count488
+\c@savedlistf=\count489
+\c@location=\count490
+\c@savedlocation=\count491
+\c@organization=\count492
+\c@savedorganization=\count493
+\c@origlocation=\count494
+\c@savedoriglocation=\count495
+\c@origpublisher=\count496
+\c@savedorigpublisher=\count497
+\c@publisher=\count498
+\c@savedpublisher=\count499
+\c@language=\count500
+\c@savedlanguage=\count501
+\c@origlanguage=\count502
+\c@savedoriglanguage=\count503
+\c@pageref=\count504
+\c@savedpageref=\count505
 \shorthandwidth=\skip101
 \shortjournalwidth=\skip102
 \shortserieswidth=\skip103
@@ -998,19 +1042,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count492
-\c@textcitetotal=\count493
-\c@textcitemaxnames=\count494
-\c@biburlbigbreakpenalty=\count495
-\c@biburlbreakpenalty=\count496
-\c@biburlnumpenalty=\count497
-\c@biburlucpenalty=\count498
-\c@biburllcpenalty=\count499
+\c@textcitecount=\count506
+\c@textcitetotal=\count507
+\c@textcitemaxnames=\count508
+\c@biburlbigbreakpenalty=\count509
+\c@biburlbreakpenalty=\count510
+\c@biburlnumpenalty=\count511
+\c@biburlucpenalty=\count512
+\c@biburllcpenalty=\count513
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count500
+\c@smartand=\count514
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -1030,8 +1074,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count501
-\c@bbx:relatedtotal=\count502
+\c@bbx:relatedcount=\count515
+\c@bbx:relatedtotal=\count516
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1064,8 +1108,8 @@ Package: expl3 2022-01-21 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count503
-\l__pdf_internal_box=\box118
+\l__color_backend_stack_int=\count517
+\l__pdf_internal_box=\box120
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2022-01-21 L3 programming layer (loader) 
@@ -1082,52 +1126,50 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (227.62204pt) is ignored.
 
-
-Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
-(biblatex)                Loading 'csquotes' recommended.
-
-\@quotelevel=\count504
-\@quotereset=\count505
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 72
-.
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 10
+0.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 (/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.aux)
 \openout1 = `Diplomarbeit_Michael_Graber.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count506
-\scratchdimen=\dimen263
-\scratchbox=\box119
-\nofMPsegments=\count507
-\nofMParguments=\count508
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count509
-\MPscratchDim=\dimen264
-\MPnumerator=\count510
-\makeMPintoPDFobject=\count511
-\everyMPtoPDFconversion=\toks44
+\scratchcounter=\count518
+\scratchdimen=\dimen267
+\scratchbox=\box121
+\nofMPsegments=\count519
+\nofMParguments=\count520
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count521
+\MPscratchDim=\dimen268
+\MPnumerator=\count522
+\makeMPintoPDFobject=\count523
+\everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1171,7 +1213,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 72.
+Package hyperref Info: Link coloring OFF on input line 100.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1181,11 +1223,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count512
+\c@section@level=\count524
 )
-LaTeX Info: Redefining \ref on input line 72.
-LaTeX Info: Redefining \pageref on input line 72.
-LaTeX Info: Redefining \nameref on input line 72.
+LaTeX Info: Redefining \ref on input line 100.
+LaTeX Info: Redefining \pageref on input line 100.
+LaTeX Info: Redefining \nameref on input line 100.
 
 (/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.out)
 (/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.out)
@@ -1199,15 +1241,16 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 72.
+(scrreprt)           before \begin{document} on input line 100.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count513
+\BKM@id=\count525
 ))
+\c@lstlisting=\count526
 Package biblatex Info: Trying to load language 'ngerman'...
 Package biblatex Info: ... file 'ngerman.lbx' found.
 
@@ -1240,22 +1283,22 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Diplomarbeit_Michael_Graber.bbl' found.
 
 (/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.bbl)
-Package biblatex Info: Reference section=0 on input line 72.
-Package biblatex Info: Reference segment=0 on input line 72.
+Package biblatex Info: Reference section=0 on input line 100.
+Package biblatex Info: Reference segment=0 on input line 100.
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 91
+Underfull \hbox (badness 10000) detected at line 119
 
  []
 
 <source/main/ibw.jpg, id=4, 2258.4375pt x 2253.92062pt>
 File: source/main/ibw.jpg Graphic file (type jpg)
 <use source/main/ibw.jpg>
-Package pdftex.def Info: source/main/ibw.jpg  used on input line 91.
+Package pdftex.def Info: source/main/ibw.jpg  used on input line 119.
 (pdftex.def)             Requested size: 56.99838pt x 56.9055pt.
 [0{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1537,7 +1580,7 @@ Using TeX to sort glossary entries---this may take a while
 
 Overfull \hbox (8.5543pt too wide) in paragraph at lines 17--17
 []\T1/phv/m/n/10.95 Ein Da-ta-ba-se Ma-na-ge-ment Sys-tem re-gelt und or-ga-ni-
-siert die Da-ten-ba-sis ei-ner Da-ten-bank[31]..
+siert die Da-ten-ba-sis ei-ner Da-ten-bank[36]..
  []
 
 [31
@@ -1560,10 +1603,19 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 
 [35
 
-] (./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex))
-[36
+] (./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 9.
+)) [36
 
-] (/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.aux)
+]
+(/home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.aux)
 Package rerunfilecheck Info: File `Diplomarbeit_Michael_Graber.out' has not cha
 nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -1573,23 +1625,24 @@ Package logreq Info: Writing requests to 'Diplomarbeit_Michael_Graber.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32118 strings out of 478287
- 611594 string characters out of 5849289
- 1554648 words of memory out of 5000000
- 49624 multiletter control sequences out of 15000+600000
- 493624 words of font info for 57 fonts, out of 8000000 for 9000
+ 34593 strings out of 478287
+ 647629 string characters out of 5849289
+ 1749116 words of memory out of 5000000
+ 52044 multiletter control sequences out of 15000+600000
+ 498563 words of font info for 61 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 122i,19n,120p,10644b,3122s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 122i,19n,120p,10644b,3145s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/c
-m-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
-vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+m-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on /home/ibw/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.
-pdf (41 pages, 1519753 bytes).
+pdf (41 pages, 1562684 bytes).
 PDF statistics:
- 857 PDF objects out of 1000 (max. 8388607)
- 782 compressed objects within 8 object streams
- 162 named destinations out of 1000 (max. 500000)
+ 921 PDF objects out of 1000 (max. 8388607)
+ 842 compressed objects within 9 object streams
+ 189 named destinations out of 1000 (max. 500000)
  408 words of extra memory for PDF output out of 10000 (max. 10000000)
 

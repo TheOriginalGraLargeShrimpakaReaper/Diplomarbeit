@@ -303,7 +303,10 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
 \newglossaryentry{Split-brain}
 {
         name=Split-brain,
-        description={}
+        description={
+%        \externaldocument{./content/implementation/evaluation/evaluation}
+        Im Kapitel \autoref{chap:Split-brain} werden die ursachen und folgenden eines Split-brains genauer besprochen.
+        }
 }
 \newglossaryentry{Quorum}
 {
@@ -311,5 +314,16 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
         description={In verteilten Systemen resp. Cluster muss sichergestellt werden, das bei einem Ausfall oder ein Netzwerktrennung zwischen den Nodes es zu keiner \Gls{Split-brain}-Situation kommt.
         Hierzu wird i.d.R. ein Quorum verwendet.
         I.d.R. wird jener Teil des Quorums zum Primary oder alleinigen Node, der mit der die Mehrheit aller Nodes vereint. Daraus ergeben sich bestimmte grössen, mit 5 Nodes braucht es 3 Nodes um aktiv zu bleiben und mit 3 Nodes deren 2.
-        Bei diesen Konstelationen wird daher darauf geachtet, eine ungerade Anzahl Nodes im Cluster zu halten um keine Pat-Situation zu provozieren.}
+        Bei diesen Konstelationen wird daher darauf geachtet, eine ungerade Anzahl Nodes im Cluster zu halten um keine Pat-Situation zu provozieren.
+%        \externaldocument{content/implementation/evaluation/evaluation}
+        Im Kapitel \autoref{chap:Quorum} wird genauer auf die Mechanik eines Quorums eingegangen.
+        }
+}
+\newglossaryentry{openSUSE}
+{
+        name=openSUSE,
+        description={openSUSE ist eine Linux Distribution die aus den Distributionen Slackware Linux, jurix und S.u.S.E. Linux 4.2 heraus entstand.
+        Die Distirbution wird heute von der SUSE S.A. betreut.
+        Das OS ist Open-Source wobei es Enterprise Editionen für Server und Desktop sowie Tools für das Lifecycle Management und Provisioning gibt,
+        die in Konkurenz zu Red Hat Satellite und deren Open-Source Basis \Gls{Foreman} stehen.}
 }
