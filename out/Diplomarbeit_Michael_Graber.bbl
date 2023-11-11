@@ -46,27 +46,6 @@
       \field{title}{How to monitor and fix Database bloats in PostgreSQL? | Netdata Blog}
       \field{year}{2022}
     \endentry
-    \entry{EE6EQHU2}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=4b84d926fcbba957d2e9b3b9b7bf6de3}{%
-           family={author},
-           familyi={a\bibinitperiod},
-           prefix={unknown},
-           prefixi={u\bibinitperiod}}}%
-      }
-      \strng{namehash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \strng{fullhash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \strng{bibnamehash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \strng{authorbibnamehash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \strng{authornamehash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \strng{authorfullhash}{4b84d926fcbba957d2e9b3b9b7bf6de3}
-      \field{sortinit}{a}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.ibm.com/de-de/topics/cap-theorem}}
-      \field{title}{Was ist das CAP-Theorem? | IBM}
-    \endentry
     \entry{MPSC6ELK}{misc}{}
       \name{author}{2}{}{%
         {{hash=34b54d1a25aaaf9680560ef220c5062b}{%
@@ -358,7 +337,7 @@
       \field{howpublished}{\url{https://git-scm.com/about}}
       \field{title}{About - Git}
     \endentry
-    \entry{5D3IPPGJ}{misc}{}
+    \entry{EE6EQHU2}{misc}{}
       \name{author}{1}{}{%
         {{hash=27568c9a341ea6888c28d2aabb97a5f7}{%
            family={GmbH},
@@ -373,6 +352,29 @@
       \strng{authornamehash}{27568c9a341ea6888c28d2aabb97a5f7}
       \strng{authorfullhash}{27568c9a341ea6888c28d2aabb97a5f7}
       \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ibm.com/de-de/topics/cap-theorem}}
+      \field{title}{Was ist das CAP-Theorem? | IBM}
+      \field{year}{2023}
+    \endentry
+    \entry{5D3IPPGJ}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=27568c9a341ea6888c28d2aabb97a5f7}{%
+           family={GmbH},
+           familyi={G\bibinitperiod},
+           given={IBM\bibnamedelima Deutschland},
+           giveni={I\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \strng{fullhash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \strng{bibnamehash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \strng{authorbibnamehash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \strng{authornamehash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \strng{authorfullhash}{27568c9a341ea6888c28d2aabb97a5f7}
+      \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
@@ -394,7 +396,7 @@
       \strng{authorbibnamehash}{7d9e0f6f3f0df293629f57b24ec702f3}
       \strng{authornamehash}{7d9e0f6f3f0df293629f57b24ec702f3}
       \strng{authorfullhash}{7d9e0f6f3f0df293629f57b24ec702f3}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
@@ -417,7 +419,7 @@
       \strng{authorbibnamehash}{46fdb6c13874cc10e817e0dc50f0a4d4}
       \strng{authornamehash}{46fdb6c13874cc10e817e0dc50f0a4d4}
       \strng{authorfullhash}{46fdb6c13874cc10e817e0dc50f0a4d4}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
