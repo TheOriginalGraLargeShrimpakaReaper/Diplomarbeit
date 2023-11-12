@@ -19,6 +19,15 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{VXNYQFTE}{misc}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/gregs1104/pgbench-tools}}
+      \field{note}{original-date: 2010-02-17T13:33:28Z}
+      \field{title}{About pgbench-tools}
+      \field{year}{2023}
+    \endentry
     \entry{DPBK2HT5}{misc}{}
       \name{author}{2}{}{%
         {{hash=adfeb2c2c69b64fce6bf1989317138c1}{%
@@ -168,6 +177,35 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.microsoft.com/de-ch/sql-server}}
       \field{title}{Microsoft Data Platform | Microsoft}
+    \endentry
+    \entry{6294443C}{article}{}
+      \name{author}{1}{}{%
+        {{hash=da24cc820c841ae487ecae2420efa39a}{%
+           family={CORPORATION},
+           familyi={C\bibinitperiod},
+           given={ORACLE},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{da24cc820c841ae487ecae2420efa39a}
+      \strng{fullhash}{da24cc820c841ae487ecae2420efa39a}
+      \strng{bibnamehash}{da24cc820c841ae487ecae2420efa39a}
+      \strng{authorbibnamehash}{da24cc820c841ae487ecae2420efa39a}
+      \strng{authornamehash}{da24cc820c841ae487ecae2420efa39a}
+      \strng{authorfullhash}{da24cc820c841ae487ecae2420efa39a}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Oracle (Active) Data Guard 19c}
+      \field{year}{2019}
+      \field{pages}{14}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.oracle.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.oracle.com/technetwork/database/availability/dg-adg-technical-overview-wp-5347548.pdf
+      \endverb
     \endentry
     \entry{RJFW5WUH}{misc}{}
       \name{author}{2}{}{%
@@ -506,6 +544,52 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.postgresql.org/docs/16/routine-vacuuming.html}}
       \field{title}{25.1. Routine Vacuuming}
+      \field{year}{2023}
+    \endentry
+    \entry{FZAHA89U}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d781737818ef106c8cbc5c8de5c56546}{%
+           family={Group},
+           familyi={G\bibinitperiod},
+           given={The\bibnamedelimb PostgreSQL\bibnamedelimb Global\bibnamedelima Development},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{fullhash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{bibnamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authorbibnamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authornamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.postgresql.org/docs/16/different-replication-solutions.html}}
+      \field{title}{27.1. Comparison of Different Solutions}
+      \field{year}{2023}
+    \endentry
+    \entry{TYJFF7AB}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d781737818ef106c8cbc5c8de5c56546}{%
+           family={Group},
+           familyi={G\bibinitperiod},
+           given={The\bibnamedelimb PostgreSQL\bibnamedelimb Global\bibnamedelima Development},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{fullhash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{bibnamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authorbibnamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authornamehash}{d781737818ef106c8cbc5c8de5c56546}
+      \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
+      \field{extraname}{4}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.postgresql.org/docs/16/pgbench.html}}
+      \field{title}{pgbench}
       \field{year}{2023}
     \endentry
     \entry{V4XLXN7W}{article}{}

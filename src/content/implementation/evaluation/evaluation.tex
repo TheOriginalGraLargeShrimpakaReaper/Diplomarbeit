@@ -25,32 +25,49 @@ Ein Quorum-System
 
 Hier ein Beispiel wie sie in den Artikeln \cite{UMIGLCCI, YDS7DTYM, V4XLXN7W}
 \begin{description}
-    \item Quorum\hfill \\Die Mehrheit der Server, die einen funktionierenden Betrieb gewährleisten können, ohne eine \Gls{Split-brain}Situation zu erzeugen.
+    \item \textbf{Quorum}\hfill \\Die Mehrheit der Server, die einen funktionierenden Betrieb gewährleisten können, ohne eine \Gls{Split-brain}Situation zu erzeugen.
     Die Formel ist gemeinhin \(n/2 + 1\)
-    \item Throughput\hfill \\Beschreibt, wie sich die Anzahl Nodes auf die Schreibgeschwindigkeit der Commitments auf die restlichen Nodes auswirkt.\\Die verdopplung der Server halbiert i.d.R. den Throughput.
-    \item Fehlertoleranz\hfill \\Beschreibt, wie viele Nodes ausfallen können, damit der Cluster noch Arbeitsfähig ist.\\Wobei eine erhöhung der Nodes von 3 auf 4 die Fehlertoleranz nicht erhöht da nun eine \Gls{Split-brain}-Situation entstehen kann.
+    \item \textbf{Throughput}\hfill \\Beschreibt, wie sich die Anzahl Nodes auf die Schreibgeschwindigkeit der Commitments auf die restlichen Nodes auswirkt.\\Die verdopplung der Server halbiert i.d.R. den Throughput.
+    \item \textbf{Fehlertoleranz}\hfill \\Beschreibt, wie viele Nodes ausfallen können, damit der Cluster noch Arbeitsfähig ist.\\Wobei eine erhöhung der Nodes von 3 auf 4 die Fehlertoleranz nicht erhöht da nun eine \Gls{Split-brain}-Situation entstehen kann.
 \end{description}
-\begin{landscape}
+%\begin{landscape}
+%\begin{table}[]
+%\resizebox{\columnwidth}{!}{%
+%\begin{tabular}{@{}llll@{}}
+%\toprule
+%\textbf{Anzahl Nodes} & \textbf{Quorum} & \textbf{Fehlertoleranz} & \textbf{Representative Throughput} \\ \midrule
+%1                     & 1               & 0                                               & 100                                \\
+%2                     & 2               & 0                                               & 85                                 \\
+%3                     & 2               & 1                                               & 82                                 \\
+%4                     & 3               & 1                                               & 57                                 \\
+%5                     & 3               & 2                                               & 48                                 \\
+%6                     & 4               & 2                                               & 41                                 \\
+%7                     & 4               & 3                                               & 36                                 \\ \bottomrule
+%\end{tabular}%
+%}
+%\caption{Quorum Beispiele}
+%\label{tab:quorum-beispiele}
+%\end{table}
+%\end{landscape}
+%\subsubsection{Split-brain}
+%\label{chap:Split-brain}
 \begin{table}[]
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Anzahl Nodes} & \textbf{Quorum} & \textbf{Fehlertoleranz} & \textbf{Representative Throughput} \\ \midrule
-1                     & 1               & 0                                               & 100                                \\
-2                     & 2               & 0                                               & 85                                 \\
-3                     & 2               & 1                                               & 82                                 \\
-4                     & 3               & 1                                               & 57                                 \\
-5                     & 3               & 2                                               & 48                                 \\
-6                     & 4               & 2                                               & 41                                 \\
-7                     & 4               & 3                                               & 36                                 \\ \bottomrule
+1                     & 1               & 0                       & 100                                \\
+2                     & 2               & 0                       & 85                                 \\
+3                     & 2               & 1                       & 82                                 \\
+4                     & 3               & 1                       & 57                                 \\
+5                     & 3               & 2                       & 48                                 \\
+6                     & 4               & 2                       & 41                                 \\
+7                     & 4               & 3                       & 36                                 \\ \bottomrule
 \end{tabular}%
 }
 \caption{Quorum Beispiele}
 \label{tab:quorum-beispiele}
 \end{table}
-\end{landscape}
-\subsubsection{Split-brain}
-\label{chap:Split-brain}
 \subsubsection{CAP Theorem}
 Das CAP Theorem besagt, das nur zwei der drei folgenden drei Merkmale von verteilten Systeme gewährleistet werden können\cite{EE6EQHU2}.
 \textbf{Konsistenz - Consistency}
@@ -62,9 +79,13 @@ Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit 
 \Gls{PostgreSQL}, \Gls{Oracle Database}oder \Gls{IBM DB2}präferieren CA, also Konsistenz und Verfügbarkeit.
 
 \subsection{Testziele erarbeiten}
+\subsection{PostgreSQL Benchmarking}
+PostgreSQL bietet ein Benchmarking-Tool\cite{TYJFF7AB,VXNYQFTE} mit dem die DB Vermessen werden kann.
 \subsection{Analyse gängiger PostgreSQL HA Cluster Lösungen}
 \subsubsection{\Gls{PostgreSQL} Replikation}
-PostgreSQL bietet von Haus aus Möglichkeit
+PostgreSQL bietet von Haus aus Möglichkeiten, um Replikationen durchzuführen.
+Dabei ist nicht jede gleich gut für jedes Szenario geeignet\cite{FZAHA89U}.
+
 \subsubsection{KSGR Lösung}
 Das Kantonsspital Graubünden hat basierend auf \gls{keepalived} wird geprüft ob die primäre Seite erreichbar und betriebsbereit ist.
 Trifft dies nicht mehr zu, wird ein \Gls{Failover} durchgeführt\cite{NLF2IDBZ}.
@@ -85,6 +106,7 @@ Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf eine
 \\\textbf{Connection Pooling}
 \\\textbf{Replikation}
 \\\textbf{Load Balancing}
+Ähnlich wie Oracle Active Data Guard \cite{6294443C} bietet auch pgpool-II die Möglichkeit, SELECT-Queries und Backup-Jobs auf die Secondary-Nodes umzuleiten um den Primary Node zu entlasten.
 \\\textbf{Limiting Exceeding Connections}
 \\\textbf{Watchdog}
 \\\textbf{In Memory Query Caching}
