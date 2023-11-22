@@ -3,19 +3,45 @@
 
 % Preamble
 %\printglossary
-\listoffigures
-\listoftables
+{
+    \hypersetup{hidelinks}
+    \listoffigures
+}
+\pagestyle{headings}
+\thispagestyle{fancy}
+{
+    \hypersetup{hidelinks}
+%\thispagestyle{fancy}
+    \listoftables
+    \thispagestyle{fancy}
+}
+\pagestyle{headings}
+\thispagestyle{fancy}
 %\begin{thebibliography}{XX}
 %    \bibitem[XY]{XY} blah
-\newpage
-\printbibliography
-%\bibliographystyle{ieeetr}
-%\bibliography{disposition_michael_graber}
-%\nocite{*}
-%\printbibliography
-\newpage
-\printnoidxglossaries
-\newpage
+%\clearpage
+%\thispagestyle{fancy}
+{
+%    \renewcommand*\printbibliography{\thispagestyle{fancy}}
+    \cleardoublepage
+%    \pagestyle{headings}
+%    \thispagestyle{fancy}
+%    \renewcommand{\bibname}{\thispagestyle{fancy}}
+%    \renewcommand{\biblatex}{\thispagestyle{fancy}}
+%    \renewcommand{\bibpreamble}{\thispagestyle{fancy}}
+    \renewcommand{\bibsetup}{\thispagestyle{fancy}}
+
+    \printbibliography
+%    \pagestyle{headings}
+%    \thispagestyle{fancy}
+}
+{
+%    \renewcommand{\glossarymark}[1]{}
+%    \cleardoublepage
+%    \thispagestyle{fancy}
+    \renewcommand*\glossarypreamble{\thispagestyle{fancy}}
+    \printnoidxglossaries
+}
 %\makeindex
 %\printglossary[type=\acronymtype]
 \begin{appendix}

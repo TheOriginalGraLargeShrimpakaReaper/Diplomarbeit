@@ -1,13 +1,6 @@
 %! Class = CLASS_NAME
-%! Author = ibw
-%! Date = 15.11.23
-
-%! Class = CLASS_NAME
 %! Author = itgramic
-%! Date = 29.09.23
-
-%\NeedsTeXFormat{LaTeX2e}
-%\ProvidesPackage{CLASS_NAME}[itgramic's Document Class]
+%! Date = 22.11.23
 \usepackage[skip=0cm plus 0cm,indent=0cm]{parskip}
 \usepackage{fancyhdr}
 
@@ -19,7 +12,7 @@
 %\documentclass{ibw_disposition}
 %\LoadClass[a4paper]{book}
 %\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc]{book}
-\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc]{scrreprt}
+\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc, twosite]{scrreprt}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{graphicx}
 \RequirePackage{varwidth}
@@ -37,19 +30,19 @@
 
 \RequirePackage{layout}
 
-\newenvironment{zusammenfassung}{
+\newenvironment{managementsummary}{
 \begingroup
 \let\clearpage\relax
-\chapter*{Zusammenfassung}
+\chapter*{Management Summary}
 \endgroup
-\noindent}{}
+\noindent{}}
 
-\renewenvironment{abstract}{\selectlanguage\english
-\begingroup
-\let\clearpage\relax
-\chapter*{Abstract}
-\endgroup
-\noindent}{}
+%\renewenvironment{abstract}{\selectlanguage\english
+%\begingroup
+%\let\clearpage\relax
+%\chapter*{Abstract}
+%\endgroup
+%\noindent}{}
 
 \newenvironment{abkuerzungen}[1][WWWWW]{\chapter*{Abk\"urzungen}
 \addcontentsline{toc}{chapter}{Abk\"urzungen}
@@ -106,36 +99,28 @@
 \renewcommand\thesubparagraph{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
 
 % Value Commands
-\newcommand{\@dispotitel}{}
-\newcommand{\dispotitel}[1]{\gdef\@dispotitel{#1}}
-\newcommand{\@arbeittitel}{}
-\newcommand{\arbeittitel}[1]{\gdef\@arbeittitel{#1}}
-\newcommand{\@studentname}{}
-\newcommand{\studentname}[1]{\gdef\@studentname{#1}}
-\newcommand{\@studentvorname}{}
-\newcommand{\studentvorname}[1]{\gdef\@studentvorname{#1}}
-\newcommand{\@studiengang}{}
-\newcommand{\studiengang}[1]{\gdef\@studiengang{#1}}
-\newcommand{\@arbeitgeber}{}
-\newcommand{\arbeitgeber}[1]{\gdef\@arbeitgeber{#1}}
-
-%\titlehead{
-%\thispagestyle{FirstPage}
-%\begin{varwidth}[t][2cm][c]{5cm}
-%\begin{flushright}
-%\includegraphics[height=2cm]{source/main/ibw}
-%\end{flushright}
-%\end{varwidth}
-%\hfill
-%\begin{varwidth}[t][2cm][c]{7cm}
-%\begin{flushright}
-%\normalfont
-%%Fernfachhochschule Schweiz\\
-%%Studiengang \@studiengang
-%\vfill\phantom{.}
-%\end{flushright}
-%\end{varwidth}
-%}
+\newcommand{\@dokuemnttitel}{}
+\newcommand{\dokuemnttitel}[1]{\gdef\@dokuemnttitel{#1}}
+\newcommand{\@toptitel}{}
+\newcommand{\toptitel}[1]{\gdef\@toptitel{#1}}
+\newcommand{\@datum}{}
+\newcommand{\datum}[1]{\gdef\@datum{#1}}
+%\newcommand{\@department}{}
+%\newcommand{\department}[1]{\gdef\@department{#1}}
+%\newcommand{\@abteilung}{}
+%\newcommand{\abteilung}[1]{\gdef\@abteilung{#1}}
+%\newcommand{\@vorname}{}
+%\newcommand{\vorname}[1]{\gdef\@vorname{#1}}
+%\newcommand{\@nachname}{}
+%\newcommand{\nachname}[1]{\gdef\@nachname{#1}}
+%\newcommand{\@funktion}{}
+%\newcommand{\funktion}[1]{\gdef\@funktion{#1}}
+%\newcommand{\@mail}{}
+%\newcommand{\mail}[1]{\gdef\@mail{#1}}
+%\newcommand{\@telefon}{}
+%\newcommand{\telefon}[1]{\gdef\@telefon{#1}}
+%\newcommand{\@footertitel}{}
+%\newcommand{\footertitel}[1]{\gdef\@footertitel{#1}}
 
 \pagestyle{fancy}
 \thispagestyle{fancy}
@@ -192,7 +177,6 @@
 
 \renewcommand{\dedication}[1]{\gdef\@dedication{\ \vfill\begin{center}#1\end{center}\vfill\vfill\ \newpage}}
 
-
 \renewcommand\maketitle{
 \setcounter{page}{0}
 
@@ -201,8 +185,41 @@
 \thispagestyle{FirstPage}
 \markright{\protect\@titlehead}
 
-\textbf{ibW Höhere Fachschule Südostschweiz}
+%\textbf{ibW Höhere Fachschule Südostschweiz}
+\textbf{}\\
+\bigskip
 
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+%\textbf{\textcolor[HTML]{000000}\fontsize{13pt}{{\@toptitel}}
+\textcolor[HTML]{000000}{ \ \huge\@toptitel}\newline
+\bigskip
+
+\bigskip
+\textbf{\textcolor[HTML]{000000}{ \ \Huge\@dokuemnttitel}}
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+\textcolor[HTML]{000000}{\ \LARGE\@datum}
 \bigskip
 
 
@@ -241,9 +258,6 @@
 
 \bigskip
 
-\textbf{\textcolor[HTML]{2F5496}{\huge \@dispotitel}}
-
-
 \bigskip
 
 
@@ -263,90 +277,9 @@
 
 
 \bigskip
-
-
-\textbf{\textcolor[HTML]{2F5496}{Titel der Arbeit: \ \ }}\@arbeittitel
-
-\textbf{\textcolor[HTML]{2F5496}{Name: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentname
-
-\textbf{\textcolor[HTML]{2F5496}{Vorname: \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentvorname
-
-\textbf{\textcolor[HTML]{2F5496}{Klasse: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studiengang
-
-\textbf{\textcolor[HTML]{2F5496}{Firma: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@arbeitgeber
+\textbf{ }
 
 \clearpage
-
-
-
-
-
-
-%\begin{center}
-%
-%\vspace*{2cm}
-%
-%\bfseries
-%\Huge \@title
-%
-%\vspace{1ex}
-%\Large
-%\@subtitle
-%
-%\vfill
-%\@titelbild
-%\vfill
-%\vfill
-%
-%\@dokumentTyp\ im Studiengang \@studiengang
-%
-%\vspace{1ex}
-%
-%von
-%
-%\vspace{1ex}
-%\@author
-%
-%\vspace{1cm}
-%\normalsize
-%
-%\vspace{1ex}
-%\phantom{.}
-%\hfill
-%\begin{varwidth}[t]{6cm}
-%Eingereicht bei:
-%
-%\vspace{0.5ex}
-%\mdseries\normalsize
-%\@eingereichtBei
-%\end{varwidth}
-%\hfill
-%\hfill
-%\begin{varwidth}[t]{6cm}
-%%\@referent@in:
-%%
-%%\vspace{0.5ex}
-%%\mdseries\normalsize
-%%\@referent
-%%\end{varwidth}
-%%\hfill
-%%\phantom{.}d
-%%
-%%\vspace{5ex}
-%\@dozent@in:
-%
-%\vspace{0.5ex}
-%\mdseries\normalsize
-%\@dozent
-%\end{varwidth}
-%\hfill
-%\phantom{.}
-%
-%\vspace{5ex}
-%\@wohnort, \@date
-%
-%\end{center}
-%\end{titlepage}
 
 \end{titlepage}
 \@dedication
@@ -354,6 +287,7 @@
 
 \pagestyle{headings}
 \pagenumbering{roman}
-
 \newcommand{\startThesis}{\newpage\pagenumbering{arabic}\setcounter{page}{1}\pagestyle{headings}}
+
+
 

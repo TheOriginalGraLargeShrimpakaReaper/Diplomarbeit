@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.0 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -21,7 +21,7 @@
   \datalist[entry]{nty/global//global/global}
     \entry{VXNYQFTE}{misc}{}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://github.com/gregs1104/pgbench-tools}}
       \field{note}{original-date: 2010-02-17T13:33:28Z}
@@ -48,7 +48,7 @@
       \strng{authornamehash}{edb85bcaf52c9c69d7e44ab64a6d070a}
       \strng{authorfullhash}{edb85bcaf52c9c69d7e44ab64a6d070a}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://blog.netdata.cloud/postgresql-database-bloat/}}
@@ -75,7 +75,7 @@
       \strng{authornamehash}{7dc18115b1b84f96563543e23c96d4e4}
       \strng{authorfullhash}{7dc18115b1b84f96563543e23c96d4e4}
       \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://about.gitlab.com/}}
@@ -103,7 +103,7 @@
       \strng{authornamehash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
       \strng{authorfullhash}{ec5b414b4242d17ffc25f2fe9a0ac0e3}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://keepalived.readthedocs.io/en/latest/introduction.html}}
@@ -126,7 +126,7 @@
       \strng{authorfullhash}{91da9dc9e484daf8dc9ed72055907025}
       \field{extraname}{1}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://azure.microsoft.com/de-de/products/azure-sql/database}}
@@ -149,7 +149,7 @@
       \strng{authorfullhash}{91da9dc9e484daf8dc9ed72055907025}
       \field{extraname}{2}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.microsoft.com/de-de/microsoft-365/access}}
@@ -172,7 +172,7 @@
       \strng{authorfullhash}{91da9dc9e484daf8dc9ed72055907025}
       \field{extraname}{3}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.microsoft.com/de-ch/sql-server}}
@@ -193,7 +193,7 @@
       \strng{authornamehash}{da24cc820c841ae487ecae2420efa39a}
       \strng{authorfullhash}{da24cc820c841ae487ecae2420efa39a}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Oracle (Active) Data Guard 19c}
@@ -225,7 +225,7 @@
       \strng{authornamehash}{962ad708eddf690793cb24a559e1e7eb}
       \strng{authorfullhash}{962ad708eddf690793cb24a559e1e7eb}
       \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://data-nerd.blog/2018/12/30/postgresql-diagnostic-queries/}}
@@ -249,7 +249,7 @@
       \strng{authornamehash}{751f6093e7772c12a2eba3668a07b90b}
       \strng{authorfullhash}{751f6093e7772c12a2eba3668a07b90b}
       \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.elektronik-kompendium.de/sites/net/0906071.htm}}
@@ -263,7 +263,7 @@
            familyi={D\bibinithyphendelim E\bibinitperiod}}}%
         {{hash=ebe55619e8295841dda073b7f3200cf4}{%
            family={\&\bibnamedelima software\bibnamedelimb development\bibnamedelima gmbh},
-           familyi={\\bibinitperiod\bibinitdelim s\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim g\bibinitperiod},
+           familyi={\~s\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim g\bibinitperiod},
            prefix={solidIT\bibnamedelima consulting},
            prefixi={s\bibinitperiod\bibinitdelim c\bibinitperiod}}}%
       }
@@ -275,7 +275,7 @@
       \strng{authorfullhash}{e9155cd128c92ad4586139d92616d1ab}
       \field{extraname}{1}
       \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://db-engines.com/en/ranking}}
@@ -288,7 +288,7 @@
            familyi={D\bibinithyphendelim E\bibinitperiod}}}%
         {{hash=ebe55619e8295841dda073b7f3200cf4}{%
            family={\&\bibnamedelima software\bibnamedelimb development\bibnamedelima gmbh},
-           familyi={\\bibinitperiod\bibinitdelim s\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim g\bibinitperiod},
+           familyi={\~s\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim g\bibinitperiod},
            prefix={solidIT\bibnamedelima consulting},
            prefixi={s\bibinitperiod\bibinitdelim c\bibinitperiod}}}%
       }
@@ -300,7 +300,7 @@
       \strng{authorfullhash}{e9155cd128c92ad4586139d92616d1ab}
       \field{extraname}{2}
       \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://db-engines.com/de/article/relationale+Datenbanken?ref=RDBMS}}
@@ -321,7 +321,7 @@
       \strng{authornamehash}{4feafb5ee38bdd8a28324ffa181f0e76}
       \strng{authorfullhash}{4feafb5ee38bdd8a28324ffa181f0e76}
       \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://goharbor.io/}}
@@ -334,12 +334,12 @@
            family={Gesundheitsversorgung},
            familyi={G\bibinitperiod},
            given={Kanton\bibnamedelimb St.\bibnamedelimi Gallen\bibnamedelimb -\bibnamedelima Amt},
-           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim A\bibinitperiod},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinithyphendelim \bibinitperiod\bibinitdelim A\bibinitperiod},
            prefix={für},
            prefixi={f\bibinitperiod}}}%
         {{hash=1b10cf0bfd8e83bca3ca3bf6d6c0bd19}{%
            family={Kanton\bibnamedelimb St.\bibnamedelimi Gallen\bibnamedelimb -\bibnamedelimb Dienststelle\bibnamedelima Kommunikation},
-           familyi={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod},
+           familyi={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod},
            given={Staatskanzlei},
            giveni={S\bibinitperiod}}}%
       }
@@ -350,30 +350,11 @@
       \strng{authornamehash}{0da877a808861b171d6d2268af868027}
       \strng{authorfullhash}{0da877a808861b171d6d2268af868027}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.sg.ch/gesundheit-soziales/gesundheit/gesundheitsversorgung--spitaeler-spitex/spitaeler-kliniken/spitalzukunft.html}}
       \field{title}{Weiterentwicklung der Strategie der St.Galler Spitalverbunde | sg.ch}
-    \endentry
-    \entry{33C32L9G}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=0bcc70105ad279503e31fe7b3f47b665}{%
-           family={Git},
-           familyi={G\bibinitperiod}}}%
-      }
-      \strng{namehash}{0bcc70105ad279503e31fe7b3f47b665}
-      \strng{fullhash}{0bcc70105ad279503e31fe7b3f47b665}
-      \strng{bibnamehash}{0bcc70105ad279503e31fe7b3f47b665}
-      \strng{authorbibnamehash}{0bcc70105ad279503e31fe7b3f47b665}
-      \strng{authornamehash}{0bcc70105ad279503e31fe7b3f47b665}
-      \strng{authorfullhash}{0bcc70105ad279503e31fe7b3f47b665}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://git-scm.com/about}}
-      \field{title}{About - Git}
     \endentry
     \entry{EE6EQHU2}{misc}{}
       \name{author}{1}{}{%
@@ -391,7 +372,7 @@
       \strng{authorfullhash}{27568c9a341ea6888c28d2aabb97a5f7}
       \field{extraname}{1}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ibm.com/de-de/topics/cap-theorem}}
@@ -414,7 +395,7 @@
       \strng{authorfullhash}{27568c9a341ea6888c28d2aabb97a5f7}
       \field{extraname}{2}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ibm.com/de-de/topics/olap}}
@@ -436,7 +417,7 @@
       \strng{authorfullhash}{7d9e0f6f3f0df293629f57b24ec702f3}
       \field{extraname}{3}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.jedox.com/de/blog/was-ist-olap/}}
@@ -459,7 +440,7 @@
       \strng{authorfullhash}{46fdb6c13874cc10e817e0dc50f0a4d4}
       \field{extraname}{4}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.purestorage.com/de/knowledge/what-is-storage-area-network.html}}
@@ -494,7 +475,7 @@
       \strng{authornamehash}{bea8a770c7df12c51850700697f2d30a}
       \strng{authorfullhash}{bea8a770c7df12c51850700697f2d30a}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/InstitutionenGesundeitswesens/Spitaeler/Dok\%20Spitler/Kenndaten\%202016\%20Spit\%C3\%A4ler.pdf}}
@@ -516,7 +497,7 @@
       \strng{authorfullhash}{e2122cf6f39720f69166bd6d1897a1db}
       \field{extraname}{1}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.pgpool.net/docs/44/en/html/intro-whatis.html}}
@@ -539,7 +520,7 @@
       \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
       \field{extraname}{2}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.postgresql.org/docs/16/routine-vacuuming.html}}
@@ -562,7 +543,7 @@
       \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
       \field{extraname}{3}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.postgresql.org/docs/16/different-replication-solutions.html}}
@@ -585,7 +566,7 @@
       \strng{authorfullhash}{d781737818ef106c8cbc5c8de5c56546}
       \field{extraname}{4}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.postgresql.org/docs/16/pgbench.html}}
@@ -622,7 +603,7 @@
       \strng{authornamehash}{a2fd50a41c33376211bcf43c7c9ed3ce}
       \strng{authorfullhash}{d23c1c81b9c64c1302c8edde498d2ebc}
       \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{ZooKeeper: Wait-free coordination for Internet-scale systems}
@@ -643,7 +624,7 @@
       \strng{authornamehash}{b397781d274def4e6159add5f1b06a75}
       \strng{authorfullhash}{b397781d274def4e6159add5f1b06a75}
       \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.splunk.com/de\_de}}
@@ -668,7 +649,7 @@
       \strng{authornamehash}{d9527a85c2dcdb296d583f526b49ab51}
       \strng{authorfullhash}{d9527a85c2dcdb296d583f526b49ab51}
       \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://minervadb.xyz/postgresql-dba-daily-checklist/}}
@@ -690,7 +671,7 @@
       \strng{authornamehash}{9aea916b0a018951b2027c48dcdbbefe}
       \strng{authorfullhash}{9aea916b0a018951b2027c48dcdbbefe}
       \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://martinfowler.com/articles/patterns-of-distributed-systems/quorum.html}}
@@ -717,7 +698,7 @@
       \strng{authornamehash}{8a0d9e4311dccbb812c22104249fac2b}
       \strng{authorfullhash}{8a0d9e4311dccbb812c22104249fac2b}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ibm.com/de-de/products/db2}}
@@ -738,7 +719,7 @@
       \strng{authornamehash}{7be4ea1e50dbf4e78e96d04e85d78678}
       \strng{authorfullhash}{7be4ea1e50dbf4e78e96d04e85d78678}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://medium.com/@pkostohrys/database-replication-an-overview-f7ade110477}}
@@ -760,7 +741,7 @@
       \strng{authornamehash}{774eaf33f12273d6b021792a33ad251c}
       \strng{authorfullhash}{774eaf33f12273d6b021792a33ad251c}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.kreyman.de/index.php/splunk/76-was-ist-eigentlich-splunk-big-data-platform-monitoring-security}}
@@ -786,7 +767,7 @@
       \strng{authornamehash}{f8bec99808b5a5b74ef0485edcb87fb3}
       \strng{authorfullhash}{f8bec99808b5a5b74ef0485edcb87fb3}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://pankajconnect.medium.com/postgresql-database-maintenance-66cd638d25ab}}
@@ -807,7 +788,7 @@
       \strng{authornamehash}{ba90b0e415daa29a916964011f8c037b}
       \strng{authorfullhash}{ba90b0e415daa29a916964011f8c037b}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.redhat.com/de/topics/devops/what-is-ci-cd}}
@@ -830,7 +811,7 @@
       \strng{authornamehash}{4eb43b125d02f25d17f90c40eeb61de8}
       \strng{authorfullhash}{4eb43b125d02f25d17f90c40eeb61de8}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.linuxfabrik.ch/software/keepalived.html}}
@@ -862,7 +843,7 @@
       \strng{authornamehash}{b3218b3e6c0b155df71ffd43a27cd383}
       \strng{authorfullhash}{b3218b3e6c0b155df71ffd43a27cd383}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.bigdata-insider.de/was-ist-elasticsearch-a-939625/}}
@@ -884,7 +865,7 @@
       \strng{authornamehash}{f9d6ce96a4e6dd435b43d77c122cb232}
       \strng{authorfullhash}{f9d6ce96a4e6dd435b43d77c122cb232}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.pgpool.net/mediawiki/index.php/Main\_Page}}
@@ -906,7 +887,7 @@
       \strng{authornamehash}{bb1f43d1baf664afe6c9ef2d1ebe8966}
       \strng{authorfullhash}{bb1f43d1baf664afe6c9ef2d1ebe8966}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.hpe.com/ch/de/what-is/san-storage.html}}
@@ -927,7 +908,7 @@
       \strng{authornamehash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
       \strng{authorfullhash}{7cd6def2de460a2efcd2ef9fb4ce7f68}
       \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Consensus: Bridging Theory and Practice}
@@ -953,7 +934,7 @@
       \strng{authornamehash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
       \strng{authorfullhash}{6d462cf8d9cc7ce4263c3e392bd4bb2d}
       \field{sortinit}{Q}
-      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{sortinithash}{d257e420984a3a5c57a3330114cd646a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.linkedin.com/pulse/postgresql-replication-automatic-failover-bruno-queir\%C3\%B3s}}
@@ -966,12 +947,12 @@
            family={Rechte},
            familyi={R\bibinitperiod},
            given={Kanton\bibnamedelimb St.\bibnamedelimi Gallen\bibnamedelimb -\bibnamedelima Dienst},
-           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod},
            prefix={für\bibnamedelima politische},
            prefixi={f\bibinitperiod\bibinitdelim p\bibinitperiod}}}%
         {{hash=1b10cf0bfd8e83bca3ca3bf6d6c0bd19}{%
            family={Kanton\bibnamedelimb St.\bibnamedelimi Gallen\bibnamedelimb -\bibnamedelimb Dienststelle\bibnamedelima Kommunikation},
-           familyi={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod},
+           familyi={K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinithyphendelim \bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod},
            given={Staatskanzlei},
            giveni={S\bibinitperiod}}}%
       }
@@ -982,7 +963,7 @@
       \strng{authornamehash}{d9080e96487c49f71a8613a7a69b92b5}
       \strng{authorfullhash}{d9080e96487c49f71a8613a7a69b92b5}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.sg.ch/politik-verwaltung/abstimmungen-wahlen/wahlen/Wahlkreise-im-Kanton-SG.html}}
@@ -1008,7 +989,7 @@
       \strng{authornamehash}{7a0ea7fc048a7e035e91d3ab08abaaa2}
       \strng{authorfullhash}{7a0ea7fc048a7e035e91d3ab08abaaa2}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.snaplogic.com/de/blog/snowflake-data-platform}}
@@ -1031,7 +1012,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{1}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/hosting/hosting-technik/apache-cassandra-vorgestellt/}}
@@ -1054,7 +1035,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{2}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/hosting/hosting-technik/datenbankmanagementsystem-dbms-erklaert/}}
@@ -1077,7 +1058,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{3}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/websites/web-entwicklung/mongodb-vorstellung-und-vergleich-mit-mysql/}}
@@ -1100,7 +1081,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{4}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/websites/web-entwicklung/sqlite/}}
@@ -1123,7 +1104,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{5}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/hosting/hosting-technik/was-ist-redis/}}
@@ -1146,7 +1127,7 @@
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{6}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.ionos.de/digitalguide/server/sicherheit/was-ist-siem/}}
@@ -1168,30 +1149,11 @@
       \strng{authornamehash}{e15ed7c9be906b7971c87f3bbc4b72bb}
       \strng{authorfullhash}{e15ed7c9be906b7971c87f3bbc4b72bb}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.snowflake.com/de/guides-overview-db}}
       \field{title}{Datenbanken, Tabellen und Ansichten – Überblick | Snowflake Documentation}
-    \endentry
-    \entry{SCE846MP}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=9954bd8fc050542cb72e00126c0ef6e5}{%
-           family={Thomas-Krenn.AG},
-           familyi={T\bibinithyphendelim K\bibinitperiod}}}%
-      }
-      \strng{namehash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \strng{fullhash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \strng{bibnamehash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \strng{authorbibnamehash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \strng{authornamehash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \strng{authorfullhash}{9954bd8fc050542cb72e00126c0ef6e5}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.thomas-krenn.com/de/wiki/Git\_Grundlagen}}
-      \field{title}{Git Grundlagen – Thomas-Krenn-Wiki}
     \endentry
   \enddatalist
 \endrefsection
