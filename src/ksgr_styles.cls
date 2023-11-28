@@ -37,13 +37,6 @@
 \endgroup
 \noindent{}}
 
-%\renewenvironment{abstract}{\selectlanguage\english
-%\begingroup
-%\let\clearpage\relax
-%\chapter*{Abstract}
-%\endgroup
-%\noindent}{}
-
 \newenvironment{abkuerzungen}[1][WWWWW]{\chapter*{Abk\"urzungen}
 \addcontentsline{toc}{chapter}{Abk\"urzungen}
 \begin{labeling}{#1}}{\end{labeling}}

@@ -356,6 +356,25 @@
       \field{howpublished}{\url{https://www.sg.ch/gesundheit-soziales/gesundheit/gesundheitsversorgung--spitaeler-spitex/spitaeler-kliniken/spitalzukunft.html}}
       \field{title}{Weiterentwicklung der Strategie der St.Galler Spitalverbunde | sg.ch}
     \endentry
+    \entry{33C32L9G}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0bcc70105ad279503e31fe7b3f47b665}{%
+           family={Git},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bcc70105ad279503e31fe7b3f47b665}
+      \strng{fullhash}{0bcc70105ad279503e31fe7b3f47b665}
+      \strng{bibnamehash}{0bcc70105ad279503e31fe7b3f47b665}
+      \strng{authorbibnamehash}{0bcc70105ad279503e31fe7b3f47b665}
+      \strng{authornamehash}{0bcc70105ad279503e31fe7b3f47b665}
+      \strng{authorfullhash}{0bcc70105ad279503e31fe7b3f47b665}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://git-scm.com/about}}
+      \field{title}{About - Git}
+    \endentry
     \entry{EE6EQHU2}{misc}{}
       \name{author}{1}{}{%
         {{hash=27568c9a341ea6888c28d2aabb97a5f7}{%
@@ -1154,6 +1173,25 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.snowflake.com/de/guides-overview-db}}
       \field{title}{Datenbanken, Tabellen und Ansichten – Überblick | Snowflake Documentation}
+    \endentry
+    \entry{SCE846MP}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9954bd8fc050542cb72e00126c0ef6e5}{%
+           family={Thomas-Krenn.AG},
+           familyi={T\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \strng{fullhash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \strng{bibnamehash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \strng{authorbibnamehash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \strng{authornamehash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \strng{authorfullhash}{9954bd8fc050542cb72e00126c0ef6e5}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.thomas-krenn.com/de/wiki/Git\_Grundlagen}}
+      \field{title}{Git Grundlagen – Thomas-Krenn-Wiki}
     \endentry
   \enddatalist
 \endrefsection

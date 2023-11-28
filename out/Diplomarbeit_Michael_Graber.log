@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  22 NOV 2023 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  24 NOV 2023 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1001,7 +1001,7 @@ Class scrreprt Warning: Usage of package `titlesec' together
 (scrreprt)              the extended optional argument of the section
 (scrreprt)              commands.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `titlesec' on input line 33.
+(scrreprt)              package `titlesec' on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
@@ -1038,7 +1038,7 @@ Package titlesec Warning: Non standard sectioning command detected
 )
 
 Class scrreprt Warning: Activating an ugly workaround for a missing
-(scrreprt)              feature of package `titlesec` on input line 33.
+(scrreprt)              feature of package `titlesec` on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
@@ -1085,7 +1085,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 35.
+Package hyperref Info: Option `colorlinks' set `true' on input line 22.
 
 (./content/glossary/glossary.tex)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
@@ -1392,29 +1392,29 @@ LaTeX Warning: Unused global option(s):
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.aux)
 \openout1 = `Diplomarbeit_Michael_Graber.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 167.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 108.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 167.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -1457,15 +1457,15 @@ e
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(56.9055pt, 483.69693pt, 56.9055pt)
-* v-part:(T,H,B)=(35.56593pt, 752.5755pt, 56.9055pt)
+* h-part:(L,W,R)=(65.44142pt, 466.62509pt, 65.44142pt)
+* v-part:(T,H,B)=(60.6045pt, 727.53693pt, 56.9055pt)
 * \paperwidth=597.50793pt
 * \paperheight=845.04694pt
-* \textwidth=483.69693pt
-* \textheight=672.77005pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-36.70406pt
+* \textwidth=466.62509pt
+* \textheight=647.73148pt
+* \oddsidemargin=-6.82857pt
+* \evensidemargin=-6.82857pt
+* \topmargin=-11.66548pt
 * \headheight=40.0pt
 * \headsep=0.0pt
 * \topskip=11.0pt
@@ -1484,7 +1484,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 167.
+Package hyperref Info: Link coloring ON on input line 108.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1493,9 +1493,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count418
 )
-LaTeX Info: Redefining \ref on input line 167.
-LaTeX Info: Redefining \pageref on input line 167.
-LaTeX Info: Redefining \nameref on input line 167.
+LaTeX Info: Redefining \ref on input line 108.
+LaTeX Info: Redefining \pageref on input line 108.
+LaTeX Info: Redefining \nameref on input line 108.
 
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.out)
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.out)
@@ -1508,7 +1508,7 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           You can avoid loading `bookmark' with KOMA-Script option
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message with `\usepackage{bookmark}'
-(scrreprt)           before \begin{document} on input line 167.
+(scrreprt)           before \begin{document} on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1530,30 +1530,25 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Diplomarbeit_Michael_Graber.bbl' found.
 
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.bbl)
-Package biblatex Info: Reference section=0 on input line 167.
-Package biblatex Info: Reference segment=0 on input line 167.
+Package biblatex Info: Reference section=0 on input line 108.
+Package biblatex Info: Reference segment=0 on input line 108.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 195.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 113.
 
-Overfull \hbox (14.47066pt too wide) in paragraph at lines 195--195
+Overfull \hbox (31.5425pt too wide) in paragraph at lines 113--113
 [][] \T1/phv/m/n/20.74 Di-plom-ar-beit Tech-nik und Wirt-schafts-in-for-ma-tik 
 2023-
  []
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 195.
-
-Overfull \hbox (9.08025pt too wide) in paragraph at lines 195--195
-[][] \T1/phv/b/n/24.88 Post-greS-QL HA Clus-ter - Kon-zep-ti-on und
- []
-
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 113.
 <source/main/ksgr.png, id=4, 139.27031pt x 37.64063pt>
 File: source/main/ksgr.png Graphic file (type png)
 <use source/main/ksgr.png>
-Package pdftex.def Info: source/main/ksgr.png  used on input line 195.
+Package pdftex.def Info: source/main/ksgr.png  used on input line 113.
 (pdftex.def)             Requested size: 139.26996pt x 37.64052pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7.5> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 195.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 113.
 
 Package Fancyhdr Warning: \headheight is too small (40.0pt): 
 Make it at least 41.72055pt.
@@ -1567,11 +1562,11 @@ This may cause the page layout to be inconsistent, however.
  <./source/main/ksgr.png>]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 196.
+(Font)              size <12> substituted on input line 114.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 196.
+(Font)              size <12> substituted on input line 114.
 
 [1
 
@@ -1634,7 +1629,7 @@ File: source/introduction/initial_situation/gr_spitalregionen.png Graphic file
 <use source/introduction/initial_situation/gr_spitalregionen.png>
 Package pdftex.def Info: source/introduction/initial_situation/gr_spitalregione
 n.png  used on input line 14.
-(pdftex.def)             Requested size: 483.69693pt x 314.95464pt.
+(pdftex.def)             Requested size: 466.62509pt x 303.83615pt.
 <source/introduction/initial_situation/sg_wahlkreise.jpg, id=124, 821.0675pt x 
 821.0675pt>
 File: source/introduction/initial_situation/sg_wahlkreise.jpg Graphic file (typ
@@ -1642,7 +1637,7 @@ e jpg)
 <use source/introduction/initial_situation/sg_wahlkreise.jpg>
 Package pdftex.def Info: source/introduction/initial_situation/sg_wahlkreise.jp
 g  used on input line 22.
-(pdftex.def)             Requested size: 362.77269pt x 362.7617pt.
+(pdftex.def)             Requested size: 349.96881pt x 349.95761pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1658,7 +1653,7 @@ File: source/introduction/initial_situation/sg_spitalregionen.jpg Graphic file
 <use source/introduction/initial_situation/sg_spitalregionen.jpg>
 Package pdftex.def Info: source/introduction/initial_situation/sg_spitalregione
 n.jpg  used on input line 30.
-(pdftex.def)             Requested size: 241.84846pt x 280.52191pt.
+(pdftex.def)             Requested size: 233.31255pt x 270.61777pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1673,7 +1668,7 @@ type png)
 <use source/introduction/initial_situation/Organigramm_KSGR.png>
 Package pdftex.def Info: source/introduction/initial_situation/Organigramm_KSGR
 .png  used on input line 40.
-(pdftex.def)             Requested size: 483.69693pt x 325.68823pt.
+(pdftex.def)             Requested size: 466.62509pt x 314.19643pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1687,17 +1682,23 @@ ype png)
 <use source/introduction/initial_situation/Organigramm-D10.png>
 Package pdftex.def Info: source/introduction/initial_situation/Organigramm-D10.
 png  used on input line 55.
-(pdftex.def)             Requested size: 483.69693pt x 272.0808pt.
+(pdftex.def)             Requested size: 466.62509pt x 262.4786pt.
+
+Overfull \hbox (1.13557pt too wide) in paragraph at lines 49--58
+\T1/phv/m/n/10.95 wie ei-nem un-ter-stüt-zen-den Be-reich auf-ge-glie-dert. Das
+ Ap-pli-ka-ti-ons-ma-na-ge-ment wur-de in je einen
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.59 
       [4 <./source/introduction/initial_situation/Organigramm_KSGR.png>]
+[5 <./source/introduction/initial_situation/Organigramm-D10.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 77.
-
-[5 <./source/introduction/initial_situation/Organigramm-D10.png>] [6]
+ [6]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 82.
@@ -1716,7 +1717,7 @@ File: source/riskmatrix/riskmatrixproblem.png Graphic file (type png)
 <use source/riskmatrix/riskmatrixproblem.png>
 Package pdftex.def Info: source/riskmatrix/riskmatrixproblem.png  used on input
  line 227.
-(pdftex.def)             Requested size: 483.69693pt x 362.79062pt.
+(pdftex.def)             Requested size: 466.62509pt x 349.98636pt.
 <source/riskmatrix/Riskmatrixproblem-massnahmen.png, id=181, 462.528pt x 346.89
 6pt>
 File: source/riskmatrix/Riskmatrixproblem-massnahmen.png Graphic file (type png
@@ -1724,7 +1725,7 @@ File: source/riskmatrix/Riskmatrixproblem-massnahmen.png Graphic file (type png
 <use source/riskmatrix/Riskmatrixproblem-massnahmen.png>
 Package pdftex.def Info: source/riskmatrix/Riskmatrixproblem-massnahmen.png  us
 ed on input line 247.
-(pdftex.def)             Requested size: 483.69693pt x 362.79062pt.
+(pdftex.def)             Requested size: 466.62509pt x 349.98636pt.
 ) (./content/introduction/goals_benefits/goals_benefits.tex [11
 
 
@@ -1766,7 +1767,7 @@ g)
 <use source/introduction/riskmanagement/swot_projekt.png>
 Package pdftex.def Info: source/introduction/riskmanagement/swot_projekt.png  u
 sed on input line 10.
-(pdftex.def)             Requested size: 483.69693pt x 334.74196pt.
+(pdftex.def)             Requested size: 466.62509pt x 322.93736pt.
  [20
 
 
@@ -1781,7 +1782,7 @@ File: source/riskmatrix/riskmatrix-project.png Graphic file (type png)
 <use source/riskmatrix/riskmatrix-project.png>
 Package pdftex.def Info: source/riskmatrix/riskmatrix-project.png  used on inpu
 t line 43.
-(pdftex.def)             Requested size: 483.69693pt x 362.79062pt.
+(pdftex.def)             Requested size: 466.62509pt x 349.98636pt.
 <source/riskmatrix/Riskmatrix-project-massnahmen.png, id=240, 462.528pt x 346.8
 96pt>
 File: source/riskmatrix/Riskmatrix-project-massnahmen.png Graphic file (type pn
@@ -1789,7 +1790,7 @@ g)
 <use source/riskmatrix/Riskmatrix-project-massnahmen.png>
 Package pdftex.def Info: source/riskmatrix/Riskmatrix-project-massnahmen.png  u
 sed on input line 51.
-(pdftex.def)             Requested size: 483.69693pt x 362.79062pt.
+(pdftex.def)             Requested size: 466.62509pt x 349.98636pt.
 ) (./content/introduction/procedures_methods/procedures_methods.tex
 [22
 
@@ -1808,7 +1809,7 @@ LaTeX Warning: No positions in optional float specifier.
 
 [25])
 (./content/implementation/construction_implementation/construction_implementati
-on.tex) (./content/implementation/testing/testing.tex [26])
+on.tex [26]) (./content/implementation/testing/testing.tex)
 (./content/implementation/troubleshooting/troubleshooting.tex))
 (./content/results/results.tex [27]
 chapter 3.
@@ -1835,42 +1836,42 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 34.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (3.71815pt too wide) in paragraph at lines 37--37
+Overfull \hbox (4.96745pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/sl/10.95 About pgbench-tools\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/1
 0.95 https : / / github . com / gregs1104 / pgbench-[]tools$[][]\T1/phv/m/n/10.
-95 . original-date: 2010-02-
+95 . original-date: 2010-
  []
 
 
-Overfull \hbox (5.66707pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 Alexandre Cas-sen und Read the Docs. \T1/phv/m/sl/10.95 In-
-tro-duc-ti-on ^^V Kee-pa-li-ved 1.2.15 do-cu-men-ta-ti-on\T1/phv/m/n/10.95 . []
-[]$\T1/cmtt/m/n/10.95 https :
+Overfull \hbox (7.04535pt too wide) in paragraph at lines 37--37
+\T1/phv/m/sl/10.95 Post-greS-QL? | Net-da-ta Blog\T1/phv/m/n/10.95 . [][]$\T1/c
+mtt/m/n/10.95 https : / / blog . netdata . cloud / postgresql-[]database-[]bloa
+t/$[][]\T1/phv/m/n/10.95 .
  []
 
 
-Overfull \hbox (6.77516pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 Microsoft Cor-po-ra-ti-on. \T1/phv/m/sl/10.95 Mi-cro-soft D
-a-ta Plat-form | Mi-cro-soft\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https :
- / / www . microsoft . com / de-[]ch /
+Overfull \hbox (10.66864pt too wide) in paragraph at lines 37--37
+\T1/phv/m/sl/10.95 cro-soft Azu-re\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 h
+ttps : / / azure . microsoft . com / de-[]de / products / azure-[]sql / databas
+e$[][]\T1/phv/m/n/10.95 . 2023. 
  []
 
 
-Overfull \hbox (3.57588pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 DB-Engines und so-li-dIT con-sul-ting & soft-wa-re de-ve-lo
-p-ment gmbh. \T1/phv/m/sl/10.95 DB-Engines Ran-king\T1/phv/m/n/10.95 . [][]$\T1
-/cmtt/m/n/10.95 https :
+Overfull \hbox (8.2955pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 Varun Dha-wan und data-nerd.blog. \T1/phv/m/sl/10.95 Postgr
+eSQL-Diagnostic-Queries ^^U data-nerd.blog\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n
+/10.95 https :
  []
 
 
-Overfull \hbox (5.4305pt too wide) in paragraph at lines 37--37
-\T1/phv/m/sl/10.95 DB-Engines En-zy-klo-pä-die\T1/phv/m/n/10.95 . [][]$\T1/cmtt
-/m/n/10.95 https : / / db-[]engines . com / de / article / relationale + Datenb
-anken ?
+Overfull \hbox (28.47003pt too wide) in paragraph at lines 37--37
+\T1/phv/m/sl/10.95 - DB-Engines En-zy-klo-pä-die\T1/phv/m/n/10.95 . [][]$\T1/cm
+tt/m/n/10.95 https : / / db-[]engines . com / de / article / relationale + Date
+nbanken ?
  []
 
 
-Overfull \hbox (82.65224pt too wide) in paragraph at lines 37--37
+Overfull \hbox (99.72408pt too wide) in paragraph at lines 37--37
 \T1/phv/m/sl/10.95 sg.ch\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / /
  www . sg . ch / gesundheit-[]soziales / gesundheit / gesundheitsversorgung-[]-
 []spitaeler-[]spitex /
@@ -1881,122 +1882,136 @@ Overfull \hbox (82.65224pt too wide) in paragraph at lines 37--37
 
 
 ]
-Overfull \hbox (37.79558pt too wide) in paragraph at lines 37--37
-\T1/cmtt/m/n/10.95 institutionen / verwaltung / djsg / ga / InstitutionenGesund
-eitswesens / Spitaeler / Dok % 20Spitler /
+Overfull \hbox (9.60045pt too wide) in paragraph at lines 37--37
+\T1/cmtt/m/n/10.95 ch / DE / institutionen / verwaltung / djsg / ga / Instituti
+onenGesundeitswesens / Spitaeler /
  []
 
 
-Overfull \hbox (20.2541pt too wide) in paragraph at lines 37--37
+Overfull \hbox (37.32594pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/n/10.95 The Post-greS-QL Glo-bal De-ve-lop-ment Group. \T1/phv/m/sl
 /10.95 25.1. Rou-ti-ne Va-cu-u-ming\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 
 https : / / www . postgresql .
  []
 
 
-Overfull \hbox (136.22638pt too wide) in paragraph at lines 37--37
+Overfull \hbox (8.44234pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 The Post-greS-QL Glo-bal De-ve-lop-ment Group. \T1/phv/m/sl
+/10.95 27.1. Com-pa-ri-son of Dif-fe-rent So-lu-ti-ons\T1/phv/m/n/10.95 . [][]$
+\T1/cmtt/m/n/10.95 https :
+ []
+
+
+Overfull \hbox (9.51749pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 The Post-greS-QL Glo-bal De-ve-lop-ment Group. \T1/phv/m/sl
+/10.95 pg-bench\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . po
+stgresql . org / docs /
+ []
+
+
+Overfull \hbox (6.1914pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 Splunk Inc. \T1/phv/m/sl/10.95 Splunk | Der Schlüs-sel zu e
+i-nem re-si-li-en-ten Un-ter-neh-men\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95
+ https : / / www . splunk .
+ []
+
+
+Overfull \hbox (153.29822pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/n/10.95 Shiv Iyer und Mi-ner-vaDB. \T1/phv/m/sl/10.95 Post-greS-QL 
 DBA Dai-ly Check-list\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / mi
 nervadb . xyz / postgresql-[]dba-[]daily-[]checklist/$[][]\T1/phv/m/n/10.95 .
  []
 
 
-Overfull \hbox (39.56927pt too wide) in paragraph at lines 37--37
+Overfull \hbox (56.64111pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/n/10.95 Unmesh Jos-hi. \T1/phv/m/sl/10.95 Quorum\T1/phv/m/n/10.95 .
  [][]$\T1/cmtt/m/n/10.95 https : / / martinfowler . com / articles / patterns-[
 ]of-[]distributed-[]systems /
  []
 
 
-Overfull \hbox (3.81825pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 Pankaj Kus-h-wa-ha und Unit 3D North Point Hou-se. \T1/phv/
-m/sl/10.95 POST-GRES-QL DA-TA-BA-SE MAIN-TE-NANCE.
+Overfull \hbox (11.56435pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 Martin Keen und IBM Deutsch-land GmbH. \T1/phv/m/sl/10.95 I
+BM Db2\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . ibm . com /
+ de-[]de / products /
  []
 
 
-Overfull \hbox (0.6636pt too wide) in paragraph at lines 37--37
-\T1/phv/m/sl/10.95 Rou-ti-ne backup of dai-ly da-ta-ba-se... | by Pan-kaj kus-h
--wa-ha | Me-di-um\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / pankaj
-connect .
+Overfull \hbox (2.11864pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 Pasha Ko-stohrys. \T1/phv/m/sl/10.95 Da-ta-ba-se re-p-li-ca
+-ti-on ^^V an over-view\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / 
+medium . com / @pkostohrys /
+ []
+
+
+Overfull \hbox (1.78865pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 Anatoli Krey-man. \T1/phv/m/sl/10.95 Was ist ei-gent-lich S
+plunk? [][]$\T1/cmtt/m/n/10.95 https : / / www . kreyman . de / index . php / s
+plunk /
  []
 
 [32]
-Overfull \hbox (9.48843pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 SRA OSS LLC. \T1/phv/m/sl/10.95 pg-pool Wi-ki\T1/phv/m/n/10
-.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . pgpool . net / mediawiki / inde
-x . php / Main _ Page$[][]\T1/phv/m/n/10.95 . 2023. 
+Overfull \hbox (114.42607pt too wide) in paragraph at lines 37--37
+\T1/phv/m/sl/10.95 ma-tic fai-lover\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 
+https : / / www . linkedin . com / pulse / postgresql-[]replication-[]automatic
+-[]failover-[]bruno-[]queir %
  []
 
 
-Overfull \hbox (68.87357pt too wide) in paragraph at lines 37--37
-\T1/phv/m/sl/10.95 fai-lover\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https :
- / / www . linkedin . com / pulse / postgresql-[]replication-[]automatic-[]fail
-over-[]bruno-[]queir %
+Overfull \hbox (3.8277pt too wide) in paragraph at lines 37--37
+\T1/cmtt/m/n/10.95 ch / politik-[]verwaltung / abstimmungen-[]wahlen / wahlen /
+ Wahlkreise-[]im-[]Kanton-[]SG . html$[][]\T1/phv/m/n/10.95 . 
  []
 
 
-Overfull \hbox (66.20905pt too wide) in paragraph at lines 37--37
-\T1/phv/m/n/10.95 stel-le Kom-mu-ni-ka-ti-on. \T1/phv/m/sl/10.95 Wahl-krei-se f
-ür Kan-tons-rats-wah-len | sg.ch\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 htt
-ps : / / www . sg . ch / politik-[]verwaltung /
- []
-
-
-Overfull \hbox (10.89241pt too wide) in paragraph at lines 37--37
+Overfull \hbox (27.96425pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/n/10.95 Ed Reckers und SnapLo-gic Inc. \T1/phv/m/sl/10.95 Was ist d
 ie Snowflake-Datenplattform? [][]$\T1/cmtt/m/n/10.95 https : / / www . snaplogi
 c .
  []
 
 
-Overfull \hbox (5.45183pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 IONOS SE. \T1/phv/m/sl/10.95 Apa-che Cas-san-dra: Ver-teil-
-te Ver-wal-tung groÿer Da-ten-ban-ken\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.9
-5 https : / / www . ionos .
+Overfull \hbox (21.23314pt too wide) in paragraph at lines 37--37
+\T1/cmtt/m/n/10.95 ionos . de / digitalguide / hosting / hosting-[]technik / ap
+ache-[]cassandra-[]vorgestellt/$[][]\T1/phv/m/n/10.95 . 2021. 
  []
 
 
-Overfull \hbox (26.98697pt too wide) in paragraph at lines 37--37
+Overfull \hbox (44.0588pt too wide) in paragraph at lines 37--37
 []\T1/phv/m/n/10.95 IONOS SE. \T1/phv/m/sl/10.95 Da-ten-bank-ma-na-ge-ment-sys-
 tem (DBMS) er-klärt\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www 
 . ionos . de / digitalguide /
  []
 
 
-Overfull \hbox (32.52283pt too wide) in paragraph at lines 37--37
-\T1/cmtt/m/n/10.95 de / digitalguide / websites / web-[]entwicklung / mongodb-[
-]vorstellung-[]und-[]vergleich-[]mit-[]mysql/$[][]\T1/phv/m/n/10.95 .
+Overfull \hbox (83.54489pt too wide) in paragraph at lines 37--37
+\T1/cmtt/m/n/10.95 ionos . de / digitalguide / websites / web-[]entwicklung / m
+ongodb-[]vorstellung-[]und-[]vergleich-[]mit-[]mysql/$[][]\T1/phv/m/n/10.95 .
  []
 
 
-Overfull \hbox (1.01485pt too wide) in paragraph at lines 37--37
-[]\T1/phv/m/n/10.95 IONOS SE. \T1/phv/m/sl/10.95 Was ist SIEM (Se-cu-ri-ty In-f
-or-ma-ti-on and Event Ma-na-ge-ment)? [][]$\T1/cmtt/m/n/10.95 https : / / www .
- ionos .
+Overfull \hbox (15.03671pt too wide) in paragraph at lines 37--37
+[]\T1/phv/m/n/10.95 IONOS SE. \T1/phv/m/sl/10.95 Was ist Re-dis? Die Da-ten-ban
+k vor-ge-stellt\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . io
+nos . de / digitalguide /
  []
 
-Using TeX to sort glossary entries---this may take a while
 [33]
-Overfull \hbox (8.5543pt too wide) in paragraph at lines 43--43
-[]\T1/phv/m/n/10.95 Ein Da-ta-ba-se Ma-na-ge-ment Sys-tem re-gelt und or-ga-ni-
-siert die Da-ten-ba-sis ei-ner Da-ten-bank[42]..
+Using TeX to sort glossary entries---this may take a while
+[34]
+Overfull \hbox (1.53635pt too wide) in paragraph at lines 43--43
+[]\T1/phv/m/n/10.95 Cassandra ist ei-ne Spal-ten-or-ga-ni-sier-te []NoSQL-Daten
+bank die 2008 ver-öf-fent-licht[42]
  []
 
-
-LaTeX Warning: Citation '33C32L9G' on page 34 undefined on input line 43.
-
-
-LaTeX Warning: Citation 'SCE846MP' on page 34 undefined on input line 43.
-
-[34
+[35
 
 
-] [35] [36]
+] [36] [37] [38]
 
-LaTeX Warning: Reference `chap:Split-brain' on page 37 undefined on input line 
+LaTeX Warning: Reference `chap:Split-brain' on page 39 undefined on input line 
 43.
 
-[37]
 
 Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              You should note, that `\appendix' is a mostly globally
@@ -2011,7 +2026,7 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              and replace `\begin{appendix}' by command
 (scrreprt)              `\appendix' on input line 47.
 
-[38] [39
+[39] [40
 
 ] (./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2023,15 +2038,15 @@ File: lstlang1.sty 2018/09/02 1.7 listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 9.
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
- [40
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+ [41
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `Diplomarbeit_Michael_Graber.out' has not cha
 nged.
 (rerunfilecheck)             Checksum: <no file>.
@@ -2043,21 +2058,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Diplomarbeit_Michael_Graber
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'Diplomarbeit_Michael_Graber.run.xml'.
 
 \openout1 = `Diplomarbeit_Michael_Graber.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29785 strings out of 492615
- 514567 string characters out of 6131389
- 1308063 words of memory out of 5000000
- 32989 multiletter control sequences out of 15000+600000
+ 29790 strings out of 492615
+ 514736 string characters out of 6131389
+ 1309202 words of memory out of 5000000
+ 32993 multiletter control sequences out of 15000+600000
  45212 words of font info for 67 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  95i,19n,105p,9162b,3246s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2072,10 +2082,10 @@ blic/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt10
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on /home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Gr
-aber.pdf (45 pages, 1215989 bytes).
+aber.pdf (46 pages, 1216873 bytes).
 PDF statistics:
- 665 PDF objects out of 1000 (max. 8388607)
- 585 compressed objects within 6 object streams
- 140 named destinations out of 1000 (max. 500000)
+ 673 PDF objects out of 1000 (max. 8388607)
+ 592 compressed objects within 6 object streams
+ 141 named destinations out of 1000 (max. 500000)
  416 words of extra memory for PDF output out of 10000 (max. 10000000)
 
