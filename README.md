@@ -11,10 +11,10 @@ Folgende Packages müssen installiert werden, damit folgende Python-Skripte ausg
 - riskmatrix.py
 - zotero.py
 
-``
+```shell
 pip install --upgrade pip
 pip install matplotlib
 pip install pandas
 pip install pybtex
 pip install requests
-``
+```

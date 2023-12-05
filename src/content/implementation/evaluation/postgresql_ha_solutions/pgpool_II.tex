@@ -1,0 +1,18 @@
+%! Author = itgramic
+%! Date = 05.12.23
+
+% Preamble
+\subsubsection{pgpool-II}
+pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
+pgpoolII bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:
+\textbf{High Availability}
+pgpool-II bietet einen automatic \Gls{Failover} genannten Service an.
+Dieser schwenkt auf einen Standby-Server und entfernt den Defekten Server.
+Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf einen eigens entwickelten \Gls{Quorum}-Algorithmus.
+\\\textbf{Connection Pooling}
+\\\textbf{Replikation}
+\\\textbf{Load Balancing}
+Ähnlich wie Oracle Active Data Guard \cite{6294443C} bietet auch pgpool-II die Möglichkeit, SELECT-Queries und Backup-Jobs auf die Secondary-Nodes umzuleiten um den Primary Node zu entlasten.
+\\\textbf{Limiting Exceeding Connections}
+\\\textbf{Watchdog}
+\\\textbf{In Memory Query Caching}

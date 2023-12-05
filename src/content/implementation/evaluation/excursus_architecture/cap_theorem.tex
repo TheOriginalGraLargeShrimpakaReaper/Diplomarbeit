@@ -1,0 +1,13 @@
+%! Author = itgramic
+%! Date = 05.12.23
+
+% Preamble
+\subsubsection{CAP Theorem}
+Das CAP Theorem besagt, das nur zwei der drei folgenden drei Merkmale von verteilten Systeme gewährleistet werden können\cite{EE6EQHU2}.
+\\\textbf{Konsistenz - Consistency}
+Die Datenbank ist Konsistent, alle Clients seher gleichzeitig die gleichen Daten unabhängig auf welchem Node das Zugegriffen wird.
+Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit zurückgegeben werden, also eine Synchrone Replikation stattfinden.
+\\\textbf{Verfügbarkeit - Availability}
+\\\textbf{Ausfalltoleranz / Partitionstoleranz - Partition tolerance}
+
+\Gls{PostgreSQL}, \Gls{Oracle Database}oder \Gls{IBM DB2}präferieren CA, also Konsistenz und Verfügbarkeit.

@@ -1,15 +1,15 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[1] Config.pm:310> INFO - Logfile is 'Diplomarbeit_Michael_Graber.blg'
-[123] biber:340> INFO - === Mi Nov 29, 2023, 20:57:17
-[141] Biber.pm:418> INFO - Reading 'Diplomarbeit_Michael_Graber.bcf'
-[212] Biber.pm:972> INFO - Found 50 citekeys in bib section 0
-[226] Biber.pm:4383> INFO - Processing section 0
-[242] Biber.pm:4574> INFO - Looking for bibtex file 'source/Diplomarbeit_Michael_Graber.bib' for section 0
-[245] bibtex.pm:1713> INFO - LaTeX decoding ...
-[299] bibtex.pm:1518> INFO - Found BibTeX data source '/home/ibw/LaTex/Diplomarbeit/src/source/Diplomarbeit_Michael_Graber.bib'
-[680] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[680] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[680] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de_DE'
-[680] Biber.pm:4209> INFO - No sort tailoring available for locale 'de_DE'
-[759] bbl.pm:654> INFO - Writing 'Diplomarbeit_Michael_Graber.bbl' with encoding 'UTF-8'
-[775] bbl.pm:757> INFO - Output to Diplomarbeit_Michael_Graber.bbl
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'Diplomarbeit_Michael_Graber.blg'
+[32] biber:315> INFO - === Di Dez  5, 2023, 16:41:08
+[51] Biber.pm:371> INFO - Reading 'Diplomarbeit_Michael_Graber.bcf'
+[103] Biber.pm:889> INFO - Found 51 citekeys in bib section 0
+[119] Biber.pm:4093> INFO - Processing section 0
+[129] Biber.pm:4254> INFO - Looking for bibtex format file 'source/Diplomarbeit_Michael_Graber.bib' for section 0
+[131] bibtex.pm:1512> INFO - LaTeX decoding ...
+[197] bibtex.pm:1329> INFO - Found BibTeX data source '/home/itgramic/LaTex/Diplomarbeit/src/source/Diplomarbeit_Michael_Graber.bib'
+[398] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[398] UCollate.pm:68> INFO - Overriding locale 'de_DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[398] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de_DE'
+[399] Biber.pm:3927> INFO - No sort tailoring available for locale 'de_DE'
+[433] bbl.pm:636> INFO - Writing 'Diplomarbeit_Michael_Graber.bbl' with encoding 'UTF-8'
+[452] bbl.pm:739> INFO - Output to Diplomarbeit_Michael_Graber.bbl
