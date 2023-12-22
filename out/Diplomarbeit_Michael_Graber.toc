@@ -59,15 +59,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.5.3}pgpool-II}{28}{subsubsection.2.1.5.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5.4}pg\_auto\_failover}{28}{subsubsection.2.1.5.4}% 
+\contentsline {subsubsection}{\numberline {2.1.5.4}pg\_auto\_failover}{29}{subsubsection.2.1.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5.5}Patroni}{28}{subsubsection.2.1.5.5}% 
+\contentsline {subsubsection}{\numberline {2.1.5.5}Patroni}{29}{subsubsection.2.1.5.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5.6}CloudNativePG}{28}{subsubsection.2.1.5.6}% 
+\contentsline {subsubsection}{\numberline {2.1.5.6}CloudNativePG}{29}{subsubsection.2.1.5.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5.7}yugabyteDB - Distributed SQL 101}{28}{subsubsection.2.1.5.7}% 
+\contentsline {subsubsection}{\numberline {2.1.5.7}yugabyteDB - Distributed SQL 101}{29}{subsubsection.2.1.5.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.6}Installation verschiedener L\IeC {\"o}sungen}{28}{subsection.2.1.6}% 
+\contentsline {subsection}{\numberline {2.1.6}Installation verschiedener L\IeC {\"o}sungen}{29}{subsection.2.1.6}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.7}Gegen\IeC {\"u}berstellung der L\IeC {\"o}sungen}{29}{subsection.2.1.7}% 
 \defcounter {refsection}{0}\relax 

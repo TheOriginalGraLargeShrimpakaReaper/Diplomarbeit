@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  19 DEC 2023 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  22 DEC 2023 16:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1841,10 +1841,14 @@ d_replications.tex)
 [27 <./source/implementation/evaluation/excursus_architecture/Skalierung.png>])
 (./content/implementation/evaluation/postgresql_ha_solutions/pgpool_II.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover.t
-ex) (./content/implementation/evaluation/postgresql_ha_solutions/patroni.tex)
+ex
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+[28]) (./content/implementation/evaluation/postgresql_ha_solutions/patroni.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/cloudnativepg.tex)
-(./content/implementation/evaluation/postgresql_ha_solutions/yugabytedb.tex)
-[28])
+(./content/implementation/evaluation/postgresql_ha_solutions/yugabytedb.tex))
 (./content/implementation/construction_implementation/construction_implementati
 on.tex) (./content/implementation/testing/testing.tex)
 (./content/implementation/troubleshooting/troubleshooting.tex))
@@ -2117,7 +2121,7 @@ Package logreq Info: Writing requests to 'Diplomarbeit_Michael_Graber.run.xml'.
 Here is how much of TeX's memory you used:
  29864 strings out of 492615
  518888 string characters out of 6131389
- 1310792 words of memory out of 5000000
+ 1310854 words of memory out of 5000000
  33019 multiletter control sequences out of 15000+600000
  45212 words of font info for 67 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -2133,7 +2137,7 @@ blic/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt10
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on /home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Gr
-aber.pdf (48 pages, 1355961 bytes).
+aber.pdf (48 pages, 1356461 bytes).
 PDF statistics:
  696 PDF objects out of 1000 (max. 8388607)
  610 compressed objects within 7 object streams
