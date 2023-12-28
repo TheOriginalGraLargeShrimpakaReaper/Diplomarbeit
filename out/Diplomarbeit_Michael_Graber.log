@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  22 DEC 2023 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  28 DEC 2023 17:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1824,8 +1824,18 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 37.
 
 ) (./content/implementation/evaluation/excursus_architecture/cap_theorem.tex
-[25]) (./content/implementation/evaluation/excursus_architecture/scalling.tex
-<source/implementation/evaluation/excursus_architecture/Skalierung.png, id=269,
+[25]
+<source/implementation/evaluation/excursus_architecture/cap_theorem.png, id=269
+, 794.97pt x 794.97pt>
+File: source/implementation/evaluation/excursus_architecture/cap_theorem.png Gr
+aphic file (type png)
+<use source/implementation/evaluation/excursus_architecture/cap_theorem.png>
+Package pdftex.def Info: source/implementation/evaluation/excursus_architecture
+/cap_theorem.png  used on input line 25.
+(pdftex.def)             Requested size: 466.62509pt x 466.63858pt.
+ [26])
+(./content/implementation/evaluation/excursus_architecture/scalling.tex
+<source/implementation/evaluation/excursus_architecture/Skalierung.png, id=276,
  807.015pt x 596.2275pt>
 File: source/implementation/evaluation/excursus_architecture/Skalierung.png Gra
 phic file (type png)
@@ -1834,11 +1844,46 @@ Package pdftex.def Info: source/implementation/evaluation/excursus_architecture
 /Skalierung.png  used on input line 12.
 (pdftex.def)             Requested size: 466.62509pt x 344.74776pt.
 
-[26])
+[27 <./source/implementation/evaluation/excursus_architecture/cap_theorem.png>]
+)
 (./content/implementation/evaluation/postgresql_ha_solutions/postgresql_standar
 d_replications.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/ksgr_solution.tex
-[27 <./source/implementation/evaluation/excursus_architecture/Skalierung.png>])
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--3
+
+ []
+
+[28 <./source/implementation/evaluation/excursus_architecture/Skalierung.png>])
 (./content/implementation/evaluation/postgresql_ha_solutions/pgpool_II.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover.t
 ex
@@ -1846,15 +1891,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--3
 
  []
 
-[28]) (./content/implementation/evaluation/postgresql_ha_solutions/patroni.tex)
+[29]) (./content/implementation/evaluation/postgresql_ha_solutions/patroni.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/cloudnativepg.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/yugabytedb.tex))
 (./content/implementation/construction_implementation/construction_implementati
-on.tex) (./content/implementation/testing/testing.tex)
+on.tex) (./content/implementation/testing/testing.tex [30])
 (./content/implementation/troubleshooting/troubleshooting.tex))
-(./content/results/results.tex [29]
+(./content/results/results.tex [31]
 chapter 3.
-) (./content/appendix/appendix.tex [30
+) (./content/appendix/appendix.tex [32
 
 ]
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.lof)
@@ -1862,14 +1907,14 @@ chapter 3.
 \openout6 = `Diplomarbeit_Michael_Graber.lof'.
 
 
-[31
+[33
 
 ] (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.lot)
 \tf@lot=\write7
 \openout7 = `Diplomarbeit_Michael_Graber.lot'.
 
 
-[32
+[34
 
 ]
 chapter without number
@@ -1918,7 +1963,7 @@ Overfull \hbox (99.72408pt too wide) in paragraph at lines 37--37
 []spitaeler-[]spitex /
  []
 
-[33
+[35
 
 
 
@@ -1998,7 +2043,7 @@ plunk? [][]$\T1/cmtt/m/n/10.95 https : / / www . kreyman . de / index . php / s
 plunk /
  []
 
-[34]
+[36]
 Overfull \hbox (114.42607pt too wide) in paragraph at lines 37--37
 \T1/phv/m/sl/10.95 ma-tic fai-lover\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 
 https : / / www . linkedin . com / pulse / postgresql-[]replication-[]automatic
@@ -2051,20 +2096,20 @@ QL 101\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . yugabyte .
 com / distributed-[]sql/$[][]\T1/phv/m/n/10.95 . 
  []
 
-[35]
+[37]
 Using TeX to sort glossary entries---this may take a while
-[36]
+[38]
 Overfull \hbox (1.53635pt too wide) in paragraph at lines 43--43
 []\T1/phv/m/n/10.95 Cassandra ist ei-ne Spal-ten-or-ga-ni-sier-te []NoSQL-Daten
 bank die 2008 ver-öf-fent-licht[43]
  []
 
-[37
+[39
 
 
-] [38] [39] [40]
+] [40] [41] [42]
 
-LaTeX Warning: Reference `chap:Split-brain' on page 41 undefined on input line 
+LaTeX Warning: Reference `chap:Split-brain' on page 43 undefined on input line 
 43.
 
 
@@ -2081,7 +2126,7 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              and replace `\begin{appendix}' by command
 (scrreprt)              `\appendix' on input line 47.
 
-[41] [42
+[43] [44
 
 ] (./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2094,7 +2139,7 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 9.
 ))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
- [43
+ [45
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
@@ -2119,10 +2164,10 @@ Package logreq Info: Writing requests to 'Diplomarbeit_Michael_Graber.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29864 strings out of 492615
- 518888 string characters out of 6131389
- 1310854 words of memory out of 5000000
- 33019 multiletter control sequences out of 15000+600000
+ 29873 strings out of 492615
+ 519237 string characters out of 6131389
+ 1310943 words of memory out of 5000000
+ 33025 multiletter control sequences out of 15000+600000
  45212 words of font info for 67 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  95i,19n,105p,9162b,3246s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2137,10 +2182,10 @@ blic/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt10
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on /home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Gr
-aber.pdf (48 pages, 1356461 bytes).
+aber.pdf (50 pages, 1404784 bytes).
 PDF statistics:
- 696 PDF objects out of 1000 (max. 8388607)
- 610 compressed objects within 7 object streams
- 148 named destinations out of 1000 (max. 500000)
- 426 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 709 PDF objects out of 1000 (max. 8388607)
+ 620 compressed objects within 7 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 431 words of extra memory for PDF output out of 10000 (max. 10000000)
 
