@@ -53,7 +53,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.5}Analyse g\IeC {\"a}ngiger PostgreSQL HA Cluster L\IeC {\"o}sungen}{28}{subsection.2.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5.1}\Gls {PostgreSQL} Replikation}{29}{subsubsection.2.1.5.1}% 
+\contentsline {subsubsection}{\numberline {2.1.5.1}\Gls {PostgreSQL} Replikation}{28}{subsubsection.2.1.5.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.5.2}KSGR L\IeC {\"o}sung}{29}{subsubsection.2.1.5.2}% 
 \defcounter {refsection}{0}\relax 
@@ -79,11 +79,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Installation und Konfiguration PostgreSQL HA Cluster}{30}{subsection.2.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Technical Review der Umgebung}{31}{subsection.2.2.3}% 
+\contentsline {subsection}{\numberline {2.2.3}Technical Review der Umgebung}{30}{subsection.2.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Testing}{31}{section.2.3}% 
+\contentsline {section}{\numberline {2.3}Testing}{30}{section.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Testing}{31}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.1}Testing}{30}{subsection.2.3.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Protokollierung}{31}{subsection.2.3.2}% 
 \defcounter {refsection}{0}\relax 
