@@ -3,24 +3,42 @@
 
 % Preamble
 \subsubsection{pgpool-II}
-pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
-pgpool-II bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:
-\\\textbf{High Availability}\\
-pgpool-II bietet einen automatic \Gls{Failover} genannten Service an, den Watchdog.
-Dieser schwenkt auf einen Standby-Server und entfernt den Defekten Server.
-Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf einen eigens entwickelten \Gls{Quorum}-Algorithmus.
-\\\textbf{Connection Pooling}\\
-Bestehende Connections werden wiederverwendet um die Anzahl gleichzeitig offener Connections zu reduzieren.
-Der Pool wird dabei anhand von Username, Database, Protocol und weiteren Verbindungsparametern zugeordnet.
-\\\textbf{Replikation}\\
-Nebst dem Standard \Gls{PostgreSQL} bietet pgpool-II sein eigenes Replikationssystem an.
-\\\textbf{Load Balancing}\\
-Ähnlich wie Oracle Active Data Guard \cite{6294443C} bietet auch pgpool-II die Möglichkeit, SELECT-Queries und Backup-Jobs auf die Secondary-Nodes umzuleiten um den Primary Node zu entlasten.
-\\\textbf{Limiting Exceeding Connections}\\
-Die Anzahl an concurrent Connections, also gleichzeitiger Verbindungen, ist bei \Gls{PostgreSQL} begrenzt (Systemparameter wird dabei vom DBA gesetzt).
-pgpool-II speichert alle Connections, die über dem Limit sind, in einer Queue und somit nicht sofort fehlerhaft abgelehnt.
-\\\textbf{Watchdog}\\
-Der Watchdog koordiniert mehrere pgpool-II Nodes und verhindert ein Split-brain.
-\\\textbf{In Memory Query Caching}\\
-pgpool-II speichert SELECT-Queries in einem Cache und verwendet die ResultSets wieder, wenn eine identische Abfrage eingeht.
-\\\textbf{Online Recovery}\\
+\begin{flushleft}
+    pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
+    pgpool-II bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:
+\end{flushleft}
+\begin{flushleft}
+    \textbf{High Availability}\\
+    pgpool-II bietet einen automatic \Gls{Failover} genannten Service an, den Watchdog.
+    Dieser schwenkt auf einen Standby-Server und entfernt den Defekten Server.
+    Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf einen eigens entwickelten \Gls{Quorum}-Algorithmus.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Connection Pooling}\\
+    Bestehende Connections werden wiederverwendet um die Anzahl gleichzeitig offener Connections zu reduzieren.
+    Der Pool wird dabei anhand von Username, Database, Protocol und weiteren Verbindungsparametern zugeordnet.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Replikation}\\
+    Nebst dem Standard \Gls{PostgreSQL} bietet pgpool-II sein eigenes Replikationssystem an.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Load Balancing}\\
+    Ähnlich wie Oracle Active Data Guard \cite{6294443C} bietet auch pgpool-II die Möglichkeit, SELECT-Queries und Backup-Jobs auf die Secondary-Nodes umzuleiten um den Primary Node zu entlasten.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Limiting Exceeding Connections}\\
+    Die Anzahl an concurrent Connections, also gleichzeitiger Verbindungen, ist bei \Gls{PostgreSQL} begrenzt (Systemparameter wird dabei vom DBA gesetzt).
+    pgpool-II speichert alle Connections, die über dem Limit sind, in einer Queue und somit nicht sofort fehlerhaft abgelehnt.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Watchdog}\\
+    Der Watchdog koordiniert mehrere pgpool-II Nodes und verhindert ein Split-brain.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{In Memory Query Caching}\\
+    pgpool-II speichert SELECT-Queries in einem Cache und verwendet die ResultSets wieder, wenn eine identische Abfrage eingeht.
+\end{flushleft}
+\begin{flushleft}
+    \textbf{Online Recovery}\\
+\end{flushleft}
