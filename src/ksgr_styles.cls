@@ -12,7 +12,8 @@
 %\documentclass{ibw_disposition}
 %\LoadClass[a4paper]{book}
 %\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc]{book}
-\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc, twosite]{scrreprt}
+\LoadClass[11pt,a4paper,bibliography=totoc,listof=totoc, twosite, bibliographystyle=ieeetr]{scrreprt}
+%\LoadClass[11pt,a4paper,bibliography=ieeetr,listof=totoc, twosite]{scrreprt}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{graphicx}
 \RequirePackage{varwidth}
