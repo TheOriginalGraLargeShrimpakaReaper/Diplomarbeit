@@ -27,6 +27,11 @@
 \usepackage{listings}
 \usepackage{csquotes}
 
+% Appendix
+%\usepackage{minitoc}
+%\renewcommand \thepart{}
+%\renewcommand \partname{}
+
 % Bibliography Packages
 \usepackage[style=numeric,backend=biber,sortlocale=de_DE,bibencoding=utf8,sorting=nty,minbibnames=1,maxbibnames=6,autopunct=true,natbib=true,hyperref=false,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
@@ -106,13 +111,21 @@
 
 \pagestyle{headings}
 \begin{document}
+
+%    \part{} % Start the document part
+%    \parttoc % Insert the document TOC
+
+%    \begin{flushleft}
     \toptitel{Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
     \dokuemnttitel{PostgreSQL HA Cluster - Konzeption und Implementation}
     \datum{22.11.2023}
+%    \end{flushleft}
     \maketitle
 
     \begin{managementsummary}
-        Diplomarbeit Michael Graber
+        \begin{flushleft}
+            Diplomarbeit Michael Graber
+        \end{flushleft}
     \end{managementsummary}
 
     \clearpage

@@ -177,7 +177,9 @@
 \begin{titlepage}
 %\thispagestyle{headings}
 \thispagestyle{FirstPage}
+\begin{flushleft}
 \markright{\protect\@titlehead}
+\end{flushleft}
 
 %\textbf{ibW Höhere Fachschule Südostschweiz}
 \textbf{}\\
@@ -201,11 +203,15 @@
 
 \bigskip
 %\textbf{\textcolor[HTML]{000000}\fontsize{13pt}{{\@toptitel}}
+\begin{flushleft}
 \textcolor[HTML]{000000}{ \ \huge\@toptitel}\newline
+\end{flushleft}
 \bigskip
 
 \bigskip
+\begin{flushleft}
 \textbf{\textcolor[HTML]{000000}{ \ \Huge\@dokuemnttitel}}
+\end{flushleft}
 \bigskip
 
 
@@ -213,7 +219,9 @@
 
 
 \bigskip
+\begin{flushleft}
 \textcolor[HTML]{000000}{\ \LARGE\@datum}
+\end{flushleft}
 \bigskip
 
 
