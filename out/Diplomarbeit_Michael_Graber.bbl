@@ -592,6 +592,27 @@
       \field{title}{pgbench}
       \field{year}{2023}
     \endentry
+    \entry{U29WWCXR}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=045af1571ebdf9317ff9bdb9abd8fb90}{%
+           family={HashiCorp},
+           familyi={H\bibinitperiod},
+           given={Inc.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \strng{fullhash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \strng{bibnamehash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \strng{authorbibnamehash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \strng{authornamehash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \strng{authorfullhash}{045af1571ebdf9317ff9bdb9abd8fb90}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.terraform.io/}}
+      \field{title}{Terraform by HashiCorp}
+    \endentry
     \entry{V4XLXN7W}{article}{}
       \name{author}{4}{}{%
         {{hash=3a2e1959421872856a362cbb0330458c}{%
@@ -814,6 +835,28 @@
       \field{howpublished}{\url{https://pankajconnect.medium.com/postgresql-database-maintenance-66cd638d25ab}}
       \field{title}{POSTGRESQL DATABASE MAINTENANCE. Routine backup of daily database… | by Pankaj kushwaha | Medium}
     \endentry
+    \entry{7SPK583Y}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ba90b0e415daa29a916964011f8c037b}{%
+           family={Limited},
+           familyi={L\bibinitperiod},
+           given={Red\bibnamedelima Hat},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba90b0e415daa29a916964011f8c037b}
+      \strng{fullhash}{ba90b0e415daa29a916964011f8c037b}
+      \strng{bibnamehash}{ba90b0e415daa29a916964011f8c037b}
+      \strng{authorbibnamehash}{ba90b0e415daa29a916964011f8c037b}
+      \strng{authornamehash}{ba90b0e415daa29a916964011f8c037b}
+      \strng{authorfullhash}{ba90b0e415daa29a916964011f8c037b}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.redhat.com/de/technologies/management/ansible/what-is-ansible}}
+      \field{title}{Was ist Ansible?}
+    \endentry
     \entry{I65F7WAQ}{misc}{}
       \name{author}{1}{}{%
         {{hash=ba90b0e415daa29a916964011f8c037b}{%
@@ -828,6 +871,7 @@
       \strng{authorbibnamehash}{ba90b0e415daa29a916964011f8c037b}
       \strng{authornamehash}{ba90b0e415daa29a916964011f8c037b}
       \strng{authorfullhash}{ba90b0e415daa29a916964011f8c037b}
+      \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
@@ -1129,7 +1173,7 @@
       \field{title}{SQLite: Die bekannte Programmbibliothek im Detail vorgestellt}
       \field{year}{2023}
     \endentry
-    \entry{57XLMIRR}{misc}{}
+    \entry{FMIBZY6N}{misc}{}
       \name{author}{1}{}{%
         {{hash=ee9028beea22f71f4ed87d6fa130a76d}{%
            family={SE},
@@ -1144,6 +1188,29 @@
       \strng{authornamehash}{ee9028beea22f71f4ed87d6fa130a76d}
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
       \field{extraname}{5}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ionos.de/digitalguide/server/tools/was-ist-terraform/}}
+      \field{title}{Terraform}
+      \field{year}{2020}
+    \endentry
+    \entry{57XLMIRR}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ee9028beea22f71f4ed87d6fa130a76d}{%
+           family={SE},
+           familyi={S\bibinitperiod},
+           given={IONOS},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \strng{fullhash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \strng{bibnamehash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \strng{authorbibnamehash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \strng{authornamehash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
+      \field{extraname}{6}
       \field{sortinit}{S}
       \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
@@ -1166,7 +1233,7 @@
       \strng{authorbibnamehash}{ee9028beea22f71f4ed87d6fa130a76d}
       \strng{authornamehash}{ee9028beea22f71f4ed87d6fa130a76d}
       \strng{authorfullhash}{ee9028beea22f71f4ed87d6fa130a76d}
-      \field{extraname}{6}
+      \field{extraname}{7}
       \field{sortinit}{S}
       \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
       \field{labelnamesource}{author}
@@ -1235,6 +1302,33 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.thomas-krenn.com/de/wiki/Git\_Grundlagen}}
       \field{title}{Git Grundlagen – Thomas-Krenn-Wiki}
+    \endentry
+    \entry{EDGTQIKU}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2dab8c7f633fb5bc8c97ff3f9161cf3c}{%
+           family={Züst},
+           familyi={Z\bibinitperiod},
+           given={Rainer},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \strng{fullhash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \strng{bibnamehash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \strng{authorbibnamehash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \strng{authornamehash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \strng{authorfullhash}{2dab8c7f633fb5bc8c97ff3f9161cf3c}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Einstieg ins Systems Engineering}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb https://www.zuestengineering.ch/downloads/SE-1\_a\_Lehrbuch\_Systems-Engineering\_Rainer-Z\%C3\%BCst\_\%202015.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.zuestengineering.ch/downloads/SE-1%5C_a%5C_Lehrbuch%5C_Systems-Engineering%5C_Rainer-Z%5C%C3%5C%BCst%5C_%5C%202015.pdf
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
