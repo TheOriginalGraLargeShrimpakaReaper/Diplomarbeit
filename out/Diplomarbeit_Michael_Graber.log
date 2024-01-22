@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  5 JAN 2024 16:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2023.11.22)  22 JAN 2024 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1635,7 +1635,7 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              deprecated \float@addtolist interface .
 
 (./content/introduction/initial_situation/initial_situation.tex
-<source/introduction/initial_situation/gr_spitalregionen.png, id=133, 630.10406
+<source/introduction/initial_situation/gr_spitalregionen.png, id=137, 630.10406
 pt x 410.2828pt>
 File: source/introduction/initial_situation/gr_spitalregionen.png Graphic file 
 (type png)
@@ -1643,7 +1643,7 @@ File: source/introduction/initial_situation/gr_spitalregionen.png Graphic file
 Package pdftex.def Info: source/introduction/initial_situation/gr_spitalregione
 n.png  used on input line 14.
 (pdftex.def)             Requested size: 466.62509pt x 303.83615pt.
-<source/introduction/initial_situation/sg_wahlkreise.jpg, id=134, 821.0675pt x 
+<source/introduction/initial_situation/sg_wahlkreise.jpg, id=138, 821.0675pt x 
 821.0675pt>
 File: source/introduction/initial_situation/sg_wahlkreise.jpg Graphic file (typ
 e jpg)
@@ -1659,7 +1659,7 @@ l.26
       [1
 
  <./source/introduction/initial_situation/gr_spitalregionen.png>]
-<source/introduction/initial_situation/sg_spitalregionen.jpg, id=141, 395.4775p
+<source/introduction/initial_situation/sg_spitalregionen.jpg, id=145, 395.4775p
 t x 458.71375pt>
 File: source/introduction/initial_situation/sg_spitalregionen.jpg Graphic file 
 (type jpg)
@@ -1674,7 +1674,7 @@ been already used, duplicate ignored
 l.34 ...ion{Die ICT des Kantonsspital GraubÃ¼nden}
                                                    [2 <./source/introduction/in
 itial_situation/sg_wahlkreise.jpg>]
-<source/introduction/initial_situation/Organigramm_KSGR.png, id=147, 1014.03844
+<source/introduction/initial_situation/Organigramm_KSGR.png, id=151, 1014.03844
 pt x 682.80093pt>
 File: source/introduction/initial_situation/Organigramm_KSGR.png Graphic file (
 type png)
@@ -1688,7 +1688,7 @@ been already used, duplicate ignored
                    \relax 
 l.44 
       [3 <./source/introduction/initial_situation/sg_spitalregionen.jpg>]
-<source/introduction/initial_situation/Organigramm-D10.png, id=152, 722.7pt x 4
+<source/introduction/initial_situation/Organigramm-D10.png, id=156, 722.7pt x 4
 06.51875pt>
 File: source/introduction/initial_situation/Organigramm-D10.png Graphic file (t
 ype png)
@@ -1719,13 +1719,13 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 203.
 
 [10]
-<source/riskmatrix/riskmatrixproblem.png, id=190, 462.528pt x 346.896pt>
+<source/riskmatrix/riskmatrixproblem.png, id=194, 462.528pt x 346.896pt>
 File: source/riskmatrix/riskmatrixproblem.png Graphic file (type png)
 <use source/riskmatrix/riskmatrixproblem.png>
 Package pdftex.def Info: source/riskmatrix/riskmatrixproblem.png  used on input
  line 227.
 (pdftex.def)             Requested size: 466.62509pt x 349.98636pt.
-<source/riskmatrix/Riskmatrixproblem-massnahmen.png, id=191, 462.528pt x 346.89
+<source/riskmatrix/Riskmatrixproblem-massnahmen.png, id=195, 462.528pt x 346.89
 6pt>
 File: source/riskmatrix/Riskmatrixproblem-massnahmen.png Graphic file (type png
 )
@@ -1742,7 +1742,7 @@ ixproblem-massnahmen.png>] [13
 ] [14] [15])
 (./content/introduction/delimitations/delimitations.tex
 chapter 2.
-<source/introduction/delimitations/systemabgrenzungen.png, id=220, 2207.24625pt
+<source/introduction/delimitations/systemabgrenzungen.png, id=224, 2207.24625pt
  x 1476.26532pt>
 File: source/introduction/delimitations/systemabgrenzungen.png Graphic file (ty
 pe png)
@@ -1760,7 +1760,7 @@ ng  used on input line 65.
 
 ])
 (./content/introduction/riskmanagement/riskmanagement.tex
-<source/introduction/riskmanagement/swot_projekt.png, id=236, 1146.53343pt x 79
+<source/introduction/riskmanagement/swot_projekt.png, id=240, 1146.53343pt x 79
 3.46437pt>
 File: source/introduction/riskmanagement/swot_projekt.png Graphic file (type pn
 g)
@@ -1771,7 +1771,7 @@ sed on input line 10.
  [19
 
  <./source/introduction/riskmanagement/swot_projekt.png>]
-<source/riskmatrix/riskmatrix-project.png, id=242, 462.528pt x 346.896pt>
+<source/riskmatrix/riskmatrix-project.png, id=246, 462.528pt x 346.896pt>
 File: source/riskmatrix/riskmatrix-project.png Graphic file (type png)
 <use source/riskmatrix/riskmatrix-project.png>
 Package pdftex.def Info: source/riskmatrix/riskmatrix-project.png  used on inpu
@@ -1784,7 +1784,7 @@ Overfull \vbox (50.64648pt too high) has occurred while \output is active []
 
 
 [21 <./source/riskmatrix/riskmatrix-project.png>]
-<source/riskmatrix/Riskmatrix-project-massnahmen.png, id=255, 462.528pt x 346.8
+<source/riskmatrix/Riskmatrix-project-massnahmen.png, id=259, 462.528pt x 346.8
 96pt>
 File: source/riskmatrix/Riskmatrix-project-massnahmen.png Graphic file (type pn
 g)
@@ -1798,19 +1798,26 @@ Overfull \vbox (50.64648pt too high) has occurred while \output is active []
 
 [23 <./source/riskmatrix/Riskmatrix-project-massnahmen.png>])
 (./content/introduction/procedures_methods/procedures_methods.tex)
-(./content/introduction/projectmanagement/projectmanagement.tex))
-(./content/implementation/implementation.tex [24
+(./content/introduction/projectmanagement/projectmanagement.tex
+(./content/status_report/init_status.tex [24
 
 ]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 18.
+
+[25]))) (./content/implementation/implementation.tex
 chapter 3.
 (./content/implementation/evaluation/evaluation.tex
-(./content/implementation/evaluation/requirements/requirements.tex [25
+(./content/implementation/evaluation/requirements/requirements.tex [26
+
+
 
 ])
 (./content/implementation/evaluation/excursus_architecture/monolithic_vs_distri
 buted_systems.tex
 <source/implementation/evaluation/excursus_architecture/monolith_distributed.pn
-g, id=278, 1182.66844pt x 805.50937pt>
+g, id=289, 1182.66844pt x 805.50937pt>
 File: source/implementation/evaluation/excursus_architecture/monolith_distribut
 ed.png Graphic file (type png)
 <use source/implementation/evaluation/excursus_architecture/monolith_distribute
@@ -1820,11 +1827,11 @@ Package pdftex.def Info: source/implementation/evaluation/excursus_architecture
 (pdftex.def)             Requested size: 466.62509pt x 317.81012pt.
 )
 (./content/implementation/evaluation/excursus_architecture/ha_replication.tex
-[26 <./source/implementation/evaluation/excursus_architecture/monolith_distribu
+[27 <./source/implementation/evaluation/excursus_architecture/monolith_distribu
 ted.png>])
-(./content/implementation/evaluation/excursus_architecture/quorum.tex [27])
+(./content/implementation/evaluation/excursus_architecture/quorum.tex [28])
 (./content/implementation/evaluation/excursus_architecture/cap_theorem.tex
-<source/implementation/evaluation/excursus_architecture/cap_theorem.png, id=292
+<source/implementation/evaluation/excursus_architecture/cap_theorem.png, id=303
 , 794.97pt x 794.97pt>
 File: source/implementation/evaluation/excursus_architecture/cap_theorem.png Gr
 aphic file (type png)
@@ -1833,8 +1840,8 @@ Package pdftex.def Info: source/implementation/evaluation/excursus_architecture
 /cap_theorem.png  used on input line 25.
 (pdftex.def)             Requested size: 466.62509pt x 466.63858pt.
 
-[28]) (./content/implementation/evaluation/excursus_architecture/scalling.tex
-<source/implementation/evaluation/excursus_architecture/Skalierung.png, id=299,
+[29]) (./content/implementation/evaluation/excursus_architecture/scalling.tex
+<source/implementation/evaluation/excursus_architecture/Skalierung.png, id=310,
  807.015pt x 596.2275pt>
 File: source/implementation/evaluation/excursus_architecture/Skalierung.png Gra
 phic file (type png)
@@ -1843,27 +1850,28 @@ Package pdftex.def Info: source/implementation/evaluation/excursus_architecture
 /Skalierung.png  used on input line 13.
 (pdftex.def)             Requested size: 466.62509pt x 344.74776pt.
 
-[29 <./source/implementation/evaluation/excursus_architecture/cap_theorem.png>]
+[30 <./source/implementation/evaluation/excursus_architecture/cap_theorem.png>]
 )
 (./content/implementation/evaluation/postgresql_ha_solutions/postgresql_standar
-d_replications.tex [30 <./source/implementation/evaluation/excursus_architectur
+d_replications.tex [31 <./source/implementation/evaluation/excursus_architectur
 e/Skalierung.png>])
 (./content/implementation/evaluation/postgresql_ha_solutions/ksgr_solution.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/pgpool_II.tex
-[31])
+[32])
 (./content/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover.t
 ex) (./content/implementation/evaluation/postgresql_ha_solutions/patroni.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/cloudnativepg.tex)
 (./content/implementation/evaluation/postgresql_ha_solutions/yugabytedb.tex)
-(./content/implementation/evaluation/decision/decision.tex)
+(./content/implementation/evaluation/postgresql_ha_solutions/stackgres_citus.te
+x [33]) (./content/implementation/evaluation/decision/decision.tex)
 (./content/implementation/evaluation/solution_comparison/solution_comparison.te
-x [32]))
+x))
 (./content/implementation/construction_implementation/construction_implementati
 on.tex) (./content/implementation/testing/testing.tex)
 (./content/implementation/troubleshooting/troubleshooting.tex))
-(./content/results/results.tex [33]
+(./content/results/results.tex [34]
 chapter 4.
-) (./content/appendix/appendix.tex [34
+) (./content/appendix/appendix.tex [35
 
 ]
 (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.lof
@@ -1875,7 +1883,7 @@ Overfull \hbox (3.70091pt too wide) detected at line 44
 \tf@lof=\write6
 \openout6 = `Diplomarbeit_Michael_Graber.lof'.
 
- [35
+ [36
 
 ] (/home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Graber.lot)
 \tf@lot=\write7
@@ -1896,7 +1904,7 @@ Class scrreprt Warning: \float@listhead detected!
 (scrreprt)              deprecated \float@listhead interface  on input line 20.
 
 
-[36
+[37
 
 ]
 chapter without number
@@ -1905,7 +1913,7 @@ chapter without number
 \openout8 = `Diplomarbeit_Michael_Graber.lol'.
 
 
-[37
+[38
 
 ]
 chapter without number
@@ -1954,7 +1962,7 @@ Overfull \hbox (99.72408pt too wide) in paragraph at lines 42--42
 []spitaeler-[]spitex /
  []
 
-[38
+[39
 
 
 
@@ -2034,7 +2042,7 @@ plunk? [][]$\T1/cmtt/m/n/10.95 https : / / www . kreyman . de / index . php / s
 plunk /
  []
 
-[39]
+[40]
 Overfull \hbox (9.67834pt too wide) in paragraph at lines 42--42
 []\T1/phv/m/n/10.95 Red Hat Li-mi-ted. \T1/phv/m/sl/10.95 Was ist An-si-ble? []
 []$\T1/cmtt/m/n/10.95 https : / / www . redhat . com / de / technologies / mana
@@ -2087,7 +2095,7 @@ Overfull \hbox (43.9674pt too wide) in paragraph at lines 42--42
  tools / was-[]ist-[]terraform/$[][]\T1/phv/m/n/10.95 .
  []
 
-[40]
+[41]
 Overfull \hbox (15.03671pt too wide) in paragraph at lines 42--42
 []\T1/phv/m/n/10.95 IONOS SE. \T1/phv/m/sl/10.95 Was ist Re-dis? Die Da-ten-ban
 k vor-ge-stellt\T1/phv/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 https : / / www . io
@@ -2102,24 +2110,24 @@ com / distributed-[]sql/$[][]\T1/phv/m/n/10.95 .
  []
 
 Using TeX to sort glossary entries---this may take a while
-[41]
+[42]
 Overfull \hbox (1.53635pt too wide) in paragraph at lines 48--48
 []\T1/phv/m/n/10.95 Cassandra ist ei-ne Spal-ten-or-ga-ni-sier-te []NoSQL-Daten
 bank die 2008 ver-öf-fent-licht[45]
  []
 
-[42
+[43
 
 
-] [43] [44]
+] [44] [45]
 Overfull \hbox (6.04808pt too wide) in paragraph at lines 48--48
 []\T1/phv/m/n/10.95 RHEL wur-de in sei-ner Ur-sprüg-li-chen Form Red Hat Li-nux
  (RHL)
  []
 
-[45]
+[46]
 
-LaTeX Warning: Reference `chap:Split-brain' on page 46 undefined on input line 
+LaTeX Warning: Reference `chap:Split-brain' on page 47 undefined on input line 
 48.
 
 
@@ -2128,7 +2136,7 @@ Overfull \hbox (2.83383pt too wide) in paragraph at lines 48--48
 ird sehr oft da-für be-nutzt um Container-
  []
 
-[46]
+[47]
 
 Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              You should note, that `\appendix' is a mostly globally
@@ -2143,9 +2151,10 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              and replace `\begin{appendix}' by command
 (scrreprt)              `\appendix' on input line 54.
 
-[47] [48
+[48] [49
 
-] (./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex
+] (./content/appendix/status_report.tex)
+(./content/appendix/rapport.tex) (./content/appendix/pgpoolII.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\Gls' on input line 6.
@@ -2162,7 +2171,7 @@ nput line 9.
 (./content/appendix/disposition.tex [1
 
 ]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=540,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=553,
  597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2176,7 +2185,7 @@ phic file (type pdf)
 Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf  used on input line 16.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=543,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=556,
  page=1, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2215,7 +2224,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page1 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [3 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=567,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=579,
  page=2, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2239,7 +2248,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page2 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [4 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=578,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=590,
  page=3, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2263,7 +2272,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page3 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [5 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=583,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=595,
  page=4, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2287,7 +2296,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page4 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [6 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=588,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=600,
  page=5, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2311,7 +2320,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page5 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [7 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=600,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=613,
  page=6, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2335,7 +2344,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page6 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [8 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=607,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=619,
  page=7, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2359,7 +2368,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page7 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [9 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=613,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=625,
  page=8, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2383,7 +2392,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page8 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [10 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=621,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=633,
  page=9, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2407,7 +2416,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page9 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [11 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=627,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=639,
  page=10, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2431,7 +2440,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page10 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [12 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=638,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=650,
  page=11, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2456,7 +2465,7 @@ t_2023_2024.pdf , page11 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [13 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=643,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=657,
  page=12, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2480,7 +2489,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page12 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [14 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=649,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=662,
  page=13, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2504,7 +2513,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page13 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [15 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=654,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=667,
  page=14, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2529,7 +2538,7 @@ t_2023_2024.pdf , page14 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [16 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=660,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=672,
  page=15, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2553,7 +2562,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page15 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [17 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=668,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=680,
  page=16, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2577,7 +2586,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page16 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [18 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=676,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=688,
  page=17, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2601,7 +2610,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page17 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [19 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=681,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=694,
  page=18, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2626,7 +2635,7 @@ t_2023_2024.pdf , page18 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [20 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=687,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=699,
  page=19, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2650,7 +2659,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page19 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [21 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=692,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=704,
  page=20, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2675,7 +2684,7 @@ t_2023_2024.pdf , page20 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [22 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=697,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=709,
  page=21, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2699,7 +2708,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page21 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [23 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=702,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=714,
  page=22, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2724,7 +2733,7 @@ t_2023_2024.pdf , page22 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [24 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=707,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=719,
  page=23, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2748,7 +2757,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page23 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [25 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=712,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=725,
  page=24, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2773,7 +2782,7 @@ t_2023_2024.pdf , page24 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [26 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=718,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=730,
  page=25, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2797,7 +2806,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page25 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [27 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=724,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=736,
  page=26, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2821,7 +2830,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page26 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [28 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=729,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=741,
  page=27, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2846,7 +2855,7 @@ t_2023_2024.pdf , page27 used on input line 16.
 (pdftex.def)             Requested size: 633.78378pt x 448.13011pt.
  [29 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, 
 page is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=734,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=746,
  page=28, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2871,7 +2880,7 @@ t_2023_2024.pdf , page28 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
 
 [30 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=740,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=752,
  page=29, 845.0471pt x 597.50829pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2897,7 +2906,7 @@ t_2023_2024.pdf , page29 used on input line 16.
 
 [31 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, p
 age is rotated 90 degrees>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=745,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=758,
  page=30, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2921,7 +2930,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page30 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [32 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=754,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=766,
  page=31, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2945,7 +2954,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page31 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [33 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=762,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=774,
  page=32, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2969,7 +2978,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page32 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [34 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=767,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=779,
  page=33, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -2993,7 +3002,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page33 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [35 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=772,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=784,
  page=34, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3017,7 +3026,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page34 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [36 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=777,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=789,
  page=35, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3041,7 +3050,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page35 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [37 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=795,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=808,
  page=36, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3065,7 +3074,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page36 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [38 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=801,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=813,
  page=37, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3089,7 +3098,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page37 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [39 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=806,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=818,
  page=38, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3113,7 +3122,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page38 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [40 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=817,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=830,
  page=39, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3137,7 +3146,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page39 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [41 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=822,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=835,
  page=40, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3161,7 +3170,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page40 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [42 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=827,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=840,
  page=41, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3185,7 +3194,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page41 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [43 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=832,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=846,
  page=42, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3209,7 +3218,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page42 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [44 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=839,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=851,
  page=43, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3233,7 +3242,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page43 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [45 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=844,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=856,
  page=44, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3257,7 +3266,7 @@ Package pdftex.def Info: source/appendix/Michael_Graber_Disposition_Diplomarbei
 t_2023_2024.pdf , page44 used on input line 16.
 (pdftex.def)             Requested size: 448.13011pt x 633.78378pt.
  [46 <./source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf>]
-<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=849,
+<source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf, id=861,
  page=45, 597.50829pt x 845.0471pt>
 File: source/appendix/Michael_Graber_Disposition_Diplomarbeit_2023_2024.pdf Gra
 phic file (type pdf)
@@ -3306,10 +3315,10 @@ Package logreq Info: Writing requests to 'Diplomarbeit_Michael_Graber.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30722 strings out of 492615
- 543615 string characters out of 6131389
- 1328678 words of memory out of 5000000
- 33776 multiletter control sequences out of 15000+600000
+ 30750 strings out of 492615
+ 544346 string characters out of 6131389
+ 1329057 words of memory out of 5000000
+ 33788 multiletter control sequences out of 15000+600000
  45212 words of font info for 67 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  95i,19n,105p,9162b,3244s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3324,10 +3333,10 @@ blic/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt10
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on /home/itgramic/LaTex/Diplomarbeit/out/Diplomarbeit_Michael_Gr
-aber.pdf (101 pages, 3260382 bytes).
+aber.pdf (102 pages, 3265007 bytes).
 PDF statistics:
- 1087 PDF objects out of 1200 (max. 8388607)
- 871 compressed objects within 9 object streams
- 211 named destinations out of 1000 (max. 500000)
- 716 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1109 PDF objects out of 1200 (max. 8388607)
+ 892 compressed objects within 9 object streams
+ 217 named destinations out of 1000 (max. 500000)
+ 732 words of extra memory for PDF output out of 10000 (max. 10000000)
 

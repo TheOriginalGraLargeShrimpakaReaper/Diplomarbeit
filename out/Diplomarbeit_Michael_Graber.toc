@@ -33,100 +33,108 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5.1}Rapport}{24}{subsection.2.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Umsetzung}{25}{chapter.3}% 
+\contentsline {subsubsection}{\numberline {2.5.1.1}Initialer Statusbericht}{24}{subsubsection.2.5.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Evaluation}{25}{section.3.1}% 
+\contentsline {chapter}{\numberline {3}Umsetzung}{26}{chapter.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Erheben und Gewichten der Anforderungen}{25}{subsection.3.1.1}% 
+\contentsline {section}{\numberline {3.1}Evaluation}{26}{section.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.1.1}Anforderungen}{25}{subsubsection.3.1.1.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Erheben und Gewichten der Anforderungen}{26}{subsection.3.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.1.2}Gewichtung}{26}{subsubsection.3.1.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.1.1}Anforderungen}{26}{subsubsection.3.1.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Exkurs Architektur}{26}{subsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.1.2}Gewichtung}{27}{subsubsection.3.1.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2.1}Monolithische vs. verteilte SQL Systeme}{26}{subsubsection.3.1.2.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Exkurs Architektur}{27}{subsection.3.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2.2}High Availability und Replikation}{26}{subsubsection.3.1.2.2}% 
+\contentsline {subsubsection}{\numberline {3.1.2.1}Monolithische vs. verteilte SQL Systeme}{27}{subsubsection.3.1.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2.3}Quorum}{27}{subsubsection.3.1.2.3}% 
+\contentsline {subsubsection}{\numberline {3.1.2.2}High Availability und Replikation}{27}{subsubsection.3.1.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2.4}CAP Theorem}{28}{subsubsection.3.1.2.4}% 
+\contentsline {subsubsection}{\numberline {3.1.2.3}Quorum}{28}{subsubsection.3.1.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2.5}Skalierung}{29}{subsubsection.3.1.2.5}% 
+\contentsline {subsubsection}{\numberline {3.1.2.4}CAP Theorem}{29}{subsubsection.3.1.2.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.3}Testziele erarbeiten}{30}{subsection.3.1.3}% 
+\contentsline {subsubsection}{\numberline {3.1.2.5}Skalierung}{30}{subsubsection.3.1.2.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.4}PostgreSQL Benchmarking}{30}{subsection.3.1.4}% 
+\contentsline {subsection}{\numberline {3.1.3}Testziele erarbeiten}{31}{subsection.3.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.5}Analyse g\IeC {\"a}ngiger PostgreSQL HA Cluster L\IeC {\"o}sungen}{30}{subsection.3.1.5}% 
+\contentsline {subsection}{\numberline {3.1.4}PostgreSQL Benchmarking}{31}{subsection.3.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.1}\Gls {PostgreSQL} Replikation}{30}{subsubsection.3.1.5.1}% 
+\contentsline {subsection}{\numberline {3.1.5}Analyse g\IeC {\"a}ngiger PostgreSQL HA Cluster L\IeC {\"o}sungen}{31}{subsection.3.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.2}KSGR L\IeC {\"o}sung}{31}{subsubsection.3.1.5.2}% 
+\contentsline {subsubsection}{\numberline {3.1.5.1}\Gls {PostgreSQL} Replikation}{31}{subsubsection.3.1.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.3}pgpool-II}{31}{subsubsection.3.1.5.3}% 
+\contentsline {subsubsection}{\numberline {3.1.5.2}KSGR L\IeC {\"o}sung}{32}{subsubsection.3.1.5.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.4}pg\_auto\_failover}{32}{subsubsection.3.1.5.4}% 
+\contentsline {subsubsection}{\numberline {3.1.5.3}pgpool-II}{32}{subsubsection.3.1.5.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.5}Patroni}{32}{subsubsection.3.1.5.5}% 
+\contentsline {subsubsection}{\numberline {3.1.5.4}pg\_auto\_failover}{33}{subsubsection.3.1.5.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.6}CloudNativePG}{32}{subsubsection.3.1.5.6}% 
+\contentsline {subsubsection}{\numberline {3.1.5.5}Patroni}{33}{subsubsection.3.1.5.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5.7}yugabyteDB - Distributed SQL 101}{32}{subsubsection.3.1.5.7}% 
+\contentsline {subsubsection}{\numberline {3.1.5.6}CloudNativePG}{33}{subsubsection.3.1.5.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.6}Installation verschiedener L\IeC {\"o}sungen}{32}{subsection.3.1.6}% 
+\contentsline {subsubsection}{\numberline {3.1.5.7}yugabyteDB - Distributed SQL 101}{33}{subsubsection.3.1.5.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.7}Gegen\IeC {\"u}berstellung der L\IeC {\"o}sungen}{33}{subsection.3.1.7}% 
+\contentsline {subsubsection}{\numberline {3.1.5.8}Stackgres mit Citus}{34}{subsubsection.3.1.5.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.8}Entscheid}{33}{subsection.3.1.8}% 
+\contentsline {subsection}{\numberline {3.1.6}Installation verschiedener L\IeC {\"o}sungen}{34}{subsection.3.1.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Aufbau und Implementation Testsystem}{33}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.1.7}Gegen\IeC {\"u}berstellung der L\IeC {\"o}sungen}{34}{subsection.3.1.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Bereitstellen der Grundinfrastruktur}{33}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.1.8}Entscheid}{34}{subsection.3.1.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Installation und Konfiguration PostgreSQL HA Cluster}{33}{subsection.3.2.2}% 
+\contentsline {section}{\numberline {3.2}Aufbau und Implementation Testsystem}{34}{section.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Technical Review der Umgebung}{33}{subsection.3.2.3}% 
+\contentsline {subsection}{\numberline {3.2.1}Bereitstellen der Grundinfrastruktur}{34}{subsection.3.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Testing}{33}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.2.2}Installation und Konfiguration PostgreSQL HA Cluster}{34}{subsection.3.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Testing}{33}{subsection.3.3.1}% 
+\contentsline {subsection}{\numberline {3.2.3}Technical Review der Umgebung}{34}{subsection.3.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Protokollierung}{33}{subsection.3.3.2}% 
+\contentsline {section}{\numberline {3.3}Testing}{34}{section.3.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.3}Review und Auswertung}{33}{subsection.3.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}Testing}{34}{subsection.3.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Troubleshooting und L\IeC {\"o}sungsfindung}{33}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.3.2}Protokollierung}{34}{subsection.3.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Resultate}{34}{chapter.4}% 
+\contentsline {subsection}{\numberline {3.3.3}Review und Auswertung}{34}{subsection.3.3.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Ziel\IeC {\"u}berpr\IeC {\"u}fung}{34}{section.4.1}% 
+\contentsline {section}{\numberline {3.4}Troubleshooting und L\IeC {\"o}sungsfindung}{34}{section.3.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Schlussfolgerung}{34}{section.4.2}% 
+\contentsline {chapter}{\numberline {4}Resultate}{35}{chapter.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Weiteres Vorgehen / offene Arbeiten}{34}{section.4.3}% 
+\contentsline {section}{\numberline {4.1}Ziel\IeC {\"u}berpr\IeC {\"u}fung}{35}{section.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Pers\IeC {\"o}nliches Fazit}{34}{section.4.4}% 
+\contentsline {section}{\numberline {4.2}Schlussfolgerung}{35}{section.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{35}{chapter*.4}% 
+\contentsline {section}{\numberline {4.3}Weiteres Vorgehen / offene Arbeiten}{35}{section.4.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{36}{chapter*.5}% 
+\contentsline {section}{\numberline {4.4}Pers\IeC {\"o}nliches Fazit}{35}{section.4.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Listings}{37}{chapter*.6}% 
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{36}{chapter*.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literatur}{38}{chapter*.7}% 
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{37}{chapter*.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Glossar}{42}{section*.8}% 
+\contentsline {chapter}{\nonumberline Listings}{38}{chapter*.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Literatur}{39}{chapter*.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Glossar}{43}{section*.8}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Anhang}{i}{chapter*.10}% 
 \defcounter {refsection}{0}\relax 
 \addtokomafont {chapterentry}{Anhang\ } 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}Rapport}{i}{section.Alph0.1}% 
+\contentsline {section}{\numberline {I}Statusbericht}{i}{section.Alph0.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}pgpool-II}{i}{section.Alph0.2}% 
+\contentsline {subsection}{\numberline {I.I}}{i}{subsection.Alph0.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {II.I}\Gls {PostgreSQL Cluster} Installation}{i}{subsection.Alph0.2.1}% 
+\contentsline {section}{\numberline {II}Rapport}{i}{section.Alph0.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Disposition}{ii}{section.Alph0.3}% 
+\contentsline {section}{\numberline {III}pgpool-II}{i}{section.Alph0.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {III.I}\Gls {PostgreSQL Cluster} Installation}{i}{subsection.Alph0.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IV}Disposition}{ii}{section.Alph0.4}% 
