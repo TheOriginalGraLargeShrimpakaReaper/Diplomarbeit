@@ -1,0 +1,18 @@
+%! Author = itgramic
+%! Date = 26.01.24
+
+% Preamble
+\subsubsection{Monolitische Umgebung}
+\subsubsection{Kubernetes}
+Um ein minimales, dem Produktiven möglichst nahes Enviroment für die evaluation zu erhalten, wurde folgendes Setting ausgewählt:
+\begin{table}[]
+\begin{tabular}{ll}
+\textbf{Linux Distribution}                & Debian 11              \\
+\textbf{Kubernetes Runtime}                & rke2                   \\
+\textbf{Container-Enviroment}              & containerd             \\
+\textbf{Container Network Interface (CNI)} & cilium                 \\
+\textbf{Cloud Native Storage (CNS)}        & local-path-provisioner
+\end{tabular}
+\caption{Evaluations settings}
+\label{tab:evaluation-setting}
+\end{table}
