@@ -48,6 +48,13 @@
 \endgroup
 \noindent}{}
 
+\newenvironment{managementsummary}{
+\begingroup
+\let\clearpage\relax
+\chapter*{Management Summary}
+\endgroup
+\noindent{}}
+
 \newenvironment{abkuerzungen}[1][WWWWW]{\chapter*{Abk\"urzungen}
 \addcontentsline{toc}{chapter}{Abk\"urzungen}
 \begin{labeling}{#1}}{\end{labeling}}

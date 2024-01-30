@@ -1,7 +1,6 @@
 %Vorlage fuer Thesen an der FFHS
 %\documentclass{grathesis}
-%\documentclass{ksgr_styles}
-\documentclass{ibw_disposition}
+\documentclass{ksgr_styles}
 \usepackage[utf8]{inputenc}
 \usepackage{float} % Hold figures and tables on place
 \usepackage{longtable}
@@ -85,16 +84,15 @@
   tabsize=2
 }
 
+
 \fancyhf{}% Clear all headers/footers
 \fancypagestyle{headings}{\fancyhf{}
 %  \fancyhead[L]{}
-  \fancyfoot[C]{\thepage{}}
+  \fancyfoot[R]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\thepage{}}
+  \fancyfoot[L]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation}
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
   \renewcommand\thepage{\arabic{page}}
-  \rhead{\includegraphics[width=1cm]{source/main/ibw}}
-
-  \fancyhead[L]{\fontsize{11.5pt}{13.8ptpt} \selectfont\rmfamily\bfseries\color[HTML]{2F5496}Disposition Diplomarbeit\\}
 }
 \fancypagestyle{FirstPage}{\fancyhf{}
   \fancyhead[L]{}
@@ -102,25 +100,26 @@
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
   \renewcommand\thepage{\arabic{page}}
-  \rhead{\includegraphics[width=1cm]{source/main/ibw}}
-%  \headheight 33pt
+  \fancyhead[L]{\includegraphics{source/main/ksgr}}
+  \fancyhead[C]{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[32em][l]{Kantonsspital Graubünden} \\ \makebox[32em][l]{Departement ICT} \\ \makebox[32em][l]{\textbf{Data Center}} \\ \makebox[32em][l]{www.ksgr.ch} \\}
+  \fancyhead[R]{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[8em][l]{\textbf{Michael}} \\ \makebox[8em][l]{\textbf{Graber}} \\ \makebox[8em][l]{Datenbank Administrator} \\ \makebox[8em][l]{michael.graber@ksgr.ch} \\ \makebox[8em][l]{+41 81 256 68 25} \\}
 }
 %    % Headings
 
-\titleformat{\chapter}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{11.5pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{12pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thechapter}}}{0pt}{#1}[]
+\titleformat{\chapter}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{11.5pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{C60821}}{{\fontsize{12pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thechapter}}}{0pt}{#1}[]
 \titlespacing*{\chapter}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
 
-\titleformat{\section}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{11.5pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesection}}}{0pt}{#1}[]
+\titleformat{\section}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{11.5pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesection}}}{0pt}{#1}[]
 \titlespacing*{\section}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
-\titleformat{\subsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsection}}}{0pt}{#1}[]
+\titleformat{\subsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsection}}}{0pt}{#1}[]
 \titlespacing*{\subsection}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
-\titleformat{\subsubsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsubsection}}}{0pt}{#1}[]
+\titleformat{\subsubsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsubsection}}}{0pt}{#1}[]
 \titlespacing*{\subsubsection}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
-\titleformat{\subsubsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsubsection}}}{0pt}{#1}[]
+\titleformat{\subsubsection}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubsubsection}}}{0pt}{#1}[]
 \titlespacing*{\subsubsection}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
-\titleformat{\paragraph}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\theparagraph}}}{0pt}{#1}[]
+\titleformat{\paragraph}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\theparagraph}}}{0pt}{#1}[]
 \titlespacing*{\paragraph}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
-\titleformat{\subparagraph}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{2F5496}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubparagraph}}}{0pt}{#1}[]
+\titleformat{\subparagraph}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubparagraph}}}{0pt}{#1}[]
 \titlespacing*{\subparagraph}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
 
 \pagestyle{headings}
@@ -130,25 +129,11 @@
 %    \parttoc % Insert the document TOC
 
 %    \begin{flushleft}
-    \dispotitel{Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
-    \arbeittitel{PostgreSQL HA Cluster - Konzeption und Implementation}
-    \studentname{Graber}
-    \studentvorname{Michael}
-    \studiengang{DIPL. INFORMATIKER/-IN HF - 10.0002A-2021}
-    \arbeitgeber{Kantonsspital Graubünden}
+    \toptitel{Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
+    \dokuemnttitel{PostgreSQL HA Cluster - Konzeption und Implementation}
+    \datum{22.11.2023}
+%    \end{flushleft}
     \maketitle
-%    \newpage
-%    \fancypagestyle
-%    \clearpage
-%    \pagestyle{headings}
-    \clearpage
-    \thispagestyle{fancy}
-    \begin{zusammenfassung}
-        Disposition für die Diplomarbeit von Michael Graber.
-        Ziel der Arbeit ist die Evaluation, Konzeption und Implementation eines PostgreSQL HA Clusters für das Kantonsspital Graubünden.
-    \end{zusammenfassung}
-    \pagestyle{headings}
-    \thispagestyle{fancy}
 
     \begin{managementsummary}
         \begin{flushleft}
