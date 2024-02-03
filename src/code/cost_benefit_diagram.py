@@ -14,12 +14,47 @@ def load_configuration():
 #    with open(yaml_path) as json_string:
 #        cost_benefit_config = json.load(json_string)
 
-    cost_benefit_config = yaml.load(yaml_path)
+    with open(yaml_path, "r") as file:
+        cost_benefit_config = yaml.load(file, Loader=yaml.FullLoader)
+        #pprint(data)
+    #cost_benefit_config = yaml.load(yaml_path, Loader=yaml.Loader)
 
     return cost_benefit_config
 
 def get_data(cost_benefit_config):
     cost_benefit_data = dict()
+
+    risk_conf = cost_benefit_config.get(risk)
+    startpath = risk_conf.get('startpath')
+    destination = risk_conf.get('destinatination')
+    imagename = risk_conf.get('imagename')
+    datafilename = risk_conf.get('datafilename')
+    itemname = risk_conf.get('itemname')
+    x_axis_title = risk_conf.get('x-axis-title')
+    y_axis_title = risk_conf.get('y-axis-title')
+    title = risk_conf.get('title')
+    bubble_standard_size = int(risk_conf.get('bubble-standard-size'))
+
+    if startpath == 'homedir':
+        directory = os.path.join(os.getcwd(), destination)
+    else:   # parentdir
+        directory = os.path.join(os.path.dirname(os.getcwd()), destination)
+
+    print(directory)
+
+    # get the Datas as dirct
+    data_path = os.path.join(directory, datafilename)
+    image_path = os.path.join(directory, imagename)
+
+    # load datas from csv into dict
+    with open(data_path) as f:
+        csv_list = [[val.strip() for val in r.split(",")] for r in f.readlines()]
+
+    (_, *header), *data = csv_list
+    datas = {}
+    for row in data:
+        key, *values = row
+        datas[key] = {key: value for key, value in zip(header, values)}
     return cost_benefit_data
 def cost_benefit_diagram (cost_benefit_config, cost_benefit_data):
     # Datenpunkte
