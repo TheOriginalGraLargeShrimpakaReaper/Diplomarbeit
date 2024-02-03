@@ -1,0 +1,12 @@
+startpath: "parentdir"
+desitination_path: "source/cost_benefit_diagram"
+datafile: "cost_benefit_diagram.csv"
+imagename: "cost_benefit_diagram.png"
+x-axis-title: "Punkte"
+x-axis-line-pos: 80
+x-axis-line-label: "Kosten-Maximum"
+y-axis-title: "Kosten"
+y-axis-line-pos: 80
+y-axis-line-label: "Punkte-Minimum"
+title: "Kosten-Nutzen-Diagramm"
+

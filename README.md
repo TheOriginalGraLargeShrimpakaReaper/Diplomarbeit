@@ -17,4 +17,5 @@ pip install matplotlib
 pip install pandas
 pip install pybtex
 pip install requests
+pip install pyyaml
 ```
