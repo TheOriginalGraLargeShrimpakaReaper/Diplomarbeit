@@ -4,47 +4,31 @@ import csv
 import pandas as pd
 import yaml
 
+# Get the Configuration
 def load_configuration():
     cost_benefit_config = dict()
     cbd_conf_filename = 'scatter_plotter_conf.yaml'
     cbd_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
-    # cbd_conf_dir = os.path.join(os.getcwd(), 'src', 'content')
     yaml_path = os.path.join(cbd_conf_dir, cbd_conf_filename)
-
-#    with open(yaml_path) as json_string:
-#        cost_benefit_config = json.load(json_string)
 
     with open(yaml_path, "r") as file:
         cost_benefit_config = yaml.load(file, Loader=yaml.FullLoader)
-        #pprint(data)
-    #cost_benefit_config = yaml.load(yaml_path, Loader=yaml.Loader)
 
     return cost_benefit_config
-
+# Get the Datas
 def get_data(cost_benefit_config):
-    cost_benefit_data = dict()
-
-    risk_conf = cost_benefit_config.get(risk)
-    startpath = risk_conf.get('startpath')
-    destination = risk_conf.get('destinatination')
-    imagename = risk_conf.get('imagename')
-    datafilename = risk_conf.get('datafilename')
-    itemname = risk_conf.get('itemname')
-    x_axis_title = risk_conf.get('x-axis-title')
-    y_axis_title = risk_conf.get('y-axis-title')
-    title = risk_conf.get('title')
-    bubble_standard_size = int(risk_conf.get('bubble-standard-size'))
+    # Config Variables
+    startpath = cost_benefit_config.get('startpath')
+    destination = cost_benefit_config.get('desitination_path')
+    datafilename = cost_benefit_config.get('datafile')
 
     if startpath == 'homedir':
         directory = os.path.join(os.getcwd(), destination)
     else:   # parentdir
         directory = os.path.join(os.path.dirname(os.getcwd()), destination)
 
-    print(directory)
-
     # get the Datas as dirct
     data_path = os.path.join(directory, datafilename)
-    image_path = os.path.join(directory, imagename)
 
     # load datas from csv into dict
     with open(data_path) as f:
@@ -55,42 +39,61 @@ def get_data(cost_benefit_config):
     for row in data:
         key, *values = row
         datas[key] = {key: value for key, value in zip(header, values)}
-    return cost_benefit_data
-def cost_benefit_diagram (cost_benefit_config, cost_benefit_data):
-    # Datenpunkte
-    #data = {'Variante a': (88, 74), 'Variante b': (95, 91), 'Variante c': (55, 60)}
 
-    # Daten extrahieren
+    cost_benefit_data = {}
+    for key, value in datas.items():
+        variant_name = value['variant_name']
+        x_axis = int(value['x-axis'])
+        y_axis = int(value['y-axis'])
+        cost_benefit_data[variant_name] = (x_axis, y_axis)
+
+    return cost_benefit_data
+
+# Plot the Datas
+def cost_benefit_diagram (cost_benefit_config, cost_benefit_data):
+    # Config Variables
+    startpath = cost_benefit_config.get('startpath')
+    destination = cost_benefit_config.get('desitination_path')
+    imagename = cost_benefit_config.get('imagename')
+
+    if startpath == 'homedir':
+        directory = os.path.join(os.getcwd(), destination)
+    else:   # parentdir
+        directory = os.path.join(os.path.dirname(os.getcwd()), destination)
+
+    # get the Datas as dirct
+    data_path = os.path.join(directory, imagename)
+
+    # Extract the Datas
     labels, values = zip(*cost_benefit_data.items())
     x, y = zip(*values)
 
-    # Scatter-Diagramm erstellen
-    plt.scatter(x, y, color='blue')
+    # Create Scatter-Diagram
+    plt.scatter(x, y, color=cost_benefit_config.get('scatter-point-color'))
 
-    # X-Linie bei y=80
-    plt.axhline(y=80, color='red', linestyle='--', label='Kosten-Maximum')
+    # X-Lines
+    plt.axhline(y=cost_benefit_config.get('y-axis-line-pos'), color=cost_benefit_config.get('y-axis-line-color'), linestyle=cost_benefit_config.get('y-axis-line-type'), label=cost_benefit_config.get('y-axis-line-label'))
 
-    # Y-Linie bei x=80
-    plt.axvline(x=80, color='green', linestyle='--', label='Punkte-Minimum')
+    # Y-Lines
+    plt.axvline(x=cost_benefit_config.get('x-axis-line-pos'), color=cost_benefit_config.get('x-axis-line-color'), linestyle=cost_benefit_config.get('x-axis-line-type'), label=cost_benefit_config.get('x-axis-line-label'))
 
-    # Beschriftung hinzufügen
-    plt.xlabel('Punkte')
-    plt.ylabel('Kosten')
-    plt.title('Kosten-Nutzen-Diagramm')
+    # Add Labels
+    plt.xlabel(cost_benefit_config.get('x-axis-title'))
+    plt.ylabel(cost_benefit_config.get('y-axis-title'))
+    plt.title(cost_benefit_config.get('title'))
 
-    # Datenpunkte beschriften
+    # Labling Data Points
     for label, x_point, y_point in zip(labels, x, y):
         plt.text(x_point, y_point, label)
 
-    # Legende anzeigen
+    # Show Legends
     plt.legend()
 
-    # Diagramm anzeigen
+    # Show Grid
     plt.grid(True)
-    plt.show()
 
-    # Diagramm als PNG speichern
-    plt.savefig('scatter_plot.png')
+    # Save Diagram as PNG
+    plt.savefig(data_path)
 
 cost_benefit_config = load_configuration()
 cost_benefit_data = get_data(cost_benefit_config)
