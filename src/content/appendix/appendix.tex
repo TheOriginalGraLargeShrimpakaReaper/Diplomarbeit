@@ -96,6 +96,9 @@
     \titleformat{\subparagraph}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{10pt}{13.8pt}\selectfont\rmfamily\bfseries\color[HTML]{000000}}{{\fontsize{11pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thesubparagraph}}}{0pt}{#1}[]
     \titlespacing*{\subparagraph}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
 
+    \captionsetup[table]{name=TABLE}
+    \renewcommand{\thetable}{\Roman{table}}
+
     \clearpage
     \addcontentsline{toc}{chapter}{Anhang}
     \addtocontents{toc}{%
