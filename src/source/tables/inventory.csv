@@ -1,0 +1,70 @@
+server,rdbms,os,comment,version,releasedate,eol,age,eol_since,instance,databases,appliance
+sks0288,MySQL,Windows Server,MySQL Workbench 6.2 CE / Server,05.07.1937,21.10.2015,31.10.2023,8,0,1,1,0
+cks1682,MySQL,Windows Server,MySQL Workbench 6.3 CE,5.5,03.12.2010,31.12.2018,12,4,1,1,0
+sks1088,MySQL,Windows Server,MySQL Workbench 6.3 CE / Server,05.06.2026,05.02.2013,28.02.2021,10,2,1,1,0
+ssi0127,MySQL,Windows Server,MySQL Workbench 6.3 CE / Fabric / Server,05.07.2011,21.10.2015,31.10.2023,8,0,1,1,0
+cks1056,MySQL,Windows Server,MySQL Workbench 8.0 CE,8.0.17,19.04.2018,30.04.2026,5,0,1,1,0
+cks1251,MySQL,Windows Server,MySQL Workbench 8.0 CE,8.0.17,19.04.2018,30.04.2026,5,0,1,1,0
+cks3735,MySQL,Windows Server,MySQL Workbench 8.0 CE,8,19.04.2018,30.04.2026,5,0,1,1,0
+sks0100,MySQL,Windows Server,MySQL Workbench 8.0 CE,8.0.31,19.04.2018,30.04.2026,5,0,1,1,0
+sks0995,MySQL,Windows Server,MySQL Workbench 8.0 CE / Server,8.0.29 ,19.04.2018,30.04.2026,5,0,1,1,0
+sks1312,MySQL,Windows Server,Server,8.0.32,19.04.2018,30.04.2026,5,0,1,1,0
+cks3125,PostgreSQL,Windows Server,,8.3,04.02.2008,07.02.2013,15,10,1,1,0
+mks0529,PostgreSQL,Windows Server,,8.3,04.02.2008,07.02.2013,15,10,1,1,0
+sks0363,PostgreSQL,Windows Server,,11.0-1,18.10.2018,09.11.2023,5,0,1,1,0
+sks0745,PostgreSQL,Windows Server,,9.6,29.09.2016,11.11.2021,7,1,1,1,0
+ssi0068,PostgreSQL,Windows Server,,9.2,10.09.2012,09.11.2017,11,5,1,1,0
+mks0006,PostgreSQL,Windows Server,,10,05.10.2017,10.11.2022,6,0,1,1,0
+sks0025,PostgreSQL,Windows Server,,11,18.10.2018,09.11.2023,5,0,1,1,0
+sks0256,PostgreSQL,Windows Server,,11,18.10.2018,09.11.2023,5,0,1,1,0
+sks0964,MongoDB,Windows Server,,04.02.2003,01.08.2019,30.04.2023,4,0,1,1,0
+ssi0095,MySQL,Linux,,5.6.33-0,05.02.2013,28.02.2021,10,2,1,23,0
+sks0193,PostgreSQL,Windows Server,,09.05.2004,07.01.2016,11.02.2021,7,2,1,1,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,11.2,01.09.2009,31.12.2018,14,4,1,1,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,12.2,01.03.2017,31.03.2022,6,1,5,5,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,19.18,01.04.2019,30.04.2027,4,0,1,1,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,19.12,01.04.2019,30.04.2027,4,0,4,4,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,19.1,01.04.2019,30.04.2027,4,0,2,4,0
+ssi0136 / ssi0137,Oracle Database,HP-UX,,19.11,01.04.2019,30.04.2027,4,0,1,1,0
+ssi0134 / ssi0135,Oracle Database,HP-UX,,12.2,01.03.2017,31.03.2022,6,1,3,3,0
+ssi0134 / ssi0135,Oracle Database,HP-UX,,11.2,01.09.2009,31.12.2018,14,4,1,1,0
+ssi0134 / ssi0135,Oracle Database,HP-UX,,19.1,01.04.2019,30.04.2027,4,0,1,2,0
+ssi0134 / ssi0135,Oracle Database,HP-UX,,19.12,01.04.2019,30.04.2027,4,0,2,2,0
+sks0597,Oracle Database,Windows Server,,12.2,01.03.2017,31.03.2022,6,1,1,1,0
+sks0700,Oracle Database,Windows Server,,12.2,01.03.2017,31.03.2022,6,1,1,1,0
+sks0704,Oracle Database,Windows Server,,12.2,01.03.2017,31.03.2022,6,1,1,1,0
+sks0589,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0152,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0397,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0398,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0399,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0566 / sks0924,MariaDB,Linux,,10.06.2008,26.04.2021,31.07.2026,2,0,1,1,0
+sks0590,MySQL,Linux,,05.05.1962,03.12.2010,31.12.2018,12,4,1,1,0
+sks0149,MySQL,Linux,,05.06.1933,05.02.2013,28.02.2021,10,2,1,1,0
+sks0156,MySQL,Linux,,05.06.1933,05.02.2013,28.02.2021,10,2,1,1,0
+srv127,MySQL,Windows Server,,5.0.51b,01.10.2005,09.01.2012,18,11,1,1,0
+sks0753,MySQL,Windows Server,,5.7,21.10.2015,31.10.2023,8,0,1,1,0
+sks0967,MySQL,Windows Server,,5.7,21.10.2015,31.10.2023,8,0,1,1,0
+sks0257,MySQL,Linux,,05.06.1944,05.02.2013,28.02.2021,10,2,1,1,0
+sks0288,MySQL,Windows Server,,05.07.1937,21.10.2015,31.10.2023,8,0,1,1,0
+sks0722,MySQL,Linux,,05.05.2005,03.12.2010,31.12.2018,12,4,1,1,0
+sks0722,MariaDB,Linux,,10.02.2008,18.04.2016,31.05.2022,7,1,1,1,0
+uks0097,MySQL,Linux,,05.07.1933,21.10.2015,31.10.2023,8,0,1,1,1
+uks0103,MySQL,Linux,,05.07.1933,21.10.2015,31.10.2023,8,0,1,1,1
+uks0109,MySQL,Linux,,05.07.1933,21.10.2015,31.10.2023,8,0,1,1,1
+mks0155,PostgreSQL,Windows Server,,08.03.2008,04.02.2008,07.02.2013,15,10,1,1,0
+mks0004,PostgreSQL,Linux,,07.04.2002,17.11.2003,01.10.2010,19,13,1,1,0
+sks1143,PostgreSQL,Linux,,15,13.10.2022,30.11.2027,1,0,1,1,0
+sks1144,PostgreSQL,Linux,,15,13.10.2022,30.11.2027,1,0,1,1,0
+sks0768,PostgreSQL,Windows Server,,9.5,07.01.2016,11.02.2021,7,2,1,1,0
+sks0570,PostgreSQL,Linux,Synedra,14.9,30.09.2021,12.11.2026,2,0,1,1,1
+sks0571,PostgreSQL,Linux,Synedra,14.9,30.09.2021,12.11.2026,2,0,1,1,1
+sks0572,PostgreSQL,Linux,Synedra,14.9,30.09.2021,12.11.2026,2,0,1,1,1
+sks0745,PostgreSQL,Windows Server,,9.6,29.09.2016,30.11.2021,7,1,1,1,0
+sks0168,PostgreSQL,Linux,Radimetrics - rescue und root passwd unbrauchbar - Pr�fen lassen,09.06.2000,29.09.2016,30.11.2021,7,1,1,1,1
+sks0362,PostgreSQL,Linux,KISIM Auswertungsdatenbank - Noch im Betrieb? (wurde upgedated),15.1,13.10.2022,11.11.2027,1,0,1,1,0
+sks0361,MongoDB,Windows Server,,03.02.2013,01.12.2015,31.12.2018,7,4,1,1,0
+sks0257,Redis,Linux,,3.0.7,01.03.2011,31.01.2016,12,7,1,1,0
+sks1052,Oracle Database,Linux,EMCC13 Repo,19.18,01.04.2019,30.04.2027,4,0,1,1,0
+ssi0183,Oracle Database,Windows Server,RMAN Catalog DB,12.1.0.2.0,25.09.2014,31.07.2019,9,4,1,1,0
+sks0927,Oracle Database,Windows Server,Express Edition H-Net (PostgreSQL Migration in Arbeit),11.2.0.2.0,25.10.2013,25.10.2013,9,9,1,1,0

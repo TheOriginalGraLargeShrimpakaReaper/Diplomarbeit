@@ -1,0 +1,183 @@
+tables_inventory:
+ - "db_inventory"
+ - "db_inventory_per_rdbms"
+ - "db_inventory_per_os"
+tables:
+ db_inventory:
+  id: "db_inventory"
+  caption: "Datenbankinventar - Roh"
+  label: "db_inventory"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory.tex"
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "comment"
+   - "eol"
+   - "eol_since"
+   - "releasedate"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   server: "Server - Hostname"
+   os: "OS"
+   rdbms: "RDBMS"
+   instance: "Instanz"
+   databases: "Datenbanken"
+   appliance: "Appliance"
+   comment: "Kommentar"
+   version: "Version"
+   releasedate: "Version - Releasedatum"
+   eol: "EoL"
+   age: "Version - Alter"
+   eol_since: "EoL seit"
+  where_clausel:
+  sorting:
+   order_by:
+    - "server"
+    - "rdbms"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+ db_inventory_per_rdbms:
+  id: "db_inventory_per_rdbms"
+  caption: "Datenbankinventar"
+  label: "db_inventory_per_rdbms"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory_per_rdbms.tex"
+  group_by:
+   - "rdbms"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+   - "rdbms"
+  drop_columns:
+   - "server"
+   - "os"
+   - "version"
+   - "releasedate"
+   - "eol"
+   - "age"
+   - "eol_since"
+   - "comment"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   rdbms: "RDBMS"
+   instance : "Instanz"
+   databases : "Datenbanken"
+   appliance: "Appliance"
+  where_clausel:
+  sorting:
+   order_by:
+    - "rdbms"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: True
+   margin_name: "Gesamtergebnis"
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+ db_inventory_per_os:
+  id: "db_inventory_per_os"
+  caption: "Datenbankinventor - Nach Betriebssystemen aufgeschlüsselt"
+  label: "db_inventory_per_os"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory_per_os.tex"
+  group_by:
+   - "rdbms"
+   - "os"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+   - "os"
+  drop_columns:
+   - "server"
+   - "version"
+   - "releasedate"
+   - "eol"
+   - "age"
+   - "eol_since"
+   - "comment"
+#   - "appliance"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes:
+     - "os"
+     - "rdbms"
+    pivot_indizes_visible: True
+    pivot_rename_indizes:
+     os: "OS"
+     rdbms: "RDBMS"
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+    instance: "sum"
+    databases: "sum"
+    appliance: "sum"
+   transpose: True
+  rename_columns:
+   rdbms: "RDBMS"
+   instance : "Instanz"
+   databases : "Datenbanken"
+   os : "OS"
+   appliance: "Appliance"
+  where_clausel:
+  sorting:
+   order_by:
+   sort_acending: False
+   sort_inplace: True
+  margins:
+   margin: True
+   margin_name: "Gesamtergebnis"
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
