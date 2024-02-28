@@ -1,0 +1,7 @@
+Datum;Von;Bis;Dauer [h];Geplante Dauer [h];Hide;Phase;T�tigkeit;Bemerkungt;Schwierigkeit;L�sungen
+14.02.2024;;;;4;1;Evaluation;;;;
+21.02.2024;15:00;16:00;1;;0;Evaluation;Anorderungskatalog erarbeiten;;;
+22.02.2024;16:00;17:30;1.5;;0;Evaluation;Anorderungskatalog erarbeiten;;;
+27.02.2024;10:00;11:30;1.5;;0;Dokumentation;Dokumentation erweitern;;;
+27.02.2024;13:00;16:00;3;;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut f�r alle m�glichen Tabellen. Inkl. Aggregation und Pivot-Mechaniken
+28.02.2024;09:00;11:00;2;;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut f�r alle m�glichen Tabellen. Inkl. Aggregation und Pivot-Mechaniken

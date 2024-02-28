@@ -1,0 +1,47 @@
+\begin{longtable}[H]{lrllll}
+
+\toprule
+ & Nr. & Anforderung & Beschreibung & System & Muss / Kann \\
+\midrule
+\endfirsthead
+\caption[]{Anforderungskatalog} \\
+\toprule
+ & Nr. & Anforderung & Beschreibung & System & Muss / Kann \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & Systemvielfallt & Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden & Beides & MUSS \\
+1 & 2 & Synergien & Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können & Beides & MUSS \\
+2 & 3 & Failover & Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt & Beides & MUSS \\
+3 & 4 & Failover & Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden & Beides & MUSS \\
+4 & 5 & Failover-Geschwindigkeit & Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden, das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird. & Beides & MUSS \\
+5 & 6 & Switchover & Das System muss ein Skript oder eine API liefern, welche einen geordeten Switchover auf einen anderen Node erlaubt & Beides & MUSS \\
+6 & 7 & Switchover & Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden & Beides & MUSS \\
+7 & 8 & Switchover-Geschwindigkeit & Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden, das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird. & Beides & MUSS \\
+8 & 9 & Restore & Das Clustersystem muss ein Skript oder eine API liefern, welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen & Beides & MUSS \\
+9 & 10 & Restore & Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen & Beides & MUSS \\
+10 & 11 & Restore & Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen & Beides & MUSS \\
+11 & 12 & Restore-Geschwindigkeit & Das Wiederherstellen des Ursprungszustands muss innert weniger Stunden für alle Datenbanken aus dem Backup Wiederhergestellt und im Clustersystem Synchronisiert werden & Beides & MUSS \\
+12 & 13 & Replikation & Es muss eine Synchrone Replikation sichergestellt werden & Monolitisch & MUSS \\
+13 & 14 & Replikation & Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt & Monolitisch & MUSS \\
+14 & 15 & Sharding & Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden & Distributed SQL & MUSS \\
+15 & 16 & Sharding & Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt & Distributed SQL & MUSS \\
+16 & 17 & Quorum & Das Clustersystem muss über ein Quorum-System besitzen & Beides & MUSS \\
+17 & 18 & Quorum & Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern & Beides & MUSS \\
+18 & 19 & Connection & Das Clustersystem muss sicherstellen, dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann & Beides & MUSS \\
+19 & 20 & Management-API & Das Clustersystem muss Skripte oder eine API liefern,
+mit dem das System zu konfigurieren, verwalten oder überwachen zu können.
+Zudem müssen mit geringen Arbeitsaufwand damit Nodes hinzugefügt oder entfernt werden können & Beides & MUSS \\
+20 & 21 & Management-API & Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden & Beides & MUSS \\
+21 & 22 & Backup & Backups müssen mittels PostgreSQL Standards angezogen werden & Beides & MUSS \\
+22 & 23 & Backup Restore & Backups müssen mittels PostgreSQL Standards restored werden können & Beides & MUSS \\
+23 & 24 & Housekeeping - Log Rotation & Das Clustersystem muss die möglichkeit zur Log Rotation bieten & Beides & MUSS \\
+24 & 25 & Self Heahling & Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können & Beides & KANN \\
+25 & 26 & Monitoring - Node Failure & Läuft ein Node auf einen Fehler, muss das Clustersystem dies erkennen und Melden resp. eine Schnittstelle liefern die abgefragt werden kann & Beides & MUSS \\
+\caption{Anforderungskatalog} \label{anforderungskatalog}
+\end{longtable}

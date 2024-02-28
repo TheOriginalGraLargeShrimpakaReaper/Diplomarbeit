@@ -1,7 +1,10 @@
 import os
 import pandas as pd
 import yaml
+from pathlib import Path
+import chardet
 
+import csv
 
 # Get the Configuration
 def load_configuration(plt_conf_filename):
@@ -14,27 +17,83 @@ def load_configuration(plt_conf_filename):
 
     return panda_latex_tables_config
 
-def get_data(startpath, destination, tablefilename, datafile_path, datafile):
+
+def get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal):
     # Config Variables
     if startpath == 'homedir':
         directory = os.path.join(os.getcwd(), datafile_path)
-    else:   # parentdir
+    else:  # parentdir
         directory = os.path.join(os.path.dirname(os.getcwd()), datafile_path)
 
     # get the Datas as dirct
     data_path = os.path.join(directory, datafile)
 
     # load datas from csv into dict
-    panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding = "latin1")
+    detected = chardet.detect(Path(data_path).read_bytes())
+    encoding = detected.get("encoding")
 
+    # if alternative_cvs_load:
+    #     with open(data_path, 'r', encoding=encoding) as file:
+    #         reader = csv.reader(file)
+    #         data = list(reader)
+    #
+    #     # panda_table_data = pd.DataFrame(data, columns=data[0])
+    #     # panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding, lineterminator='\n', engine='python')
+    #     panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding, lineterminator='\n')
+    #     df_dtype = {
+    #         "Nr.": int,
+    #         "Anforderung": str,
+    #         "Beschreibung": str,
+    #         "System": str,
+    #         "Muss / Kann": str
+    #     }
+    #     # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, lineterminator='\n', dtype=df_dtype)
+    #     # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding)
+    # else:
+    #     panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding)
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, low_memory=False, engine='python')
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, engine='python', dtype='unicode')
+    # readed = open(data_path, 'r', encoding=encoding)
+    # panda_table_data = pd.read_csv(open(data_path, 'r', encoding=encoding), sep=",", decimal=".", encoding=encoding)
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding = "ISO-8859-1")
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, chunksize=10)
+
+    # for chunk in pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, chunksize=5):
+    #     print(chunk)
+    # panda_table_data = pd.DataFrame()
+    # temp = pd.read_csv(data_path, iterator=True, sep=",", decimal=".", encoding=encoding, chunksize=1000)
+    # panda_table_data = pd.concat(temp, ignore_index=True)
+
+    df_dtype = {
+        "Nr.": int,
+        "Anforderung": str,
+        "Beschreibung": str,
+        "System": str,
+        "Muss / Kann": str
+    }
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, engine='python', dtype=df_dtype)
+    # panda_table_data = pd.read_csv(data_path, sep=",", decimal=".", encoding=encoding, dtype=df_dtype)
+
+    # import dask.dataframe as dd
+    # df = dd.read_csv(data_path, sep=",", decimal=".", encoding=encoding)
+    # panda_table_data = df
+
+    panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding)
     # return data
     return panda_table_data
+
 
 def create_latex_tables(panda_latex_tables_config):
     plt_tables = panda_latex_tables_config.get('tables_inventory')
     for table_item in plt_tables:
         # id and filesystem informations
         table_id = panda_latex_tables_config.get('tables').get(table_item).get('id')
+        isbigfile = panda_latex_tables_config.get('tables').get(table_item).get('isbigfile')
+        has_longtexts = panda_latex_tables_config.get('tables').get(table_item).get('has_longtexts')
+        if isbigfile or has_longtexts:
+            alternative_cvs_load = True
+        else:
+            alternative_cvs_load = False
         startpath = panda_latex_tables_config.get('tables').get(table_item).get('startpath')
         destination = panda_latex_tables_config.get('tables').get(table_item).get('destination_path')
         tablefilename = panda_latex_tables_config.get('tables').get(table_item).get('tablefilename')
@@ -45,11 +104,13 @@ def create_latex_tables(panda_latex_tables_config):
         else:  # parentdir
             directory = os.path.join(os.path.dirname(os.getcwd()), destination)
         tablefile = os.path.join(directory, tablefilename)
+        separator = panda_latex_tables_config.get('tables').get(table_item).get('separator')
+        decimal = panda_latex_tables_config.get('tables').get(table_item).get('decimal')
 
         # group by / aggregation
         groupby_values = panda_latex_tables_config.get('tables').get(table_item).get('group_by')
         group_by_function = panda_latex_tables_config.get('tables').get(table_item).get('group_by_function')
-        #selected_rows = panda_latex_tables_config.get('tables').get(table_item).get('selected_rows')
+        # selected_rows = panda_latex_tables_config.get('tables').get(table_item).get('selected_rows')
         agg_funtion = panda_latex_tables_config.get('tables').get(table_item).get('agg_funtion')
         agg_colums = panda_latex_tables_config.get('tables').get(table_item).get('agg_colums')
         # dropping and renaming columns
@@ -69,12 +130,18 @@ def create_latex_tables(panda_latex_tables_config):
 
         # pivot_table settings
         pivot_table = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table')
-        pivot_table_column = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_columns')
-        pivot_table_value = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_values')
-        pivot_table_agg_function = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_agg_func')
-        pivot_table_indizes = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_index').get('pivot_indizes')
-        pivot_table_indizes_visible = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_index').get('pivot_indizes_visible')
-        pivot_table_rename_indizes = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get('pivot_index').get('pivot_rename_indizes')
+        pivot_table_column = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_columns')
+        pivot_table_value = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_values')
+        pivot_table_agg_function = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_agg_func')
+        pivot_table_indizes = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_index').get('pivot_indizes')
+        pivot_table_indizes_visible = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_index').get('pivot_indizes_visible')
+        pivot_table_rename_indizes = panda_latex_tables_config.get('tables').get(table_item).get('pivot_table').get(
+            'pivot_index').get('pivot_rename_indizes')
 
         # margins (subtotals)
         margin = panda_latex_tables_config.get('tables').get(table_item).get('margins').get('margin')
@@ -84,21 +151,25 @@ def create_latex_tables(panda_latex_tables_config):
         table_caption = panda_latex_tables_config.get('tables').get(table_item).get('caption')
         table_label = panda_latex_tables_config.get('tables').get(table_item).get('label')
         table_style = panda_latex_tables_config.get('tables').get(table_item).get('table_styles')
-        sparse_columns = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('sparse_columns')
-        table_caption_position = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('caption-side')
-        table_position = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('position')
-        longtable = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('longtable')
+        sparse_columns = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get(
+            'sparse_columns')
+        table_caption_position = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get(
+            'props').get('caption-side')
+        table_position = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
+            'position')
+        longtable = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
+            'longtable')
 
         # get the pandas (panda data)
-        panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile)
-
-        # Drop unused columns
-        if drop_columns:
-            panda_table_data = panda_table_data.drop(columns=drop_columns)
+        panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal)
 
         # filter by where clausel
         if where_clausel:
             panda_table_data = panda_table_data.query(where_clausel)
+
+        # Drop unused columns
+        if drop_columns:
+            panda_table_data = panda_table_data.drop(columns=drop_columns)
 
         # set aggregation functions
         # if groupby_values and not agg_funtion and not pivot_column and not pivot_table_column:
@@ -121,12 +192,19 @@ def create_latex_tables(panda_latex_tables_config):
         if pivot_table_column or pivot_table_value or pivot_table_indizes:
             if type(pivot_table_agg_function) is list:
                 agg_tuple = tuple(pivot_table_agg_function)
-                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes, columns=pivot_table_column, values=pivot_table_value, aggfunc=agg_tuple, margins=margin, margins_name=margin_name)
+                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes,
+                                                  columns=pivot_table_column, values=pivot_table_value,
+                                                  aggfunc=agg_tuple, margins=margin, margins_name=margin_name)
             elif type(pivot_table_agg_function) is dict:
-                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes, columns=pivot_table_column,
-                                                  values=pivot_table_value, aggfunc=pivot_table_agg_function, margins=margin, margins_name=margin_name)
+                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes,
+                                                  columns=pivot_table_column,
+                                                  values=pivot_table_value, aggfunc=pivot_table_agg_function,
+                                                  margins=margin, margins_name=margin_name)
             else:
-                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes, columns=pivot_table_column, values=pivot_table_value, aggfunc=pivot_table_agg_function, margins=margin, margins_name=margin_name)
+                panda_table_data = pd.pivot_table(panda_table_data, index=pivot_table_indizes,
+                                                  columns=pivot_table_column, values=pivot_table_value,
+                                                  aggfunc=pivot_table_agg_function, margins=margin,
+                                                  margins_name=margin_name)
 
         # order by
         if order_by:
@@ -141,7 +219,9 @@ def create_latex_tables(panda_latex_tables_config):
             panda_table_data = panda_table_data.rename_axis(index=pivot_table_rename_indizes)
 
         # convert python panda to latex table
-        latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable, sparsify=sparse_columns, label=table_label, caption=table_caption, position=table_position, na_rep='', index=pivot_table_indizes_visible)
+        latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable,
+                                                sparsify=sparse_columns, label=table_label, caption=table_caption,
+                                                position=table_position, na_rep='', index=pivot_table_indizes_visible)
 
         # caption below is not supported yet (pandas 2.2)
         # replace caption and replace table end with the caption line and table end
@@ -168,10 +248,10 @@ def create_latex_tables(panda_latex_tables_config):
                 new_caption = caption_label_nbr + "\n" + table_string
                 latex_table = latex_table.replace(table_string, new_caption)
 
-
         # write latex table to filesystem
         with open(tablefile, 'w') as wrlt:
             wrlt.write(latex_table)
+
 
 # run the methods / functions
 panda_latex_tables_config = load_configuration('panda_latex_demo.yaml')

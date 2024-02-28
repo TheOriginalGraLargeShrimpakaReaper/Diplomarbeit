@@ -2,9 +2,15 @@ tables_inventory:
  - "db_inventory"
  - "db_inventory_per_rdbms"
  - "db_inventory_per_os"
+ - "anforderungskatalog"
+ - "arbeitsrapport"
 tables:
  db_inventory:
   id: "db_inventory"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
   caption: "Datenbankinventar - Roh"
   label: "db_inventory"
   startpath: "parentdir"
@@ -63,6 +69,10 @@ tables:
     longtable: True
  db_inventory_per_rdbms:
   id: "db_inventory_per_rdbms"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
   caption: "Datenbankinventar"
   label: "db_inventory_per_rdbms"
   startpath: "parentdir"
@@ -118,6 +128,10 @@ tables:
     longtable: False
  db_inventory_per_os:
   id: "db_inventory_per_os"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
   caption: "Datenbankinventor - Nach Betriebssystemen aufgeschlüsselt"
   label: "db_inventory_per_os"
   startpath: "parentdir"
@@ -181,3 +195,97 @@ tables:
     position: "H"
     sparse_columns: True
     longtable: True
+ anforderungskatalog:
+  id: "anforderungskatalog"
+  isbigfile:
+  has_longtexts: True
+  separator: ";"
+  decimal: "."
+  caption: "Anforderungskatalog"
+  label: "anforderungskatalog"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "anforderungskatalog.CSV"
+  tablefilename: "anforderungskatalog.tex"
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+ arbeitsrapport:
+  id: "arbeitsrapport"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Arbeitsrapport"
+  label: "arbeitsrapport"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "arbeitsrapport.CSV"
+  tablefilename: "arbeitsrapport.tex"
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "Hide"
+   - "Geplante Dauer [h]"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel: "Hide == 0"
+  sorting:
+   order_by:
+    - "Datum"
+    - "Von"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+
