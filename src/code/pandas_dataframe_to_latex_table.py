@@ -77,7 +77,7 @@ def get_data(startpath, destination, tablefilename, datafile_path, datafile, alt
     # import dask.dataframe as dd
     # df = dd.read_csv(data_path, sep=",", decimal=".", encoding=encoding)
     # panda_table_data = df
-
+    print(encoding)
     panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding)
     # return data
     return panda_table_data
@@ -159,6 +159,10 @@ def create_latex_tables(panda_latex_tables_config):
             'position')
         longtable = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
             'longtable')
+        linebreak_columns = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
+            'linebreak_columns')
+        resize_textwidth = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
+            'resize_textwidth')
 
         # get the pandas (panda data)
         panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal)
@@ -218,10 +222,66 @@ def create_latex_tables(panda_latex_tables_config):
         if pivot_table_rename_indizes:
             panda_table_data = panda_table_data.rename_axis(index=pivot_table_rename_indizes)
 
+        # frame carriage return columns in subtable
+        if linebreak_columns:
+            for lbr_column in linebreak_columns:
+                panda_table_data[lbr_column] = "\\begin{tabular}[c]{@{}l@{}}" + panda_table_data[lbr_column].astype(str) + "\\end{tabular}"
         # convert python panda to latex table
         latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable,
                                                 sparsify=sparse_columns, label=table_label, caption=table_caption,
                                                 position=table_position, na_rep='', index=pivot_table_indizes_visible)
+
+        # textwidth resize
+        if resize_textwidth:
+            with open(tablefile, 'w') as wrlt:
+                wrlt.write(latex_table)
+
+            with open(tablefile) as file:
+                lines = file.readlines()
+
+            # replace table with resize
+            resize_line_nr = 0
+            resize_line = ""
+            if longtable:
+                table_type = '\\begin{longtable}'
+            else:
+                table_type = '\\begin{table}'
+
+            for number, line in enumerate(lines, 1):
+            # for number, line in latex_table.splitlines():
+            # for number, line in latex_table.readlines():
+            # for number, line in latex_table.splitlines('\n'):
+            # for number, line in lines.split('\n'):
+
+                # Condition true if the key exists in the line
+                # If true then display the line number
+                if table_type in line:
+                    # print(f'{key} is at line {number}')
+                    resize_line_nr = number
+                    resize_line = line
+
+            line_table_resize = resize_line + "\n" + "\\resizebox{\\columnwidth}{!}{%"
+            latex_table = latex_table.replace(resize_line, line_table_resize)
+
+            # replace table end with bracket
+            resize_line_nr = 0
+            resize_line = ""
+            if longtable:
+                table_type = '\\end{longtable}'
+            else:
+                table_type = '\\end{table}'
+
+            for number, line in enumerate(lines, 1):
+
+                # Condition true if the key exists in the line
+                # If true then display the line number
+                if table_type in line:
+                    # print(f'{key} is at line {number}')
+                    resize_line_nr = number
+                    resize_line = line
+
+            line_table_resize =  "}" + "\n" + resize_line
+            latex_table = latex_table.replace(resize_line, line_table_resize)
 
         # caption below is not supported yet (pandas 2.2)
         # replace caption and replace table end with the caption line and table end
@@ -248,11 +308,15 @@ def create_latex_tables(panda_latex_tables_config):
                 new_caption = caption_label_nbr + "\n" + table_string
                 latex_table = latex_table.replace(table_string, new_caption)
 
+        # umlaute
+        # latex_table = latex_table.replace("ü", '\\"u')
+
+
         # write latex table to filesystem
         with open(tablefile, 'w') as wrlt:
             wrlt.write(latex_table)
 
 
 # run the methods / functions
-panda_latex_tables_config = load_configuration('panda_latex_demo.yaml')
+panda_latex_tables_config = load_configuration('csv_to_latex_diplomarbeit.yaml')
 create_latex_tables(panda_latex_tables_config)

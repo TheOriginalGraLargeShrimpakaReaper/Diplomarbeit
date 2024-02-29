@@ -67,6 +67,7 @@ tables:
     position: "H"
     sparse_columns: True
     longtable: True
+    resize_textwidth: False
  db_inventory_per_rdbms:
   id: "db_inventory_per_rdbms"
   isbigfile:
@@ -126,6 +127,7 @@ tables:
     position: "H"
     sparse_columns: True
     longtable: False
+    resize_textwidth: False
  db_inventory_per_os:
   id: "db_inventory_per_os"
   isbigfile:
@@ -195,6 +197,7 @@ tables:
     position: "H"
     sparse_columns: True
     longtable: True
+    resize_textwidth: False
  anforderungskatalog:
   id: "anforderungskatalog"
   isbigfile:
@@ -218,7 +221,7 @@ tables:
    pivot_values:
   pivot_table:
    pivot_index:
-    pivot_indizes_visible:
+    pivot_indizes_visible: False
     pivot_rename_indizes:
    pivot_columns:
    pivot_values:
@@ -238,8 +241,11 @@ tables:
    props:
     caption-side: "below"
     position: "H"
-    sparse_columns: True
-    longtable: True
+    sparse_columns: False
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Beschreibung"
  arbeitsrapport:
   id: "arbeitsrapport"
   isbigfile:
@@ -287,5 +293,11 @@ tables:
     caption-side: "below"
     position: "H"
     sparse_columns: True
-    longtable: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
 

@@ -3,11 +3,11 @@ Nr.;Anforderung;Beschreibung;System;Muss / Kann
 2;Synergien;Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können;Beides;MUSS
 3;Failover;Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt;Beides;MUSS
 4;Failover;Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
-5;Failover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden, das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
-6;Switchover;Das System muss ein Skript oder eine API liefern, welche einen geordeten Switchover auf einen anderen Node erlaubt;Beides;MUSS
+5;Failover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
+6;Switchover;Das System muss ein Skript oder eine API liefern,\\welche einen geordeten Switchover auf einen anderen Node erlaubt;Beides;MUSS
 7;Switchover;Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
-8;Switchover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden, das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
-9;Restore;Das Clustersystem muss ein Skript oder eine API liefern, welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen;Beides;MUSS
+8;Switchover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
+9;Restore;Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen;Beides;MUSS
 10;Restore;Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen;Beides;MUSS
 11;Restore;Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen;Beides;MUSS
 12;Restore-Geschwindigkeit;Das Wiederherstellen des Ursprungszustands muss innert weniger Stunden für alle Datenbanken aus dem Backup Wiederhergestellt und im Clustersystem Synchronisiert werden;Beides;MUSS
