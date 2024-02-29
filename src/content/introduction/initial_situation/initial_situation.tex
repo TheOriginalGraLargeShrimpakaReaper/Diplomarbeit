@@ -107,59 +107,63 @@ Folgende Datenbanken sind inventarisiert:
 \end{landscape}
 
 Folgende Datenbanksysteme sind demnach im KSGR im Einsatz:
-\begin{longtable}{@{}lll@{}}
-\toprule
-\textbf{\Gls{RDBMS}}                   & \textbf{Summe RDBMS / Cluster / CDB / Instance} & \textbf{Summe Databases} \\* \midrule
-\endfirsthead
-%
-\endhead
-%
-\bottomrule
-\endfoot
-%
-\endlastfoot
-%
-\Gls{MariaDB}                 & 2                                      & 2               \\
-\Gls{MongoDB}                 & 2                                      & 2               \\
-\Gls{MySQL}                   & 28                                     & 50              \\
-\Gls{Oracle Database}         & 27                                     & 30              \\
-\Gls{PostgreSQL}              & 20                                     & 20              \\
-\Gls{Redis}                   & 1                                      & 1               \\* \midrule
-\textbf{Gesamtergebnis} & \textbf{80}                            & \textbf{105}    \\* \bottomrule
-\caption{Datenbankinventar}
-\label{Datenbankinventar}
-\end{longtable}
+%\begin{longtable}{@{}lll@{}}
+%\toprule
+%\textbf{\Gls{RDBMS}}                   & \textbf{Summe RDBMS / Cluster / CDB / Instance} & \textbf{Summe Databases} \\* \midrule
+%\endfirsthead
+%%
+%\endhead
+%%
+%\bottomrule
+%\endfoot
+%%
+%\endlastfoot
+%%
+%\Gls{MariaDB}                 & 2                                      & 2               \\
+%\Gls{MongoDB}                 & 2                                      & 2               \\
+%\Gls{MySQL}                   & 28                                     & 50              \\
+%\Gls{Oracle Database}         & 27                                     & 30              \\
+%\Gls{PostgreSQL}              & 20                                     & 20              \\
+%\Gls{Redis}                   & 1                                      & 1               \\* \midrule
+%\textbf{Gesamtergebnis} & \textbf{80}                            & \textbf{105}    \\* \bottomrule
+%\caption{Datenbankinventar}
+%\label{Datenbankinventar}
+%\end{longtable}
+% neu mit latex generator
+\input{content/latex_tables/db_inventory_per_rdbms}
 
 Aufgeschlüsselt auf die Betriebssysteme auf denen die Datenbanken laufen, ergibt sich folgendes Bild:
-\begin{longtable}{@{}llrr@{}}
-\toprule
-\multicolumn{2}{l}{\textbf{OS / \Gls{RDBMS}}}     & \multicolumn{1}{l}{\textbf{Summe RDBMS / Cluster / CDB / Instance}} & \multicolumn{1}{l}{\textbf{Summe Databases}} \\* \midrule
-\endfirsthead
-%
-\endhead
-%
-\bottomrule
-\endfoot
-%
-\endlastfoot
-%
-\multicolumn{2}{l}{\textbf{\Gls{HP-UX}}}          & \textbf{21}                                                         & \textbf{24}                                  \\* \midrule
-             & \Gls{Oracle Database}s             & 21                                                                  & 24                                           \\
-\multicolumn{2}{l}{\textbf{\Gls{Linux}}}          & \textbf{26}                                                         & \textbf{48}                                  \\* \midrule
-             & \Gls{MariaDB}                      & 2                                                                   & 2                                            \\
-             & \Gls{MySQL}                        & 14                                                                  & 36                                           \\
-             & \Gls{Oracle Database}              & 1                                                                   & 1                                            \\
-             & \Gls{PostgreSQL}                   & 8                                                                   & 8                                            \\
-             & \Gls{Redis}                        & 1                                                                   & 1                                            \\
-\multicolumn{2}{l}{\textbf{Windows Server}} & \textbf{33}                                                         & \textbf{33}                                  \\* \midrule
-             & \Gls{MongoDB}                      & 2                                                                   & 2                                            \\
-             & \Gls{MySQL}                        & 14                                                                  & 14                                           \\
-             & \Gls{Oracle Database}s             & 5                                                                   & 5                                            \\
-             & \Gls{PostgreSQL}                   & 12                                                                  & 12                                           \\* \midrule
-\multicolumn{2}{l}{\textbf{Gesamtergebnis}} & \textbf{80}                                                         & \textbf{105}                                 \\* \bottomrule
-\caption{\mbox{Datenbankinventor - Nach Betriebssystemen aufgeschlüsselt}}
-\label{Datenbankinventar_per_OS}
-\end{longtable}
+%\begin{longtable}{@{}llrr@{}}
+%\toprule
+%\multicolumn{2}{l}{\textbf{OS / \Gls{RDBMS}}}     & \multicolumn{1}{l}{\textbf{Summe RDBMS / Cluster / CDB / Instance}} & \multicolumn{1}{l}{\textbf{Summe Databases}} \\* \midrule
+%\endfirsthead
+%%
+%\endhead
+%%
+%\bottomrule
+%\endfoot
+%%
+%\endlastfoot
+%%
+%\multicolumn{2}{l}{\textbf{\Gls{HP-UX}}}          & \textbf{21}                                                         & \textbf{24}                                  \\* \midrule
+%             & \Gls{Oracle Database}s             & 21                                                                  & 24                                           \\
+%\multicolumn{2}{l}{\textbf{\Gls{Linux}}}          & \textbf{26}                                                         & \textbf{48}                                  \\* \midrule
+%             & \Gls{MariaDB}                      & 2                                                                   & 2                                            \\
+%             & \Gls{MySQL}                        & 14                                                                  & 36                                           \\
+%             & \Gls{Oracle Database}              & 1                                                                   & 1                                            \\
+%             & \Gls{PostgreSQL}                   & 8                                                                   & 8                                            \\
+%             & \Gls{Redis}                        & 1                                                                   & 1                                            \\
+%\multicolumn{2}{l}{\textbf{Windows Server}} & \textbf{33}                                                         & \textbf{33}                                  \\* \midrule
+%             & \Gls{MongoDB}                      & 2                                                                   & 2                                            \\
+%             & \Gls{MySQL}                        & 14                                                                  & 14                                           \\
+%             & \Gls{Oracle Database}s             & 5                                                                   & 5                                            \\
+%             & \Gls{PostgreSQL}                   & 12                                                                  & 12                                           \\* \midrule
+%\multicolumn{2}{l}{\textbf{Gesamtergebnis}} & \textbf{80}                                                         & \textbf{105}                                 \\* \bottomrule
+%\caption{\mbox{Datenbankinventor - Nach Betriebssystemen aufgeschlüsselt}}
+%\label{Datenbankinventar_per_OS}
+%\end{longtable}
+% neu mit latex generator
+\input{content/latex_tables/db_inventory_per_os}
 
 Die Kernsysteme des Spitals werden auf Oracle Datenbanken (\Gls{Oracle Database})betrieben, die aktuell auf einer \Gls{HP-UX} betrieben werden.
 Stand heute gibt es kein Clustersystem für die Open-Source Datenbanken wie \Gls{MariaDB}/\Gls{MySQL} oder \Gls{PostgreSQL}\@.
