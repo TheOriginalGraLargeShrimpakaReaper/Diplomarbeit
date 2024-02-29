@@ -1,7 +1,8 @@
-Datum;Von;Bis;Dauer [h];Geplante Dauer [h];Hide;Phase;Tätigkeit;Bemerkung;Schwierigkeit;Lösungen
-14.02.2024;;;;4;1;Evaluation;;;;
-21.02.2024;15:00;16:00;1;;0;Evaluation;Anorderungskatalog erarbeiten;;;
-22.02.2024;16:00;17:30;1.5;;0;Evaluation;Anorderungskatalog erarbeiten;;;
-27.02.2024;10:00;11:30;1.5;;0;Dokumentation;Dokumentation erweitern;;;
-27.02.2024;13:00;16:00;3;;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-28.02.2024;09:00;11:00;2;;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Tätigkeit;Bemerkung;Schwierigkeit;Lösungen
+14.02.2024;;;0;4;0;1;Evaluation;;;;
+14.02.2024;;;0;80;0;1;Dokumentation;;;;
+21.02.2024;15:00;16:00;1;0;0;0;Evaluation;Anorderungskatalog erarbeiten;;;
+22.02.2024;16:00;17:30;1.5;0;0;0;Evaluation;Anorderungskatalog erarbeiten;;;
+27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;Dokumentation erweitern;;;
+27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken

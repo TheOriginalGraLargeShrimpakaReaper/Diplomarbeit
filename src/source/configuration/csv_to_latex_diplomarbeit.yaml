@@ -4,6 +4,7 @@ tables_inventory:
  - "db_inventory_per_os"
  - "anforderungskatalog"
  - "arbeitsrapport"
+ - "projektcontrolling"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -27,6 +28,13 @@ tables:
    - "eol"
    - "eol_since"
    - "releasedate"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
   pivot:
    pivot_columns:
    pivot_values:
@@ -96,6 +104,13 @@ tables:
    - "age"
    - "eol_since"
    - "comment"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
   pivot:
    pivot_columns:
    pivot_values:
@@ -157,6 +172,13 @@ tables:
    - "eol_since"
    - "comment"
 #   - "appliance"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
   pivot:
    pivot_columns:
    pivot_values:
@@ -216,6 +238,13 @@ tables:
   agg_funtion:
   agg_colums:
   drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
   pivot:
    pivot_columns:
    pivot_values:
@@ -266,12 +295,20 @@ tables:
   drop_columns:
    - "Hide"
    - "Geplante Dauer [h]"
+   - "dauer_summe"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
   pivot:
    pivot_columns:
    pivot_values:
   pivot_table:
    pivot_index:
-    pivot_indizes_visible:
+    pivot_indizes_visible: False
     pivot_rename_indizes:
    pivot_columns:
    pivot_values:
@@ -300,4 +337,73 @@ tables:
      - "Bemerkung"
      - "Schwierigkeit"
      - "Lösungen"
-
+ projektcontrolling:
+  id: "projektcontrolling"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Projektcontrolling"
+  label: "projektcontrolling"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "arbeitsrapport.CSV"
+  tablefilename: "projektcontrolling.tex"
+  group_by:
+   - "Phase"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+     - "dauer_summe"
+  drop_columns:
+   - "Datum"
+   - "Von"
+   - "Bis"
+   - "Hide"
+   - "Tätigkeit"
+   - "Bemerkung"
+   - "Schwierigkeit"
+   - "Lösungen"
+  column_operations:
+   datas:
+    - "dauer_summe"
+   operations:
+    dauer_summe:
+     operation_function: "diff"
+     axis_number: 1
+     columns:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   dauer_summe: "Verbleibende Zeit [h]"
+  where_clausel:
+  sorting:
+   order_by:
+    - "Phase"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: False
+    linebreak_columns:

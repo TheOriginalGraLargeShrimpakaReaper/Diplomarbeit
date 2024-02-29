@@ -107,6 +107,9 @@ def create_latex_tables(panda_latex_tables_config):
         separator = panda_latex_tables_config.get('tables').get(table_item).get('separator')
         decimal = panda_latex_tables_config.get('tables').get(table_item).get('decimal')
 
+        # column operations
+        column_operations = panda_latex_tables_config.get('tables').get(table_item).get('column_operations').get('datas')
+
         # group by / aggregation
         groupby_values = panda_latex_tables_config.get('tables').get(table_item).get('group_by')
         group_by_function = panda_latex_tables_config.get('tables').get(table_item).get('group_by_function')
@@ -209,6 +212,27 @@ def create_latex_tables(panda_latex_tables_config):
                                                   columns=pivot_table_column, values=pivot_table_value,
                                                   aggfunc=pivot_table_agg_function, margins=margin,
                                                   margins_name=margin_name)
+
+        # set column operations
+        if column_operations:
+            for column_ops in column_operations:
+                operation_function = panda_latex_tables_config.get('tables').get(table_item).get('column_operations').get('operations').get(column_ops).get('operation_function')
+                operation_columns = panda_latex_tables_config.get('tables').get(table_item).get('column_operations').get('operations').get(column_ops).get('columns')
+                operation_axis = panda_latex_tables_config.get('tables').get(table_item).get('column_operations').get('operations').get(column_ops).get('axis_number')
+                match operation_function:
+                    case 'max':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].max()
+                    case 'min':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].min()
+                    case 'head':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].head()
+                    case 'sum':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].sum(axis=operation_axis)
+                    case 'mean':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].mean()
+                    case 'diff':
+                        panda_table_data[column_ops] = panda_table_data[operation_columns[1]] - panda_table_data[operation_columns[0]]
+
 
         # order by
         if order_by:
