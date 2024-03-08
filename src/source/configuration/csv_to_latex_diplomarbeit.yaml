@@ -481,9 +481,6 @@ tables:
   agg_funtion:
   agg_colums:
   drop_columns:
-   - "Hide"
-   - "Geplante Dauer [h]"
-   - "dauer_summe"
   column_operations:
    datas:
    operations:
@@ -502,11 +499,10 @@ tables:
    pivot_values:
    pivot_agg_func:
   rename_columns:
-  where_clausel: "Hide == 0"
+  where_clausel:
   sorting:
    order_by:
-    - "Datum"
-    - "Von"
+    - "Nr."
    sort_acending: True
    sort_inplace: True
   margins:
@@ -521,7 +517,8 @@ tables:
     longtable: False
     resize_textwidth: True
     linebreak_columns:
-     - "Tätigkeit"
-     - "Bemerkung"
-     - "Schwierigkeit"
-     - "Lösungen"
+     - "Abhängigkeit"
+     - "Beschreibung"
+     - "Status"
+     - "Risiko"
+     - "Impact"

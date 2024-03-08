@@ -17,23 +17,21 @@ Nr. & Anforderung & Beschreibung & System & Muss / Kann \\
 9 & Restore & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen\end{tabular} & Beides & MUSS \\
 10 & Restore & \begin{tabular}[c]{@{}l@{}}Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen\end{tabular} & Beides & MUSS \\
 11 & Restore & \begin{tabular}[c]{@{}l@{}}Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen\end{tabular} & Beides & MUSS \\
-12 & Restore-Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das Wiederherstellen des Ursprungszustands muss innert weniger Stunden für alle Datenbanken aus dem Backup Wiederhergestellt und im Clustersystem Synchronisiert werden\end{tabular} & Beides & MUSS \\
+12 & Restore-Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das Wiederherstellen des Ursprungszustands muss\\innert weniger Stunden für alle Datenbanken aus dem\\Backup Wiederhergestellt und im Clustersystem Synchronisiert werden\end{tabular} & Beides & MUSS \\
 13 & Replikation & \begin{tabular}[c]{@{}l@{}}Es muss eine Synchrone Replikation sichergestellt werden\end{tabular} & Monolitisch & MUSS \\
 14 & Replikation & \begin{tabular}[c]{@{}l@{}}Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt\end{tabular} & Monolitisch & MUSS \\
 15 & Sharding & \begin{tabular}[c]{@{}l@{}}Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden\end{tabular} & Distributed SQL & MUSS \\
 16 & Sharding & \begin{tabular}[c]{@{}l@{}}Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt\end{tabular} & Distributed SQL & MUSS \\
 17 & Quorum & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss über ein Quorum-System besitzen\end{tabular} & Beides & MUSS \\
 18 & Quorum & \begin{tabular}[c]{@{}l@{}}Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern\end{tabular} & Beides & MUSS \\
-19 & Connection & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss sicherstellen, dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann\end{tabular} & Beides & MUSS \\
-20 & Management-API & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss Skripte oder eine API liefern,
-mit dem das System zu konfigurieren, verwalten oder überwachen zu können.
-Zudem müssen mit geringen Arbeitsaufwand damit Nodes hinzugefügt oder entfernt werden können\end{tabular} & Beides & MUSS \\
+19 & Connection & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss sicherstellen,\\dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann\end{tabular} & Beides & MUSS \\
+20 & Management-API & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss Skripte oder eine API liefern,\\mit dem das System zu konfigurieren, verwalten oder überwachen zu können.\\Zudem müssen mit geringen Arbeitsaufwand\\damit Nodes hinzugefügt oder entfernt werden können\end{tabular} & Beides & MUSS \\
 21 & Management-API & \begin{tabular}[c]{@{}l@{}}Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden\end{tabular} & Beides & MUSS \\
 22 & Backup & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards angezogen werden\end{tabular} & Beides & MUSS \\
 23 & Backup Restore & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards restored werden können\end{tabular} & Beides & MUSS \\
 24 & Housekeeping - Log Rotation & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss die möglichkeit zur Log Rotation bieten\end{tabular} & Beides & MUSS \\
 25 & Self Heahling & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können\end{tabular} & Beides & KANN \\
-26 & Monitoring - Node Failure & \begin{tabular}[c]{@{}l@{}}Läuft ein Node auf einen Fehler, muss das Clustersystem dies erkennen und Melden resp. eine Schnittstelle liefern die abgefragt werden kann\end{tabular} & Beides & MUSS \\
+26 & Monitoring - Node Failure & \begin{tabular}[c]{@{}l@{}}Läuft ein Node auf einen Fehler,\\muss das Clustersystem dies erkennen und Melden resp.\\eine Schnittstelle liefern die abgefragt werden kann\end{tabular} & Beides & MUSS \\
 \bottomrule
 \end{tabular}
 }
