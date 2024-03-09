@@ -25,3 +25,4 @@ Nr.;Anforderung;Beschreibung;System;Muss / Kann
 24;Housekeeping - Log Rotation;Das Clustersystem muss die möglichkeit zur Log Rotation bieten;Beides;MUSS
 25;Self Heahling;Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können;Beides;KANN
 26;Monitoring - Node Failure;Läuft ein Node auf einen Fehler,\\muss das Clustersystem dies erkennen und Melden resp.\\eine Schnittstelle liefern die abgefragt werden kann;Beides;MUSS
+27;Maintenance Quality;Da die meisten PostgreSQL HA Lösungen Open-Source sind,\\muss sichergestellt werden,\\dass die gewählte Lösung auch aktiv gepflegt wird.\\Als Basis dienen hier Informationen wie z.B. GitHub Insights.;Beides;MUSS
