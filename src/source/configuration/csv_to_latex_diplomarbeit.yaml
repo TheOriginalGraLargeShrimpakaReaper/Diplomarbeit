@@ -321,8 +321,8 @@ tables:
    order_by:
     - "Datum"
     - "Von"
-   sort_acending: True
-   sort_inplace: True
+   sort_acending: False
+   sort_inplace: False
   margins:
    margin: False
    margin_name:
@@ -354,6 +354,7 @@ tables:
   tablefilename: "projektcontrolling.tex"
   group_by:
    - "Phase"
+   - "Subphase"
   group_by_function: "sum"
   agg_funtion:
   agg_colums:
@@ -395,6 +396,7 @@ tables:
   sorting:
    order_by:
     - "Phase"
+    - "Subphase"
    sort_acending: True
    sort_inplace: True
   margins:
@@ -407,7 +409,7 @@ tables:
     position: "H"
     sparse_columns: True
     longtable: False
-    resize_textwidth: False
+    resize_textwidth: True
     linebreak_columns:
  evaluation_inventory:
   id: "evaluation_inventory"
