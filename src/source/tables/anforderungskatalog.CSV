@@ -1,28 +1,34 @@
-Nr.;Anforderung;Beschreibung;System;Muss / Kann
-1;Systemvielfallt;Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden;Beides;MUSS
-2;Synergien;Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können;Beides;MUSS
-3;Failover;Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt;Beides;MUSS
-4;Failover;Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
-5;Failover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
-6;Switchover;Das System muss ein Skript oder eine API liefern,\\welche einen geordeten Switchover auf einen anderen Node erlaubt;Beides;MUSS
-7;Switchover;Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
-8;Switchover-Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
-9;Restore;Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen;Beides;MUSS
-10;Restore;Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen;Beides;MUSS
-11;Restore;Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen;Beides;MUSS
-12;Restore-Geschwindigkeit;Das Wiederherstellen des Ursprungszustands muss\\innert weniger Stunden für alle Datenbanken aus dem\\Backup Wiederhergestellt und im Clustersystem Synchronisiert werden;Beides;MUSS
-13;Replikation;Es muss eine Synchrone Replikation sichergestellt werden;Monolitisch;MUSS
-14;Replikation;Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt;Monolitisch;MUSS
-15;Sharding;Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden;Distributed SQL;MUSS
-16;Sharding;Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt;Distributed SQL;MUSS
-17;Quorum;Das Clustersystem muss über ein Quorum-System besitzen;Beides;MUSS
-18;Quorum;Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern;Beides;MUSS
-19;Connection;Das Clustersystem muss sicherstellen,\\dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann;Beides;MUSS
-20;Management-API;Das Clustersystem muss Skripte oder eine API liefern,\\mit dem das System zu konfigurieren, verwalten oder überwachen zu können.\\Zudem müssen mit geringen Arbeitsaufwand\\damit Nodes hinzugefügt oder entfernt werden können;Beides;MUSS
-21;Management-API;Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden;Beides;MUSS
-22;Backup;Backups müssen mittels PostgreSQL Standards angezogen werden;Beides;MUSS
-23;Backup Restore;Backups müssen mittels PostgreSQL Standards restored werden können;Beides;MUSS
-24;Housekeeping - Log Rotation;Das Clustersystem muss die möglichkeit zur Log Rotation bieten;Beides;MUSS
-25;Self Heahling;Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können;Beides;KANN
-26;Monitoring - Node Failure;Läuft ein Node auf einen Fehler,\\muss das Clustersystem dies erkennen und Melden resp.\\eine Schnittstelle liefern die abgefragt werden kann;Beides;MUSS
-27;Maintenance Quality;Da die meisten PostgreSQL HA Lösungen Open-Source sind,\\muss sichergestellt werden,\\dass die gewählte Lösung auch aktiv gepflegt wird.\\Als Basis dienen hier Informationen wie z.B. GitHub Insights.;Beides;MUSS
+Nr.;Anforderung;Bezeichnung;Beschreibung;System;Muss / Kann
+1;Systemvielfallt;;Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden;Beides;MUSS
+2;Synergien;;Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können;Beides;MUSS
+3;Failover;Automatismus;Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt;Beides;MUSS
+4;Failover;Connection - Stabilität;Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
+5;Failover;Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
+6;Switchover;Skript / API;Das System muss ein Skript oder eine API liefern,\\welche einen geordeten Switchover auf einen anderen Node erlaubt;Beides;MUSS
+7;Switchover;Connection - Stabilität;Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden;Beides;MUSS
+8;Switchover;Geschwindigkeit;Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.;Beides;MUSS
+9;Restore;Skript / API;Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen;Beides;MUSS
+10;Restore;Datensicherheit;Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen;Beides;MUSS
+11;Restore;Connection - Stabilität;Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen;Beides;MUSS
+12;Restore;Geschwindigkeit;Das Wiederherstellen des Ursprungszustands muss\\innert weniger Stunden für alle Datenbanken aus dem\\Backup Wiederhergestellt und im Clustersystem Synchronisiert werden;Beides;MUSS
+13;Replikation;Synchrone Replikation;Es muss eine Synchrone Replikation sichergestellt werden;Monolitisch;MUSS
+14;Replikation;Failover / Switchover Garantie;Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt;Monolitisch;MUSS
+15;Replikation;Throughput;Beschreibt, wie viele Transaktionen pro Zeiteinheit vom Primary an die Replikas gesendet und Commited werden.\\Dieser Wert ist bei Synchroner Replikation entscheidend da Commits auf allen Replicas abgesetzt sein müssen.;Beides;MUSS
+16;Sharding;Datenschutz- und integrität;Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden;Distributed SQL;MUSS
+17;Sharding;Schutz vor Datenverlust;Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt;Distributed SQL;MUSS
+18;Quorum;Quorum-System vorhanden;Das Clustersystem muss über ein Quorum-System besitzen;Beides;MUSS
+19;Quorum;Robhustheit;Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern;Beides;MUSS
+20;Connection;;Das Clustersystem muss sicherstellen,\\dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann;Beides;MUSS
+21;Management-API;Management-API vorhanden;Das Clustersystem muss Skripte oder eine API liefern,\\mit dem das System zu konfigurieren, verwalten oder überwachen zu können.\\Zudem müssen mit geringen Arbeitsaufwand\\damit Nodes hinzugefügt oder entfernt werden können;Beides;MUSS
+22;Management-API;Authentifizierung \& Autorisierung;Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden;Beides;MUSS
+23;Management-API;Aufwand;Der Aufwand,\\der benötigt wird um die DB zu verwalten,\\Nodes hinzuzufügen oder zu entfernen usw. muss gegeneinander verglichen werden.;Beides;MUSS
+24;Backup;Backup mit PostgreSQL Standards;Backups müssen mittels PostgreSQL Standards angezogen werden;Beides;MUSS
+25;Backup;Restore mit PostgreSQL Standanrds;Backups müssen mittels PostgreSQL Standards restored werden können;Beides;MUSS
+26;Housekeeping - Log Rotation;;Das Clustersystem muss die möglichkeit zur Log Rotation bieten;Beides;MUSS
+27;Self Heahling;;Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können;Beides;KANN
+28;Monitoring - Node Failure;;Läuft ein Node auf einen Fehler,\\muss das Clustersystem dies erkennen und Melden resp.\\eine Schnittstelle liefern die abgefragt werden kann;Beides;MUSS
+29;Maintenance Quality;;Da die meisten PostgreSQL HA Lösungen Open-Source sind,\\muss sichergestellt werden,\\dass die gewählte Lösung auch aktiv gepflegt wird.\\Als Basis dienen hier Informationen wie z.B. GitHub Insights.;Beides;MUSS
+30;Performance;tps - Read-Only;Die Transaktionsrate (transactions per second / tps) für DQL Transaktionen;Beides;MUSS
+31;Performance;tps - Read-Writes;Die Transaktionsrate (transactions per second / tps) für DML Transaktionen;Beides;MUSS
+32;Performance;Ø Latenz - Read-Only;Die Latenzzeit bei DQL Transaktionen;Beides;MUSS
+33;Performance;Ø Latenz - Read-Write;Die Latenzzeit bei DML Transaktionen;Beides;MUSS
