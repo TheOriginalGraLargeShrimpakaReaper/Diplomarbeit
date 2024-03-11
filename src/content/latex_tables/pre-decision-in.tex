@@ -1,0 +1,16 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{rlll}
+\toprule
+Nr. & Lösung & Status & Begründung \\
+\midrule
+4 & Patroni & Evaluation & \begin{tabular}[c]{@{}l@{}}Patroni kann als Monolithisches System genutzt werden,\\ist aber auch Kern von Stackgres.\\Die API und Skripte können also in beiden Welten verwendet werden\end{tabular} \\
+5 & Stackgres mit Citus & Evaluation & \begin{tabular}[c]{@{}l@{}}Bietet eine einfache und kompakte Möglichkeit für ein Distributed SQL System.\\Da Patroni unter der Haube ist,\\kann die API und sonstige Skripte auch auf einem Monolithischen System eingesetzt werden.\end{tabular} \\
+6 & Yugabyte-DB & Evaluation & \begin{tabular}[c]{@{}l@{}}Ist eine reine Distributed SQL Lösung und ist Vollständig Cloud Native.\end{tabular} \\
+\bottomrule
+\end{tabular}
+}
+\caption{Vorauswahl - Evaluation} \label{predecision_in}
+\end{table}
