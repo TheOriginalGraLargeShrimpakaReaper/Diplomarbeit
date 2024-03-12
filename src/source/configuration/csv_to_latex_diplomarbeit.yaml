@@ -296,7 +296,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "arbeitsrapport.CSV"
   tablefilename: "arbeitsrapport.tex"
-  decimal_format: "{.1f"
+  decimal_format: "{:0.1f}"
   group_by:
   group_by_function:
   agg_funtion:
@@ -359,7 +359,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "arbeitsrapport.CSV"
   tablefilename: "projektcontrolling.tex"
-  decimal_format: "{.1f"
+  decimal_format: "{:0.1f}"
   group_by:
    - "Phase"
    - "Subphase"

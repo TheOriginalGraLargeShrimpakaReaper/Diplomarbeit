@@ -77,7 +77,7 @@ def get_data(startpath, destination, tablefilename, datafile_path, datafile, alt
     # import dask.dataframe as dd
     # df = dd.read_csv(data_path, sep=",", decimal=".", encoding=encoding)
     # panda_table_data = df
-    print(encoding)
+    print(datafile, ':', encoding)
     panda_table_data = pd.read_csv(data_path, sep=separator, decimal=decimal, encoding=encoding)
     # return data
     return panda_table_data
@@ -248,12 +248,26 @@ def create_latex_tables(panda_latex_tables_config):
         if pivot_table_rename_indizes:
             panda_table_data = panda_table_data.rename_axis(index=pivot_table_rename_indizes)
 
+        # set decimal format
+        # if decimal_format:
+        #     panda_table_data.style.format(decimal_format)
+        # if decimal_format:
+        #     pd.options.display.float_format = decimal_format.format
+
+        # set null values
+        panda_table_data = panda_table_data.fillna("")
+
         # frame carriage return columns in subtable
         if linebreak_columns:
             for lbr_column in linebreak_columns:
                 panda_table_data[lbr_column] = "\\begin{tabular}[c]{@{}l@{}}" + panda_table_data[lbr_column].astype(str) + "\\end{tabular}"
         # convert python panda to latex table
-        latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable,
+        if decimal_format:
+            latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable,
+                                                sparsify=sparse_columns, label=table_label, caption=table_caption,
+                                                position=table_position, na_rep='', index=pivot_table_indizes_visible, float_format=decimal_format.format)
+        else:
+            latex_table = panda_table_data.to_latex(header=True, bold_rows=False, longtable=longtable,
                                                 sparsify=sparse_columns, label=table_label, caption=table_caption,
                                                 position=table_position, na_rep='', index=pivot_table_indizes_visible)
 
