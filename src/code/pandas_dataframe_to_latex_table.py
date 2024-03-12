@@ -167,6 +167,8 @@ def create_latex_tables(panda_latex_tables_config):
         resize_textwidth = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get(
             'resize_textwidth')
 
+        decimal_format = panda_latex_tables_config.get('tables').get(table_item).get('decimal_format')
+
         # get the pandas (panda data)
         panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal)
 

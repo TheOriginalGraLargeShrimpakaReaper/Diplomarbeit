@@ -23,6 +23,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "inventory.csv"
   tablefilename: "db_inventory.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
@@ -93,6 +94,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "inventory.csv"
   tablefilename: "db_inventory_per_rdbms.tex"
+  decimal_format:
   group_by:
    - "rdbms"
   group_by_function: "sum"
@@ -160,6 +162,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "inventory.csv"
   tablefilename: "db_inventory_per_os.tex"
+  decimal_format:
   group_by:
    - "rdbms"
    - "os"
@@ -237,6 +240,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "anforderungskatalog.CSV"
   tablefilename: "anforderungskatalog.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
@@ -292,6 +296,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "arbeitsrapport.CSV"
   tablefilename: "arbeitsrapport.tex"
+  decimal_format: "{.1f"
   group_by:
   group_by_function:
   agg_funtion:
@@ -354,6 +359,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "arbeitsrapport.CSV"
   tablefilename: "projektcontrolling.tex"
+  decimal_format: "{.1f"
   group_by:
    - "Phase"
    - "Subphase"
@@ -426,6 +432,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "evaluation_platform_serverlist.csv"
   tablefilename: "evaluation_inventory.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
@@ -480,6 +487,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "dependencis.csv"
   tablefilename: "dependencis.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
@@ -539,6 +547,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "pre-decision.csv"
   tablefilename: "pre-decision-out.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
@@ -595,6 +604,7 @@ tables:
   datafile_path: "source/tables"
   datafile: "pre-decision.csv"
   tablefilename: "pre-decision-in.tex"
+  decimal_format:
   group_by:
   group_by_function:
   agg_funtion:
