@@ -10,7 +10,26 @@ Citus wiederum ist in den Microsoft Konzern eingebettet
 
 \begin{flushleft}
     \paragraph{Architektur}
-    \subparagraph{Citus Sharding}
+    \begin{flushleft}
+        \subparagraph{Citus Coordinator und Workers}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_coordinator_worker}
+            \caption{Citus - Coordinator und Workers}
+            \label{fig:citus_coordinator_worker}
+        \end{figure}
+    \end{flushleft}
+    \begin{flushleft}
+        \subparagraph{Citus Sharding}
+        Citus bietet zwei Sharding-Modelle an.
+        \begin{flushleft}
+            \textbf{Row-based sharding}
+            Beim diesen sharding werden Tabellen anhand einer Distribution Column aufgeteilt. \cite{2Y5FA36C, FDUUL9IM}
+        \end{flushleft}
+        \begin{flushleft}
+            \textbf{Schema-based sharding}
+        \end{flushleft}
+    \end{flushleft}
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Maintenance}
