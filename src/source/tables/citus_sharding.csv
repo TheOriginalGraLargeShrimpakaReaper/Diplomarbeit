@@ -1,0 +1,4 @@
+;Schema-based sharding;Row-based sharding
+Multi-tenancy model;;
+Citus Version;12.+;alle versionen
+Anpassungen an PostgreSQL;Nur Konfiguration;
