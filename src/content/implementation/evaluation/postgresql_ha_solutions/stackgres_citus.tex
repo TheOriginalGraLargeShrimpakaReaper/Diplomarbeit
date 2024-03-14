@@ -26,9 +26,23 @@ Citus wiederum ist in den Microsoft Konzern eingebettet
         \begin{flushleft}
             \textbf{Row-based sharding}
             Beim diesen sharding werden Tabellen anhand einer Distribution Column aufgeteilt. \cite{2Y5FA36C, FDUUL9IM}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_row-based-sharding}
+                \caption{Citus - Row-Based-Sharding}
+                \label{fig:citus_row-based-sharding}
+            \end{figure}
         \end{flushleft}
         \begin{flushleft}
             \textbf{Schema-based sharding}
+        \end{flushleft}
+        \begin{flushleft}
+            \textbf{Schlussfolgerung}
+            Beide Sharding-Methoden haben eine grosse Schwäche.
+            Sie sind nicht vollständig ACID-Konform (\nameref{ACID})da Datenverlust entstehen kann, wenn ein Node wegfällt.
+            Die Shards müssen mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.
+
+            Dies muss aber bei der evaluation mittels Tests noch bestätigt werden.
         \end{flushleft}
     \end{flushleft}
 \end{flushleft}
