@@ -10,6 +10,7 @@ tables_inventory:
  - "predecision_out"
  - "predecision_in"
  - "project_comments"
+ - "evaluation_distributed_sql"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -82,6 +83,8 @@ tables:
     sparse_columns: True
     longtable: True
     resize_textwidth: False
+    linebreak_columns:
+    table_header: True
  db_inventory_per_rdbms:
   id: "db_inventory_per_rdbms"
   isbigfile:
@@ -150,6 +153,8 @@ tables:
     sparse_columns: True
     longtable: False
     resize_textwidth: False
+    linebreak_columns:
+    table_header: True
  db_inventory_per_os:
   id: "db_inventory_per_os"
   isbigfile:
@@ -228,6 +233,8 @@ tables:
     sparse_columns: True
     longtable: True
     resize_textwidth: False
+    linebreak_columns:
+    table_header: True
  anforderungskatalog:
   id: "anforderungskatalog"
   isbigfile:
@@ -284,6 +291,7 @@ tables:
     resize_textwidth: True
     linebreak_columns:
      - "Beschreibung"
+    table_header: True
  arbeitsrapport:
   id: "arbeitsrapport"
   isbigfile:
@@ -347,6 +355,7 @@ tables:
      - "Bemerkung"
      - "Schwierigkeit"
      - "Lösungen"
+    table_header: True
  projektcontrolling:
   id: "projektcontrolling"
   isbigfile:
@@ -420,6 +429,7 @@ tables:
     longtable: False
     resize_textwidth: True
     linebreak_columns:
+    table_header: True
  evaluation_inventory:
   id: "evaluation_inventory"
   isbigfile:
@@ -475,6 +485,8 @@ tables:
     sparse_columns: True
     longtable: True
     resize_textwidth: False
+    linebreak_columns:
+    table_header: True
  dependencis:
   id: "dependencis"
   isbigfile:
@@ -535,6 +547,7 @@ tables:
      - "Status"
      - "Risiko"
      - "Impact"
+    table_header: True
  predecision_out:
   id: "predecision_out"
   isbigfile:
@@ -592,6 +605,7 @@ tables:
     resize_textwidth: True
     linebreak_columns:
      - "Begründung"
+    table_header: True
  predecision_in:
   id: "predecision_in"
   isbigfile:
@@ -649,6 +663,7 @@ tables:
     resize_textwidth: True
     linebreak_columns:
      - "Begründung"
+    table_header: True
  project_comments:
   id: "project_comments"
   isbigfile:
@@ -705,3 +720,59 @@ tables:
     resize_textwidth: True
     linebreak_columns:
      - "Beschreibung / Event / Problem"
+    table_header: True
+ evaluation_distributed_sql:
+  id: "evaluation_distributed_sql"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Evaluationssysstem - Distributed SQL / Sharding"
+  label: "evaluation_distributed_sql"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "evaluation_platform_distributed_sql.csv"
+  tablefilename: "evaluation_platform_distributed_sql.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+   sort_acending: False
+   sort_inplace: False
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: False
