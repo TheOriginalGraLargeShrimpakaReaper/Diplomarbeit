@@ -5,3 +5,4 @@ Nr.;Lösung;hide_state;Status;Begründung
 4;Patroni;2;Evaluation;Patroni kann als Monolithisches System genutzt werden,\\ist aber auch Kern von Stackgres.\\Die API und Skripte können also in beiden Welten verwendet werden
 5;Stackgres mit Citus;2;Evaluation;Bietet eine einfache und kompakte Möglichkeit für ein Distributed SQL System.\\Da Patroni unter der Haube ist,\\kann die API und sonstige Skripte auch auf einem Monolithischen System eingesetzt werden.
 6;Yugabyte-DB;2;Evaluation;Ist eine reine Distributed SQL Lösung und ist Vollständig Cloud Native.
+7;Citus row-based-sharding;1;Vorausgeschieden;Citus row-based-sharding wäre Hocheffizient\\wenn es um Ressourcenverteilung geht und zudem echtes Sharding.\\Allerdings setzt es anpassungen an den Tabellen der Applikationen voraus.\\Das KSGR ist allerdings kein Softwarehaus\\und kann keine Forks durchführen,\\auch weil viele Applikationen zertifiziert sein müssen.\\Scheitert daher an der Machbarkeit
