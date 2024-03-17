@@ -6,10 +6,11 @@
 \toprule
 Nr. & Lösung & Status & Begründung \\
 \midrule
-1 & pgpool-II & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}pgpool-II hat kein GitHub-Repository und bietet daher keine vergleichswerte mittels Github Insights.\end{tabular} \\
-2 & pg\_auto\_failover & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}pg\_auto\_failover würde zwar Citus-Support bieten,\\allerdings gibt es keine gut dokumentierte Implementation für Kubernetes.\\Erfüllt daher das Kriterium für die Synergien nicht\end{tabular} \\
-3 & CloudNativePG & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}CloudNativePG ist keine vollständige Cloud Native Lösung.\\Mittels Citus könnte sogar eine Distributed SQL Lösung implementiert werden.\\Die Grundarchitektur bleibt aber Monolithisch mit einem Primary und Replikas.\\Und da kein Benefit in Form von Synergien vorhanden sind,\\fällt CloudNativePG raus.\end{tabular} \\
-7 & Citus row-based-sharding & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}Citus row-based-sharding wäre Hocheffizient\\wenn es um Ressourcenverteilung geht und zudem echtes Sharding.\\Allerdings setzt es anpassungen an den Tabellen der Applikationen voraus.\\Das KSGR ist allerdings kein Softwarehaus\\und kann keine Forks durchführen,\\auch weil viele Applikationen zertifiziert sein müssen.\\Scheitert daher an der Machbarkeit\end{tabular} \\
+1 & KSGR-Lösung & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}Hat nur einen Standy / Replika-Node.\\Failover Funktioniert nur bei kleineren Datenmengen wirklich in einer vernüftigen Zeit.\end{tabular} \\
+2 & pgpool-II & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}pgpool-II hat kein GitHub-Repository und bietet daher keine vergleichswerte mittels Github Insights.\end{tabular} \\
+3 & pg\_auto\_failover & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}pg\_auto\_failover würde zwar Citus-Support bieten,\\allerdings gibt es keine gut dokumentierte Implementation für Kubernetes.\\Erfüllt daher das Kriterium für die Synergien nicht\end{tabular} \\
+4 & CloudNativePG & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}CloudNativePG ist keine vollständige Cloud Native Lösung.\\Mittels Citus könnte sogar eine Distributed SQL Lösung implementiert werden.\\Die Grundarchitektur bleibt aber Monolithisch mit einem Primary und Replikas.\\Und da kein Benefit in Form von Synergien vorhanden sind,\\fällt CloudNativePG raus.\end{tabular} \\
+8 & Citus row-based-sharding & Vorausgeschieden & \begin{tabular}[c]{@{}l@{}}Citus row-based-sharding wäre Hocheffizient\\wenn es um Ressourcenverteilung geht und zudem echtes Sharding.\\Allerdings setzt es anpassungen an den Tabellen der Applikationen voraus.\\Das KSGR ist allerdings kein Softwarehaus\\und kann keine Forks durchführen,\\auch weil viele Applikationen zertifiziert sein müssen.\\Scheitert daher an der Machbarkeit\end{tabular} \\
 \bottomrule
 \end{tabular}
 }
