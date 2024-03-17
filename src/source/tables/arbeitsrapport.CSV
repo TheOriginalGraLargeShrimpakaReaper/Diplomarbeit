@@ -8,13 +8,15 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;-;Dokumentation erweitern;;;
 27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;-;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
 28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;-;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp. das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
+01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;-;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp.\\das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
 08.03.2024;07:00;09:00;2;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
 11.03.2024;07:00;11:30;4.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Informationen Sammeln;pgpool II;pgpool II hat kein GitHub Repository.\\Das macht es unmöglich, diese Lösung mit all den anderen zu vergleichen.;pgpool II fällt somit direkt aus der betrachtung raus,\\da kein vergleich möglich ist.
 11.03.2024;12:00;13:30;1.5;0;0;0;Dokumentation;-;Dokumentation erweitern;;;
-11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;-;Dokumentation Stakeholder;;;
+11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;-;Dokumentation erweitern;Stakeholder erfassen;;
 13.03.2024;17:45;19:45;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Stackgres und Citus analysieren;Citus row-based-sharding;Citus Dokumentation stark Textlastig.\\Wenig Abbildungen, vieles muss selber gezeichnet werden.;
 14.03.2024;19:45;20:45;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Citus row-based-sharding;;
-14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;-;Citus row-based-sharding Dokumentieren;;;
+14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;-;Projektcontrolling Arbeiten;Citus row-based-sharding Dokumentieren;;
 16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;-;Projektcontrolling Arbeiten;;;
-17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;-;Zweiter Statusbericht verfassen;;;
+17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
+17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;-;Dokumentation erweitern;ACID Exkurs erfassen;;
+17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt, da noch einige kommen werden.;;
