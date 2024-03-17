@@ -316,7 +316,7 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
         I.d.R. wird jener Teil des Quorums zum Primary oder alleinigen Node, der mit der die Mehrheit aller Nodes vereint. Daraus ergeben sich bestimmte grössen, mit 5 Nodes braucht es 3 Nodes um aktiv zu bleiben und mit 3 Nodes deren 2.
         Bei diesen Konstelationen wird daher darauf geachtet, eine ungerade Anzahl Nodes im Cluster zu halten um keine Pat-Situation zu provozieren.
 %        \externaldocument{content/implementation/evaluation/evaluation}
-        Im Kapitel \autoref{chap:Quorum} wird genauer auf die Mechanik eines Quorums eingegangen.
+        Im Kapitel \autoref{subsubsec:quorum} wird genauer auf die Mechanik eines Quorums eingegangen.
         }
 }
 \newglossaryentry{openSUSE}
@@ -355,4 +355,9 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
 {
         name=etcd,
         description={etcd ist \cite{8A4R4E2D}}
+}
+\newglossaryentry{Transaktion}
+{
+        name=Transaktion,
+        description={Eine Transaktion ist beinhaltet Schreib-, Lese-, Mutatations- oder Löschoperatione auf Daten.}
 }
