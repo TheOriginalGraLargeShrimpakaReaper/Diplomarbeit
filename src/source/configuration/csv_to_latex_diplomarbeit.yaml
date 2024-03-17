@@ -11,6 +11,8 @@ tables_inventory:
  - "predecision_in"
  - "project_comments"
  - "evaluation_distributed_sql"
+ - "expert_discussions_overview"
+ - "expert_discussions_full_list"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -418,8 +420,8 @@ tables:
    sort_acending: True
    sort_inplace: True
   margins:
-   margin: False
-   margin_name:
+   margin: True
+   margin_name: "Total"
   table_styles:
    selector: "caption"
    props:
@@ -776,3 +778,125 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: False
+ expert_discussions_overview:
+   id: "expert_discussions_overview"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Fachgespräche"
+   label: "expert_discussions_overview"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "expert_discussions.csv"
+   tablefilename: "expert_discussions_overview.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+      - "Fragen"
+      - "Antworten"
+      - "Sonstige Themen"
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "Fachgespräch"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Studenten"
+      - "Bemerkungen"
+     table_header: True
+ expert_discussions_full_list:
+   id: "expert_discussions_full_list"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Fachgespräche - Protokoll"
+   label: "expert_discussions_full_list"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "expert_discussions.csv"
+   tablefilename: "expert_discussions_full_list.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "Fachgespräch"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Studenten"
+      - "Fragen"
+      - "Antworten"
+      - "Sonstige Themen"
+      - "Bemerkungen"
+     table_header: True
