@@ -19,4 +19,6 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;-;Projektcontrolling Arbeiten;;;
 17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
 17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;-;Dokumentation erweitern;ACID Exkurs erfassen;;
-17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt, da noch einige kommen werden.;;
+17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
+18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
+18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
