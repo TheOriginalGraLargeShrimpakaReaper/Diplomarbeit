@@ -1,0 +1,12 @@
+%! Author = gramic
+%! Date = 14.03.24
+
+% Preamble
+\subsubsection{ACID}
+\label{subsubsec:acid}
+    \begin{description}
+        \item \textbf{Atomarität - Atomarität}\hfill \\Besagt, dass jede \Gls{Transaktion} als separate Einheit behandelt wird.\\Entweder die gesamte Transaktion wird ausgeführt und committed oder kein Teil von ihr.
+        \item \textbf{Consistency - Konsistenz}\hfill \\Definiertr, dass eine \Gls{Transaktion} einen gültigen Zustand erzeugt oder der alte Zustand wiederhergestellt wird (rollback).
+        \item \textbf{Isolation - Isolation}\hfill \\Beschreibt, dass jede Transaktion voneinander isoliert ist und sich weder sehen noch gegenseitig beeinflussen können.
+        \item \textbf{Durability - Dauerhaftigkeit}\hfill \\Sagt aus, dass jede Änderung die committed wurde, auch bei einem Systemausfall oder Defekt beständig sein muss.\\Daten dürfen zudem nur mittels Transaktionen verändert werden und nicht von aussen.
+    \end{description}

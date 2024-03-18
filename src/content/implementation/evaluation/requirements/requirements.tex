@@ -10,7 +10,7 @@
     Um die Voraussetzung dafür zu schaffen, muss auch der PostgreSQL Cluster Cloud Ready sein.
 \end{flushleft}
 \begin{flushleft}
-    Daher müssen zwei von drei genauer evaluirten Lösungen Cloud Native Lösungen sein.
+    Daher müssen zwei von drei genauer evaluierten Lösungen Cloud Native Lösungen sein.
     Wenn der Zeitaufwand reicht, können auch eine Cloud Native und Monolithisches System aufgebaut werden.
 \end{flushleft}
 \begin{flushleft}
@@ -18,25 +18,132 @@
     \input{content/latex_tables/anforderungskatalog}
     \end{landscape}
 \end{flushleft}
+%\begin{flushleft}
+%    \begin{description}
+%        \item \textbf{Kostenrechnung}\hfill \\Für die Kostenberechnung des Zeitaufwands wird im KSGR intern mit \(120CHF/h\) gerechnet.\\Jeder Arbeitstag hat dabei \(8.4h\) und pro Jahr wird mit \(220 Tagen\) gerechnet.
+%        \item \textbf{Messung des Zeitaufwands}\hfill \\Der Zeitaufwand in der Evaluationsphase kann nur mit manueller Ausführung gemessen werden, da die Automatisierung nicht in der Evaluationsphase umgesetzt werden kann.\\In die Evaluation einfliessen wird aber die Schätzung, wie viel Aufwand betrieben werden muss um die wichtigsten Tasks automatisieren zu können.
+%        \item
+%    \end{description}
+%
+%    Folgende Messgrössen werden gestellt:
+%    \begin{description}
+%        \item \textbf{Quorum}\hfill \\
+%        \item \textbf{Zeitaufwand Quorum erweitern}\hfill \\Bemessen wird, wie lange man braucht um einen neuen Node dem Quorum hinzuzufügen.
+%        \item \textbf{Zeitaufwand Failover und Recovery}\hfill \\Bemessen wird, wie lange ein Failover und ein anschliessender Recover auf den normalen Zustand dauert.
+%        \item \textbf{Failover Funktionsfähigkeit}\hfill \\Misst, ob der Failover bei korrekter Konfiguration funktionsfähig ist wie er vom entsprechenden System spezifiziert wurde.
+%        \item \textbf{Failover Reaktionszeit}\hfill \\Gemessen und bemessen wird, wie lange es im Failoverszenario dauert, bis auf einen Standby-Node umgeschaltet wird und wie lange es dauert bis offene Connections wieder voll funktionsfähig sind.
+%        \item \textbf{Recoverydauer}\hfill \\Bemisst, wie lange es nach einem Failover-Szenario dauert, bis der Normalzustand Widerhergestellt werden kann.
+%    \end{description}
+%
+%
+%\end{flushleft}
+\subsubsection{Stakeholder}
+\input{content/latex_tables/stakeholder}
 \begin{flushleft}
-    \begin{description}
-        \item \textbf{Kostenrechnung}\hfill \\Für die Kostenberechnung des Zeitaufwands wird im KSGR intern mit \(120CHF/h\) gerechnet.\\Jeder Arbeitstag hat dabei \(8.4h\) und pro Jahr wird mit \(220 Tagen\) gerechnet.
-        \item \textbf{Messung des Zeitaufwands}\hfill \\Der Zeitaufwand in der Evaluationsphase kann nur mit manueller Ausführung gemessen werden, da die Automatisierung nicht in der Evaluationsphase umgesetzt werden kann.\\In die Evaluation einfliessen wird aber die Schätzung, wie viel Aufwand betrieben werden muss um die wichtigsten Tasks automatisieren zu können.
-        \item 
-    \end{description}
-
-    Folgende Messgrössen werden gestellt:
-    \begin{description}
-        \item \textbf{Quorum}\hfill \\
-        \item \textbf{Zeitaufwand Quorum erweitern}\hfill \\Bemessen wird, wie lange man braucht um einen neuen Node dem Quorum hinzuzufügen.
-        \item \textbf{Zeitaufwand Failover und Recovery}\hfill \\Bemessen wird, wie lange ein Failover und ein anschliessender Recover auf den normalen Zustand dauert.
-        \item \textbf{Failover Funktionsfähigkeit}\hfill \\Misst, ob der Failover bei korrekter Konfiguration funktionsfähig ist wie er vom entsprechenden System spezifiziert wurde.
-        \item \textbf{Failover Reaktionszeit}\hfill \\Gemessen und bemessen wird, wie lange es im Failoverszenario dauert, bis auf einen Standby-Node umgeschaltet wird und wie lange es dauert bis offene Connections wieder voll funktionsfähig sind.
-        \item \textbf{Recoverydauer}\hfill \\Bemisst, wie lange es nach einem Failover-Szenario dauert, bis der Normalzustand Widerhergestellt werden kann.
-    \end{description}
-
-
 \end{flushleft}
 \subsubsection{Gewichtung}
 \begin{flushleft}
+    Die Gewichtung wurde mittels einer Präferenzmatrix ermittelt.\\
+    Dabei wurden folgende Anforderungen aus übersichtsgründe in Sub-Matrizen aufgeteilt:
+    \begin{description}
+        \item Failover
+        \item Switchover
+        \item Restore
+        \item Replikation
+        \item Sharding
+        \item Quorum
+        \item Management-IP
+        \item Backup
+        \item Performance
+    \end{description}
+
+    Die Grundlegende Gewichtung wurde folgendermassen vorgenommen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/evaluation/requirements/preference_matrix}
+        \caption{Präferenzmatrix}
+        \label{fig:preference_matrix}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Gewichtung der Failover-Anforderungen setzt sich wie folgt zusammen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_failover}
+        \caption{Präferenzmatrix - Failover}
+        \label{fig:preference_matrix_failover}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Beim Switchover wurde die Gewichtung wie folgt aufgeteilt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_switchover}
+        \caption{Präferenzmatrix - Switchover}
+        \label{fig:preference_matrix_switchover}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Gewichtung und Aufteilung der Restore-Anforderungen sieht wie folgt aus:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_restore}
+        \caption{Präferenzmatrix - Restore}
+        \label{fig:preference_matrix_restore}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Replikationsanforderungen resp.
+    deren Gewichtung ist wie folgt aufgebaut:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_replication}
+        \caption{Präferenzmatrix - Replikation}
+        \label{fig:preference_matrix_replication}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Das Sharding setzt sich aus folgenden Teilen zusammen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_sharding}
+        \caption{Präferenzmatrix - Sharding}
+        \label{fig:preference_matrix_sharding}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Quorum-Anforderung ist folgendermassen zusammengesetzt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_quorum}
+        \caption{Präferenzmatrix - Quorum}
+        \label{fig:preference_matrix_quorum}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Bei der Management-API gibt es mehrere Sub-Anforderungen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_management_api}
+        \caption{Präferenzmatrix - Management-API}
+        \label{fig:preference_matrix_management_api}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Anforderungen zum Backup wurden nachfolgend aufgeteilt und gewichtet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/requirements/preference_matrix_backup}
+        \caption{Präferenzmatrix - Backup}
+        \label{fig:preference_matrix_backup}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Performance-Benchmarking lässt sich in nachfolgende Teile unterteilen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/evaluation/requirements/preference_matrix_performance}
+        \caption{Präferenzmatrix - Performance}
+        \label{fig:preference_matrix_performance}
+    \end{figure}
 \end{flushleft}

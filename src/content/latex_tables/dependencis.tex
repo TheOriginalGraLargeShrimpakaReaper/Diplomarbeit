@@ -1,0 +1,19 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{rllllll}
+\toprule
+Nr. & Objekt & Abhängigkeit & Beschreibung & Status & Risiko & Impact \\
+\midrule
+1 & Foreman & \begin{tabular}[c]{@{}l@{}}VMs\end{tabular} & \begin{tabular}[c]{@{}l@{}}Das Lifecycle Management und\\Provisioning System muss zur Verfügung stehen\\um in der Evaluationsphase Develop-VMs und in der\\Installationsphase Test-VMs erstellen zu können.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Im Moment ist Foreman in einer\\Proof of Concept Phase.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Das Risiko besteht.\\dass Foreman nicht betriebsbereit ist\end{tabular} & \begin{tabular}[c]{@{}l@{}}VMs müssen von Hand aufgesetzt werden.\\Entsprechend wird sehr viel mehr Zeit in der\\Evaluations- und Installationsphase benötigt.\end{tabular} \\
+2 & Storage & \begin{tabular}[c]{@{}l@{}}Speicher für VMs / Daten\end{tabular} & \begin{tabular}[c]{@{}l@{}}Es müssen genügend Kapazitäten auf dem Storage vorhanden sein,\\um die VMs und Datenbanken in Betrieb zu nehmen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Storage wurde bereits erweitert,\\neue Disks für den SAN Storage wurden bestellt.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Auf dem SAN ist keine Kapazität mehr vorhanden\end{tabular} & \begin{tabular}[c]{@{}l@{}}Es können keine VMs oder\\Datenbanken erstellt werden\end{tabular} \\
+3 & Log Management / SIEM System & \begin{tabular}[c]{@{}l@{}}Sichern der Logfiles für Log Rotation\end{tabular} & \begin{tabular}[c]{@{}l@{}}Ein Log Management System / SIEM muss vorhanden sein,\\um Logs langfristig sichern zu können.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Log Management und das SIAM werden abgelöst.\\Die Ausschreibung ist erfolgt\end{tabular} & \begin{tabular}[c]{@{}l@{}}Die neue Log Management Plattform\\ist noch nicht betriebsbereit\end{tabular} & \begin{tabular}[c]{@{}l@{}}Log Retention muss stark erhöht werden.\\Dies wird mehr Storage in Anspruch nehmen.\end{tabular} \\
+4 & HP-UX Ablöseprojekt & \begin{tabular}[c]{@{}l@{}}Ressourcen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Das Projekt zur Ablösung der HP-UX Plattform\\für die Oracle Datenbanken geht in die Konzeptions-\\und Umsetzungsphase.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Umsetzungsphase.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Als Oracle DBA bin ich stark in das Projekt eingebunden.\\Es besteht dass Risiko eines Ressourcenengpasses\end{tabular} & \begin{tabular}[c]{@{}l@{}}Projekt kann nicht Zeitgemäss abgeschlossen werden\end{tabular} \\
+5 & GitLab & \begin{tabular}[c]{@{}l@{}}Sicherung\end{tabular} & \begin{tabular}[c]{@{}l@{}}Sicherung von Konfigurationen, Scripts usw.\end{tabular} & \begin{tabular}[c]{@{}l@{}}GitLab ist Implementiert und Betriebsbereit.\end{tabular} & \begin{tabular}[c]{@{}l@{}}GitLab steht nicht mehr zur Verfügung\end{tabular} & \begin{tabular}[c]{@{}l@{}}Keine Versionierung und Teils\\Sicherungen mehr von Konfigurationsfiles, Scripts usw.\end{tabular} \\
+6 & PKI & \begin{tabular}[c]{@{}l@{}}Key Management\end{tabular} & \begin{tabular}[c]{@{}l@{}}Es braucht einen PKI um Keys und Zertifikate handeln zu können\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bestehender PKI wird abgelöst.\\Ablösungsprojekt in der Initialisierungsphase.\\Bestehender PKI nicht für Zertifikate im Einsatz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Es steht kein moderner PKI im Einsatz.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Zertifikate können aus Zeitgründen nicht in der Evaluationsphase eingesetzt werden.\\Für die Testphase müssen Zertifikate manuell ausgestellt werden.\end{tabular} \\
+\bottomrule
+\end{tabular}
+}
+\caption{Abhängigkeiten} \label{dependencis}
+\end{table}

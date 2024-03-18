@@ -4,9 +4,166 @@ Stackgres ist eine PostgreSQL Implementation die dafür vorgesehenen ist, in ein
 \end{flushleft} 
 \begin{flushleft}
 An sich wäre Stackgres nur eine Implementation von Patroni in Kubernetes inkl. Load Balancer.\\
-Nun kommt das Citus-Plugin ins spiel, welches aus einer jeden Monolithischen, Klassischen PostgreSQL Installation eine Distributed SQL Umgebung macht.////
+Nun kommt das Citus-Plugin ins spiel, welches aus einer jeden Monolithischen, klassischen PostgreSQL Installation eine Distributed SQL Umgebung macht.////
 Citus wiederum ist in den Microsoft Konzern eingebettet
 \end{flushleft}
 
-\paragraph{Architektur}
-\paragraph{}
+\begin{flushleft}
+    \paragraph{Architektur}
+    \begin{flushleft}
+        \subparagraph{Citus Coordinator und Workers}
+        Citus arbeitet mit einem Coordinator-Node, der jedes Query analysiert und an einen Worker-Node weitergibt.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_coordinator_worker}
+            \caption{Citus - Coordinator und Workers}
+            \label{fig:citus_coordinator_worker}
+        \end{figure}
+    \end{flushleft}
+    \begin{flushleft}
+        \subparagraph{Citus Sharding}
+        Citus bietet zwei Sharding-Modelle an.
+        \begin{flushleft}
+            \textbf{Row-based sharding}
+            Beim diesen sharding werden Tabellen anhand einer Distribution Column aufgeteilt. \cite{2Y5FA36C, FDUUL9IM}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_row-based-sharding}
+                \caption{Citus - Row-Based-Sharding}
+                \label{fig:citus_row-based-sharding}
+            \end{figure}
+        \end{flushleft}
+        \begin{flushleft}
+            \textbf{Schema-based sharding}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_schema-based-sharding}
+                \caption{Citus - Schema-Based-Sharding}
+                \label{fig:citus_schema-based-sharding}
+            \end{figure}
+        \end{flushleft}
+        \begin{flushleft}
+            \textbf{Schlussfolgerung}
+            Beide Sharding-Methoden haben eine grosse Schwäche.
+            Sie sind nicht vollständig ACID-Konform (\autoref{subsubsec:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
+            Die Shards müssen mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.
+
+            Dies muss aber bei der evaluation mittels Tests noch bestätigt werden.
+        \end{flushleft}
+    \end{flushleft}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Maintenance}
+    Bei Stackgres gab es im letzten Monat keine wirkliche Bewegung:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/pulse_ongres_stackgres}
+        \caption{Stackgres - Pulse}
+        \label{fig:pulse_ongres_stackgres}
+    \end{figure}
+    Anders sieht es bei Citus aus, die Firma die mittlerweile zu Microsoft gehört, schliesst Issues rasch und hat eine verhältnissmässig hohe Requstrate:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/pulse_citusdata_citus}
+        \caption{Citus - Pulse}
+        \label{fig:pulse_citusdata_citus}
+    \end{figure}
+
+    Bei Stackgres wird sehr viel Code hinzugefügt oder gelöscht, beim älteren Citus wurden weniger änderungen verzeichnet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/code_frequency_ongres_stackgres}
+        \caption{Stackgres - Code Frequency}
+        \label{fig:code_frequency_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/code_frequency_citusdata_citus}
+        \caption{Citus - Code Frequency}
+        \label{fig:code_frequency_citusdata_citus}
+    \end{figure}
+
+    Citus legt einen hohen Stellenwert auf die Community-Standars, Stackgres selbst schneidet hier nur Mittelmässig ab:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/stackgres_community_standards}
+        \caption{Stackgres - Community Standards}
+        \label{fig:stackgres_community_standards}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/citus_community_standards}
+        \caption{Citus - Community Standards}
+        \label{fig:citus_community_standards}
+    \end{figure}
+
+    Die Stackgres Constributors pflegen aktiv Additions ein, löschen Regelmässig und Commiten ebenfalls auf die main-Branch.
+    Citus, dessen Repository länger Commited wird, hat weniger bewegung auf die main-Branch.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_commits_ongres_stackgres}
+        \caption{Stackgres - Contributors Commits}
+        \label{fig:contributors_commits_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_deletations_ongres_stackgres}
+        \caption{Stackgres - Contributors Deletations}
+        \label{fig:contributors_deletations_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_addition_ongres_stackgres}
+        \caption{Stackgres - Contributors Additions}
+        \label{fig:contributors_addition_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_commits_citusdata_citus}
+        \caption{Citus - Contributors Commits}
+        \label{fig:contributors_commits_citusdata_citus}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_deletations_citusdata_citus}
+        \caption{Citus - Contributors Deletations}
+        \label{fig:contributors_deletations_citusdata_citus}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/contributors_additions_citusdata_citus}
+        \caption{Citus - Contributors Additions}
+        \label{fig:contributors_additions_citusdata_citus}
+    \end{figure}
+
+    Gerade Ende Januar gab es bei Stackgres eine grössere Anzahl Commits, anhand der statistik wird ersichtlich, dass i.d.R. einmal pro Monat grössere Mengen an Commits eingespielt werden.
+    Bei Citus gibt es ebenfalls Regelmässig grössere Mengen an Commits, allerdings scheint bei citusdata mehr mit kürzeren Sprints gearbeitet zu werden als bei ongres denn die Commits sind Regelmässiger:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/commit_activity_ongres_stackgres}
+        \caption{Stackgres - Commit Activity}
+        \label{fig:commit_activity_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/commit_activity_citusdata_citus}
+        \caption{Citus - Commit Activity}
+        \label{fig:commit_activity_citusdata_citus}
+    \end{figure}
+
+    In letzter Zeit haben nur ongres, der Entwickler von Stackgres, als auch citusdata, grössere Commits auf das Repository gefahren.
+    Andere grössere Entwickler wie EnterpriseDB sind abwesend.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/network_graph_ongres_stackgres}
+        \caption{Stackgres - Network Graph}
+        \label{fig:network_graph_ongres_stackgres}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/stackgres_citus/network_graph_citusdata_citus}
+        \caption{Citus - Network Graph}
+        \label{fig:network_graph_citusdata_citus}
+    \end{figure}
+
+\end{flushleft}

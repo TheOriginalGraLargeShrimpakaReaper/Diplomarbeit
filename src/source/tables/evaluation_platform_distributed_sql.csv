@@ -1,0 +1,5 @@
+\textbf{Linux Distribution};Debian 12
+\textbf{Kubernetes Runtime};rke2
+\textbf{Container-Enviroment};containerd
+\textbf{Container Network Interface (CNI)};cilium
+\textbf{loud Native Storage (CNS)};local-path-provisioner

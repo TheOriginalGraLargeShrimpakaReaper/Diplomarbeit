@@ -2,8 +2,9 @@
 %! Date = 06.03.24
 
 % Preamble
-\section{pandas_dataframe_to_latex_table.py}
-\begin{lstlisting}[language=python, caption=pandas_dataframe_to_latex_table.py CSV - LaTex Tabelle,captionpos=b,label={lst:Python LaTex - pandas_dataframe_to_latex_table},breaklines=true]
+\section{pandas\_dataframe\_to\_latex\_table.py}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=python, caption=Python LaTex - pandas\_dataframe\_to\_latex\_table.py CSV - LaTex Tabelle,captionpos=b,label={lst:Python LaTex - pandas_dataframe_to_latex_table},breaklines=true]
 import os
 import pandas as pd
 import yaml
@@ -337,9 +338,6 @@ def create_latex_tables(panda_latex_tables_config):
                 table_string = '\\end{table}'
                 new_caption = caption_label_nbr + "\n" + table_string
                 latex_table = latex_table.replace(table_string, new_caption)
-
-        # umlaute
-        # latex_table = latex_table.replace("ü", '\\"u')
 
 
         # write latex table to filesystem

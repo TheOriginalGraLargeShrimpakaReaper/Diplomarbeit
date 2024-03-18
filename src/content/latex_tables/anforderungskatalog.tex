@@ -2,38 +2,43 @@
 
 \resizebox{\columnwidth}{!}{%
 
-\begin{tabular}{rllll}
+\begin{tabular}{rlllll}
 \toprule
-Nr. & Anforderung & Beschreibung & System & Muss / Kann \\
+Nr. & Anforderung & Bezeichnung & Beschreibung & System & Muss / Kann \\
 \midrule
-1 & Systemvielfallt & \begin{tabular}[c]{@{}l@{}}Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden\end{tabular} & Beides & MUSS \\
-2 & Synergien & \begin{tabular}[c]{@{}l@{}}Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können\end{tabular} & Beides & MUSS \\
-3 & Failover & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt\end{tabular} & Beides & MUSS \\
-4 & Failover & \begin{tabular}[c]{@{}l@{}}Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden\end{tabular} & Beides & MUSS \\
-5 & Failover-Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.\end{tabular} & Beides & MUSS \\
-6 & Switchover & \begin{tabular}[c]{@{}l@{}}Das System muss ein Skript oder eine API liefern,\\welche einen geordeten Switchover auf einen anderen Node erlaubt\end{tabular} & Beides & MUSS \\
-7 & Switchover & \begin{tabular}[c]{@{}l@{}}Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden\end{tabular} & Beides & MUSS \\
-8 & Switchover-Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.\end{tabular} & Beides & MUSS \\
-9 & Restore & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen\end{tabular} & Beides & MUSS \\
-10 & Restore & \begin{tabular}[c]{@{}l@{}}Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen\end{tabular} & Beides & MUSS \\
-11 & Restore & \begin{tabular}[c]{@{}l@{}}Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen\end{tabular} & Beides & MUSS \\
-12 & Restore-Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das Wiederherstellen des Ursprungszustands muss innert weniger Stunden für alle Datenbanken aus dem Backup Wiederhergestellt und im Clustersystem Synchronisiert werden\end{tabular} & Beides & MUSS \\
-13 & Replikation & \begin{tabular}[c]{@{}l@{}}Es muss eine Synchrone Replikation sichergestellt werden\end{tabular} & Monolitisch & MUSS \\
-14 & Replikation & \begin{tabular}[c]{@{}l@{}}Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt\end{tabular} & Monolitisch & MUSS \\
-15 & Sharding & \begin{tabular}[c]{@{}l@{}}Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden\end{tabular} & Distributed SQL & MUSS \\
-16 & Sharding & \begin{tabular}[c]{@{}l@{}}Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt\end{tabular} & Distributed SQL & MUSS \\
-17 & Quorum & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss über ein Quorum-System besitzen\end{tabular} & Beides & MUSS \\
-18 & Quorum & \begin{tabular}[c]{@{}l@{}}Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern\end{tabular} & Beides & MUSS \\
-19 & Connection & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss sicherstellen, dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann\end{tabular} & Beides & MUSS \\
-20 & Management-API & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss Skripte oder eine API liefern,
-mit dem das System zu konfigurieren, verwalten oder überwachen zu können.
-Zudem müssen mit geringen Arbeitsaufwand damit Nodes hinzugefügt oder entfernt werden können\end{tabular} & Beides & MUSS \\
-21 & Management-API & \begin{tabular}[c]{@{}l@{}}Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden\end{tabular} & Beides & MUSS \\
-22 & Backup & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards angezogen werden\end{tabular} & Beides & MUSS \\
-23 & Backup Restore & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards restored werden können\end{tabular} & Beides & MUSS \\
-24 & Housekeeping - Log Rotation & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss die möglichkeit zur Log Rotation bieten\end{tabular} & Beides & MUSS \\
-25 & Self Heahling & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können\end{tabular} & Beides & KANN \\
-26 & Monitoring - Node Failure & \begin{tabular}[c]{@{}l@{}}Läuft ein Node auf einen Fehler, muss das Clustersystem dies erkennen und Melden resp. eine Schnittstelle liefern die abgefragt werden kann\end{tabular} & Beides & MUSS \\
+1 & Systemvielfallt &  & \begin{tabular}[c]{@{}l@{}}Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden\end{tabular} & Beides & MUSS \\
+2 & Synergien &  & \begin{tabular}[c]{@{}l@{}}Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können\end{tabular} & Beides & MUSS \\
+3 & Failover & Automatismus & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt\end{tabular} & Beides & MUSS \\
+4 & Failover & Connection - Stabilität & \begin{tabular}[c]{@{}l@{}}Beim Failover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden\end{tabular} & Beides & MUSS \\
+5 & Failover & Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.\end{tabular} & Beides & MUSS \\
+6 & Switchover & Skript / API & \begin{tabular}[c]{@{}l@{}}Das System muss ein Skript oder eine API liefern,\\welche einen geordeten Switchover auf einen anderen Node erlaubt\end{tabular} & Beides & MUSS \\
+7 & Switchover & Connection - Stabilität & \begin{tabular}[c]{@{}l@{}}Beim Switchover dürfen bestehende Connections nicht getrennt werden oder sofort Wiederhergestellt werden\end{tabular} & Beides & MUSS \\
+8 & Switchover & Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das umstellen auf den nächsten Node muss so schnell ausgefühgrt werden,\\das ein Disconnect mittels Client-Konfiguration (Timeout) verhindert wird.\end{tabular} & Beides & MUSS \\
+9 & Restore & Skript / API & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss ein Skript oder eine API liefern,\\welche das einfache und ggf. automatisierte Restoren eines oder mehreren Nodes ermöglichen\end{tabular} & Beides & MUSS \\
+10 & Restore & Datensicherheit & \begin{tabular}[c]{@{}l@{}}Beim Wiederherstellen des Ursprungszustands darf es zu keinem Datenverlust kommen\end{tabular} & Beides & MUSS \\
+11 & Restore & Connection - Stabilität & \begin{tabular}[c]{@{}l@{}}Bei der Wiederherstellung einzelner Nodes darf es zu keinen Unterbrechungen auf den Applikationen kommen\end{tabular} & Beides & MUSS \\
+12 & Restore & Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Das Wiederherstellen des Ursprungszustands muss\\innert weniger Stunden für alle Datenbanken aus dem\\Backup Wiederhergestellt und im Clustersystem Synchronisiert werden\end{tabular} & Beides & MUSS \\
+13 & Replikation & Synchrone Replikation & \begin{tabular}[c]{@{}l@{}}Es muss eine Synchrone Replikation sichergestellt werden\end{tabular} & Monolitisch & MUSS \\
+14 & Replikation & Failover / Switchover Garantie & \begin{tabular}[c]{@{}l@{}}Die Replikation muss sicherstellen, das es bei einem Failover/Switchover zu keinem Fehler kommt\end{tabular} & Monolitisch & MUSS \\
+15 & Replikation & Throughput & \begin{tabular}[c]{@{}l@{}}Beschreibt, wie viele Transaktionen pro Zeiteinheit vom Primary an die Replikas gesendet und Commited werden.\\Dieser Wert ist bei Synchroner Replikation entscheidend da Commits auf allen Replicas abgesetzt sein müssen.\end{tabular} & Beides & MUSS \\
+16 & Sharding & Datenschutz- und integrität & \begin{tabular}[c]{@{}l@{}}Die Datenkonsistenz und Datenintegrität auf den Shards muss sichergestellt werden\end{tabular} & Distributed SQL & MUSS \\
+17 & Sharding & Schutz vor Datenverlust & \begin{tabular}[c]{@{}l@{}}Die Synchronisation der Shards muss sicherstellen, dass es zu keinem Datenverlust kommt\end{tabular} & Distributed SQL & MUSS \\
+18 & Quorum & Quorum-System vorhanden & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss über ein Quorum-System besitzen\end{tabular} & Beides & MUSS \\
+19 & Quorum & Robhustheit & \begin{tabular}[c]{@{}l@{}}Das Quorum des Clustersystems muss robust genug sein, um eine Split-Brain-Situation zu verhindern\end{tabular} & Beides & MUSS \\
+20 & Connection &  & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss sicherstellen,\\dass eine Applikation ohne Entwicklungsaufwand mittels dem PostgreSQL Wired Connector zugreifen kann\end{tabular} & Beides & MUSS \\
+21 & Management-API & Management-API vorhanden & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss Skripte oder eine API liefern,\\mit dem das System zu konfigurieren, verwalten oder überwachen zu können.\\Zudem müssen mit geringen Arbeitsaufwand\\damit Nodes hinzugefügt oder entfernt werden können\end{tabular} & Beides & MUSS \\
+22 & Management-API & Authentifizierung \& Autorisierung & \begin{tabular}[c]{@{}l@{}}Es müssen gängige Standards für Authentifizierung und Autorisierung mitgebracht werden\end{tabular} & Beides & MUSS \\
+23 & Management-API & Aufwand & \begin{tabular}[c]{@{}l@{}}Der Aufwand,\\der benötigt wird um die DB zu verwalten,\\Nodes hinzuzufügen oder zu entfernen usw. muss gegeneinander verglichen werden.\end{tabular} & Beides & MUSS \\
+24 & Backup & Backup mit PostgreSQL Standards & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards angezogen werden\end{tabular} & Beides & MUSS \\
+25 & Backup & Restore mit PostgreSQL Standanrds & \begin{tabular}[c]{@{}l@{}}Backups müssen mittels PostgreSQL Standards restored werden können\end{tabular} & Beides & MUSS \\
+26 & Housekeeping - Log Rotation &  & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss die möglichkeit zur Log Rotation bieten\end{tabular} & Beides & MUSS \\
+27 & Self Heahling &  & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss im Fehlerfall Nodes selber wiederherstellen können\end{tabular} & Beides & KANN \\
+28 & Monitoring - Node Failure &  & \begin{tabular}[c]{@{}l@{}}Läuft ein Node auf einen Fehler,\\muss das Clustersystem dies erkennen und Melden resp.\\eine Schnittstelle liefern die abgefragt werden kann\end{tabular} & Beides & MUSS \\
+29 & Maintenance Quality &  & \begin{tabular}[c]{@{}l@{}}Da die meisten PostgreSQL HA Lösungen Open-Source sind,\\muss sichergestellt werden,\\dass die gewählte Lösung auch aktiv gepflegt wird.\\Als Basis dienen hier Informationen wie z.B. GitHub Insights.\end{tabular} & Beides & MUSS \\
+30 & Performance & tps - Read-Only & \begin{tabular}[c]{@{}l@{}}Die Transaktionsrate (transactions per second / tps) für DQL Transaktionen\end{tabular} & Beides & MUSS \\
+31 & Performance & tps - Read-Writes & \begin{tabular}[c]{@{}l@{}}Die Transaktionsrate (transactions per second / tps) für DML Transaktionen\end{tabular} & Beides & MUSS \\
+32 & Performance & Ø Latenz - Read-Only & \begin{tabular}[c]{@{}l@{}}Die Latenzzeit bei DQL Transaktionen\end{tabular} & Beides & MUSS \\
+33 & Performance & Ø Latenz - Read-Write & \begin{tabular}[c]{@{}l@{}}Die Latenzzeit bei DML Transaktionen\end{tabular} & Beides & MUSS \\
 \bottomrule
 \end{tabular}
 }
