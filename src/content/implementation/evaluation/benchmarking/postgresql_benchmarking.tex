@@ -4,7 +4,29 @@
 % Preamble
 \begin{flushleft}
     \subsection{PostgreSQL Benchmarking}
+    \subsubsection{pgBench - Basis-Benchmarking}
     PostgreSQL bietet ein Benchmarking-Tool,\cite{TYJFF7AB,VXNYQFTE} mit dem die DB Vermessen werden kann.
-
+\end{flushleft}
+\begin{flushleft}
     Damit die Tests aussagekräftig sind, werden mit den Testläufen mehrere Läufe gestartet.
+    Der erste Lauf muss dabei ignoriert werden, denn erst dann wird die DB in den Cache geladen.
+    Wird dies nicht eingehalten, so wird die ganze Testreihe unbrauchbar.
+\end{flushleft}
+\begin{flushleft}
+    Es gibt einiges zu beachten, wenn PostgreSQL einem Benchmarking unterzogen wird.
+    Aus diversen Quellen \cite{768DXXJK, 67TNVGTX, T3VEV98H, VXNYQFTE} sind dies folgende Anforderungen:
+     \begin{description}
+        \item \textbf{Maintenance}\hfill \\Vor und nach dem Initialisieren des Benchmarks muss \Gls{AUTOVACUUM} gestartet werden.
+        \item \textbf{Non-Default Konfiguration}\hfill \\Die PostgreSQL DB sollte nicht mit der Default Konfiguration betrieben werden.\\Die Konfiguration sollte anhand der zu erwartenden Workloads und Sessions konfiguriert werden.
+        \item \textbf{Benchmark anpassen}\hfill \\Der Benchmark sollte sich an die zu erwartenden Anzahl Sessions und Anzahl \Gls{Transaktion}en richten.
+        \item \textbf{Benchmark Dauer}\hfill \\Die Zeit zwischen den \Gls{Transaktion}en und die Dauer an sich sollten über einen längeren Zeitraum stattfinden.\\Nur so, kann ein echtes verhalten gemessen werden.
+        \item \textbf{Störfaktoren}\hfill \\Störfaktoren, etwa Netzwerklatenzen \cite{5VBTYNB7} usw.,
+        müssen ebenfalls bemessen werden.\\Nur so kann sichergestellt werden, dass die Umgebung sauber ist.
+    \end{description}
+\end{flushleft}
+\begin{flushleft}
+    \subsubsection{Replication Throughput Benchmarking}
+    Etwas Komplexer wird es beim Benchmark des Throughput.
+    Den nebst den DB-Latenzen usw. kommt nun noch die Netzwerklatenz usw. hinzu \cite{UU5X5NID}.
+
 \end{flushleft}
