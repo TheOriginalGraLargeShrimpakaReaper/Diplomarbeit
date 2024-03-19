@@ -22,3 +22,5 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
 18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
 18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
+19.03.2024;08:00;10:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;;
+19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;yugabytedb;;

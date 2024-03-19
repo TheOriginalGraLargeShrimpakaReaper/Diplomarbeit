@@ -182,7 +182,7 @@ Harbor wird beim KSGR zur Verwaltung der \Gls{Kubernetes}-Plattform verwendet.}
 \newglossaryentry{Redis}
 {
         name=Redis,
-        description={Redis ist eine Key-Value-orientierte \Gls{NoSQL} In-Memory-Datenbank, dh.
+        description={Redis ist eine \Gls{Key-Value-orientierte} \Gls{NoSQL} In-Memory-Datenbank, dh.
         die Daten liegen Primär im Memory und nicht auf dem Storage\cite{57XLMIRR}.
 Redis wurde 2009 zum ersten Mal veröffentlicht.}
 }
@@ -190,7 +190,7 @@ Redis wurde 2009 zum ersten Mal veröffentlicht.}
 {
         name=NoSQL,
         description={NoSQL steht für Not only SQL. Das heisst, Relationale Datenbanken haben komponenten wie Dokumentendatenbanken,
-Graphendatenbanken, Key-Value-Datenbanken und Spaltenorientiert Datenbanken.
+Graphendatenbanken, \Gls{Key-Value-Datenbank}en und Spaltenorientiert Datenbanken.
 Viele der grossen Datenbanklösungen wie \Gls{Oracle Database} oder \Gls{Microsoft SQL Server} sind NoSQL Datenbanken resp.
 bieten diese option an.}
 }
@@ -360,4 +360,22 @@ Ansible verbindet sich auf auf die Zielgeräte und führt dort die Hinterlegten 
 {
         name=Transaktion,
         description={Eine Transaktion ist beinhaltet Schreib-, Lese-, Mutatations- oder Löschoperatione auf Daten.}
+}
+\newglossaryentry{Key-Value-Datenbank}
+{
+        name=Key-Value-Datenbank,
+        description={Eine Key-Value-Datenbank ist ein Typ der\Gls{NoSQL} Datenbanken.
+        Diese Datenbanken haben einen Primary Key und oft mindestens einen Sort Key.
+        Key-Value-Datenbanken können auch Objekte mit Subitems resp. Referenzen dazu speichern.
+        Eine bekannte Key-Value-Datenbank ist \Gls{Redis}}
+}
+\newglossaryentry{Key-Value-orientierte}
+{
+        name=Key-Value-orientierte,
+        description={Siehe \Gls{Key-Value-Datenbank}}
+}
+\newglossaryentry{Key-Value-Store}
+{
+        name=Key-Value-Store,
+        description={Siehe \Gls{Key-Value-Datenbank}}
 }
