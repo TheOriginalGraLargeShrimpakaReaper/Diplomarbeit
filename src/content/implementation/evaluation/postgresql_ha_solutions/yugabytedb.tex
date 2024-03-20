@@ -18,7 +18,8 @@
         \caption{yugabyteDB - Grundkonzept}
         \label{fig:yugabytedb-concept}
     \end{figure}
-
+\end{flushleft}
+\begin{flushleft}
     Der Basisaufbau wiederum beinhaltet diverse Dienste für das Sharding, die Replikation und Transaktionen:
     \begin{figure}[H]
         \centering
@@ -26,7 +27,8 @@
         \caption{yugabyteDB - Architektur}
         \label{fig:yugabytedb-basic-archicture}
     \end{figure}
-
+\end{flushleft}
+\begin{flushleft}
     \subparagraph{yugabyteDB - Sharding}
     yugabyteDB teilt seine Tabellen in Tablets auf.
     Die Aufteilung kann gemäss Sharding-Standards gemacht werden:
@@ -36,7 +38,8 @@
         \caption{yugabyteDB - Sharding}
         \label{fig:yugabytedb-sharding-tablets}
     \end{figure}
-
+\end{flushleft}
+\begin{flushleft}
     Dabei hat jedes Tablet auf einem Node einen Leader, der an die Follower auf den anderen Nodes repliziert:
     \begin{figure}[H]
         \centering
@@ -44,16 +47,42 @@
         \caption{yugabyteDB - Tablet - Leader und Follower}
         \label{fig:yugabytedb-tablet-masters}
     \end{figure}
-
-    Mit dem Replikationsfaktor kann angegeben werden, auf wie vielen Nodes ein Tablet repliziert werden soll.
-
+\end{flushleft}
+\begin{flushleft}
+    Mit dem Replikationsfaktor  kann angegeben werden, auf wie vielen Nodes ein Tablet repliziert werden soll.
+    Bei einem 4-Node System können z.B. einige Tablets einen Faktor 3 haben, dass heisst, dass die Daten nur auf 3 Nodes repliziert werden.
+    Bei einem Replikationsfaktor 4 werden die Daten auf alle Nodes repliziert.
+    Dies wird mit einem eigenen Service, dem YB-TServer service \cite{RSV64WED} geregelt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-tablet-replication-factor}
+        \caption{yugabyteDB - Tablet - Replikationsfaktor}
+        \label{fig:yugabytedb-tablet-replication-factor}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
     Durch das Raft-Protokoll werden die Tablet-Leader regelmässig gewechselt.
 
-    Fällt ein Tablet-Leader aus, so wird ein Follower als neuer Leader ausgehandelt:
-
-
-
-
-
+\end{flushleft}
+\begin{flushleft}
+    Mehrere Nodes können zu Zonen zusammengebunden werden, die dann z.B. auf verschiedene Rechenzentren verteilt werden:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-zones}
+        \caption{yugabyteDB - Zonen}
+        \label{fig:yugabytedb-zones}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Dies wird dann sinnvoll, wenn eine gewisse Ausfalltoleranz erreicht werden soll.
+    Fällt nämlich ein Tablet Peer oder ein Node in einer Zone aus, so wird die ganze Zone sofort als nicht mehr Arbeitsfähig angesehen.
+    Entsprechend werden in allen Nodes die Tablet-Leader stillgelegt und auf die übrigen Zonen verteilt.
+    YuganyteDB nennt dies \texttt{Zone outage Tolerance}\cite{PTKCP8A4}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-zone-outage-tolerance}
+        \caption{yugabyteDB - Zone outage Tolerance}
+        \label{fig:yugabytedb-zone-outage-tolerance}
+    \end{figure}
 \end{flushleft}
 
