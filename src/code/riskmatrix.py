@@ -4,6 +4,20 @@ import pip as pd
 import os
 import csv
 import pandas as pd
+import yaml
+
+def load_configuration(riskmatrix_conf_filename):
+    riskmatrix_config = dict()
+    #cbd_conf_filename = 'scatter_plotter_conf.yaml'
+    riskmatrix_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
+    yaml_path = os.path.join(riskmatrix_conf_dir, riskmatrix_conf_filename)
+
+    with open(yaml_path, "r") as file:
+        riskmatrix_config = yaml.load(file, Loader=yaml.FullLoader)
+
+    return riskmatrix_config
+
+def get_data(riskid):
 
 def riskmatrix(risk, conf, matrix):
     # get the risk datas
@@ -231,6 +245,9 @@ conf = {}
 for row in data:
     key, *values = row
     conf[key] = {key: value for key, value in zip(header, values)}
+
+
+riskmatrix_config = load_configuration('riskmatrix_plotter_conf.yaml')
 
 for risks in conf:
     riskmatrix(risks, conf, matrix)
