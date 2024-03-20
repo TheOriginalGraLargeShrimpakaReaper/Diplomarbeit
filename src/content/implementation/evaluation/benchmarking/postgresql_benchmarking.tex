@@ -16,7 +16,9 @@
     Es gibt einiges zu beachten, wenn PostgreSQL einem Benchmarking unterzogen wird.
     Aus diversen Quellen \cite{768DXXJK, 67TNVGTX, T3VEV98H, VXNYQFTE} sind dies folgende Anforderungen:
      \begin{description}
+        \item \textbf{pgGather}\hfill \\Mit pgGather \cite{FGL8E2X5} müssen vorgängig alle Probleme analysiert und beseitigt werden.
         \item \textbf{Maintenance}\hfill \\Vor und nach dem Initialisieren des Benchmarks muss \Gls{AUTOVACUUM} gestartet werden.
+        \item \textbf{Statistiken bereinigen}\hfill \\Um saubere Informationen mit pgGather sammeln zu können,\\müssen sie jeweils neu generiert werden.
         \item \textbf{Non-Default Konfiguration}\hfill \\Die PostgreSQL DB sollte nicht mit der Default Konfiguration betrieben werden.\\Die Konfiguration sollte anhand der zu erwartenden Workloads und Sessions konfiguriert werden.
         \item \textbf{Benchmark anpassen}\hfill \\Der Benchmark sollte sich an die zu erwartenden Anzahl Sessions und Anzahl \Gls{Transaktion}en richten.
         \item \textbf{Benchmark Dauer}\hfill \\Die Zeit zwischen den \Gls{Transaktion}en und die Dauer an sich sollten über einen längeren Zeitraum stattfinden.\\Nur so, kann ein echtes verhalten gemessen werden.

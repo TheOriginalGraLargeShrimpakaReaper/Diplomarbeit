@@ -45,9 +45,13 @@
         \label{fig:yugabytedb-tablet-masters}
     \end{figure}
 
-    Mit dem Replikationsfaktor kann angegeben werden, auf wievielen Nodes ein Tablet repliziert werden soll.
+    Mit dem Replikationsfaktor kann angegeben werden, auf wie vielen Nodes ein Tablet repliziert werden soll.
 
     Durch das Raft-Protokoll werden die Tablet-Leader regelmässig gewechselt.
+
+    Fällt ein Tablet-Leader aus, so wird ein Follower als neuer Leader ausgehandelt:
+
+
 
 
 
