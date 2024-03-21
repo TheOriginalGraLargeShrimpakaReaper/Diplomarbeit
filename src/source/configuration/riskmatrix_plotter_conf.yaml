@@ -19,7 +19,37 @@ risks:
     x-axis-title: "Schadensausmass (SM)"
     y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
     title: "Risiko Cockpit PostgreSQL Datenbanken KSGR"
-    bubble-standard-size: "1000"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
   project:
     riskid: "project"
     startpath: "parentdir"
@@ -31,7 +61,37 @@ risks:
     x-axis-title: "Schadensausmass (SM)"
     y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
     title: "Risiko Cockpit Projekt"
-    bubble-standard-size: "1000"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
   Postgresql-massnahme:
     riskid: "Postgresql-massnahme"
     startpath: "parentdir"
@@ -43,7 +103,37 @@ risks:
     x-axis-title: "Schadensausmass (SM)"
     y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
     title: "Risiko Cockpit PostgreSQL Datenbanken KSGR – Massnahme"
-    bubble-standard-size: "1000"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
   Project-massnahme:
     riskid: "Project-massnahme"
     startpath: "parentdir"
@@ -55,4 +145,34 @@ risks:
     x-axis-title: "Schadensausmass (SM)"
     y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
     title: "Risiko Cockpit Projekt – Massnahme"
-    bubble-standard-size: "1000"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
