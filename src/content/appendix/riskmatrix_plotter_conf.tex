@@ -1,0 +1,187 @@
+%! Author = gra
+%! Date = 21.03.24
+
+% Preamble
+%
+\section{riskmatrix\_plotter\_conf.yaml}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Python LaTex - riskmatrix\_plotter\_conf.yaml - Konfigurationsdatei - Risxikomatrizen,captionpos=b,label={lst:riskmatrix_plotter_conf},breaklines=true]
+risk_inventory:
+  - "postgresql"
+  - "project"
+  - "Postgresql-massnahme"
+  - "Project-massnahme"
+riskmatrix:
+  startpath: "parentdir"
+  configfile_path: "source/configuration"
+  configfile_name: "riskmatrix_xy_axis_tuple_matrix.yaml"
+risks:
+  postgresql:
+    riskid: "postgresql"
+    startpath: "parentdir"
+    destination_path: "source/riskmatrix"
+    imagename: "riskmatrixproblem.png"
+    datafile_path: "source/tables"
+    datafile: "riskmatrixproblem.csv"
+    itemname: "R"
+    x-axis-title: "Schadensausmass (SM)"
+    y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
+    title: "Risiko Cockpit PostgreSQL Datenbanken KSGR"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
+  project:
+    riskid: "project"
+    startpath: "parentdir"
+    destination_path: "source/riskmatrix"
+    imagename: "riskmatrix-project.png"
+    datafile_path: "source/tables"
+    datafile: "riskmatrix-project.csv"
+    itemname: "R"
+    x-axis-title: "Schadensausmass (SM)"
+    y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
+    title: "Risiko Cockpit Projekt"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
+  Postgresql-massnahme:
+    riskid: "Postgresql-massnahme"
+    startpath: "parentdir"
+    destination_path: "source/riskmatrix"
+    imagename: "Riskmatrixproblem-massnahmen.png"
+    datafile_path: "source/tables"
+    datafile: "riskmatrixproblem-massnahmen.csv"
+    itemname: "R"
+    x-axis-title: "Schadensausmass (SM)"
+    y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
+    title: "Risiko Cockpit PostgreSQL Datenbanken KSGR – Massnahme"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
+  Project-massnahme:
+    riskid: "Project-massnahme"
+    startpath: "parentdir"
+    destination_path: "source/riskmatrix"
+    imagename: "Riskmatrix-project-massnahmen.png"
+    datafile_path: "source/tables"
+    datafile: "riskmatrix-project-massnahmen.csv"
+    itemname: "R"
+    x-axis-title: "Schadensausmass (SM)"
+    y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
+    title: "Risiko Cockpit Projekt – Massnahme"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
+\end{lstlisting}

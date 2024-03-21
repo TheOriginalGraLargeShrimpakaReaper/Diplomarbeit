@@ -5,7 +5,7 @@ import yaml
 # Get the Configuration
 def load_configuration():
     cost_benefit_config = dict()
-    cbd_conf_filename = 'scatter_plotter_conf.yaml'
+    cbd_conf_filename = 'cost_benefit_diagram_plotter_conf.yaml'
     cbd_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
     yaml_path = os.path.join(cbd_conf_dir, cbd_conf_filename)
 
