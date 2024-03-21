@@ -1,8 +1,7 @@
-import matplotlib.pyplot as plt
 import os
-import csv
-import pandas as pd
+import matplotlib.pyplot as plt
 import yaml
+
 
 # Get the Configuration
 def load_configuration():
