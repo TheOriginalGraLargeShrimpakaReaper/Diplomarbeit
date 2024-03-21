@@ -29,35 +29,35 @@ def load_xy_axis_tuples(riskmatrix_config):
     riskmatrix_xy_axis_tuples_path = os.path.join(directory, riskmatrix_xy_axis_tuples_config)
     riskmatrix_xy_axis_tuples = dict()
     riskmatrix_xy_axis_tuples_aux = dict()
-    #cbd_conf_filename = 'scatter_plotter_conf.yaml'
-    #riskmatrix_xy_axis_tuples_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
-    #yaml_path = os.path.join(riskmatrix_conf_dir, riskmatrix_conf_filename)
 
     with open(riskmatrix_xy_axis_tuples_path, "r") as file:
         riskmatrix_xy_axis_tuples_aux = yaml.load(file, Loader=yaml.FullLoader)
 
-    #riskmatrix_xy_axis_tuples = tuple(map(int, riskmatrix_xy_axis_tuples))
-    #riskmatrix_xy_axis_tuples = [int(i) for a, i in enumerate(riskmatrix_xy_axis_tuples)]
     for string_key in riskmatrix_xy_axis_tuples_aux:
         value = riskmatrix_xy_axis_tuples_aux.get(string_key)
-        #int_key = tuple(map(int, string_key))
-        #int_key = [int(i) for a,i in enumerate(string_key)]
-        #int_key = np.array(string_key).astype(int)
         int_key = eval(string_key)
         riskmatrix_xy_axis_tuples.update({int_key:value})
     return riskmatrix_xy_axis_tuples
-
 
 def get_data(riskid):
 
     return "hello"
 
-def riskmatrix(risk, conf, matrix):
+#def riskmatrix(risk, conf, matrix):
+def riskmatrix(conf, matrix):
+    risks = conf.get('risk_inventory')
+    for risk_conf in risks:
+        # get the risk config datas
+        startpath = conf.get('risks').get(risk_conf).get('startpath')
+        destination = conf.get('risks').get(risk_conf).get('destination_path')
+        imagename = conf.get('risks').get(risk_conf).get('imagename')
+        datafilename = conf.get('risks').get(risk_conf).get('datafilename')
+
     # get the risk datas
-    risk_conf = conf.get(risk)
-    startpath = risk_conf.get('startpath')
-    destination = risk_conf.get('destinatination')
-    imagename = risk_conf.get('imagename')
+    #risk_conf = conf.get(risk)
+    #startpath = risk_conf.get('startpath')
+    #destination = risk_conf.get('destinatination')
+    #imagename = risk_conf.get('imagename')
     datafilename = risk_conf.get('datafilename')
     itemname = risk_conf.get('itemname')
     x_axis_title = risk_conf.get('x-axis-title')
@@ -282,7 +282,7 @@ for row in data:
 
 riskmatrix_config = load_configuration('riskmatrix_plotter_conf.yaml')
 riskmatrix_xy_axis_tuples = load_xy_axis_tuples(riskmatrix_config)
-
-for risks in conf:
-    riskmatrix(risks, conf, matrix)
+riskmatrix(riskmatrix_config, riskmatrix_xy_axis_tuples)
+#for risks in conf:
+#    riskmatrix(risks, conf, matrix)
 # data = pd.read_csv('/home/itgramic/LaTex/riskmatrix/src/source/riskmatrixproblem.csv', header=None, dtype={0: str}).set_index(0).squeeze().to_dict()
