@@ -5,9 +5,8 @@ import yaml
 #   Load Configurations
 def load_configuration(riskmatrix_conf_filename):
     riskmatrix_config = dict()
-    #cbd_conf_filename = 'scatter_plotter_conf.yaml'
-    riskmatrix_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
 
+    riskmatrix_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
     yaml_path = os.path.join(riskmatrix_conf_dir, riskmatrix_conf_filename)
 
     with open(yaml_path, "r") as file:
