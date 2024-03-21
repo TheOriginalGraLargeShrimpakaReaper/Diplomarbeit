@@ -285,50 +285,50 @@ def riskmatrix(conf, matrix):
     # axes[14].text(0.1,0.8, '22')
 
     # run throuh datas and generate axis datas
-    dict_bubble_axis = dict()
-    bubble_axis = list()
-    for datasets in datas:
-        # get the datas
-        riskid = datas.get(datasets).get('risk-id')
-        x_axis = int(datas.get(datasets).get('x-axis'))
-        y_axis = int(datas.get(datasets).get('y-axis'))
-        axis_point = matrix.get((x_axis, y_axis))
-        x_axis_text = float(datas.get(datasets).get('x-axis-text'))
-        y_axis_text = float(datas.get(datasets).get('y-axis-text'))
-        x_axis_bubble = float(datas.get(datasets).get('x-axis-bubble'))
-        y_axis_bubble = float(datas.get(datasets).get('y-axis-bubble'))
-        bubble_axis.append(axis_point)
-
-        # merge riks if two or more risks share the same axispoint
-        if dict_bubble_axis.get(axis_point):
-            risktag = dict_bubble_axis.get(axis_point).get('risk')
-            risktag = risktag + '/' + riskid
-            x_axis_text = x_axis_text + 0.25
-            y_axis_text = y_axis_text - 0.5
-            bubble_size = bubble_standard_size * 2
-        else:
-            risktag = itemname + riskid
-            bubble_size = bubble_standard_size
-        dict_axis_value = dict()
-
-        dict_axis_value['risk'] = risktag
-        dict_axis_value['x-axis-text'] = x_axis_text
-        dict_axis_value['y-axis-text'] = y_axis_text
-        dict_axis_value['x-axis-bubble'] = x_axis_bubble
-        dict_axis_value['y-axis-bubble'] = y_axis_bubble
-        dict_axis_value['size'] = bubble_size
-        dict_bubble_axis[axis_point] = dict_axis_value
-
-    # cleanup the list, remove duplicated entries
-    bubble_axis = set(bubble_axis)
-
-    # plot the bubbles and texts in the bubbles
-    for axispoint in bubble_axis:
-        axes[axispoint].scatter(dict_bubble_axis[axispoint]['x-axis-bubble'], dict_bubble_axis[axispoint]['y-axis-bubble'], dict_bubble_axis[axispoint]['size'], alpha=1)
-        axes[axispoint].text(dict_bubble_axis[axispoint]['x-axis-text'], dict_bubble_axis[axispoint]['y-axis-text'], s=dict_bubble_axis[axispoint]['risk'], va='bottom', ha='center')
-
-    # save the plot as image
-    plt.savefig(image_path)
+    # dict_bubble_axis = dict()
+    # bubble_axis = list()
+    # for datasets in datas:
+    #     # get the datas
+    #     riskid = datas.get(datasets).get('risk-id')
+    #     x_axis = int(datas.get(datasets).get('x-axis'))
+    #     y_axis = int(datas.get(datasets).get('y-axis'))
+    #     axis_point = matrix.get((x_axis, y_axis))
+    #     x_axis_text = float(datas.get(datasets).get('x-axis-text'))
+    #     y_axis_text = float(datas.get(datasets).get('y-axis-text'))
+    #     x_axis_bubble = float(datas.get(datasets).get('x-axis-bubble'))
+    #     y_axis_bubble = float(datas.get(datasets).get('y-axis-bubble'))
+    #     bubble_axis.append(axis_point)
+    #
+    #     # merge riks if two or more risks share the same axispoint
+    #     if dict_bubble_axis.get(axis_point):
+    #         risktag = dict_bubble_axis.get(axis_point).get('risk')
+    #         risktag = risktag + '/' + riskid
+    #         x_axis_text = x_axis_text + 0.25
+    #         y_axis_text = y_axis_text - 0.5
+    #         bubble_size = bubble_standard_size * 2
+    #     else:
+    #         risktag = itemname + riskid
+    #         bubble_size = bubble_standard_size
+    #     dict_axis_value = dict()
+    #
+    #     dict_axis_value['risk'] = risktag
+    #     dict_axis_value['x-axis-text'] = x_axis_text
+    #     dict_axis_value['y-axis-text'] = y_axis_text
+    #     dict_axis_value['x-axis-bubble'] = x_axis_bubble
+    #     dict_axis_value['y-axis-bubble'] = y_axis_bubble
+    #     dict_axis_value['size'] = bubble_size
+    #     dict_bubble_axis[axis_point] = dict_axis_value
+    #
+    # # cleanup the list, remove duplicated entries
+    # bubble_axis = set(bubble_axis)
+    #
+    # # plot the bubbles and texts in the bubbles
+    # for axispoint in bubble_axis:
+    #     axes[axispoint].scatter(dict_bubble_axis[axispoint]['x-axis-bubble'], dict_bubble_axis[axispoint]['y-axis-bubble'], dict_bubble_axis[axispoint]['size'], alpha=1)
+    #     axes[axispoint].text(dict_bubble_axis[axispoint]['x-axis-text'], dict_bubble_axis[axispoint]['y-axis-text'], s=dict_bubble_axis[axispoint]['risk'], va='bottom', ha='center')
+    #
+    # # save the plot as image
+    # plt.savefig(image_path)
 
 """
 Config File:
@@ -351,38 +351,38 @@ Data File:
     So, you can access the axis point this way:
     <axispoint> = matrix.get((<x_axis>, <y_axis>))
 """
-matrix = {
-     # first column
-     (1, 1):20,
-     (1, 2):15,
-     (1, 3):10,
-     (1, 4):5,
-     (1, 5):0,
-     # second column
-     (2, 1):21,
-     (2, 2):16,
-     (2, 3):11,
-     (2, 4):6,
-     (2, 5):1,
-     # third column
-     (3, 1): 22,
-     (3, 2): 17,
-     (3, 3): 12,
-     (3, 4): 7,
-     (3, 5): 2,
-     # fourth column
-     (4, 1): 23,
-     (4, 2): 18,
-     (4, 3): 13,
-     (4, 4): 8,
-     (4, 5): 3,
-     # fifth column
-     (5, 1): 24,
-     (5, 2): 19,
-     (5, 3): 14,
-     (5, 4): 9,
-     (5, 5): 4
-}
+# matrix = {
+#      # first column
+#      (1, 1):20,
+#      (1, 2):15,
+#      (1, 3):10,
+#      (1, 4):5,
+#      (1, 5):0,
+#      # second column
+#      (2, 1):21,
+#      (2, 2):16,
+#      (2, 3):11,
+#      (2, 4):6,
+#      (2, 5):1,
+#      # third column
+#      (3, 1): 22,
+#      (3, 2): 17,
+#      (3, 3): 12,
+#      (3, 4): 7,
+#      (3, 5): 2,
+#      # fourth column
+#      (4, 1): 23,
+#      (4, 2): 18,
+#      (4, 3): 13,
+#      (4, 4): 8,
+#      (4, 5): 3,
+#      # fifth column
+#      (5, 1): 24,
+#      (5, 2): 19,
+#      (5, 3): 14,
+#      (5, 4): 9,
+#      (5, 5): 4
+# }
 
 # load the configuration file
 # riskmatrix_conf_filename = 'conf.csv'
