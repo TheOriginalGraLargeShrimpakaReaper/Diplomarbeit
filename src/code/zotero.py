@@ -5,16 +5,17 @@ import os
 from pybtex.database import BibliographyData, Entry, Person
 from dateutil.parser import parse
 import math
+import yaml
 
-def load_configuration():
+#   Load the Configurations
+def load_configuration(zotero_conf_filename):
     zotero_bibtex_config = dict()
-    zotero_conf_filename = 'zotero_bibtex_configuration.json'
     zotero_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
-    # zotero_conf_dir = os.path.join(os.getcwd(), 'src', 'content')
-    json_path = os.path.join(zotero_conf_dir, zotero_conf_filename)
 
-    with open(json_path) as json_string:
-        zotero_bibtex_config = json.load(json_string)
+    yaml_path = os.path.join(zotero_conf_dir, zotero_conf_filename)
+
+    with open(yaml_path, "r") as file:
+        zotero_bibtex_config = yaml.load(file, Loader=yaml.FullLoader)
 
     return zotero_bibtex_config
 def downlaod_zotero_datas(URL, API_KEY):
@@ -25,11 +26,8 @@ def downlaod_zotero_datas(URL, API_KEY):
     zotero_result = json.loads(zotero_raw)
     return zotero_result
 
+#   Get the bibtex Datas from Zotero
 def get_data(zotero_bibtex_config):
-    # result_limit = 100
-    # access_type = 'groups'
-    # zotero_access_id = '5245833'
-    # collection_id = 'USSFDCEH'
     result_limit = int(zotero_bibtex_config.get('result_limit'))
     access_type = zotero_bibtex_config.get('access_type')
     zotero_access_id = zotero_bibtex_config.get('zotero_access_id')
@@ -39,7 +37,6 @@ def get_data(zotero_bibtex_config):
     URL = 'https://api.zotero.org/' + str(access_type) + '/' + str(zotero_access_id) + '/collections/' + str(
         collection_id) + '/items?limit=1?format=json?sort=dateAdded?direction=asc'
 
-    # API_KEY = '6Xgb3XhGjQXwA8NuZgu3bw3s'
     response = requests.get(URL, headers={'Zotero-API-Key': API_KEY})
 
     header_dict = response.headers
@@ -69,8 +66,11 @@ def get_data(zotero_bibtex_config):
 
     return zotero_data
 
+#   Convert String to Datetime
 def convert_to_datetime(input_str, parserinfo=None):
     return parse(input_str, parserinfo=parserinfo)
+
+#   Get Dates from Datetime
 def get_dates(date, bibtex_item_type, bibtex_month_attributes):
     dated_date = convert_to_datetime(date)
     return_value = dict()
@@ -84,6 +84,7 @@ def get_dates(date, bibtex_item_type, bibtex_month_attributes):
 
     return return_value
 
+#   Split Creators into biblatex Creators
 def split_creators(creators):
     if creators != []:
 
@@ -110,18 +111,16 @@ def split_creators(creators):
 
     return bib_entry
 
-
+#   Write the *.bib File
 def write_bibliography(zotero_data, zotero_bibtex_config):
-    # file_json = 'keystore.json'
-    file_json = zotero_bibtex_config.get('keystore_file')
+    keystore_file = zotero_bibtex_config.get('keystore_file')
     keystore_path = zotero_bibtex_config.get('keystore_filepath')
-    # tex_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
     tex_dir = os.path.join(os.path.dirname(os.getcwd()), keystore_path)
-    # tex_dir = os.path.join(os.getcwd(), 'src', 'content')
-    json_path = os.path.join(tex_dir, file_json)
 
-    with open(json_path) as json_string:
-        zotero_bibtex_keys = json.load(json_string)
+    yaml_path = os.path.join(tex_dir, keystore_file)
+
+    with open(yaml_path, "r") as file:
+        zotero_bibtex_keys = yaml.load(file, Loader=yaml.FullLoader)
 
     zotero_bibtex_keys_specials = {
         'thesis': {'phdthesis': ['dissertation', 'phd', 'doctorial', 'doctor', 'doktor', 'doktorarbeit'],
@@ -258,6 +257,6 @@ def write_bibliography(zotero_data, zotero_bibtex_config):
     BibliographyData.to_file(bib_datas, file_path, bib_format="bibtex", encoding='utf-8')
 
 
-zotero_bibtex_config = load_configuration()
+zotero_bibtex_config = load_configuration('zotero_bibtex_configuration.yaml')
 zotero_data = get_data(zotero_bibtex_config)
 write_bibliography(zotero_data, zotero_bibtex_config)
