@@ -1,5 +1,0 @@
-riskid,startpath,destinatination,imagename,datafilename,itemname,x-axis-title,y-axis-title,title,bubble-standard-size
-postgresql,parentdir,source/riskmatrix,riskmatrixproblem.png,riskmatrixproblem.csv,R,Schadensausmass (SM),Eintrittswahrscheinlichkeit (WS),Risiko Cockpit PostgreSQL Datenbanken KSGR,1000
-project,parentdir,source/riskmatrix,riskmatrix-project.png,riskmatrix-project.csv,R,Schadensausmass (SM),Eintrittswahrscheinlichkeit (WS),Risiko Cockpit Projekt,1000
-Postgresql-massnahme,parentdir,source/riskmatrix,Riskmatrixproblem-massnahmen.png,riskmatrixproblem-massnahmen.csv,R,Schadensausmass (SM),Eintrittswahrscheinlichkeit (WS),Risiko Cockpit PostgreSQL Datenbanken KSGR – Massnahme,1000
-Project-massnahme,parentdir,source/riskmatrix,Riskmatrix-project-massnahmen.png,riskmatrix-project-massnahmen.csv,R,Schadensausmass (SM),Eintrittswahrscheinlichkeit (WS),Risiko Cockpit Projekt – Massnahme,1000
