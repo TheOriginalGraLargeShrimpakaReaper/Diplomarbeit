@@ -23,4 +23,7 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
 18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
 19.03.2024;08:00;10:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;;
+19.03.2024;10:00;10:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Backup Anbindungen;;Veeam Kast K10 wird nicht vor Anbgabe Diplomarbeit fertig sein;Backups lokal speichern.\\Veeam Integration wird im Nachgang implementiert.
 19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;yugabytedb;;
+20.03.2024;16:00;16:15;0.25;0;0;0;Dokumentation;-;Termin für 2. Fachgespräch organisiert;;;
+21.03.2024;18:00;20:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Projektcontrolling gemacht.;;

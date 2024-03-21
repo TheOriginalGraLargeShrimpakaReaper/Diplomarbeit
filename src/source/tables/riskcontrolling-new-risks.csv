@@ -1,0 +1,2 @@
+ID;Definiert / Erkannt;Risiko;Beschreibung / Ursache;Auswirkung;WS;SM;Massnahmen notwendig;WS;SM;Massnahmen
+9;19.03.2024;Veeam Kasten K10\cite{P24LQGDK} nicht betriebsbereit;Abhängigkeit zum KSGR k8s Projekt.\\Ohne Kubernetes kein Veeam Kasten.;Keine Kubernetes-Gerechten Sicherungen von Pods usw.\\Sicherungen Inkonsistent o.ä.\\Ohne Backup kann das Ziel des Projekts nicht erreicht werden;5;5;Ja;5;2;Backup auf einem nfs-Share ablegen.\\So können Test-DBs wenigstens gesichert werden.

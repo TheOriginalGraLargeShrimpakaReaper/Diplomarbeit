@@ -12,7 +12,7 @@
     \textbf{Synchrone Replikation}\\
     Wenn bei einer Synchronen Replikation eine Transaktion abgesetzt wird, wird der Commit auf der primären Seite erst gesetzt, wenn die Änderung auf der sekundären Seite oder den sekundären Seiten ebenfalls eingetragen und Committed ist.
     Bis zu diesem Moment ist die Transaktion nicht als Committed.
-
+    
     Dies wird dann zum Problem, wenn keine Verbindung mehr zu mindesten einer sekundären Seite vorhanden ist.
     Zudem wird die Synchrone Replikation bei hohen Latenzen zum Bottleneck der Datenbank.
 \end{flushleft}

@@ -3,6 +3,7 @@ risk_inventory:
   - "project"
   - "Postgresql-massnahme"
   - "Project-massnahme"
+  - "project-assessment-21-03-2024"
 riskmatrix:
   startpath: "parentdir"
   configfile_path: "source/configuration"
@@ -145,6 +146,48 @@ risks:
     x-axis-title: "Schadensausmass (SM)"
     y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
     title: "Risiko Cockpit Projekt – Massnahme"
+    bubble-standard-size: 1000
+    settings:
+      green-boxes:
+        - 10
+        - 15
+        - 16
+        - 20
+        - 21
+      yellow-boxes:
+        - 0
+        - 5
+        - 6
+        - 11
+        - 17
+        - 22
+        - 23
+      orange-boxes:
+        - 1
+        - 2
+        - 7
+        - 12
+        - 13
+        - 18
+        - 19
+        - 24
+      red-boxes:
+        - 3
+        - 4
+        - 8
+        - 9
+        - 14
+  project-assessment-21-03-2024:
+    riskid: "project-assessment-21-03-2024"
+    startpath: "parentdir"
+    destination_path: "source/riskmatrix"
+    imagename: "project-assessment-21-03-2024.png"
+    datafile_path: "source/tables"
+    datafile: "project-assessment-21-03-2024.csv"
+    itemname: "R"
+    x-axis-title: "Schadensausmass (SM)"
+    y-axis-title: "Eintrittswahrscheinlichkeit (WS)"
+    title: "Risiko Cockpit Projekt – Assessment 21.03.2024"
     bubble-standard-size: 1000
     settings:
       green-boxes:

@@ -1,3 +1,5 @@
-Woche;Beschreibung / Event / Problem
-KW10;Vier ganze Tage war ich in Thalwil für die Oracle Multitenant-Schulung für das ExaCC Projekt (Ablösung HP-UX).\\Am Freiutag war ich ebenfalls fast den ganzen Tag dran.\\Weitere Termine werden folgen, das Risiko durch das Projekt tritt langsam ein.
-KW11;Projekt Zeitlich im Verzug.\\Nebst dem HP-UX Ablösungsprojekt schlagen auch diverse Betriebsthemen ein.\\Die analyse der PostgreSQL HA Cluster nimmt ebenfalls mehr Zeit in Anspruch, als erwartet.
+Woche;Beschreibung / Event / Problem;
+KW10;Vier ganze Tage war ich in Thalwil für die Oracle Multitenant-Schulung für das ExaCC Projekt (Ablösung HP-UX).\\Am Freiutag war ich ebenfalls fast den ganzen Tag dran.\\Weitere Termine werden folgen, das Risiko durch das Projekt tritt langsam ein.;
+KW11;Projekt Zeitlich im Verzug.\\Nebst dem HP-UX Ablösungsprojekt schlagen auch diverse Betriebsthemen ein.\\Die analyse der PostgreSQL HA Cluster nimmt ebenfalls mehr Zeit in Anspruch, als erwartet.;
+KW12;- HP-UX Probleme am Montag.\\  Backups sind über das Weekend nicht durchgelaufen.\\  Die ganze Montagsplanung wurde über den Haufen geworfen.\\- Besprechung bezüglich Backup.\\ Veeam Kasten steht noch nicht zur Verfügung.;
+KW12;- Mittwochvormittag in Zürich, am Nachmittag Probleme mit dfs-Shares.\\  So wenig Zeit.\\- Mit Norman Termin für nächste Woche Fachgespräch organisiert.\\ Freue mich darauf.; 

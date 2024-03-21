@@ -14,6 +14,8 @@ tables_inventory:
  - "expert_discussions_overview"
  - "expert_discussions_full_list"
  - "stakeholder"
+ - "riskcontrolling_new_risks"
+ - "risk_assessments_21_03_2024"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -955,4 +957,124 @@ tables:
      longtable: False
      resize_textwidth: True
      linebreak_columns:
+     table_header: True
+ riskcontrolling_new_risks:
+   id: "riskcontrolling_new_risks"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Neu Erkannte / Erfasste Risiken"
+   label: "riskcontrolling_new_risks"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "riskcontrolling-new-risks.csv"
+   tablefilename: "riskcontrolling-new-risks.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "ID"
+     - "Definiert / Erkannt"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Risiko"
+      - "Definiert / Erkannt"
+      - "Auswirkung"
+      - "Massnahmen"
+     table_header: True
+ risk_assessments_21_03_2024:
+   id: "risk_assessments_21_03_2024"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Risiko-Assessment 21.03.2024"
+   label: "risk_assessments_21_03_2024"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "risk-assessments-21-03-2024.csv"
+   tablefilename: "risk-assessments-21-03-2024.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "ID"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Risiko"
+      - "Ergriffene Massnahmen"
+      - "Begründung"
      table_header: True
