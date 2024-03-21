@@ -1,9 +1,8 @@
 import os
-import numpy as np
 import matplotlib.pyplot as plt
 import yaml
 
-
+#   Load Configurations
 def load_configuration(riskmatrix_conf_filename):
     riskmatrix_config = dict()
     #cbd_conf_filename = 'scatter_plotter_conf.yaml'
@@ -16,6 +15,7 @@ def load_configuration(riskmatrix_conf_filename):
 
     return riskmatrix_config
 
+#   Load x-y axis tuples
 def load_xy_axis_tuples(riskmatrix_config):
     startpath = riskmatrix_config.get('riskmatrix').get('startpath')
     riskmatrix_xy_axis_tuples_dir = riskmatrix_config.get('riskmatrix').get('configfile_path')
@@ -39,6 +39,7 @@ def load_xy_axis_tuples(riskmatrix_config):
         riskmatrix_xy_axis_tuples.update({int_key:value})
     return riskmatrix_xy_axis_tuples
 
+#   Load Data from csv
 def get_data(data_path):
 
     with open(data_path) as f:
@@ -52,6 +53,7 @@ def get_data(data_path):
 
     return datas
 
+#   Generate Riskmatrix Image
 #def riskmatrix(risk, conf, matrix):
 def riskmatrix(conf, matrix):
     risks = conf.get('risk_inventory')
