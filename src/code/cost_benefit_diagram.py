@@ -2,7 +2,6 @@ import os
 import matplotlib.pyplot as plt
 import yaml
 
-
 # Get the Configuration
 def load_configuration():
     cost_benefit_config = dict()
