@@ -1,15 +1,14 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import pip as pd
 import os
-import csv
-import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import yaml
+
 
 def load_configuration(riskmatrix_conf_filename):
     riskmatrix_config = dict()
     #cbd_conf_filename = 'scatter_plotter_conf.yaml'
     riskmatrix_conf_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
+
     yaml_path = os.path.join(riskmatrix_conf_dir, riskmatrix_conf_filename)
 
     with open(yaml_path, "r") as file:
@@ -17,7 +16,41 @@ def load_configuration(riskmatrix_conf_filename):
 
     return riskmatrix_config
 
+def load_xy_axis_tuples(riskmatrix_config):
+    startpath = riskmatrix_config.get('riskmatrix').get('startpath')
+    riskmatrix_xy_axis_tuples_dir = riskmatrix_config.get('riskmatrix').get('configfile_path')
+    riskmatrix_xy_axis_tuples_config = riskmatrix_config.get('riskmatrix').get('configfile_name')
+
+    if startpath == 'homedir':
+        directory = os.path.join(os.getcwd(), riskmatrix_xy_axis_tuples_dir)
+    else:  # parentdir
+        directory = os.path.join(os.path.dirname(os.getcwd()), riskmatrix_xy_axis_tuples_dir)
+
+    riskmatrix_xy_axis_tuples_path = os.path.join(directory, riskmatrix_xy_axis_tuples_config)
+    riskmatrix_xy_axis_tuples = dict()
+    riskmatrix_xy_axis_tuples_aux = dict()
+    #cbd_conf_filename = 'scatter_plotter_conf.yaml'
+    #riskmatrix_xy_axis_tuples_dir = os.path.join(os.path.dirname(os.getcwd()), 'source', 'configuration')
+    #yaml_path = os.path.join(riskmatrix_conf_dir, riskmatrix_conf_filename)
+
+    with open(riskmatrix_xy_axis_tuples_path, "r") as file:
+        riskmatrix_xy_axis_tuples_aux = yaml.load(file, Loader=yaml.FullLoader)
+
+    #riskmatrix_xy_axis_tuples = tuple(map(int, riskmatrix_xy_axis_tuples))
+    #riskmatrix_xy_axis_tuples = [int(i) for a, i in enumerate(riskmatrix_xy_axis_tuples)]
+    for string_key in riskmatrix_xy_axis_tuples_aux:
+        value = riskmatrix_xy_axis_tuples_aux.get(string_key)
+        #int_key = tuple(map(int, string_key))
+        #int_key = [int(i) for a,i in enumerate(string_key)]
+        #int_key = np.array(string_key).astype(int)
+        int_key = eval(string_key)
+        riskmatrix_xy_axis_tuples.update({int_key:value})
+    return riskmatrix_xy_axis_tuples
+
+
 def get_data(riskid):
+
+    return "hello"
 
 def riskmatrix(risk, conf, matrix):
     # get the risk datas
@@ -248,6 +281,7 @@ for row in data:
 
 
 riskmatrix_config = load_configuration('riskmatrix_plotter_conf.yaml')
+riskmatrix_xy_axis_tuples = load_xy_axis_tuples(riskmatrix_config)
 
 for risks in conf:
     riskmatrix(risks, conf, matrix)

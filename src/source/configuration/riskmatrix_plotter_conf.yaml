@@ -3,6 +3,10 @@ risk_inventory:
   - "project"
   - "Postgresql-massnahme"
   - "Project-massnahme"
+riskmatrix:
+  startpath: "parentdir"
+  configfile_path: "source/configuration"
+  configfile_name: "riskmatrix_xy_axis_tuple_matrix.yaml"
 risks:
   postgresql:
     riskid: "postgresql"
