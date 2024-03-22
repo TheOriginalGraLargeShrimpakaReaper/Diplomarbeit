@@ -2,4 +2,61 @@
 %! Date = 05.12.23
 
 % Preamble
-\subsubsection{CloudNativePG}
+\begin{flushleft}
+    \subsubsection{CloudNativePG}
+    CloudNativePG ist eine Containerlösung für PostgreSQL auf Kubernetes.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Core-Features}
+
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Replikation}
+    CloudNativePG bietet die üblichen PostgreSQL Replikaionen an.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Proxy}
+    CloudNativePG benötigt keinen zusätzlichen Proxy.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Pooling}
+    CloudNativePG unterstützt pgBouncer als Pooler.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{API / Skripte}
+    CloudNativePG bietet eine API zum Monitoren und Verwalten von Backups, Clustern und dem System selbst\cite{L7PXKAUY}.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Architektur}
+    Kubernetes regelt die Zugriffe mittels eines entsprechenden Services in die Nodes auf den Pods:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/k8s-pg-architecture}
+        \caption{CloudNativePG - Kubernetes - PostgreSQL}
+        \label{fig:k8s-pg-architecture}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Dabei werden die Read-write workloads an den Primary Node gesendet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-rw}
+        \caption{CloudNativePG - Kubernetes - Read-write workloads}
+        \label{fig:cloudnativepg-architecture-rw}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Read-only workloads werden mit Round robin an die Replikas zugewiesen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-read-only}
+        \caption{CloudNativePG - Kubernetes - Read-only workloads}
+        \label{fig:cloudnativepg-architecture-read-only}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Es könnten auch Lösungen mit Designated Kubernetes-Clustern in einem anderen RZ oder einer anderen Geo-Region relaisiert werden.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Maintenance}
+\end{flushleft}
