@@ -16,6 +16,8 @@ tables_inventory:
  - "stakeholder"
  - "riskcontrolling_new_risks"
  - "risk_assessments_21_03_2024"
+ - "benchmarking_settings_mixed"
+ - "benchmarking_settings_dql"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -1077,4 +1079,114 @@ tables:
       - "Risiko"
       - "Ergriffene Massnahmen"
       - "Begründung"
+     table_header: True
+ benchmarking_settings_mixed:
+   id: "benchmarking_settings_mixed"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Benchmark Settings - Mixed Transaktionen"
+   label: "benchmarking_settings_mixed"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "benchmarking_settings.csv"
+   tablefilename: "benchmarking_settings_mixed.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel: "Typ == 'mixed'"
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+ benchmarking_settings_dql:
+   id: "benchmarking_settings_dql"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Benchmark Settings - DQL Transaktionen"
+   label: "benchmarking_settings_dql"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "benchmarking_settings.csv"
+   tablefilename: "benchmarking_settings_dql.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel: "Typ == 'dql'"
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
      table_header: True

@@ -1,0 +1,23 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{lllllll}
+\toprule
+Typ & Parameter & pgbench-Parameter & 1. Lauf & 2. Lauf & 3. Lauf & 4. Lauf \\
+\midrule
+mixed & Datenbank &  & pgbench\_eval\_bench & pgbench\_eval\_bench & pgbench\_eval\_bench & pgbench\_eval\_bench \\
+mixed & DB-Grösse &  & 5GiB & 15GiB & 50GiB & 250GiB \\
+mixed & 1. Iteration Lauf ignorieren &  & ja & ja & ja & ja \\
+mixed & Select only & -S & nein & nein & nein & nein \\
+mixed & Iterationen pro Lauf &  & 4 & 4 & 4 & 4 \\
+mixed & Vacuum & -v & ja & ja & ja & ja \\
+mixed & Separate Connects & -C & ja & ja & ja & ja \\
+mixed & Client count & -c & 10 & 50 & 100 & 1000 \\
+mixed & Anzahl Transaktionen pro Client & -t & 10 & 50 & 1000 & 7000 \\
+mixed & Anzahl Worker Threads & -j & 4 & 4 & 4 & 4 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Benchmark Settings - Mixed Transaktionen} \label{benchmarking_settings_mixed}
+\end{table}
