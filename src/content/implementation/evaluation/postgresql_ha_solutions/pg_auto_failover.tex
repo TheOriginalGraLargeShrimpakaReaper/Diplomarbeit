@@ -4,12 +4,23 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{pg\_auto\_failover}
+    pg\_auto\_failover ist eine
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Core-Features}
+    Die wichtigsten Features von pg\_auto\_failover sind:
+    \begin{description}
+        \item API
+        \item PostgreSQL Extension, also reines PostgreSQL
+        \item State Machine Driven
+        \item Replikations-Quorum
+        \item Citus kompatibel
+        \item Azure VM Support
+    \end{description}
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Replikation}
+    pg\_auto\_failover bietet die Standard PostgreSQL Replikationen.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Proxy}
@@ -17,7 +28,10 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{API / Skripte}
-
+    pg\_auto\_failover bietet ein eigenes CLI-Tool, \texttt{pg\_autoctl}.
+    Dieses bietet Commands für das einbinden neuer Nodes,\\
+    das Managen von Nodes (Maintenance resp. Switchover),\\
+    konfigurieren oder monitoren des Systems bietet\cite{4X2AKDB6}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Architektur}
@@ -48,5 +62,11 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Synergien und Mehrwert}
-
+    pg\_auto\_failover bietet eine Docker-Compose-Integration.\\
+    Allerdings ist keine Kubernetes-Integration dokumentiert.
+\end{flushleft}
+\begin{flushleft}
+    Damit bietet pg\_auto\_failover keine möglichkeit,\\
+    Synergien zwischen monolithischer Architektur und einer Cloud-Native-Umsetzung auf Kubernetes.\\
+    Entsprechend ist kein Mehrwert vorhanden.
 \end{flushleft}
