@@ -1,0 +1,244 @@
+%! Author = gra
+%! Date = 23.03.24
+
+% Preamble
+\section{pandas\_data\_chart\_plotter\_conf.yaml}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Python LaTex - pandas\_data\_chart\_plotter\_conf.yaml - Konfigurationsdatei - CSV - Diagramme,captionpos=b,label={lst:pandas_data_chart_plotter_conf},breaklines=true]
+diagram_inventory:
+  - "tps_mixed"
+  - "db_inventory_per_rdbms"
+  - "db_inventory_per_os"
+panda_diagram_plotter:
+  tps_mixed:
+    id: "tps_mixed"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "tps_mixed.png"
+    datafile_path: "source/pandas_data_chart_plotter"
+    datafile: "tps_evaluation.csv"
+    separator: ","
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "2. Iteration"
+      - "3. Iteration"
+      - "4. Iteration"
+    x-axis-title: "Varianten"
+    y-axis-title: "Transaktionen pro Sekunde (tps) Bsp."
+    title: "Transaktionen pro Sekunden - mixed"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "tps_1_iteration"
+      - "tps_typ"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      tps_2_iteration: "2. Iteration"
+      tps_3_iteration: "3. Iteration"
+      tps_4_iteration: "4. Iteration"
+    where_clausel: "tps_typ == 'mixed'"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  db_inventory_per_rdbms:
+    id: "db_inventory_per_rdbms"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "db_inventory_per_rdbms.png"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    separator: ","
+    decimal: "."
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro RDBMS"
+    chart-index: "RDBMS"
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: False
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [25,10]
+      autopct: '%1.0f%%'
+      loc: "best"
+      bbox_to_anchor:
+    group_by:
+      - "rdbms"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+      - "rdbms"
+    drop_columns:
+     - "server"
+     - "os"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "appliance"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+     rdbms: "RDBMS"
+     instance : "Instanz"
+     databases : "Datenbanken"
+     appliance: "Appliance"
+    where_clausel:
+    sorting:
+      order_by:
+        - "rdbms"
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  db_inventory_per_os:
+    id: "db_inventory_per_os"
+    separator: ","
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    imagename: "db_inventory_per_os.png"
+    decimal_format:
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro OS"
+    chart-index:
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [25,10]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "rdbms"
+     - "os"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+     - "os"
+    drop_columns:
+     - "server"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+  #   - "appliance"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number:
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+       - "os"
+       - "rdbms"
+      pivot_indizes_visible: True
+      pivot_rename_indizes:
+       os: "OS"
+       rdbms: "RDBMS"
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+      instance: "sum"
+      databases: "sum"
+      appliance: "sum"
+     transpose: True
+    rename_columns:
+     rdbms: "RDBMS"
+     instance : "Instanz"
+     databases : "Datenbanken"
+     os : "OS"
+     appliance: "Appliance"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+    table_styles:
+     selector: "caption"
+     props:
+      caption-side: "below"
+      position: "H"
+      sparse_columns: True
+      longtable: True
+      resize_textwidth: False
+      linebreak_columns:
+      table_header: True
+\end{lstlisting}

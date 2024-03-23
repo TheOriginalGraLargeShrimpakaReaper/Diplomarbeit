@@ -1,0 +1,9 @@
+variante,tps_2_iteration,tps_3_iteration,tps_4_iteration,tps_typ,tps_1_iteration
+yugabyteDB,53,19,11,mixed,3
+Patroni,20,13,9,mixed,3
+Patroni - postgresql_cluster,21,17,7,mixed,1
+StackGres - Citus,19,12,5,mixed,3
+yugabyteDB,25,19,11,dql,1
+Patroni,20,13,9,dql,3
+Patroni - postgresql_cluster,21,17,7,dql,4
+StackGres - Citus,19,12,5,dql,5
