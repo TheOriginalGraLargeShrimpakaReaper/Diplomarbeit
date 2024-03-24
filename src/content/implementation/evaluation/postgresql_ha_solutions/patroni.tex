@@ -4,11 +4,20 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{Patroni}
-    Patroni ist eine von Zalando entwickelte
+    Patroni ist eine von Zalando auf Python Basis entwickelte HA-Lösung für PostgreSQL.
+    Patroni wird aktiv von Zalando gepflegt.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Core-Features}
-
+    \begin{itemize}
+        \item Rest-API und eigenes Skript- und Toolset
+        \item Aktionen und Konfigurationen im Konsensprinzip abgestimmt
+        \item Manueller oder Sheduled Switchover
+        \item Reines PostgreSQL als Basis, Patroni setzt mittels Python darauf auf
+        \item Automatische reintegration von Nodes nach einem Fehler
+        \item Citus kompatibel
+        \item Docker und Docker-compose Dokumentation
+    \end{itemize}
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Replikation}
