@@ -5,43 +5,50 @@
 \subsubsection{pgpool-II}
 \begin{flushleft}
     pgpool-II ist eine Middleware die zwischen einem \Gls{PostgreSQL Cluster} und einem PostgreSQL Client gesetzt wird.
-    pgpool-II bietet folgende Funktionen\cite{EXVNLICT,3XWCD3KX}:
 \end{flushleft}
 \begin{flushleft}
-    \textbf{High Availability}\\
-    pgpool-II bietet einen automatic \Gls{Failover} genannten Service an, den Watchdog.
-    Dieser schwenkt auf einen Standby-Server und entfernt den Defekten Server.
-    Um false positive Events und Split-brains zu verhindern setzt pgpool-II auf einen eigens entwickelten \Gls{Quorum}-Algorithmus.
+    \paragraph{Core-Features}
+    pgpool-II bietet folgende Core-Feature\cite{3XWCD3KX}:
+    \begin{itemize}
+        \item Watchdog für Automatischer Failover
+        \item Eigener \Gls{Quorum}-Algorithmus
+        \item Integrierter Pooler
+        \item Eigenes Replikationssystem
+        \item Integriertes Load Balancing
+        \item Limiting Exceeding Connections, also queuen von Connections
+        \item In Memory Query Caching
+        \item Online Node Recovery / Resynchronisation
+    \end{itemize}
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Connection Pooling}\\
-    Bestehende Connections werden wiederverwendet um die Anzahl gleichzeitig offener Connections zu reduzieren.
-    Der Pool wird dabei anhand von Username, Database, Protocol und weiteren Verbindungsparametern zugeordnet.
+    \paragraph{Replikation}
+    pgpool-II bietet ein eigenes Replikationssystem an.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Replikation}\\
-    Nebst dem Standard \Gls{PostgreSQL} bietet pgpool-II sein eigenes Replikationssystem an.
+    Es besteht allerdings die Möglichkeit, die PostgreSQL Standardreplikationen zu verwenden.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Load Balancing}\\
-    Ähnlich wie Oracle Active Data Guard \cite{6294443C} bietet auch pgpool-II die Möglichkeit, SELECT-Queries und Backup-Jobs auf die Secondary-Nodes umzuleiten um den Primary Node zu entlasten.
+    \paragraph{Proxy}
+    pgpool-II hat bereits einen intergrierten Load Balancer.\\
+    Einen zusätzlichen Proxy wird daher nicht benötigt.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Limiting Exceeding Connections}\\
-    Die Anzahl an concurrent Connections, also gleichzeitiger Verbindungen, ist bei \Gls{PostgreSQL} begrenzt (Systemparameter wird dabei vom DBA gesetzt).
-    pgpool-II speichert alle Connections, die über dem Limit sind, in einer Queue und somit nicht sofort fehlerhaft abgelehnt.
+    \paragraph{Pooling}
+    pgpool-II bietet ebenfalls von Haus aus einen Pooler.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Watchdog}\\
-    Der Watchdog koordiniert mehrere pgpool-II Nodes und verhindert ein Split-brain.
+    \paragraph{API / Skripte}
+    pgpool-II bietet mit \texttt{pgpool} ein eigenes Command- und Toolset an.\\
+    Mit dem CLI-Tool \texttt{pcp\_command} bietet pgpool-II zudem über eine abgesicherte API,\\
+    die auch via Netzwerk erreichbar ist.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{In Memory Query Caching}\\
-    pgpool-II speichert SELECT-Queries in einem Cache und verwendet die ResultSets wieder, wenn eine identische Abfrage eingeht.
+    \paragraph{Maintenance}
+    pgpool-II hat kein GitLab- oder GitHub-Repository.
+    Metriken wie die GitHub Insights, welche aufschluss über den Zustand des Projekts geben, finden sich nicht.
 \end{flushleft}
 \begin{flushleft}
-    \textbf{Online Recovery}\\
-    pgpool-II bietet die möglichkeit, einen Online Recovery resp.
-    eine Online Synchronisation eines Nodes durchzuführen, auch kann ein neuer Standby-Node synchronisiert werden.
-    Dafür muss der Node aber im Detached Mode stehen, unabhängig ob der Detach manuell oder von pgpool-II ausgeführt wurde.
+    Die Dokumentation wird zwar aktuell gehalten, ist aber sehr minimalistisch gehalten.\\
+    Sie bietet nur wenig Informationen zum Aufbau und Architektur von pgpool-II.
 \end{flushleft}
+
