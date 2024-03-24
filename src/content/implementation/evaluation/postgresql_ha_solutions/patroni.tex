@@ -110,7 +110,7 @@
         \label{fig:commit_activity_zalando_patroni}
     \end{figure}
 
-    Nebst Zalando selbst, hat auch EnterpriseDB\cite{LNF967SI} ein grösseres Repository eingebunden.
+    Nebst Zalando selbst hat auch EnterpriseDB\cite{LNF967SI} ein grösseres Repository eingebunden.
     Dies weil EnterpriseDB stark auf Patroni setzt.
      \begin{figure}[H]
         \centering
@@ -121,4 +121,11 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Synergien und Mehrwert}
+    Patroni kann nicht nur mit Citus zu einem Distributed / Sharded SQL System umegbaut werden,\\
+    es ist auch Kern von Stackgres.
+\end{flushleft}
+\begin{flushleft}
+    Damit könnten die API und Skripte in beiden Welten verwendet werden.\\
+    Der Aufwand für die Verwaltung und optimierung würde stark gesenkt.\\
+    Projekte wie \texttt{vitabaks / postgresql\_cluster}\cite{HIQVBEPF} bieten zudem die vorlage für eine noch stärkere automatisierung.
 \end{flushleft}
