@@ -30,3 +30,6 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 22.03.2024;09:00;11:00;2;0;0;0;Evaluation;Vorbereitung Benchmarking;zabbix analysieren;;;
 22.03.2024;13:00;14:30;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;Benchmark Settings setzen;;;
 22.03.2024;14:30;15:30;1;0;0;0;Dokumentation;-;Dokumentation erweitern;Projektcontrolling und Dokumentation;;
+22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
+24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
+24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;

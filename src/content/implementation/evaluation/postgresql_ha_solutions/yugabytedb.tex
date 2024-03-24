@@ -8,6 +8,36 @@
     Sie ist eine Distributed SQL Datenbank, also eine Verteilte Datenbank\cite{ZXD6D9KU}.
 \end{flushleft}
 \begin{flushleft}
+    \paragraph{Core-Features}
+    Die wichtigsten Features von YugabyteDB sind\cite{N6QKEPAC}:
+    \begin{itemize}
+        \item PostgreSQL Kombatibel
+        \item \Gls{Cassandra}-Kompatibilität
+        \item Horizontal skalierbarkeit
+        \item Global verteilbar
+        \item Cloud Native
+    \end{itemize}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Replikation}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Proxy}
+    YugabyteSQL nutzt Kubernetes und seine Core-Functions als Load Balancer.\\
+    Ein zusätzlicher Proxy wird nicht benötigt.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Pooling}
+    YugabyteDB hat ein Connection Pooling mit dem YSQL Connection Manager integriert\cite{2FQ8JXD7}.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{API / Skripte}
+    YugabyteDB bietet eigene APIs\cite{ZXXLVVYW} und CLIs\cite{8846IPNK} für das Verwalten an.
+\end{flushleft}
+\begin{flushleft}
+    Diese bieten auch die möglichkeit, abgesichert zu werden.
+\end{flushleft}
+\begin{flushleft}
     \paragraph{Architektur}
     yugabyteDB ist kein reines \Gls{RDBMS}, resp. gar keines.
     Die Basis besteht aus einem \Gls{Key-Value-Store}.
@@ -62,8 +92,7 @@
 \end{flushleft}
 \begin{flushleft}
     Durch das Raft-Protokoll werden die Tablet-Leader regelmässig gewechselt.
-
-\end{flushleft}
+    \end{flushleft}
 \begin{flushleft}
     Mehrere Nodes können zu Zonen zusammengebunden werden, die dann z.B. auf verschiedene Rechenzentren verteilt werden:
     \begin{figure}[H]
@@ -84,5 +113,66 @@
         \caption{yugabyteDB - Zone outage Tolerance}
         \label{fig:yugabytedb-zone-outage-tolerance}
     \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Maintenance}
+    Das Projekt hat eine sehr hohe Anzahl an aktiven Issues, wobei viele neue dazugekommen sinned:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/pulse_yugabyte_yugabyte-db}
+        \caption{YugabyteDB - Pulse}
+        \label{fig:pulse_yugabyte_yugabyte-db}
+    \end{figure}
+
+    Die Code Frequency kann nicht ausgegeben werden, es gab zu viele Commits:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/code_frequency_yugabyte_yugabyte-db}
+        \caption{YugabyteDB - Code Frequency}
+        \label{fig:code_frequency_yugabyte_yugabyte-db}
+    \end{figure}
+
+    Das Projekt hält nur die wichtigsten Community SStandards ein:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/community Standards}
+        \caption{YugabyteDB - Community Standards}
+        \label{fig:community Standards_yugabyte-db}
+    \end{figure}
+
+    Es werden immer wieder Commits abgesetzt, allerdings sind diese nicht weiter aufgeteilt in Commits, Additions und Deletations:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/contributors_to_yugabyte_yugabyte-db}
+        \caption{YugabyteDB - Contributors}
+        \label{fig:contributors_to_yugabyte_yugabyte-db}
+    \end{figure}
+
+    Die Commits wiederum werden Regelmässig ausgeführt, es wird scheinbar in kurzen Sprints gearbeitet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/commit_activity_yugabyte_yugabyte-db}
+        \caption{YugabyteDB - Commit Activity}
+        \label{fig:commit_activity_yugabyte_yugabyte-db}
+    \end{figure}
+
+    YugabyteDB ist der Maintainer seines Produkts.\\
+    Es gibt keine anderen Grossen Contributors:
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/insights/yugabytedb/network_graph_yugabyte_yugabyte-db}
+        \caption{YugabyteDB - Network Graph}
+        \label{fig:network_graph_yugabyte_yugabyte-db}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Synergien und Mehrwert}
+    Der grosse Benefit von YugabyteDB ist sein Distributed SQL Ansatz.
+\end{flushleft}
+\begin{flushleft}
+    Zudem bietet YugabyteDB eine vollständige \Gls{Cassandra} Integration.\\
+\end{flushleft}
+\begin{flushleft}
+    Der Benefit ist auf jeden Fall gegeben.
 \end{flushleft}
 

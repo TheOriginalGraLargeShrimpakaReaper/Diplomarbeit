@@ -3,12 +3,61 @@
     Stackgres ist eine PostgreSQL Implementation die dafür vorgesehenen ist, in einem Kubernetes Cluster betrieben zu werden.
 \end{flushleft} 
 \begin{flushleft}
-    An sich wäre Stackgres nur eine Implementation von Patroni in Kubernetes inkl. Load Balancer.\\
-    Nun kommt das Citus-Plugin ins spiel, welches aus einer jeden Monolithischen, klassischen PostgreSQL Installation eine Distributed SQL Umgebung macht.////
-    Citus wiederum ist in den Microsoft Konzern eingebettet
+    An sich wäre Stackgres nur eine Implementation von Patroni in Kubernetes inkl.
+    Load Balancer.\\
+    Nun kommt das Citus-Plugin ins spiel, welches aus einer jeden Monolithischen, klassischen PostgreSQL Installation eine Distributed SQL Umgebung macht.
+\end{flushleft}
+\begin{flushleft}
+    Citus Data, der Entwickler von Citus, wiederum ist in den Microsoft Konzern eingebettet
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Core-Features}
+    Die wichtigsten Features von Stackgres sind\cite{G3XQA8PI}:
+    \begin{itemize}
+        \item k8s integration
+        \item Deklaratives k8s CRD
+        \item Autoamtische Backups
+        \item Grafana und Prometheus integration
+        \item Management Web Konsole
+        \item Erweiterte Replikationsmöglichkeiten
+        \item Integriertes Pooling
+        \item Integrierter Proxy
+    \end{itemize}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Replikation}
+    Stackgres bietet Asynchrone und Synchrone Replikation, Gruppenreplikation sowie kaskadierende Replikation an.
+\end{flushleft}
+\begin{flushleft}
+    Citus bietet sein eigenes Modell mit dem Sharding an.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Proxy}
+    Stackgres hat den Proxy bereits mit envoy\cite{QAGSHVBL} implementiert.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Pooling}
+    PgBounder\cite{ATBELZ2X} ist bereits integriert, es braucht also keinen weiteren Pooler.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{API / Skripte}
+    Stackgres wird Primär über YAML-Files und Kubernetes gesteuert, bietet aber eine eigene API an.
+\end{flushleft}
+\begin{flushleft}
+    Citus bietet ebenfalls eine eigene API, mit der Citus vollständig verwaltet werden kann.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Architektur}
+    \begin{flushleft}
+        \subparagraph{StackGres}
+        Stackgres packt PostgreSQL, Patroni, PgBouncer und envoy in einen Kubernetes Pod:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_pod_architecture}
+            \caption{Stackgres - Grundarchitektur}
+            \label{fig:stackgres_pod_architecture}
+        \end{figure}
+    \end{flushleft}
     \begin{flushleft}
         \subparagraph{Citus Coordinator und Workers}
         Citus arbeitet mit einem Coordinator-Node, der jedes Query analysiert und an einen Worker-Node weitergibt.
@@ -44,11 +93,11 @@
         \begin{flushleft}
             \textbf{Schlussfolgerung}
             Beide Sharding-Methoden haben eine grosse Schwäche.
-            In Version 7.2 konnte noch ein Replikationsfaktor angegeben werden\cite{Citus},
+            In Version 7.2 konnte noch ein Replikationsfaktor angegeben werden\cite{8W58EW47}, ab Version 11 wurde auch diese Variante gestrichen und man konnte noch eine 1:1 Repliacation auf einen Worker fahren\cite{JWYDYYWQ}.\\
+            Spätestens mit Version 12 steht auch dies nicht mehr zur verfügung, man muss eine Replication auf e
 %            Sie sind nicht vollständig ACID-Konform (\autoref{subsubsec:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
             Sie sind nicht vollständig ACID-Konform (\autoref{chap:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
             Die Shards müssen mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.
-
             Dies muss aber bei der evaluation mittels Tests noch bestätigt werden.
         \end{flushleft}
     \end{flushleft}
