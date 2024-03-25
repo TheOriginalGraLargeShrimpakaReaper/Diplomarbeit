@@ -25,25 +25,25 @@ Es gibt kein apt-Package.
 Daher muss zuerst das tarball-Package heruntergeladen werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Downlaod rke2 server,captionpos=b,label={lst:download-rke2-server},breaklines=true]
-sudo curl -sfL https://get.rke2.io | sh -
+
 \end{lstlisting}
 Anschliessend muss das Package installiert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server installieren,captionpos=b,label={lst:install-rke2-server},breaklines=true]
-sudo curl -sfL https://get.rke2.io | sh -
+
 \end{lstlisting}
 
 \subsubsection{agents}
 Der Agent muss direkt heruntergeladen werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Downlaod rke2 agent,captionpos=b,label={lst:download-rke2-agent},breaklines=true]
-curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="agent" sh -
+
 \end{lstlisting}
 
 Anschliessend muss der Dienst aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 agent aktivieren,captionpos=b,label={lst:rke2-agent-enable},breaklines=true]
-systemctl enable rke2-agent.service
+
 \end{lstlisting}
 
 \subsection{Cluster Konfiguration}
@@ -64,41 +64,24 @@ CONTAINERD_NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0
 Dieses File muss entsprechend in das Homeverzeichnis gespeichert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server proxy kopieren,captionpos=b,label={lst:rke2-server-proxy-copy},breaklines=true]
-mkdir /home/itgramic/.kube
-cp /etc/rancher/rke2/rke2.yaml /home/itgramic/.kube/config
+
 \end{lstlisting}
 
 Für den Netzwerkteil muss nun Cilium installiert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server cilium installieren,captionpos=b,label={lst:rke2-server-cilium-install},breaklines=true]
-nano /var/lib/rancher/rke2/server/manifests/rke2-cilium-config.yaml
----
-apiVersion: helm.cattle.io/v1
-kind: HelmChartConfig
-metadata:
-  name: rke2-cilium
-  namespace: kube-system
-spec:
-  valuesContent: |-
-    eni:
-      enabled: true
 
 \end{lstlisting}
 
 Cilium muss nun aktiviert werden:
 \begin{lstlisting}[language=bash, caption=rke2 server cilium aktivieren,captionpos=b,label={lst:rke2-server-cilium-apply},breaklines=true]
-/var/lib/rancher/rke2/bin/kubectl apply -f /var/lib/rancher/rke2/server/manifests/rke2-cilium-config.yaml
+
 \end{lstlisting}
 
 Der rke2-Server muss nun mit der entsprechenden Config gestartet werden, anschliessend muss Cilium noch in die Conig und diese mittels Service reboot aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server starten,captionpos=b,label={lst:rke2-server-start},breaklines=true]
-/var/lib/rancher/rke2/bin/kubectl cluster-info --kubeconfig /etc/rancher/rke2/rke2.yaml
-nano /etc/rancher/rke2/config.yaml
-cni:
-- cilium
 
-systemctl restart rke2-server.service
 \end{lstlisting}
 
 Entsprechend muss die Firewall gesetzt werden:
@@ -136,10 +119,9 @@ systemctl restart iptables
 
 Für den Connect der Agents muss noch ein Token generiert werden:
 \begin{lstlisting}[language=bash, caption=rke2 server token,captionpos=b,label={lst:rke2-server-token},breaklines=true]
-cni:
-- cilium
-token: <password safe>
 \end{lstlisting}
 
 \subsubsection{agents}
+
+\subsubsection{local-path-provisioner}
 

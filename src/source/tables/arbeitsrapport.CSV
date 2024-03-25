@@ -33,3 +33,5 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
 24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
 24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
+25.03.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;rke2 - local-path-provisioner Installieren;;;
+25.03.2024;13:00;14:45;2.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;Anforderungen recht hoch.\\Es wird ein \\guillemotleftprivate container registry\\guillemotright verlangt.\\Das KSGR hat Harbor im Einsatz,\\allerdings ist dieses nicht für das Evaluationssetting gedacht.;Eine mögliche Lösung könnte sein, rke2 als Registry zu verwenden.
