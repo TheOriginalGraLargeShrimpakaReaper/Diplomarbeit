@@ -5,3 +5,5 @@ KW12;- HP-UX Probleme am Montag.\\  Backups sind über das Weekend nicht durchgel
 KW12;- Mittwochvormittag in Zürich, am Nachmittag Probleme mit dfs-Shares.\\  So wenig Zeit.\\- Mit Norman Termin für nächste Woche Fachgespräch organisiert.\\ Freue mich darauf.
 KW12;- Alle Gängigen PostgreSQL HA Lösungen dokumentiert. Aufwand für Die Dokumentation weit grösser als erwartet.
 KW13;- YugabyteDB entpuppt sich als recht fordernd.\\Es benötigt eine \guillemotleft private container registry\guillemotright, mir fehlt die Expertise dazu.\\- Der Aufbau der Projektplanung entpuppt sich begrenzt nutzbar.\\Das erstellen der Evaluationsinfrast
+KW13;- Das Problem mit dem \guillemotleft private container registry\guillemotright rührte daher,\\ dass das YugabyteDB Anywhere (Repository yugaware) verwendet wurde.\\Kurz ein Schock, dass YugabyteDB ausgeschieden ist.\\Später bemerkte ich, dass man das Repository yugabyte verwendet muss.
+KW13;- Bereits jetzt viel gerlernt über Kubernetes, Ranger (rke2) und Helm

@@ -53,3 +53,6 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
 25.03.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;rke2 - local-path-provisioner Installieren;;;
 25.03.2024;13:00;14:45;2.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;Anforderungen recht hoch.\\Es wird ein \\guillemotleftprivate container registry\\guillemotright verlangt.\\Das KSGR hat Harbor im Einsatz,\\allerdings ist dieses nicht für das Evaluationssetting gedacht.;Eine mögliche Lösung könnte sein, rke2 als Registry zu verwenden.
+26.03.2024;12:00;13:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
+26.03.2024;14:45;15:00;0.25;0;0;0;2. Expertengespräch;2. Expertengespräch;;;Nornan verspätete sich wegen eines Privaten Notfalls.;Termin wird auf morgen verschoben
+26.03.2024;15:00;16:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;Aus versehen YugabyteDB Anywhere (Repository yugaware) Installiert.\\Diese Installation benötigt zwingend eine Subscription.\\Wäre ein No-Go;YugayteDB (Repository yugabyte) verwenden.\\Dies ist nach wie vor Open-Source
