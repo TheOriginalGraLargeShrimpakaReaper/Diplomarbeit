@@ -124,4 +124,68 @@ Für den Connect der Agents muss noch ein Token generiert werden:
 \subsubsection{agents}
 
 \subsubsection{local-path-provisioner}
+Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=local-path-storage auf Linux Bereitstellen,captionpos=b,label={lst:local-path-storage-provide},breaklines=true]
+root@sks1183:~# mkdir /var/local-path-provisioner
+root@sks1183:~# chmod -R 777 /var/local-path-provisioner/
+
+root@sks1184:~# mkdir /var/local-path-provisioner
+root@sks1184:~# chmod -R 777 /var/local-path-provisioner/
+
+root@sks1185:~# mkdir /var/local-path-provisioner
+root@sks1185:~# chmod -R 777 /var/local-path-provisioner/
+\end{lstlisting}
+
+Anschliessend musste rke2 entsprechend angepasst werden.
+Damit Automatisch der local-path auf das Verzeichnis \texttt{/var/local-path-provisioner/} geht, muss dies in einem entsprechenden Manifest geschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=local-path-provisioner definieren,captionpos=b,label={lst:local-path-provisioner.yaml},breaklines=true]
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: local-path-config
+  namespace: local-path-storage
+data:
+  config.json: |-
+        {
+                "nodePathMap":[
+                {
+                        "node":"DEFAULT_PATH_FOR_NON_LISTED_NODES",
+                        "paths":["/var/local-path-provisioner"]
+                }
+                ]
+        }
+  setup: |-
+        #!/bin/sh
+        set -eu
+        mkdir -m 0777 -p "$VOL_DIR"
+  teardown: |-
+        #!/bin/sh
+        set -eu
+        rm -rf "$VOL_DIR"
+  helperPod.yaml: |-
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: helper-pod
+        spec:
+          priorityClassName: system-node-critical
+          tolerations:
+            - key: node.kubernetes.io/disk-pressure
+              operator: Exists
+              effect: NoSchedule
+          containers:
+          - name: helper-pod
+            image: busybox
+\end{lstlisting}
+
+
+Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=local-path-storage aktualisieren,captionpos=b,label={lst:local-path-storage-apply},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/rke2/local-path-provisioner.yaml
+\end{lstlisting}
+
+
 

@@ -2,12 +2,49 @@
 %! Date = 13.12.23
 
 % Preamble
-\subsection{yugabyteDB}
+\section{yugabyteDB}
 %\subsubsection{minikube}
 %
 %\subsubsection{yugabyteDB Konfiguration}
-\subsubsection{Prerequisites}
+\subsection{Prerequisites}
+\subsubsection{Prometheus Daten}
+\subsubsection{StorageClass setzen}
+Zuerst muss die StorageClass und das PersistentVolume gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=yugabyteDB - StorageClass setzen,captionpos=b,label={lst:yugabytedb-storageclass-yaml},breaklines=true]
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: yb-storage
+provisioner: rancher.io/local-path
+parameters:
+  nodePath: /var/local-path-provisioner
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: yb-storage-pv
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 3Gi
+  storageClassName: "yb-storage"
+  hostPath:
+    path: /var/local-path-provisioner
+\end{lstlisting}
 
-\subsubsection{Installation}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
+gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/yugabytedb/yugabytedb/storageclass.yaml
+storageclass.storage.k8s.io/yb-storage unchanged
+persistentvolume/yb-storage-pv created
+\end{lstlisting}
 
-\subsubsection{Rekonfiguration mit 300GiB Storage}
+\subsection{Installation}
+
+\subsection{Rekonfiguration mit 300GiB Storage}

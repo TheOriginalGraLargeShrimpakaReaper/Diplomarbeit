@@ -1,20 +1,20 @@
-;Filter;;Patroni - vanilla;Patroni - postgresql_cluster;StackGres - Citus;YugabyteDB
-\rotatebox{90}{Initialer Aufwand};1;Basisinstallation;;;;
-;1;Basiskonfiguration;;;;
-;1;Backup Konfiguration;;;;
-;1;Monitoring Konfiguration;;;;
-Secuirty Aufwand;1;private container registry Integration;;;;
-;1;PKI Integration;;;;
-Erweiterungsaufwand;1;Automatisierung Backup;;;;
-;1;Automatisierung Skalierung;;;;
-;1;Self-Healing;;;;
-;1;Auto-Recovery;;;;
-;1;DB Self-Service;;;;
-Operationsaufwand / Pro Aktion;2;Switchover;;;;
-;2;Node Recovery;;;;
-;2;Backup Recovery;;;;
-;2;Quorum erweitern;;;;
-Operationsaufwand / 5 Jahre;1;Switchover;;;;
-;1;Node Recovery;;;;
-;1;Backup Recovery;;;;
-;1;Quorum erweitern;;;;
+Phase;Subphase;Patroni - vanilla;Patroni - postgresql_cluster;StackGres - Citus;YugabyteDB;Filter
+\rotatebox{90}{Initialer Aufwand};Basisinstallation;5;6;4;5;1
+;Basiskonfiguration;5;5;5;5;1
+;Backup Konfiguration;1;1;1;2;1
+;Monitoring Konfiguration;2;2;2;2;1
+Secuirty Aufwand;private container registry Integration;0;0;1;1;1
+;PKI Integration;3;3;3;3;1
+Erweiterungsaufwand;Automatisierung Backup;1;1;4;4;1
+;Automatisierung Skalierung;8;4;8;2;1
+;Self-Healing;8;4;16;0;1
+;Auto-Recovery;8;4;16;2;1
+;DB Self-Service;16;16;16;16;1
+Operationsaufwand / Pro Aktion;Switchover;1;0.5;1;0;2
+;Node Recovery;2;1;4;1;2
+;Backup Recovery;2;1;2;1;2
+;Quorum erweitern;6;4;1;1;2
+Operationsaufwand / 5 Jahre;Switchover;50;25;50;0;1
+;Node Recovery;50;25;100;25;1
+;Backup Recovery;50;25;50;25;1
+;Quorum erweitern;30;20;5;5;1

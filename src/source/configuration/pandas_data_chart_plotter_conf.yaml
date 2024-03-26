@@ -3,6 +3,8 @@ diagram_inventory:
   - "db_inventory_per_rdbms"
   - "db_inventory_per_os"
   - "projektcontrolling"
+  - "time_investment"
+  - "cost_investment"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -19,8 +21,8 @@ panda_diagram_plotter:
       - "3. Iteration"
       - "4. Iteration"
     x-axis-title: "Varianten"
-    y-axis-title: "Transaktionen pro Sekunde (tps) Bsp."
-    title: "Transaktionen pro Sekunden - mixed"
+    y-axis-title: "Transaktionen pro Sekunde (tps)"
+    title: "Transaktionen pro Sekunden - mixed Bsp."
     chart-index:
     chart-kind: "bar"
     chart-designs:
@@ -301,4 +303,128 @@ panda_diagram_plotter:
     margins:
      margin: False
      margin_name:
+  time_investment:
+    id: "time_investment"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "time_investment.png"
+    datafile_path: "source/tables"
+    datafile: "measurement_times.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+      - "Patroni - vanilla"
+      - "Patroni - postgresql_cluster"
+      - "StackGres - Citus"
+      - "YugabyteDB"
+    x-axis-title: "Phasen"
+    y-axis-title: "Aufwand [h]"
+    title: "Gemessene und Extrapolierte Aufwände Bsp."
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Phase"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+    where_clausel: "Filter == 1"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  cost_investment:
+    id: "cost_investment"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "cost_investment.png"
+    datafile_path: "source/tables"
+    datafile: "measurement_times.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+      - "Patroni - vanilla"
+      - "Patroni - postgresql_cluster"
+      - "StackGres - Citus"
+      - "YugabyteDB"
+    x-axis-title: "Phasen"
+    y-axis-title: "Kosten [CHF]"
+    title: "Berechnete und Extrapolierte Aufwände Bsp."
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Phase"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+    where_clausel: "Filter == 1"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+
+
 
