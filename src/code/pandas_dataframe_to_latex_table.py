@@ -149,6 +149,8 @@ def create_latex_tables(panda_latex_tables_config):
         # margins (subtotals)
         margin = panda_latex_tables_config.get('tables').get(table_item).get('margins').get('margin')
         margin_name = panda_latex_tables_config.get('tables').get(table_item).get('margins').get('margin_name')
+        non_pivot_margin_column = panda_latex_tables_config.get('tables').get(table_item).get('margins').get('non_pivot_margin_column')
+        non_pivot_margin_function = panda_latex_tables_config.get('tables').get(table_item).get('margins').get('non_pivot_margin_function')
 
         # table settings
         table_caption = panda_latex_tables_config.get('tables').get(table_item).get('caption')
@@ -255,6 +257,23 @@ def create_latex_tables(panda_latex_tables_config):
         #     panda_table_data.style.format(decimal_format)
         # if decimal_format:
         #     pd.options.display.float_format = decimal_format.format
+
+        if (margin and non_pivot_margin_column and non_pivot_margin_function and not (pivot_table_column or pivot_table_value or pivot_table_indizes)):
+            match non_pivot_margin_function:
+                case 'max':
+                    panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].max())
+                case 'min':
+                    panda_table_data= panda_table_data.append(panda_table_data[non_pivot_margin_column].min())
+                case 'head':
+                    panda_table_data= panda_table_data.append(panda_table_data[non_pivot_margin_column].head())
+                case 'sum':
+                    sum = panda_table_data[non_pivot_margin_column].sum()
+                    sum.name = margin_name
+                    # panda_table_data = panda_table_data.append(sum.transpose())
+                    panda_table_data = pd.concat([panda_table_data, pd.DataFrame([sum])])
+                    # panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].sum())
+                case 'mean':
+                    panda_table_data= panda_table_data.append(panda_table_data[non_pivot_margin_column].mean())
 
         # set null values
         panda_table_data = panda_table_data.fillna("")

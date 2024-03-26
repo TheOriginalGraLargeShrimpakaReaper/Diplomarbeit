@@ -82,6 +82,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -152,6 +154,11 @@ tables:
   margins:
    margin: True
    margin_name: "Gesamtergebnis"
+   non_pivot_margin_column:
+    - "Instanz"
+    - "Datenbanken"
+    - "Appliance"
+   non_pivot_margin_function: "sum"
   table_styles:
    selector: "caption"
    props:
@@ -232,6 +239,8 @@ tables:
   margins:
    margin: True
    margin_name: "Gesamtergebnis"
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -288,6 +297,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -349,6 +360,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -427,6 +440,11 @@ tables:
   margins:
    margin: True
    margin_name: "Total"
+   non_pivot_margin_column:
+    - "Dauer [h]"
+    - "Geplante Dauer [h]"
+    - "Verbleibende Zeit [h]"
+   non_pivot_margin_function: "sum"
   table_styles:
    selector: "caption"
    props:
@@ -484,6 +502,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -540,6 +560,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -602,6 +624,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -660,6 +684,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -717,6 +743,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -773,6 +801,8 @@ tables:
   margins:
    margin: False
    margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
   table_styles:
    selector: "caption"
    props:
@@ -832,6 +862,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -890,6 +922,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -950,6 +984,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -1007,6 +1043,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -1067,6 +1105,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -1125,6 +1165,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
@@ -1180,6 +1222,8 @@ tables:
    margins:
     margin: False
     margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
