@@ -225,19 +225,9 @@ panda_diagram_plotter:
     margins:
      margin: False
      margin_name:
-    table_styles:
-     selector: "caption"
-     props:
-      caption-side: "below"
-      position: "H"
-      sparse_columns: True
-      longtable: True
-      resize_textwidth: False
-      linebreak_columns:
-      table_header: True
   projektcontrolling:
     id: "projektcontrolling"
-    separator: ","
+    separator: ";"
     decimal: "."
     startpath: "parentdir"
     destination_path: "source/pandas_data_chart_plotter"
@@ -250,7 +240,7 @@ panda_diagram_plotter:
     x-axis-title:
     y-axis-title:
     title: "Projektcontrolling"
-    chart-index:
+    chart-index: "Subphase"
     chart-kind: "pie"
     chart-designs:
       subplots: True
@@ -269,8 +259,11 @@ panda_diagram_plotter:
      - "Subphase"
     group_by_function: "sum"
     agg_funtion:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
     agg_colums:
     drop_columns:
+     - "dauer_summe"
      - "Datum"
      - "Von"
      - "Bis"
@@ -278,13 +271,14 @@ panda_diagram_plotter:
      - "Phase"
      - "Tätigkeit"
      - "Bemerkung"
-  #   - "appliance"
+     - "Schwierigkeit"
+     - "Lösungen"
     column_operations:
      datas:
      operations:
       dauer_summe:
        operation_function:
-       axis_number:
+       axis_number: 1
        columns:
     pivot:
      pivot_columns:
@@ -297,9 +291,6 @@ panda_diagram_plotter:
      pivot_columns:
      pivot_values:
      pivot_agg_func:
-      instance: "sum"
-      databases: "sum"
-      appliance: "sum"
      transpose: True
     rename_columns:
     where_clausel:
@@ -310,15 +301,4 @@ panda_diagram_plotter:
     margins:
      margin: False
      margin_name:
-    table_styles:
-     selector: "caption"
-     props:
-      caption-side: "below"
-      position: "H"
-      sparse_columns: True
-      longtable: True
-      resize_textwidth: False
-      linebreak_columns:
-      table_header: True
-
 

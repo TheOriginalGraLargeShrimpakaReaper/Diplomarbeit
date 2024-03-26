@@ -1,6 +1,6 @@
 Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätigkeit;Bemerkung;Schwierigkeit;Lösungen
 14.02.2024;;;0;16;0;1;Evaluation;Anorderungskatalog;;;;
-14.02.2024;;;0;80;0;1;Dokumentation;-;;;;
+14.02.2024;;;0;80;0;1;Dokumentation;Dokumentation;;;;
 14.02.2024;;;0;16;0;1;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Patroni;;
 14.02.2024;;;0;4;0;1;Evaluation;Vorbereitung Benchmarking;;;;
 14.02.2024;;;0;8;0;1;Evaluation;Gegenüberstellung;;;;
@@ -23,33 +23,33 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 14.02.2024;19:00;20:00;1;0;0;0;1. Expertengespräch;1. Expertengespräch;;;;
 21.02.2024;15:00;16:00;1;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
 22.02.2024;16:00;17:30;1.5;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
-27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;-;Dokumentation erweitern;;;
-27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;-;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;-;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp.\\das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
+27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp.\\das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
 08.03.2024;07:00;09:00;2;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
 11.03.2024;07:00;11:30;4.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Informationen Sammeln;pgpool II;pgpool II hat kein GitHub Repository.\\Das macht es unmöglich, diese Lösung mit all den anderen zu vergleichen.;pgpool II fällt somit direkt aus der betrachtung raus,\\da kein vergleich möglich ist.
-11.03.2024;12:00;13:30;1.5;0;0;0;Dokumentation;-;Dokumentation erweitern;;;
-11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;-;Dokumentation erweitern;Stakeholder erfassen;;
+11.03.2024;12:00;13:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Stakeholder erfassen;;
 13.03.2024;17:45;19:45;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Stackgres und Citus analysieren;Citus row-based-sharding;Citus Dokumentation stark Textlastig.\\Wenig Abbildungen, vieles muss selber gezeichnet werden.;
 14.03.2024;19:45;20:45;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Citus row-based-sharding;;
-14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;-;Projektcontrolling Arbeiten;Citus row-based-sharding Dokumentieren;;
-16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;-;Projektcontrolling Arbeiten;;;
-17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
-17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;-;Dokumentation erweitern;ACID Exkurs erfassen;;
-17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
-18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
+14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;Citus row-based-sharding Dokumentieren;;
+16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
+17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
+17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;ACID Exkurs erfassen;;
+17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
+18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
 18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
 19.03.2024;08:00;10:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;;
 19.03.2024;10:00;10:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Backup Anbindungen;;Veeam Kast K10 wird nicht vor Anbgabe Diplomarbeit fertig sein;Backups lokal speichern.\\Veeam Integration wird im Nachgang implementiert.
-19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;yugabytedb;;
-20.03.2024;16:00;16:15;0.25;0;0;0;Dokumentation;-;Termin für 2. Fachgespräch organisiert;;;
-21.03.2024;18:00;20:00;2;0;0;0;Dokumentation;-;Dokumentation erweitern;Projektcontrolling gemacht.;;
+19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;yugabytedb;;
+20.03.2024;16:00;16:15;0.25;0;0;0;Dokumentation;Dokumentation;Termin für 2. Fachgespräch organisiert;;;
+21.03.2024;18:00;20:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling gemacht.;;
 22.03.2024;09:00;11:00;2;0;0;0;Evaluation;Vorbereitung Benchmarking;zabbix analysieren;;;
 22.03.2024;13:00;14:30;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;Benchmark Settings setzen;;;
-22.03.2024;14:30;15:30;1;0;0;0;Dokumentation;-;Dokumentation erweitern;Projektcontrolling und Dokumentation;;
-22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
-24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
-24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;-;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
+22.03.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling und Dokumentation;;
+22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
+24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
+24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
 25.03.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;rke2 - local-path-provisioner Installieren;;;
 25.03.2024;13:00;14:45;2.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;Anforderungen recht hoch.\\Es wird ein \\guillemotleftprivate container registry\\guillemotright verlangt.\\Das KSGR hat Harbor im Einsatz,\\allerdings ist dieses nicht für das Evaluationssetting gedacht.;Eine mögliche Lösung könnte sein, rke2 als Registry zu verwenden.
