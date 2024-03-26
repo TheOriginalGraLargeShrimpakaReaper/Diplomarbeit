@@ -1,0 +1,20 @@
+;Filter;;Patroni - vanilla;Patroni - postgresql_cluster;StackGres - Citus;YugabyteDB
+\rotatebox{90}{Initialer Aufwand};1;Basisinstallation;;;;
+;1;Basiskonfiguration;;;;
+;1;Backup Konfiguration;;;;
+;1;Monitoring Konfiguration;;;;
+Secuirty Aufwand;1;private container registry Integration;;;;
+;1;PKI Integration;;;;
+Erweiterungsaufwand;1;Automatisierung Backup;;;;
+;1;Automatisierung Skalierung;;;;
+;1;Self-Healing;;;;
+;1;Auto-Recovery;;;;
+;1;DB Self-Service;;;;
+Operationsaufwand / Pro Aktion;2;Switchover;;;;
+;2;Node Recovery;;;;
+;2;Backup Recovery;;;;
+;2;Quorum erweitern;;;;
+Operationsaufwand / 5 Jahre;1;Switchover;;;;
+;1;Node Recovery;;;;
+;1;Backup Recovery;;;;
+;1;Quorum erweitern;;;;
