@@ -20,30 +20,74 @@ source /etc/profile.d/proxy.sh
 \end{lstlisting}
 
 \subsection{Installation}
-\subsubsection{server}
+\subsubsection{server - sks1183}
 Es gibt kein apt-Package.
-Daher muss zuerst das tarball-Package heruntergeladen werden:
-\lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Downlaod rke2 server,captionpos=b,label={lst:download-rke2-server},breaklines=true]
+Daher muss zuerst das tarball-Package heruntergeladen werden.
 
+Zuerst wird das Verzeichnis für rke2 erstellt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=rke2 server - Verzeichnis erstellen,captionpos=b,label={lst:rke2-server-mkdir-rke2},breaklines=true]
+mkdir -p /etc/rancher/rke2/
+mkdir -p /var/lib/rancher/rke2/server/manifests/
 \end{lstlisting}
-Anschliessend muss das Package installiert werden:
+
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=rke2 server - config.yaml,captionpos=b,label={lst:rke2-server-config.yaml},breaklines=true]
+# /etc/rancher/rke2/
+cluster-cidr: "198.18.0.0/16"
+service-cidr: "198.19.0.0/16"
+cni:
+  - cilium
+disable:
+  - rke2-canal
+\end{lstlisting}
+
+Cilium muss separat manifestiert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=rke2 server - cilium-config.yaml,captionpos=b,label={lst:rke2-server-cilium-config.yaml},breaklines=true]
+# /var/lib/rancher/rke2/server/manifests/rke2-cilium-config.yaml
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: rke2-cilium
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    eni:
+      enabled: true
+\end{lstlisting}
+
+Das Package kann nun installiert und aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server installieren,captionpos=b,label={lst:install-rke2-server},breaklines=true]
-
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=v1.29.0+rke2r1 sh -
+systemctl enable rke2-server.service
+systemctl start rke2-server.service
 \end{lstlisting}
 
-\subsubsection{agents}
-Der Agent muss direkt heruntergeladen werden:
+\subsubsection{agents - sks1184 / sks1185}
+Der Agent muss direkt heruntergeladen, installiert und aktiviert werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Downlaod rke2 agent,captionpos=b,label={lst:download-rke2-agent},breaklines=true]
-
+\begin{lstlisting}[language=bash, caption=rke2 agenten installieren,captionpos=b,label={lst:install-rke2-agent},breaklines=true]
+curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="agent" INSTALL_RKE2_VERSION=v1.29.0+rke2r1 sh -
+systemctl enable rke2-agent.service
+mkdir -p /etc/rancher/rke2/
 \end{lstlisting}
 
-Anschliessend muss der Dienst aktiviert werden:
+Die Konfiguration muss nun konfiguriert werden.
+Dem Agents müssen den Server und den Server Token erhalten:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=rke2 agent aktivieren,captionpos=b,label={lst:rke2-agent-enable},breaklines=true]
+\begin{lstlisting}[language=yaml, caption=rke2 agent - config.yaml,captionpos=b,label={lst:rke2-agent-config.yaml},breaklines=true]
+# /etc/rancher/rke2/config.yaml
+server: https://10.0.20.97:9345
+token: K1042bf32f28282edad37cbac4b77ccfa1cd44a26f0ea2c19111ed664013954a326::server:7a430a28b29501b778543f0882a156b8
+\end{lstlisting}
 
+Nun muss der Dienst restartet werden
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=-rke2 agent service restart,captionpos=b,label={lst:rke2-agent-service-restart},breaklines=true]
+systemctl start rke2-agent.service
 \end{lstlisting}
 
 \subsection{Cluster Konfiguration}
