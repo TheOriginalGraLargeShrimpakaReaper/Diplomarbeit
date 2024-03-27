@@ -2,4 +2,7 @@
 \textbf{Kubernetes Runtime};rke2
 \textbf{Container-Enviroment};containerd
 \textbf{Container Network Interface (CNI)};cilium
-\textbf{loud Native Storage (CNS)};local-path-provisioner
+\textbf{Cloud Native Storage (CNS)};local-path-provisioner
+\textbf{cluster-cidr};198.18.0.0/16
+\textbf{service-cidr};198.18.0.0/16
+\textbf{External IP Range};10.0.20.106,10.0.20.150-10.0.20.155

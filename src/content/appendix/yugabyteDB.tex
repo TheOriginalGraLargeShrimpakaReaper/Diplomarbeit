@@ -3,9 +3,6 @@
 
 % Preamble
 \section{yugabyteDB}
-%\subsubsection{minikube}
-%
-%\subsubsection{yugabyteDB Konfiguration}
 \subsection{Prerequisites}
 \subsubsection{Prometheus Daten}
 \subsubsection{StorageClass setzen}
@@ -38,6 +35,7 @@ spec:
     path: /var/local-path-provisioner
 \end{lstlisting}
 
+Die Storage Class und das PercistenVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/yugabytedb/yugabytedb/storageclass.yaml

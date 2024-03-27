@@ -3,3 +3,43 @@
 
 % Preamble
 \section{Stackgres mit Citus}
+\subsection{Prerequisites}
+\subsubsection{StorageClass setzen}
+Zuerst muss die StorageClass und das PersistentVolume gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - StorageClass setzen,captionpos=b,label={lst:stackgres-citus-storageclass-yaml},breaklines=true]
+# https://docs.yugabyte.com/preview/yugabyte-platform/install-yugabyte-platform/prepare-environment/kubernetes/#configure-storage-class
+# https://github.com/rancher/local-path-provisioner
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: stackgres-storage
+provisioner: rancher.io/local-path
+parameters:
+  nodePath: /var/local-path-provisioner
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: stackgres-storage-pv
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 3Gi
+  storageClassName: "stackgres-storage"
+  hostPath:
+    path: /var/local-path-provisioner
+\end{lstlisting}
+
+Die Storage Class und das PercistenVolume muss aktiviert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
+gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/storageclass.yaml
+storageclass.storage.k8s.io/stackgres-storage created
+persistentvolume/stackgres-storage-pv created
+\end{lstlisting}
