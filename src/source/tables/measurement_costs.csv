@@ -1,4 +1,4 @@
-Phase;Suphase;Patroni - vanilla;Patroni - postgresql_cluster;StackGres - Citus;YugabyteDB;Filter
+Phase;Suphase;Patroni - vanilla;Patroni - postgresql\_cluster;StackGres - Citus;YugabyteDB;Filter
 \rotatebox{90}{Initialer Aufwand};Basisinstallation;600;720;480;600;1
 ;Basiskonfiguration;600;600;600;600;1
 ;Backup Konfiguration;120;120;120;240;1

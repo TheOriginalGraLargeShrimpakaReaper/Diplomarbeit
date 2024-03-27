@@ -18,6 +18,7 @@ tables_inventory:
  - "risk_assessments_21_03_2024"
  - "benchmarking_settings_mixed"
  - "benchmarking_settings_dql"
+ - "time_investment"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -1224,6 +1225,64 @@ tables:
     margin_name:
     non_pivot_margin_column:
     non_pivot_margin_function:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+ time_investment:
+   id: "time_investment"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Gemessene und Extrapolierte Aufwände Bsp."
+   label: "time_investment"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "measurement_times.csv"
+   tablefilename: "time_investment.tex"
+   decimal_format: "{:0.1f}"
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+     - "Filter"
+   column_operations:
+    datas:
+    operations:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel: "Filter == 1"
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: True
+    margin_name: "Total"
+    non_pivot_margin_column:
+     - "Patroni - vanilla"
+     - "Patroni - postgresql-cluster"
+     - "StackGres - Citus"
+     - "YugabyteDB"
+    non_pivot_margin_function: "sum"
    table_styles:
     selector: "caption"
     props:

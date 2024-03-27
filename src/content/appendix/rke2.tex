@@ -187,5 +187,29 @@ Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
 kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/rke2/local-path-provisioner.yaml
 \end{lstlisting}
 
+\subsubsection{MetallB - Proxy / Load Balancer}
+MetallB musste installiert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=MetallB installieren,captionpos=b,label={lst:metallb-install},breaklines=true]
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.4/config/manifests/metallb-native.yaml
+\end{lstlisting}
 
+Das Konfigurationsmanifest wurde eingespielt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=MetallB konfigurieren,captionpos=b,label={lst:metallb-config},breaklines=true]
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: distributed-sql
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.0.20.106-10.0.20.113
+\end{lstlisting}
+
+Das Manifest musste danach eingespielt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=MetallB Konfiguration einspielen,captionpos=b,label={lst:metallb-apply},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/rke2/metallb-values.yaml
+\end{lstlisting}
 

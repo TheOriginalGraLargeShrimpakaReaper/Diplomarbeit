@@ -315,7 +315,7 @@ panda_diagram_plotter:
     x-axis-columns: "Subphase"
     y-axis-columns:
       - "Patroni - vanilla"
-      - "Patroni - postgresql_cluster"
+      - "Patroni - postgresql-cluster"
       - "StackGres - Citus"
       - "YugabyteDB"
     x-axis-title: "Phasen"
@@ -376,7 +376,7 @@ panda_diagram_plotter:
     x-axis-columns: "Subphase"
     y-axis-columns:
       - "Patroni - vanilla"
-      - "Patroni - postgresql_cluster"
+      - "Patroni - postgresql-cluster"
       - "StackGres - Citus"
       - "YugabyteDB"
     x-axis-title: "Phasen"

@@ -1,0 +1,29 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{llrrrr}
+\toprule
+Phase & Subphase & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB \\
+\midrule
+\rotatebox{90}{Initialer Aufwand} & Basisinstallation & 5.0 & 6.0 & 4.0 & 5.0 \\
+ & Basiskonfiguration & 5.0 & 5.0 & 5.0 & 5.0 \\
+ & Backup Konfiguration & 1.0 & 1.0 & 1.0 & 2.0 \\
+ & Monitoring Konfiguration & 2.0 & 2.0 & 2.0 & 2.0 \\
+Secuirty Aufwand & private container registry Integration & 0.0 & 0.0 & 1.0 & 1.0 \\
+ & PKI Integration & 3.0 & 3.0 & 3.0 & 3.0 \\
+Erweiterungsaufwand & Automatisierung Backup & 1.0 & 1.0 & 4.0 & 4.0 \\
+ & Automatisierung Skalierung & 8.0 & 4.0 & 8.0 & 2.0 \\
+ & Self-Healing & 8.0 & 4.0 & 16.0 & 0.0 \\
+ & Auto-Recovery & 8.0 & 4.0 & 16.0 & 2.0 \\
+ & DB Self-Service & 16.0 & 16.0 & 16.0 & 16.0 \\
+Operationsaufwand / 5 Jahre & Switchover & 50.0 & 25.0 & 50.0 & 0.0 \\
+ & Node Recovery & 50.0 & 25.0 & 100.0 & 25.0 \\
+ & Backup Recovery & 50.0 & 25.0 & 50.0 & 25.0 \\
+ & Quorum erweitern & 30.0 & 20.0 & 5.0 & 5.0 \\
+ &  & 237.0 & 141.0 & 281.0 & 97.0 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Gemessene und Extrapolierte Aufwände Bsp.} \label{time_investment}
+\end{table}
