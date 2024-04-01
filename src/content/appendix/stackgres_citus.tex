@@ -38,7 +38,7 @@ spec:
 
 Die Storage Class und das PercistenVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
+\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:stackgres_citus-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/storageclass.yaml
 storageclass.storage.k8s.io/stackgres-storage created
 persistentvolume/stackgres-storage-pv created
