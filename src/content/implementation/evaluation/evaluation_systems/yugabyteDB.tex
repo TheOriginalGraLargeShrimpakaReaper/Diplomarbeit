@@ -6,20 +6,35 @@
     \subsubsection{yugabyteDB}
     \paragraph{Installation}
     Wähend der Installation des YugabyteDB Evaluations-Enviroment wurde festgestellt, das man zwei Varianten Installieren kann.
-    YugabyteDB (Repository yugabyte) und YugabyteDB Anywhere (Repository yugawre)
-
+    YugabyteDB (Repository yugabyte) und YugabyteDB Anywhere (Repository yugawre):
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/implementation/evaluation/platforms/yugabytedb_pod_installation_subscription_interrup}
         \caption{yugabyteDB - Susbsription yugawre}
         \label{fig:yugabytedb_pod_installation_subscription_interrup}
     \end{figure}
-
+\end{flushleft}
+\begin{flushleft}
     Es stellte sich auch heraus, dass wenn man YugabyteDB 4 Cores pro Node zur Verfügung geben will (je zwei für den \texttt{master} und \texttt{tserver}),\\
     der Server mehr als 4 Cores haben muss.\\
     Andernfalls wird Kubernetes einen der beiden Pods nicht deployen, weil zuwenig Cores zur verfügung stehen.
 \end{flushleft}
-
+\begin{flushleft}
+    Bei der konstelation rke2, cilium und metallb, muss nebst dem \texttt{IPAddressPool} auch ein \texttt{L2Advertisement} für den Pool gesetzt werden.\\
+    Ansonsten kann die im YugabyteDB values.yaml gesetzte IP für den \texttt{tserver} von aussen nicht angesprochen werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=metallb - Konfig YAML - Detail L2Advertisement,captionpos=b,label={lst:metallb-l2advertisement-setting},breaklines=true]
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2adv
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - distributed-sql
+    \end{lstlisting}
+\end{flushleft}
 \begin{flushleft}
     \paragraph{Konfiguration}
     Damit nicht der YugabyteDB Anywhere-Service installiert wird, muss das entsprechende Image gesetzt werden:
@@ -146,8 +161,6 @@ serviceEndpoints:
 \end{flushleft}
 \begin{flushleft}
 
-
     \paragraph{Connection}
-    Der Connect via JDBC ist nicht ohne weiteres möglich.
-    Bei DataGrip muss der spezielle Driver ausgewählt werden.
+    Auch mit einem PostgreSQL-
 \end{flushleft}

@@ -250,6 +250,15 @@ spec:
   addresses:
   - 10.0.20.106-10.0.20.106
   - 10.0.20.150-10.0.20.155
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2adv
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - distributed-sql
 \end{lstlisting}
 
 Das Manifest musste danach eingespielt werden:
