@@ -5,5 +5,35 @@
 \begin{flushleft}
     \section{sks9016 - yugabyteDB}
     \subsection{yugabyteDB - Download und Installation yugabyteDB}
-    Ohne yugabyteDB lässt sich
+    Ohne yugabyteDB zu Installieren, lässt sich \texttt{ysql\_bench} nicht ausführen.
+    Daher muss das ganze Package erst heruntergeladen werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=sks9016 - Download yugabyteDB On-Premise,captionpos=b,label={lst:sks9016-yugabytedb-download-on-premise},breaklines=true]
+root@sks9016:~# wget https://downloads.yugabyte.com/releases/2.21.0.0/yugabyte-2.21.0.0-b545-linux-x86_64.tar.gz
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Im nächsten Schritt, wird es im \texttt{/opt} entpackt und das \texttt{post\_install.sh}-Skript ausgeführt:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=sks9016 - Installation yugabyteDB On-Premise,captionpos=b,label={lst:sks9016-yugabytedb-install-on-premise},breaklines=true]
+root@sks9016:/opt# tar xvfz yugabyte-2.21.0.0-b545-linux-x86_64.tar.gz && cd yugabyte-2.21.0.0/
+...
+root@sks9016:/opt/yugabyte-2.21.0.0# ./bin/post_install.sh
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Um nun zu Testen, ob das ganze Funktioniert, kann eine Verbindung zum Evaluationssystem hergestellt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=sks9016 - Check yugabyteDB On-Premise,captionpos=b,label={lst:sks9016-yugabytedb-check-on-premise},breaklines=true]
+root@sks9016:/opt/yugabyte-2.21.0.0# cd /opt/yugabyte-2.21.0.0/postgres/bin/
+root@sks9016:/opt/yugabyte-2.21.0.0/postgres/bin# ./ysqlsh "host=10.0.20.106 user=yadmin"
+Password for user yadmin:
+ysqlsh (11.2-YB-2.21.0.0-b0)
+Type "help" for help.
+
+No entry for terminal type "xterm-256color";
+using dumb terminal settings.
+yugabyte=# exit
+    \end{lstlisting}
+    Damit ist der Benchmarking-Server ready.
 \end{flushleft}
