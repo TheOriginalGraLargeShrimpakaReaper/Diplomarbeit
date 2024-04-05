@@ -66,3 +66,24 @@
     Für den DQL-Only Benchmark wird mit folgenden Konfigurationen gearbeitet:
     \input{content/latex_tables/benchmarking_settings_dql}
 \end{flushleft}
+\begin{flushleft}
+    Bei \texttt{pgbench} kann nicht einfach die grösse angegeben werden.\\
+    Es muss der Skalierungsfaktor angepasst werden.\\
+    Dieser legt allerdings fest, wie viele Daten gespeichert werden.\\
+    Wird eine \texttt{1} eingeben, so werden \texttt{100'000} Records angelegt.\\
+
+    Um nun auf eine gewisse grösse zu kommen, gibt es verschiedene Formeln.\\
+    Die als beste stellte sich folgende heraus\cite{DKXU3QRC}:\\
+    \input{content/latex_tables/benchmarking_formeln}
+\end{flushleft}
+\begin{flushleft}
+    Daraus errechnen sich für die DB-Grössen des Benchmark-Settings folgende skalierungsfaktoren:\\
+    \input{content/latex_tables/benchmarking_db_sizes}
+\end{flushleft}
+\begin{flushleft}
+    yugabyteDB speichert die Daten anders als PostgreSQL, nämlich als \Gls{Key-Value-Store}.\\
+    Das verhindert, dass die DB Grösse nicht ausgelesen werden kann, nur die Tabellen sind ersichtlich.\\
+    Um einen Vergleich zu haben, muss daher die Tabellengrösse berechnet werden.\\
+    Der skalierungsfaktor für die Tabellen ist folgendermassen aufgebaut:\\
+    \input{content/latex_tables/benchmarking_table_sizes}
+\end{flushleft}

@@ -19,6 +19,9 @@ tables_inventory:
  - "benchmarking_settings_mixed"
  - "benchmarking_settings_dql"
  - "time_investment"
+ - "benchmarking_formeln"
+ - "benchmarking_db_sizes"
+ - "benchmarking_table_sizes"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -1283,6 +1286,177 @@ tables:
      - "StackGres - Citus"
      - "YugabyteDB"
     non_pivot_margin_function: "sum"
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+ benchmarking_formeln:
+   id: "benchmarking_formeln"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Benchmark Settings - Skalierungsfaktoren"
+   label: "benchmarking_formeln"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "benchmarking_formeln.csv"
+   tablefilename: "benchmarking_formeln.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+ benchmarking_db_sizes:
+   id: "benchmarking_db_sizes"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Benchmark Settings - Datenbankgrössen / Skalierungsfaktor"
+   label: "benchmarking_db_sizes"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "benchmarking_db_sizes.csv"
+   tablefilename: "benchmarking_db_sizes.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+ benchmarking_table_sizes:
+   id: "benchmarking_table_sizes"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Benchmark Settings - Tabellengrössen / Skalierungsfaktor"
+   label: "benchmarking_table_sizes"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "benchmarking_table_sizes.csv"
+   tablefilename: "benchmarking_table_sizes.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
    table_styles:
     selector: "caption"
     props:
