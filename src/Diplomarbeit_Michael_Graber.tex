@@ -61,6 +61,15 @@
 % Unicode Characters
 \DeclareUnicodeCharacter{65533}{\"u}
 
+% Hint-Box
+\usepackage{pifont,mdframed}
+
+\newenvironment{warning}
+  {\par\begin{mdframed}[linewidth=2pt,linecolor=red]%
+    \begin{list}{}{\leftmargin=1cm
+                   \labelwidth=\leftmargin}\item[\Large\ding{43}]}
+  {\end{list}\end{mdframed}\par}
+
 \geometry{
    left=2.3cm,
    right=2.3cm,
