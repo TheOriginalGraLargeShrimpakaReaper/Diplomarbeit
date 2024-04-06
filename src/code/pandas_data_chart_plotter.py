@@ -62,6 +62,7 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
         agg_colums = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('agg_colums')
         # dropping and renaming columns
         drop_columns = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('drop_columns')
+        drop_columns_after_operations = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('drop_columns_after_operations')
         rename_columns = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('rename_columns')
 
         # table filtering and sorting
@@ -125,7 +126,7 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
             panda_table_data = panda_table_data.query(where_clausel)
 
         # Drop unused columns
-        if drop_columns:
+        if drop_columns and not drop_columns_after_operations:
             panda_table_data = panda_table_data.drop(columns=drop_columns)
 
         # set aggregation functions
@@ -171,18 +172,23 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
                 operation_axis = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('column_operations').get('operations').get(column_ops).get('axis_number')
                 match operation_function:
                     case 'max':
-                        panda_table_data[column_ops] = panda_table_data[operation_columns].max()
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].max(axis=operation_axis)
                     case 'min':
-                        panda_table_data[column_ops] = panda_table_data[operation_columns].min()
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].min(axis=operation_axis)
                     case 'head':
-                        panda_table_data[column_ops] = panda_table_data[operation_columns].head()
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].head(axis=operation_axis)
                     case 'sum':
                         panda_table_data[column_ops] = panda_table_data[operation_columns].sum(axis=operation_axis)
                     case 'mean':
-                        panda_table_data[column_ops] = panda_table_data[operation_columns].mean()
+                        panda_table_data[column_ops] = panda_table_data[operation_columns].mean(axis=operation_axis)
                     case 'diff':
                         panda_table_data[column_ops] = panda_table_data[operation_columns[1]] - panda_table_data[operation_columns[0]]
 
+
+
+        # Drop unused columns
+        if drop_columns and drop_columns_after_operations:
+            panda_table_data = panda_table_data.drop(columns=drop_columns)
 
         # order by
         if order_by:
