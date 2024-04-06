@@ -1,0 +1,147 @@
+root@sks9016:/opt/yugabyte-2.21.0.0/postgres/bin# ./ysql_bench -h 10.0.20.106 -p 5433 -c 50 -C -j 4 -v -t 50 -U yadmin pgbench_eval_bench > /var/log/2_2_mixed_benchmark.txt
+Password:
+starting vacuum...WARNING:  'vacuum' is a beta feature!
+LINE 1: vacuum ysql_bench_branches
+        ^
+HINT:  Set 'ysql_beta_features' yb-tserver gflag to true to suppress the warning for all beta features.
+WARNING:  VACUUM will be ignored
+WARNING:  'vacuum' is a beta feature!
+LINE 1: vacuum ysql_bench_tellers
+        ^
+HINT:  Set 'ysql_beta_features' yb-tserver gflag to true to suppress the warning for all beta features.
+WARNING:  VACUUM will be ignored
+end.
+starting vacuum ysql_bench_accounts...WARNING:  'vacuum' is a beta feature!
+LINE 1: vacuum analyze ysql_bench_accounts
+        ^
+HINT:  Set 'ysql_beta_features' yb-tserver gflag to true to suppress the warning for all beta features.
+WARNING:  VACUUM will be ignored
+end.
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+client 35 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+client 23 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+client 5 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+client 11 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+client 2 aborted in command 8 (SQL) of script 0; perhaps the backend died while processing
+client 0 aborted in command 8 (SQL) of script 0; perhaps the backend died while processing
+client 7 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+client 47 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 38 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+client 40 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+client 24 aborted while establishing connection
+connection to database "pgbench_eval_bench" failed:
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+client 13 aborted in command 5 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+client 28 aborted while establishing connection
+client 14 aborted in command 5 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+client 15 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 16 aborted in command 10 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+client 26 aborted in command 10 (SQL) of script 0; perhaps the backend died while processing
+client 41 aborted in command 10 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+client 42 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 44 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+client 46 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+could not connect to server: Connection refused
+	Is the server running on host "10.0.20.106" and accepting
+	TCP/IP connections on port 5433?
+client 17 aborted while establishing connection
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 18 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 19 aborted in command 10 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+FATAL:  terminating connection due to administrator command
+FATAL:  Shutdown connection
+client 25 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+FATAL:  the database system is shutting down
+client 29 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+client 20 aborted in command 10 (SQL) of script 0; perhaps the backend died while processing
+connection to database "pgbench_eval_bench" failed:
+FATAL:  the database system is shutting down
+client 30 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+client 6 aborted in command 7 (SQL) of script 0; SQL command send failed
+client 4 aborted in command 7 (SQL) of script 0; perhaps the backend died while processing
+FATAL:  terminating connection due to administrator command
+connection to database "pgbench_eval_bench" failed:
+could not connect to server: Connection refused
+	Is the server running on host "10.0.20.106" and accepting
+	TCP/IP connections on port 5433?
+client 8 aborted while establishing connection
+connection to database "pgbench_eval_bench" failed:
+could not connect to server: Connection refused
+	Is the server running on host "10.0.20.106" and accepting
+	TCP/IP connections on port 5433?
+client 48 aborted in command 9 (SQL) of script 0; SQL command send failed
+client 39 aborted in command 9 (SQL) of script 0; SQL command send failed
+client 43 aborted in command 5 (SQL) of script 0; perhaps the backend died while processing
+client 45 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+client 49 aborted in command 7 (SQL) of script 0; SQL command send failed
+client 31 aborted while establishing connection
+FATAL:  terminating connection due to administrator command
+client 34 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing
+client 36 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+client 37 aborted in command 6 (SQL) of script 0; perhaps the backend died while processing
+client 27 aborted in command 7 (SQL) of script 0; perhaps the backend died while processing
+WARNING:  AbortTransaction while in ABORT state
+FATAL:  terminating connection due to administrator command
+client 33 aborted in command 9 (SQL) of script 0; perhaps the backend died while processing

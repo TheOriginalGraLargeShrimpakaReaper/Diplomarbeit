@@ -6,6 +6,9 @@ diagram_inventory:
   - "time_investment"
   - "cost_investment"
   - "benchmarking_tps_evaluation_mixed"
+  - "benchmarking_tps_evaluation_dql"
+  - "benchmarking_latency_evaluation_mixed"
+  - "benchmarking_latency_evaluation_dql"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -440,6 +443,9 @@ panda_diagram_plotter:
       - "1. Iteration \u2300"
       - "1. Iteration min"
       - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Transaktionen pro Sekunde (tps)"
     title: "Transaktionen pro Sekunden - mixed"
@@ -486,6 +492,9 @@ panda_diagram_plotter:
         - "tps_1_run_average"
         - "tps_1_run_min"
         - "tps_1_run_max"
+        - "tps_2_run_average"
+        - "tps_2_run_min"
+        - "tps_2_run_max"
       operations:
         tps_1_run_average:
           operation_function: "mean"
@@ -508,6 +517,27 @@ panda_diagram_plotter:
             - "tps_1_run_2_iteration"
             - "tps_1_run_3_iteration"
             - "tps_1_run_4_iteration"
+        tps_2_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
+        tps_2_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
+        tps_2_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
     pivot:
       pivot_columns:
       pivot_values:
@@ -523,6 +553,9 @@ panda_diagram_plotter:
       tps_1_run_average: "1. Iteration \u2300"
       tps_1_run_min: "1. Iteration min"
       tps_1_run_max: "1. Iteration max"
+      tps_2_run_average: "2. Iteration \u2300"
+      tps_2_run_min: "2. Iteration min"
+      tps_2_run_max: "2. Iteration max"
     where_clausel: "tps_type == 'mixed'"
     sorting:
       order_by:
@@ -531,6 +564,413 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+  benchmarking_tps_evaluation_dql:
+    id: "benchmarking_tps_evaluation_dql"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "tps_dql.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_tps.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "1. Iteration \u2300"
+      - "1. Iteration min"
+      - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
+    x-axis-title: "Varianten"
+    y-axis-title: "Transaktionen pro Sekunde (tps)"
+    title: "Transaktionen pro Sekunden - dql"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "tps_type"
+      - "tps_1_run_1_iteration"
+      - "tps_1_run_2_iteration"
+      - "tps_1_run_3_iteration"
+      - "tps_1_run_4_iteration"
+      - "tps_2_run_1_iteration"
+      - "tps_2_run_2_iteration"
+      - "tps_2_run_3_iteration"
+      - "tps_2_run_4_iteration"
+      - "tps_3_run_1_iteration"
+      - "tps_3_run_2_iteration"
+      - "tps_3_run_3_iteration"
+      - "tps_3_run_4_iteration"
+      - "tps_4_run_1_iteration"
+      - "tps_4_run_2_iteration"
+      - "tps_4_run_3_iteration"
+      - "tps_4_run_4_iteration"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "tps_1_run_average"
+        - "tps_1_run_min"
+        - "tps_1_run_max"
+        - "tps_2_run_average"
+        - "tps_2_run_min"
+        - "tps_2_run_max"
+      operations:
+        tps_1_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_1_run_2_iteration"
+            - "tps_1_run_3_iteration"
+            - "tps_1_run_4_iteration"
+        tps_1_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_1_run_2_iteration"
+            - "tps_1_run_3_iteration"
+            - "tps_1_run_4_iteration"
+        tps_1_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_1_run_2_iteration"
+            - "tps_1_run_3_iteration"
+            - "tps_1_run_4_iteration"
+        tps_2_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
+        tps_2_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
+        tps_2_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_2_run_2_iteration"
+            - "tps_2_run_3_iteration"
+            - "tps_2_run_4_iteration"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      tps_1_run_average: "1. Iteration \u2300"
+      tps_1_run_min: "1. Iteration min"
+      tps_1_run_max: "1. Iteration max"
+      tps_2_run_average: "2. Iteration \u2300"
+      tps_2_run_min: "2. Iteration min"
+      tps_2_run_max: "2. Iteration max"
+    where_clausel: "tps_type == 'dql'"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_latency_evaluation_mixed:
+    id: "benchmarking_latency_evaluation_mixed"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "latency_mixed.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_latency.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "1. Iteration \u2300"
+      - "1. Iteration min"
+      - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
+    x-axis-title: "Varianten"
+    y-axis-title: "Latenzen (ms)"
+    title: "Latenzen in milisekunden - mixed"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "latency_type"
+      - "latency_1_run_1_iteration"
+      - "latency_1_run_2_iteration"
+      - "latency_1_run_3_iteration"
+      - "latency_1_run_4_iteration"
+      - "latency_2_run_1_iteration"
+      - "latency_2_run_2_iteration"
+      - "latency_2_run_3_iteration"
+      - "latency_2_run_4_iteration"
+      - "latency_3_run_1_iteration"
+      - "latency_3_run_2_iteration"
+      - "latency_3_run_3_iteration"
+      - "latency_3_run_4_iteration"
+      - "latency_4_run_1_iteration"
+      - "latency_4_run_2_iteration"
+      - "latency_4_run_3_iteration"
+      - "latency_4_run_4_iteration"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "latency_1_run_average"
+        - "latency_1_run_min"
+        - "latency_1_run_max"
+        - "latency_2_run_average"
+        - "latency_2_run_min"
+        - "latency_2_run_max"
+      operations:
+        latency_1_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_1_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_1_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_2_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+        latency_2_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+        latency_2_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      latency_1_run_average: "1. Iteration \u2300"
+      latency_1_run_min: "1. Iteration min"
+      latency_1_run_max: "1. Iteration max"
+      latency_2_run_average: "2. Iteration \u2300"
+      latency_2_run_min: "2. Iteration min"
+      latency_2_run_max: "2. Iteration max"
+    where_clausel: "latency_type == 'mixed'"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_latency_evaluation_dql:
+    id: "benchmarking_latency_evaluation_dql"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "latency_dql.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_latency.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "1. Iteration \u2300"
+      - "1. Iteration min"
+      - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
+    x-axis-title: "Varianten"
+    y-axis-title: "Latenzen (ms)"
+    title: "Latenzen in milisekunden - mixed"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "latency_type"
+      - "latency_1_run_1_iteration"
+      - "latency_1_run_2_iteration"
+      - "latency_1_run_3_iteration"
+      - "latency_1_run_4_iteration"
+      - "latency_2_run_1_iteration"
+      - "latency_2_run_2_iteration"
+      - "latency_2_run_3_iteration"
+      - "latency_2_run_4_iteration"
+      - "latency_3_run_1_iteration"
+      - "latency_3_run_2_iteration"
+      - "latency_3_run_3_iteration"
+      - "latency_3_run_4_iteration"
+      - "latency_4_run_1_iteration"
+      - "latency_4_run_2_iteration"
+      - "latency_4_run_3_iteration"
+      - "latency_4_run_4_iteration"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "latency_1_run_average"
+        - "latency_1_run_min"
+        - "latency_1_run_max"
+        - "latency_2_run_average"
+        - "latency_2_run_min"
+        - "latency_2_run_max"
+      operations:
+        latency_1_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_1_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_1_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_1_run_2_iteration"
+            - "latency_1_run_3_iteration"
+            - "latency_1_run_4_iteration"
+        latency_2_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+        latency_2_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+        latency_2_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_2_run_2_iteration"
+            - "latency_2_run_3_iteration"
+            - "latency_2_run_4_iteration"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      latency_1_run_average: "1. Iteration \u2300"
+      latency_1_run_min: "1. Iteration min"
+      latency_1_run_max: "1. Iteration max"
+      latency_2_run_average: "2. Iteration \u2300"
+      latency_2_run_min: "2. Iteration min"
+      latency_2_run_max: "2. Iteration max"
+    where_clausel: "latency_type == 'mixed'"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+
+
 
 
 

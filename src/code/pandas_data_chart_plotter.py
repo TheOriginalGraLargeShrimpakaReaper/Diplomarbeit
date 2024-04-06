@@ -35,6 +35,8 @@ def get_data(startpath, destination, tablefilename, datafile_path, datafile, sep
     # return data
     return panda_table_data
 def create_panda_diagram_plotter(panda_diagram_plotter_config):
+    pd.options.mode.copy_on_write = True
+
     pdp_tables = panda_diagram_plotter_config.get('diagram_inventory')
     for table_item in pdp_tables:
         print(table_item)

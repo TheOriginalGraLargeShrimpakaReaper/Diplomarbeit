@@ -1,7 +1,7 @@
-variante;latency_type;latency_1_run_1_iteration;latency_1_run_2_iteration;latency_1_run_3_iteration;latency_1_run_4_iteration;latency_1_run_average;latency_1_run_min;latency_1_run_max;latency_2_run_1_iteration;latency_2_run_2_iteration;latency_2_run_3_iteration;latency_2_run_4_iteration;latency_2_run_average;latency_2_run_min;latency_2_run_max;latency_3_run_1_iteration;latency_3_run_2_iteration;latency_3_run_3_iteration;latency_3_run_4_iteration;latency_3_run_average;latency_3_run_min;latency_3_run_max;latency_4_run_1_iteration;latency_4_run_2_iteration;latency_4_run_3_iteration;latency_4_run_4_iteration;latency_4_run_average;latency_4_run_min;latency_4_run_max
-yugabyteDB;mixed;210.714;202.265;207.5;191.745;;;;;;;;;;;;;;;;;;;;;;;;
-Patroni;mixed;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Stackgres - Citus;mixed;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-yugabyteDB;dql;88.137;90.165;90.2;94.29;;;;;;;;;;;;;;;;;;;;;;;;
-Patroni;dql;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Stackgres - Citus;dql;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+variante;latency_type;latency_1_run_1_iteration;latency_1_run_2_iteration;latency_1_run_3_iteration;latency_1_run_4_iteration;latency_2_run_1_iteration;latency_2_run_2_iteration;latency_2_run_3_iteration;latency_2_run_4_iteration;latency_3_run_1_iteration;latency_3_run_2_iteration;latency_3_run_3_iteration;latency_3_run_4_iteration;latency_4_run_1_iteration;latency_4_run_2_iteration;latency_4_run_3_iteration;latency_4_run_4_iteration
+yugabyteDB;mixed;210.714;202.265;207.5;191.745;848.851;937.543;836.436;867.579;;;;;;;;
+Patroni;mixed;;;;;;;;;;;;;;;;
+Stackgres - Citus;mixed;;;;;;;;;;;;;;;;
+yugabyteDB;dql;88.137;90.165;90.2;94.29;452.711;484.987;472.942;459.952;;;;;;;;
+Patroni;dql;;;;;;;;;;;;;;;;
+Stackgres - Citus;dql;;;;;;;;;;;;;;;;
