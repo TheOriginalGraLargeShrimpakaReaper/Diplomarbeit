@@ -96,9 +96,31 @@
             In Version 7.2 konnte noch ein Replikationsfaktor angegeben werden\cite{8W58EW47}, ab Version 11 wurde auch diese Variante gestrichen und man konnte noch eine 1:1 Repliacation auf einen Worker fahren\cite{JWYDYYWQ}.\\
             Spätestens mit Version 12 steht auch dies nicht mehr zur verfügung, man muss eine Replication auf e
 %            Sie sind nicht vollständig ACID-Konform (\autoref{subsubsec:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
-            Sie sind nicht vollständig ACID-Konform (\autoref{chap:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
-            Die Shards müssen mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.
+            Sie sind nicht vollständig ACID-Konform da Datenverlust entstehen kann, wenn ein Node wegfällt.
             Dies muss aber bei der evaluation mittels Tests noch bestätigt werden.
+        \end{flushleft}
+        \begin{flushleft}
+            Die Shards müssen aber, stand heute, mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.\\
+            Daraus ergibt sich aber ein nicht zu vernachlässigbarer Mehraufwand, wenn man self-healing Nodes implementieren möchte.\\
+            Jeder Node ist für sich genommen, eine eigene Zone, um sicherzustellen, dass es zu keinem Datenverlust kommt,\\
+            müsste jeder Shared-Node in eine der jeweiligen Zonen repliziert werden.\\
+            Das heisst, es müssten \(Shard-Nodes^2 \) Replika-Nodes erstellt werden, hier ein Schematisches-Beispiel mit drei Shard-Nodes:
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_shard_replication}
+                \caption{StackGres-Citus - Shard-Replikation}
+                \label{fig:stackgres_shard_replication}
+            \end{figure}
+            Die Automation und nur schon die Konfiguration für das Mitskalieren, dürfte einiges an Zeit in Anspruch nehmen.\\
+            Eine nicht unwesentliche folge, wäre ein starker Rückgang des Throughput's und Performance-Einbussen.
+        \end{flushleft}
+        \begin{flushleft}
+            Alternativ kann natürlich ein Klassischer Replika-Server verwendet werden, wo die ganze Datenbank gesichert wird.\\
+            Bis alle Daten wieder in den StackGres-Citus-Cluster zurückgeholt wurden, das Re-Balancing abgeschlossen ist usw.,\\
+            muss der ganze Cluster für die User unerreichbar sein, da dieser in dieser Zeit nicht mehr konsistent ist.
+        \end{flushleft}
+        \begin{flushleft}
+            Dieser zweite Ansatz bietet zwar Vorteile beim Throughput, doch im fehlerfall ist ein HA-Betrieb nur noch begrenzt garantiebar.
         \end{flushleft}
     \end{flushleft}
 \end{flushleft}

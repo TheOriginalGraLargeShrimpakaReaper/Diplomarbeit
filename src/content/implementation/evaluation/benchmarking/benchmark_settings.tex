@@ -87,3 +87,13 @@
     Der skalierungsfaktor für die Tabellen ist folgendermassen aufgebaut:\\
     \input{content/latex_tables/benchmarking_table_sizes}
 \end{flushleft}
+\begin{flushleft}
+    Der Skalierungsfaktor wird pro 100'000 gerechnet, gebe ich also den Faktor 1 ein, werden 100'000 Zeilen in der Tabelle \texttt{pgbench\_accounts} resp. \texttt{ysql\_bench\_accounts} erzeugt.\\
+    Entsprechend wachsen die Anzahl Records wie folgt an:\\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{source/pandas_data_chart_plotter/row_counts}
+        \caption{Benchmark Settings - Anzahl Records / Skalierungsfaktor}
+        \label{fig:row_counts}
+    \end{figure}
+\end{flushleft}

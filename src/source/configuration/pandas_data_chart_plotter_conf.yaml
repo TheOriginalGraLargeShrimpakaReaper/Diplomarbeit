@@ -9,6 +9,8 @@ diagram_inventory:
   - "benchmarking_tps_evaluation_dql"
   - "benchmarking_latency_evaluation_mixed"
   - "benchmarking_latency_evaluation_dql"
+  - "benchmarking_used_table_space"
+  - "benchmarking_row_counts"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -969,6 +971,145 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+  benchmarking_used_table_space:
+    id: "benchmarking_used_table_space"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "used_table_space.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_table_used_space.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "scale 400"
+      - "scale 1200"
+      - "scale 3999"
+      - "scale 19994"
+    x-axis-title: "Varianten"
+    y-axis-title: "Tabellengrösse [MiB]"
+    title: "Tabellengrössen"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Anzahl Zeilen - scale 400"
+      - "Anzahl Zeilen - scale 1200"
+      - "Anzahl Zeilen - scale 3999"
+      - "Anzahl Zeilen - scale 19994"
+    drop_columns_after_operations: False
+    column_operations:
+      datas:
+      operations:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      table-size [MiB] - scale 400: "scale 400"
+      table-size [MiB] - scale 1200: "scale 1200"
+      table-size [MiB] - scale 3999: "scale 3999"
+      table-size [MiB] - scale 19994: "scale 19994"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_row_counts:
+    id: "benchmarking_row_counts"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "row_counts.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_table_used_space.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "scale 400"
+      - "scale 1200"
+      - "scale 3999"
+      - "scale 19994"
+    x-axis-title: "Varianten"
+    y-axis-title: "Anzahl Records"
+    title: "Anzahl Records pro skalierungsfaktor"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "table-size [MiB] - scale 400"
+      - "table-size [MiB] - scale 1200"
+      - "table-size [MiB] - scale 3999"
+      - "table-size [MiB] - scale 19994"
+    drop_columns_after_operations: False
+    column_operations:
+      datas:
+      operations:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      Anzahl Zeilen - scale 400: "scale 400"
+      Anzahl Zeilen - scale 1200: "scale 1200"
+      Anzahl Zeilen - scale 3999: "scale 3999"
+      Anzahl Zeilen - scale 19994: "scale 19994"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+
 
 
 

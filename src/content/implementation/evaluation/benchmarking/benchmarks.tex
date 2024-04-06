@@ -44,7 +44,11 @@ CREATE DATABASE
 \end{flushleft}
 \begin{flushleft}
     \begin{warning}
-        4GiB Memory für die \texttt{tserver} sind offensichtlich zu knapp bemessen.
-        Zumindest wenn die Tabelle 120'000'000 Rows hat und
+        4GiB Memory für die \texttt{tserver} waren offensichtlich zu knapp bemessen.
+        Zumindest wenn die Tabelle 120'000'000 Rows hat und ein mixed Benchmark abgesetzt wird.
+
+        Dies äusserte sich in einem Fehler (Absturz)auf zwei von drei \texttt{tserver}-Nodes sowie einer hohen Anzahl an Fehlern bei den mixed-Benchmarks.
+        Daher wurde das Memory auf 8GiB erhöht und die komplette Testreihe erneut gestartet.
+        Zudem wurden die Anzahl Fehler ebenfalls in die Benchmark-Auswertung einbezogen.
     \end{warning}
 \end{flushleft}
