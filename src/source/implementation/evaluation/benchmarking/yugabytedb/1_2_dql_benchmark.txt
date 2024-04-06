@@ -7,6 +7,6 @@ batch size: 1024
 number of transactions per client: 10
 number of transactions actually processed: 100/100
 maximum number of tries: 1
-latency average = 90.165 ms
-tps = 110.907772 (including connections establishing)
-tps = 158.216346 (excluding connections establishing)
+latency average = 105.444 ms
+tps = 94.837411 (including connections establishing)
+tps = 134.253464 (excluding connections establishing)

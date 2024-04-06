@@ -5,8 +5,9 @@ number of clients: 10
 number of threads: 4
 batch size: 1024
 number of transactions per client: 10
-number of transactions actually processed: 100/100
+number of transactions actually processed: 98/100
+number of errors: 2 (2.000%)
 maximum number of tries: 1
-latency average = 202.265 ms
-tps = 49.440055 (including connections establishing)
-tps = 58.535913 (excluding connections establishing)
+latency average = 193.365 ms (including errors)
+tps = 50.681227 (including connections establishing)
+tps = 59.837751 (excluding connections establishing)

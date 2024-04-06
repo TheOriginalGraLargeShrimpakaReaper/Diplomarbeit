@@ -8,6 +8,6 @@ number of transactions per client: 10
 number of transactions actually processed: 99/100
 number of errors: 1 (1.000%)
 maximum number of tries: 1
-latency average = 210.714 ms (including errors)
-tps = 46.983059 (including connections establishing)
-tps = 55.198349 (excluding connections establishing)
+latency average = 207.149 ms (including errors)
+tps = 47.791751 (including connections establishing)
+tps = 57.123001 (excluding connections establishing)
