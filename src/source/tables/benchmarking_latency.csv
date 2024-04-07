@@ -1,7 +1,7 @@
 variante;latency_type;latency_1_run_1_iteration;latency_1_run_2_iteration;latency_1_run_3_iteration;latency_1_run_4_iteration;latency_2_run_1_iteration;latency_2_run_2_iteration;latency_2_run_3_iteration;latency_2_run_4_iteration;latency_3_run_1_iteration;latency_3_run_2_iteration;latency_3_run_3_iteration;latency_3_run_4_iteration;latency_4_run_1_iteration;latency_4_run_2_iteration;latency_4_run_3_iteration;latency_4_run_4_iteration
-yugabyteDB;mixed;210.714;202.265;207.5;191.745;848.851;937.543;836.436;867.579;;;;;;;;
+yugabyteDB;mixed;207.149;193.365;197.957;175.353;936.67;831.281;842.64;862.145;;;;;;;;
 Patroni;mixed;;;;;;;;;;;;;;;;
 Stackgres - Citus;mixed;;;;;;;;;;;;;;;;
-yugabyteDB;dql;88.137;90.165;90.2;94.29;452.711;484.987;472.942;459.952;;;;;;;;
+yugabyteDB;dql;84.185;105.444;100.713;91.532;439.888;463.542;463.192;456.607;;;;;;;;
 Patroni;dql;;;;;;;;;;;;;;;;
 Stackgres - Citus;dql;;;;;;;;;;;;;;;;

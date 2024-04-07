@@ -1,7 +1,7 @@
 variante;tps_type;tps_1_run_1_iteration;tps_1_run_2_iteration;tps_1_run_3_iteration;tps_1_run_4_iteration;tps_2_run_1_iteration;tps_2_run_2_iteration;tps_2_run_3_iteration;tps_2_run_4_iteration;tps_3_run_1_iteration;tps_3_run_2_iteration;tps_3_run_3_iteration;tps_3_run_4_iteration;tps_4_run_1_iteration;tps_4_run_2_iteration;tps_4_run_3_iteration;tps_4_run_4_iteration
-yugabyteDB;mixed;55.198349;58.535913;56.931638;61.825438;61.630359;55.739027;62.446378;60.162971;;;;;;;;
+yugabyteDB;mixed;57.123001;59.837751;58.612983;66.959599;55.819142;62.950495;62.146618;60.627284;;;;;;;;
 Patroni;mixed;;;;;;;;;;;;;;;;
 Stackgres - Citus;mixed;;;;;;;;;;;;;;;;
-yugabyteDB;dql;161.841599;158.216346;157.717546;149.406101;119.690466;111.626499;114.238932;117.667392;;;;;;;;
+yugabyteDB;dql;170.724507;134.253464;141.164127;157.176938;123.131927;116.740774;116.930333;118.70699;;;;;;;;
 Patroni;dql;;;;;;;;;;;;;;;;
 Stackgres - Citus;dql;;;;;;;;;;;;;;;;

@@ -1,0 +1,7 @@
+Variante	Art	1. Lauf 1. Iteration	1. Lauf 2. Iteration	1. Lauf 3. Iteration	1. Lauf 4. Iteration	2. Lauf 1. Iteration	2. Lauf 2. Iteration	2. Lauf 3. Iteration	2. Lauf 4. Iteration
+yugabyteDB	mixed	06.04.2024 22:15	06.04.2024 22:25	06.04.2024 22:35	06.04.2024 22:45	07.04.2024 09:30	07.04.2024 09:40	07.04.2024 09:50	07.04.2024 10:00
+Patroni	mixed								
+StackGres - Citus	mixed								
+yugabyteDB	dql	06.04.2024 22:20	06.04.2024 22:30	06.04.2024 22:40	06.04.2024 22:50	07.04.2024 09:35	07.04.2024 09:45	07.04.2024 09:55	07.04.2024 10:05
+Patroni	dql								
+StackGres - Citus	dql								
