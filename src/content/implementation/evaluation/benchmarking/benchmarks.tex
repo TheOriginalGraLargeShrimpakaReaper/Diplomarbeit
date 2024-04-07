@@ -13,7 +13,22 @@ CREATE DATABASE
 
 
     \subsubsection{Benchmarks}
-    Die Auswertung anhand der tps
+    Der vergleich zwischen den verschiedenen Varianten.\\
+\end{flushleft}
+\begin{flushleft}
+    \begin{warning}
+        \textbf{YugabyteDB}\\
+        4GiB Memory für die \texttt{tserver} waren offensichtlich zu knapp bemessen.
+        Zumindest wenn die Tabelle 120'000'000 Rows hat und ein mixed Benchmark abgesetzt wird.
+
+        Dies äusserte sich in einem Fehler (Absturz)auf zwei von drei \texttt{tserver}-Nodes sowie einer hohen Anzahl an Fehlern bei den mixed-Benchmarks.
+        Daher wurde das Memory auf 8GiB erhöht und die komplette Testreihe erneut gestartet.
+        Zudem wurden die Anzahl Fehler ebenfalls in die Benchmark-Auswertung einbezogen.
+    \end{warning}
+\end{flushleft}
+\begin{flushleft}
+    Bei den Transaktionen pro Sekunden gilt, je höher der Wert, umso besser das Ergebnis.\\
+    Zuerst die Ergebnisse mit den mixed-Transaktionen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/tps_mixed}
@@ -21,6 +36,7 @@ CREATE DATABASE
         \label{fig:tps_mixed}
     \end{figure}
 
+    Folgend die reinen Select-Transaktionen.
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/tps_dql}
@@ -28,6 +44,8 @@ CREATE DATABASE
         \label{fig:tps_dql}
     \end{figure}
 
+    Bei der Latenz ist es genau andersrum, je höher der Wert desto schlechter schnitt die Variante ab.\\
+    Auch hier zuerst wieder die mixed-Transaktionen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/latency_mixed}
@@ -35,6 +53,7 @@ CREATE DATABASE
         \label{fig:latency_mixed}
     \end{figure}
 
+    Folgend die Select-Transaktionen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/latency_dql}
@@ -43,12 +62,16 @@ CREATE DATABASE
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    \begin{warning}
-        4GiB Memory für die \texttt{tserver} waren offensichtlich zu knapp bemessen.
-        Zumindest wenn die Tabelle 120'000'000 Rows hat und ein mixed Benchmark abgesetzt wird.
+    Ein weiterer Benchmark sind die Fehler, die bei den DML-Transktionen beim mixed-Benchnmark auftreten können.
+    \begin{figure}[H]
+        \centering
+        \subfloat[\centering absolute]{{\includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/pgbench_errors_absolute} }}%
+        \qquad
+        \subfloat[\centering percentage]{{\includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/pgbench_errors_percentage} }}%
+        \caption{Benchmarks - Fehler bei mixed-Transaktionen}
+        \label{fig:pgbench_errors}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
 
-        Dies äusserte sich in einem Fehler (Absturz)auf zwei von drei \texttt{tserver}-Nodes sowie einer hohen Anzahl an Fehlern bei den mixed-Benchmarks.
-        Daher wurde das Memory auf 8GiB erhöht und die komplette Testreihe erneut gestartet.
-        Zudem wurden die Anzahl Fehler ebenfalls in die Benchmark-Auswertung einbezogen.
-    \end{warning}
 \end{flushleft}
