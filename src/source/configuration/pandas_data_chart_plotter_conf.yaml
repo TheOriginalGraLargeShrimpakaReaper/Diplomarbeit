@@ -11,6 +11,8 @@ diagram_inventory:
   - "benchmarking_latency_evaluation_dql"
   - "benchmarking_used_table_space"
   - "benchmarking_row_counts"
+  - "benchmarking_pgbench_evaluation_errors_abs"
+  - "benchmarking_pgbench_evaluation_errors_per"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -1109,9 +1111,303 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
-
-
-
-
-
-
+  benchmarking_pgbench_evaluation_errors_abs:
+    id: "benchmarking_pgbench_evaluation_errors"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "pgbench_errors_absolute.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_pgbench_errors.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "1. Iteration \u2300"
+      - "1. Iteration min"
+      - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
+    x-axis-title: "Varianten"
+    y-axis-title: "Fehler"
+    title: "Fehler mixed Transaktionen"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "errors_1_run_1_iteration_abs"
+      - "errors_1_run_2_iteration_abs"
+      - "errors_1_run_3_iteration_abs"
+      - "errors_1_run_4_iteration_abs"
+      - "errors_1_run_1_iteration_per"
+      - "errors_1_run_2_iteration_per"
+      - "errors_1_run_3_iteration_per"
+      - "errors_1_run_4_iteration_per"
+      - "errors_2_run_1_iteration_abs"
+      - "errors_2_run_2_iteration_abs"
+      - "errors_2_run_3_iteration_abs"
+      - "errors_2_run_4_iteration_abs"
+      - "errors_2_run_1_iteration_per"
+      - "errors_2_run_2_iteration_per"
+      - "errors_2_run_3_iteration_per"
+      - "errors_2_run_4_iteration_per"
+      - "errors_3_run_1_iteration_abs"
+      - "errors_3_run_2_iteration_abs"
+      - "errors_3_run_3_iteration_abs"
+      - "errors_3_run_4_iteration_abs"
+      - "errors_3_run_1_iteration_per"
+      - "errors_3_run_2_iteration_per"
+      - "errors_3_run_3_iteration_per"
+      - "errors_3_run_4_iteration_per"
+      - "errors_4_run_1_iteration_abs"
+      - "errors_4_run_2_iteration_abs"
+      - "errors_4_run_3_iteration_abs"
+      - "errors_4_run_4_iteration_abs"
+      - "errors_4_run_1_iteration_per"
+      - "errors_4_run_2_iteration_per"
+      - "errors_4_run_3_iteration_per"
+      - "errors_4_run_4_iteration_per"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "errors_1_run_average_abs"
+        - "errors_1_run_min_abs"
+        - "errors_1_run_max_abs"
+        - "errors_2_run_average_abs"
+        - "errors_2_run_min_abs"
+        - "errors_2_run_max_abs"
+      operations:
+        errors_1_run_average_abs:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_abs"
+            - "errors_1_run_3_iteration_abs"
+            - "errors_1_run_4_iteration_abs"
+        errors_1_run_min_abs:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_abs"
+            - "errors_1_run_3_iteration_abs"
+            - "errors_1_run_4_iteration_abs"
+        errors_1_run_max_abs:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_abs"
+            - "errors_1_run_3_iteration_abs"
+            - "errors_1_run_4_iteration_abs"
+        errors_2_run_average_abs:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_abs"
+            - "errors_2_run_3_iteration_abs"
+            - "errors_2_run_4_iteration_abs"
+        errors_2_run_min_abs:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_abs"
+            - "errors_2_run_3_iteration_abs"
+            - "errors_2_run_4_iteration_abs"
+        errors_2_run_max_abs:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_abs"
+            - "errors_2_run_3_iteration_abs"
+            - "errors_2_run_4_iteration_abs"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      errors_1_run_average_abs: "1. Iteration \u2300"
+      errors_1_run_min_abs: "1. Iteration min"
+      errors_1_run_max_abs: "1. Iteration max"
+      errors_2_run_average_abs: "2. Iteration \u2300"
+      errors_2_run_min_abs: "2. Iteration min"
+      errors_2_run_max_abs: "2. Iteration max"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_pgbench_evaluation_errors_per:
+    id: "benchmarking_pgbench_evaluation_errors_per"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "pgbench_errors_percentage.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_pgbench_errors.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "1. Iteration \u2300"
+      - "1. Iteration min"
+      - "1. Iteration max"
+      - "2. Iteration \u2300"
+      - "2. Iteration min"
+      - "2. Iteration max"
+    x-axis-title: "Varianten"
+    y-axis-title: "Fehlerrate [%]"
+    title: "Fehlerrate mixed Transaktionen"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "errors_1_run_1_iteration_abs"
+      - "errors_1_run_2_iteration_abs"
+      - "errors_1_run_3_iteration_abs"
+      - "errors_1_run_4_iteration_abs"
+      - "errors_1_run_1_iteration_per"
+      - "errors_1_run_2_iteration_per"
+      - "errors_1_run_3_iteration_per"
+      - "errors_1_run_4_iteration_per"
+      - "errors_2_run_1_iteration_abs"
+      - "errors_2_run_2_iteration_abs"
+      - "errors_2_run_3_iteration_abs"
+      - "errors_2_run_4_iteration_abs"
+      - "errors_2_run_1_iteration_per"
+      - "errors_2_run_2_iteration_per"
+      - "errors_2_run_3_iteration_per"
+      - "errors_2_run_4_iteration_per"
+      - "errors_3_run_1_iteration_abs"
+      - "errors_3_run_2_iteration_abs"
+      - "errors_3_run_3_iteration_abs"
+      - "errors_3_run_4_iteration_abs"
+      - "errors_3_run_1_iteration_per"
+      - "errors_3_run_2_iteration_per"
+      - "errors_3_run_3_iteration_per"
+      - "errors_3_run_4_iteration_per"
+      - "errors_4_run_1_iteration_abs"
+      - "errors_4_run_2_iteration_abs"
+      - "errors_4_run_3_iteration_abs"
+      - "errors_4_run_4_iteration_abs"
+      - "errors_4_run_1_iteration_per"
+      - "errors_4_run_2_iteration_per"
+      - "errors_4_run_3_iteration_per"
+      - "errors_4_run_4_iteration_per"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "errors_1_run_average_per"
+        - "errors_1_run_min_per"
+        - "errors_1_run_max_per"
+        - "errors_2_run_average_per"
+        - "errors_2_run_min_per"
+        - "errors_2_run_max_per"
+      operations:
+        errors_1_run_average_per:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_per"
+            - "errors_1_run_3_iteration_per"
+            - "errors_1_run_4_iteration_per"
+        errors_1_run_min_per:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_per"
+            - "errors_1_run_3_iteration_per"
+            - "errors_1_run_4_iteration_per"
+        errors_1_run_max_per:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_1_run_2_iteration_per"
+            - "errors_1_run_3_iteration_per"
+            - "errors_1_run_4_iteration_per"
+        errors_2_run_average_per:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_per"
+            - "errors_2_run_3_iteration_per"
+            - "errors_2_run_4_iteration_per"
+        errors_2_run_min_per:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_per"
+            - "errors_2_run_3_iteration_per"
+            - "errors_2_run_4_iteration_per"
+        errors_2_run_max_per:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_2_run_2_iteration_per"
+            - "errors_2_run_3_iteration_per"
+            - "errors_2_run_4_iteration_per"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      errors_1_run_average_per: "1. Iteration \u2300"
+      errors_1_run_min_per: "1. Iteration min"
+      errors_1_run_max_per: "1. Iteration max"
+      errors_2_run_average_per: "2. Iteration \u2300"
+      errors_2_run_min_per: "2. Iteration min"
+      errors_2_run_max_per: "2. Iteration max"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
