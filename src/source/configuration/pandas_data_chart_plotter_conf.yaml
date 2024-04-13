@@ -450,6 +450,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Transaktionen pro Sekunde (tps)"
     title: "Transaktionen pro Sekunden - mixed"
@@ -499,6 +505,12 @@ panda_diagram_plotter:
         - "tps_2_run_average"
         - "tps_2_run_min"
         - "tps_2_run_max"
+        - "tps_3_run_average"
+        - "tps_3_run_min"
+        - "tps_3_run_max"
+        - "tps_4_run_average"
+        - "tps_4_run_min"
+        - "tps_4_run_max"
       operations:
         tps_1_run_average:
           operation_function: "mean"
@@ -542,6 +554,48 @@ panda_diagram_plotter:
             - "tps_2_run_2_iteration"
             - "tps_2_run_3_iteration"
             - "tps_2_run_4_iteration"
+        tps_3_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_3_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_3_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_4_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
+        tps_4_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
+        tps_4_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
     pivot:
       pivot_columns:
       pivot_values:
@@ -560,6 +614,12 @@ panda_diagram_plotter:
       tps_2_run_average: "2. Iteration \u2300"
       tps_2_run_min: "2. Iteration min"
       tps_2_run_max: "2. Iteration max"
+      tps_3_run_average: "3. Iteration \u2300"
+      tps_3_run_min: "3. Iteration min"
+      tps_3_run_max: "3. Iteration max"
+      tps_4_run_average: "4. Iteration \u2300"
+      tps_4_run_min: "4. Iteration min"
+      tps_4_run_max: "4. Iteration max"
     where_clausel: "tps_type == 'mixed'"
     sorting:
       order_by:
@@ -585,6 +645,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Transaktionen pro Sekunde (tps)"
     title: "Transaktionen pro Sekunden - dql"
@@ -634,6 +700,12 @@ panda_diagram_plotter:
         - "tps_2_run_average"
         - "tps_2_run_min"
         - "tps_2_run_max"
+        - "tps_3_run_average"
+        - "tps_3_run_min"
+        - "tps_3_run_max"
+        - "tps_4_run_average"
+        - "tps_4_run_min"
+        - "tps_4_run_max"
       operations:
         tps_1_run_average:
           operation_function: "mean"
@@ -677,6 +749,48 @@ panda_diagram_plotter:
             - "tps_2_run_2_iteration"
             - "tps_2_run_3_iteration"
             - "tps_2_run_4_iteration"
+        tps_3_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_3_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_3_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_3_run_2_iteration"
+            - "tps_3_run_3_iteration"
+            - "tps_3_run_4_iteration"
+        tps_4_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
+        tps_4_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
+        tps_4_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "tps_4_run_2_iteration"
+            - "tps_4_run_3_iteration"
+            - "tps_4_run_4_iteration"
     pivot:
       pivot_columns:
       pivot_values:
@@ -695,6 +809,12 @@ panda_diagram_plotter:
       tps_2_run_average: "2. Iteration \u2300"
       tps_2_run_min: "2. Iteration min"
       tps_2_run_max: "2. Iteration max"
+      tps_3_run_average: "3. Iteration \u2300"
+      tps_3_run_min: "3. Iteration min"
+      tps_3_run_max: "3. Iteration max"
+      tps_4_run_average: "4. Iteration \u2300"
+      tps_4_run_min: "4. Iteration min"
+      tps_4_run_max: "4. Iteration max"
     where_clausel: "tps_type == 'dql'"
     sorting:
       order_by:
@@ -720,6 +840,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Latenzen (ms)"
     title: "Latenzen in milisekunden - mixed"
@@ -769,6 +895,12 @@ panda_diagram_plotter:
         - "latency_2_run_average"
         - "latency_2_run_min"
         - "latency_2_run_max"
+        - "latency_3_run_average"
+        - "latency_3_run_min"
+        - "latency_3_run_max"
+        - "latency_4_run_average"
+        - "latency_4_run_min"
+        - "latency_4_run_max"
       operations:
         latency_1_run_average:
           operation_function: "mean"
@@ -812,6 +944,48 @@ panda_diagram_plotter:
             - "latency_2_run_2_iteration"
             - "latency_2_run_3_iteration"
             - "latency_2_run_4_iteration"
+        latency_3_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_3_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_3_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_4_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
+        latency_4_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
+        latency_4_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
     pivot:
       pivot_columns:
       pivot_values:
@@ -830,6 +1004,12 @@ panda_diagram_plotter:
       latency_2_run_average: "2. Iteration \u2300"
       latency_2_run_min: "2. Iteration min"
       latency_2_run_max: "2. Iteration max"
+      latency_3_run_average: "3. Iteration \u2300"
+      latency_3_run_min: "3. Iteration min"
+      latency_3_run_max: "3. Iteration max"
+      latency_4_run_average: "4. Iteration \u2300"
+      latency_4_run_min: "4. Iteration min"
+      latency_4_run_max: "4. Iteration max"
     where_clausel: "latency_type == 'mixed'"
     sorting:
       order_by:
@@ -855,6 +1035,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Latenzen (ms)"
     title: "Latenzen in milisekunden - mixed"
@@ -904,6 +1090,12 @@ panda_diagram_plotter:
         - "latency_2_run_average"
         - "latency_2_run_min"
         - "latency_2_run_max"
+        - "latency_3_run_average"
+        - "latency_3_run_min"
+        - "latency_3_run_max"
+        - "latency_4_run_average"
+        - "latency_4_run_min"
+        - "latency_4_run_max"
       operations:
         latency_1_run_average:
           operation_function: "mean"
@@ -947,6 +1139,48 @@ panda_diagram_plotter:
             - "latency_2_run_2_iteration"
             - "latency_2_run_3_iteration"
             - "latency_2_run_4_iteration"
+        latency_3_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_3_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_3_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_3_run_2_iteration"
+            - "latency_3_run_3_iteration"
+            - "latency_3_run_4_iteration"
+        latency_4_run_average:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
+        latency_4_run_min:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
+        latency_4_run_max:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "latency_4_run_2_iteration"
+            - "latency_4_run_3_iteration"
+            - "latency_4_run_4_iteration"
     pivot:
       pivot_columns:
       pivot_values:
@@ -965,6 +1199,12 @@ panda_diagram_plotter:
       latency_2_run_average: "2. Iteration \u2300"
       latency_2_run_min: "2. Iteration min"
       latency_2_run_max: "2. Iteration max"
+      latency_3_run_average: "3. Iteration \u2300"
+      latency_3_run_min: "3. Iteration min"
+      latency_3_run_max: "3. Iteration max"
+      latency_4_run_average: "4. Iteration \u2300"
+      latency_4_run_min: "4. Iteration min"
+      latency_4_run_max: "4. Iteration max"
     where_clausel: "latency_type == 'mixed'"
     sorting:
       order_by:
@@ -1128,6 +1368,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Fehler"
     title: "Fehler mixed Transaktionen"
@@ -1192,6 +1438,12 @@ panda_diagram_plotter:
         - "errors_2_run_average_abs"
         - "errors_2_run_min_abs"
         - "errors_2_run_max_abs"
+        - "errors_3_run_average_abs"
+        - "errors_3_run_min_abs"
+        - "errors_3_run_max_abs"
+        - "errors_4_run_average_abs"
+        - "errors_4_run_min_abs"
+        - "errors_4_run_max_abs"
       operations:
         errors_1_run_average_abs:
           operation_function: "mean"
@@ -1235,6 +1487,48 @@ panda_diagram_plotter:
             - "errors_2_run_2_iteration_abs"
             - "errors_2_run_3_iteration_abs"
             - "errors_2_run_4_iteration_abs"
+        errors_3_run_average_abs:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_abs"
+            - "errors_3_run_3_iteration_abs"
+            - "errors_3_run_4_iteration_abs"
+        errors_3_run_min_abs:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_abs"
+            - "errors_3_run_3_iteration_abs"
+            - "errors_3_run_4_iteration_abs"
+        errors_3_run_max_abs:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_abs"
+            - "errors_3_run_3_iteration_abs"
+            - "errors_3_run_4_iteration_abs"
+        errors_4_run_average_abs:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_abs"
+            - "errors_4_run_3_iteration_abs"
+            - "errors_4_run_4_iteration_abs"
+        errors_4_run_min_abs:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_abs"
+            - "errors_4_run_3_iteration_abs"
+            - "errors_4_run_4_iteration_abs"
+        errors_4_run_max_abs:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_abs"
+            - "errors_4_run_3_iteration_abs"
+            - "errors_4_run_4_iteration_abs"
     pivot:
       pivot_columns:
       pivot_values:
@@ -1253,6 +1547,12 @@ panda_diagram_plotter:
       errors_2_run_average_abs: "2. Iteration \u2300"
       errors_2_run_min_abs: "2. Iteration min"
       errors_2_run_max_abs: "2. Iteration max"
+      errors_3_run_average_abs: "3. Iteration \u2300"
+      errors_3_run_min_abs: "3. Iteration min"
+      errors_3_run_max_abs: "3. Iteration max"
+      errors_4_run_average_abs: "4. Iteration \u2300"
+      errors_4_run_min_abs: "4. Iteration min"
+      errors_4_run_max_abs: "4. Iteration max"
     where_clausel:
     sorting:
       order_by:
@@ -1278,6 +1578,12 @@ panda_diagram_plotter:
       - "2. Iteration \u2300"
       - "2. Iteration min"
       - "2. Iteration max"
+      - "3. Iteration \u2300"
+      - "3. Iteration min"
+      - "3. Iteration max"
+      - "4. Iteration \u2300"
+      - "4. Iteration min"
+      - "4. Iteration max"
     x-axis-title: "Varianten"
     y-axis-title: "Fehlerrate [%]"
     title: "Fehlerrate mixed Transaktionen"
@@ -1342,6 +1648,12 @@ panda_diagram_plotter:
         - "errors_2_run_average_per"
         - "errors_2_run_min_per"
         - "errors_2_run_max_per"
+        - "errors_3_run_average_per"
+        - "errors_3_run_min_per"
+        - "errors_3_run_max_per"
+        - "errors_4_run_average_per"
+        - "errors_4_run_min_per"
+        - "errors_4_run_max_per"
       operations:
         errors_1_run_average_per:
           operation_function: "mean"
@@ -1385,6 +1697,48 @@ panda_diagram_plotter:
             - "errors_2_run_2_iteration_per"
             - "errors_2_run_3_iteration_per"
             - "errors_2_run_4_iteration_per"
+        errors_3_run_average_per:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_per"
+            - "errors_3_run_3_iteration_per"
+            - "errors_3_run_4_iteration_per"
+        errors_3_run_min_per:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_per"
+            - "errors_3_run_3_iteration_per"
+            - "errors_3_run_4_iteration_per"
+        errors_3_run_max_per:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_3_run_2_iteration_per"
+            - "errors_3_run_3_iteration_per"
+            - "errors_3_run_4_iteration_per"
+        errors_4_run_average_per:
+          operation_function: "mean"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_per"
+            - "errors_4_run_3_iteration_per"
+            - "errors_4_run_4_iteration_per"
+        errors_4_run_min_per:
+          operation_function: "min"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_per"
+            - "errors_4_run_3_iteration_per"
+            - "errors_4_run_4_iteration_per"
+        errors_4_run_max_per:
+          operation_function: "max"
+          axis_number: 1
+          columns:
+            - "errors_4_run_2_iteration_per"
+            - "errors_4_run_3_iteration_per"
+            - "errors_4_run_4_iteration_per"
     pivot:
       pivot_columns:
       pivot_values:
@@ -1403,6 +1757,12 @@ panda_diagram_plotter:
       errors_2_run_average_per: "2. Iteration \u2300"
       errors_2_run_min_per: "2. Iteration min"
       errors_2_run_max_per: "2. Iteration max"
+      errors_3_run_average_per: "3. Iteration \u2300"
+      errors_3_run_min_per: "3. Iteration min"
+      errors_3_run_max_per: "3. Iteration max"
+      errors_4_run_average_per: "4. Iteration \u2300"
+      errors_4_run_min_per: "4. Iteration min"
+      errors_4_run_max_per: "4. Iteration max"
     where_clausel:
     sorting:
       order_by:

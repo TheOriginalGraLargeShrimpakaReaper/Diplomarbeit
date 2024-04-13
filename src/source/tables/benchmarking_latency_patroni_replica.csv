@@ -1,0 +1,5 @@
+variante;latency_type;latency_1_run_1_iteration;latency_1_run_2_iteration;latency_1_run_3_iteration;latency_1_run_4_iteration;latency_2_run_1_iteration;latency_2_run_2_iteration;latency_2_run_3_iteration;latency_2_run_4_iteration
+patroni replica;mixed;59.252;62.978;57.513;59.7;267.961;232.474;247.423;243.653
+patroni replica;dql;44.438;44.161;44.163;44.525;205.421;215.826;217.953;223.391
+postgresql synchronous;mixed;149.329288;68.628;71.316;65.223;253.239;252.565;247.744;253.311
+postgresql synchronous;dql;47.483;48.254;51.712;49.643;219.708;215.052;216;217.751
