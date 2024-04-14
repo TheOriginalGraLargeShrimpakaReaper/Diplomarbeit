@@ -1,4 +1,4 @@
 Varianten;table-size [MiB] - scale 400;Anzahl Zeilen - scale 400;table-size [MiB] - scale 1200;Anzahl Zeilen - scale 1200;table-size [MiB] - scale 3999;Anzahl Zeilen - scale 3999;table-size [MiB] - scale 19994;Anzahl Zeilen - scale 19994
-yugabyteDB;1952;40000000;4205;120000000;;;;
+yugabyteDB;1952;40000000;4205;120000000;13312;399900000;;
 Patroni;5981;40000000;18432;120000000;59392;399900000;;
 StackGres - Citus;;;;;;;;

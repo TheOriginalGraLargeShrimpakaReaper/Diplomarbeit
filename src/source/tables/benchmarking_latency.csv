@@ -1,7 +1,7 @@
 variante;latency_type;latency_1_run_1_iteration;latency_1_run_2_iteration;latency_1_run_3_iteration;latency_1_run_4_iteration;latency_2_run_1_iteration;latency_2_run_2_iteration;latency_2_run_3_iteration;latency_2_run_4_iteration;latency_3_run_1_iteration;latency_3_run_2_iteration;latency_3_run_3_iteration;latency_3_run_4_iteration;latency_4_run_1_iteration;latency_4_run_2_iteration;latency_4_run_3_iteration;latency_4_run_4_iteration
-yugabyteDB;mixed;218.114;216.062;183.66;203.582;1024.42;1082.8;1047.381;1026.986;;;;;;;;
+yugabyteDB;mixed;218.114;216.062;183.66;203.582;1024.42;1082.8;1047.381;1026.986;1955.274;1901.308;2017.227;1911.325;;;;
 Patroni;mixed;149.329288;68.628;71.316;65.223;253.239;252.565;247.744;253.311;289.905;257.321;266.105;306.989;;;;
 Stackgres - Citus;mixed;;;;;;;;;;;;;;;;
-yugabyteDB;dql;112.085;118.312;95.07;97.242;535.348;525.396;529.474;520.341;;;;;;;;
+yugabyteDB;dql;112.085;118.312;95.07;97.242;535.348;525.396;529.474;520.341;974.202;988.286;1119.131;1082.911;;;;
 Patroni;dql;47.483;48.254;51.712;49.643;219.708;215.052;216;217.751;228.349;236.795;223.21;237.961;;;;
 Stackgres - Citus;dql;;;;;;;;;;;;;;;;
