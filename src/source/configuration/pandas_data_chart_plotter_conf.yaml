@@ -11,9 +11,9 @@ diagram_inventory:
   - "benchmarking_latency_evaluation_dql"
   - "benchmarking_used_table_space"
   - "benchmarking_row_counts"
-  - "benchmarking_pgbench_evaluation_errors_abs"
-  - "benchmarking_pgbench_evaluation_errors_per"
-  - "benchmarking_initializing_time"
+#  - "benchmarking_pgbench_evaluation_errors_abs"
+#  - "benchmarking_pgbench_evaluation_errors_per"
+#  - "benchmarking_initializing_time"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -101,7 +101,7 @@ panda_diagram_plotter:
       legend: True
       rot:
       fontsize:
-      stacked: False
+      stacked: True
       secondary_y: False
       stylelist:
       figsize: !!python/tuple [25,10]
@@ -173,7 +173,7 @@ panda_diagram_plotter:
       legend: False
       rot:
       fontsize:
-      stacked: False
+      stacked: True
       secondary_y: False
       stylelist:
       figsize: !!python/tuple [25,10]
@@ -1228,7 +1228,7 @@ panda_diagram_plotter:
       - "scale 400"
       - "scale 1200"
       - "scale 3999"
-      - "scale 19994"
+      - "scale 16784"
     x-axis-title: "Varianten"
     y-axis-title: "Tabellengrösse [MiB]"
     title: "Tabellengrössen"
@@ -1255,7 +1255,7 @@ panda_diagram_plotter:
       - "Anzahl Zeilen - scale 400"
       - "Anzahl Zeilen - scale 1200"
       - "Anzahl Zeilen - scale 3999"
-      - "Anzahl Zeilen - scale 19994"
+      - "Anzahl Zeilen - scale 16784"
     drop_columns_after_operations: False
     column_operations:
       datas:
@@ -1274,7 +1274,7 @@ panda_diagram_plotter:
       table-size [MiB] - scale 400: "scale 400"
       table-size [MiB] - scale 1200: "scale 1200"
       table-size [MiB] - scale 3999: "scale 3999"
-      table-size [MiB] - scale 19994: "scale 19994"
+      table-size [MiB] - scale 16784: "scale 16784"
     where_clausel:
     sorting:
       order_by:
@@ -1297,7 +1297,7 @@ panda_diagram_plotter:
       - "scale 400"
       - "scale 1200"
       - "scale 3999"
-      - "scale 19994"
+      - "scale 16784"
     x-axis-title: "Varianten"
     y-axis-title: "Anzahl Records"
     title: "Anzahl Records pro skalierungsfaktor"
@@ -1324,7 +1324,7 @@ panda_diagram_plotter:
       - "table-size [MiB] - scale 400"
       - "table-size [MiB] - scale 1200"
       - "table-size [MiB] - scale 3999"
-      - "table-size [MiB] - scale 19994"
+      - "table-size [MiB] - scale 16784"
     drop_columns_after_operations: False
     column_operations:
       datas:
@@ -1343,7 +1343,7 @@ panda_diagram_plotter:
       Anzahl Zeilen - scale 400: "scale 400"
       Anzahl Zeilen - scale 1200: "scale 1200"
       Anzahl Zeilen - scale 3999: "scale 3999"
-      Anzahl Zeilen - scale 19994: "scale 19994"
+      Anzahl Zeilen - scale 16784: "scale 16784"
     where_clausel:
     sorting:
       order_by:
@@ -1821,7 +1821,7 @@ panda_diagram_plotter:
       - "Anzahl Zeilen - scale 400"
       - "Anzahl Zeilen - scale 1200"
       - "Anzahl Zeilen - scale 3999"
-      - "Anzahl Zeilen - scale 19994"
+      - "Anzahl Zeilen - scale 16784"
     drop_columns_after_operations: False
     column_operations:
       datas:
@@ -1840,7 +1840,7 @@ panda_diagram_plotter:
       table-size [MiB] - scale 400: "scale 400"
       table-size [MiB] - scale 1200: "scale 1200"
       table-size [MiB] - scale 3999: "scale 3999"
-      table-size [MiB] - scale 19994: "scale 19994"
+      table-size [MiB] - scale 16784: "scale 16784"
     where_clausel:
     sorting:
       order_by:
