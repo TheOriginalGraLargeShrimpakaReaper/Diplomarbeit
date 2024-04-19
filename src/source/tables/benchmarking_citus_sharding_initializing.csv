@@ -1,0 +1,6 @@
+Tabelle	scale 400 - sec	scale 400 - min	scale 400 - hour	scale 1200 - sec	scale 1200 - min	scale 1200 - hour	scale 3999 - sec	scale 3999 - min	scale 3999 - hour	scale 16784 - sec	scale 16784 - min	scale 16784 - hour
+pgbench_branches	19.77	0.33	0.01	41.64	0.69	0.01	142.62	2.38	0.04			
+pgbench_tellers	0.24	0.00	0.00	0.38	0.01	0.00	1.11	0.02	0.00			
+pgbench_accounts	873.13	14.55	0.24	3017.72	50.30	0.84	9796.78	163.28	2.72			
+pgbench_history	0.20	0.00	0.00	0.19	0.00	0.00	0.20	0.00	0.00			
+Total	893.34	14.89	0.25	3059.93	51.00	0.85	9940.70	165.68	2.76			
