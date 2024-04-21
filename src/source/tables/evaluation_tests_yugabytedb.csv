@@ -1,4 +1,4 @@
-;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis
+Art;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis
 Failover;1;Automatismus;Wird ein Node vom Netz genommen,\\muss es zu einem Rebalancing kommen;Eingetroffen
 Failover;2;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Eingetroffen
 Failover;3;Geschwindigkeit;Der Failover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Eingetroffen

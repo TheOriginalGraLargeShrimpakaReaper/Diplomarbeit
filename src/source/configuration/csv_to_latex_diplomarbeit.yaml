@@ -22,6 +22,8 @@ tables_inventory:
  - "benchmarking_formeln"
  - "benchmarking_db_sizes"
  - "benchmarking_table_sizes"
+ - "evaluation_tests_patroni"
+ - "evaluation_tests_yugabytedb"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -1467,3 +1469,124 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+ evaluation_tests_patroni:
+  id: "evaluation_tests_patroni"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Testresultate Evaluation Patroni"
+  label: "evaluation_tests_patroni"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "evaluation_tests_patroni.csv"
+  tablefilename: "evaluation_tests_patroni.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Test Case Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Erwartetes Ergebnis"
+     - "Eingetretenes Ergebnis"
+     - "Begründung"
+    table_header: True
+ evaluation_tests_yugabytedb:
+  id: "evaluation_tests_yugabytedb"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Testresultate Evaluation YugabyteDB"
+  label: "evaluation_tests_yugabytedb"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "evaluation_tests_yugabytedb.csv"
+  tablefilename: "evaluation_tests_yugabytedb.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Test Case Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Erwartetes Ergebnis"
+     - "Eingetretenes Ergebnis"
+    table_header: True

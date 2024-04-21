@@ -1,0 +1,19 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{lrlll}
+\toprule
+Art & Test Case Nr. & Test Case & Erwartetes Ergebnis & Eingetretenes Ergebnis \\
+\midrule
+Failover & 1 & Automatismus & \begin{tabular}[c]{@{}l@{}}Wird ein Node vom Netz genommen,\\muss es zu einem Rebalancing kommen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} \\
+Failover & 2 & Connection-Stabilität & \begin{tabular}[c]{@{}l@{}}Bestehende Connections dürfen nicht getrennt werden.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} \\
+Failover & 3 & Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Der Failover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} \\
+Sharding & 4 & Datenkonsistenz\\und Datenintegrität & \begin{tabular}[c]{@{}l@{}}Daten sind Konsistent und Inetger.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} \\
+Sharding & 5 & Schutz vor Datenverlust & \begin{tabular}[c]{@{}l@{}}Die Daten müssen Konsistent und schnell auf die Tablets verteilt werden\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingtetroffen\end{tabular} \\
+Self Healing & 6 & Node stellt sich selber wieder her & \begin{tabular}[c]{@{}l@{}}Tablet wird automatisch synchronisiert\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingtetroffen\end{tabular} \\
+\bottomrule
+\end{tabular}
+}
+\caption{Testresultate Evaluation YugabyteDB} \label{evaluation_tests_yugabytedb}
+\end{table}

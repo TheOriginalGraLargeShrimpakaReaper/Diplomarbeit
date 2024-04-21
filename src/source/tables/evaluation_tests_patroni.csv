@@ -1,14 +1,14 @@
-;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis;Begründung
+Art;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis;Begründung
 Failover;1;Automatismus;Wird der Primary Server vom Netz genommen,\\führt Patroni einen Failover auf einen Replika-Node;Eingetroffen;
-;2;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
-;3;Geschwindigkeit;Der Failover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Bedingt eingetroffen;Auch hier hängt die stabilität an den Settings der Applikation\\und oder einem Connection-Pooler.
+Failover;2;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
+Failover;3;Geschwindigkeit;Der Failover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Bedingt eingetroffen;Auch hier hängt die stabilität an den Settings der Applikation\\und oder einem Connection-Pooler.
 Switchover;4;Skript / API;Mit der Patroni REST-API wird der Switchover ausgeführt;Eingetroffen;
-;5;Skript / API;Mit dem Patroni Commandset wird er Switchover ausgeführt;Eingetroffen;
-;6;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Eingetroffen;
-;7;Geschwindigkeit;Der Switchover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
+Switchover;5;Skript / API;Mit dem Patroni Commandset wird er Switchover ausgeführt;Eingetroffen;
+Switchover;6;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Eingetroffen;
+Switchover;7;Geschwindigkeit;Der Switchover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
 Restore;9;Skript / API;Mit der Patroni REST-API wird der Primary-Node Wiederhergestellt;Eingetroffen;
-;10;Skript / API;Mit dem Patroni Commandset der Primary-Node Wiederhergestellt;Eingetroffen;
-;11;Skript / API;Mit der Patroni REST-API wird ein Replika-Node Wiederhergestellt;Eingetroffen;
-;12;Skript / API;Mit dem Patroni Commandset ein Replika-Node Wiederhergestellt;Eingetroffen;
-;13;Datensicherheit;Beim Restore des Primary-Nodes dürfen keine Daten, \\die seit dem Failover gechrieben wurden,\\darf es zu keinem Datenverlust kommen;Eingetroffen;
-;14;Connection-Stabilität;Beim Restore des Primary-Nodes dürfen keine Connections geschlossen werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
+Restore;10;Skript / API;Mit dem Patroni Commandset der Primary-Node Wiederhergestellt;Eingetroffen;
+Restore;11;Skript / API;Mit der Patroni REST-API wird ein Replika-Node Wiederhergestellt;Eingetroffen;
+Restore;12;Skript / API;Mit dem Patroni Commandset ein Replika-Node Wiederhergestellt;Eingetroffen;
+Restore;13;Datensicherheit;Beim Restore des Primary-Nodes dürfen keine Daten, \\die seit dem Failover gechrieben wurden,\\darf es zu keinem Datenverlust kommen;Eingetroffen;
+Restore;14;Connection-Stabilität;Beim Restore des Primary-Nodes dürfen keine Connections geschlossen werden.;Nicht eingetroffen;Connection-Stabilität kann nur hergestellt werden,\\wenn entweder die Applikation dazu in der Lage ist\\oder man einen Connection-Pooler wie pgBouncer einsetzt.\\Es wurde aber keiner eingesetzt.
