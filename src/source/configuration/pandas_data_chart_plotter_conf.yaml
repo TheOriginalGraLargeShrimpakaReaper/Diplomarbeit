@@ -13,7 +13,9 @@ diagram_inventory:
   - "benchmarking_row_counts"
 #  - "benchmarking_pgbench_evaluation_errors_abs"
 #  - "benchmarking_pgbench_evaluation_errors_per"
-#  - "benchmarking_initializing_time"
+  - "benchmarking_initializing_time_sec"
+  - "benchmarking_initializing_time_min"
+  - "benchmarking_initializing_time_hour"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -1772,31 +1774,23 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
-  benchmarking_initializing_time:
-    id: "benchmarking_initializing_time"
+  benchmarking_initializing_time_sec:
+    id: "benchmarking_initializing_time_sec"
     startpath: "parentdir"
     destination_path: "source/pandas_data_chart_plotter"
-    imagename: "initializing_timee.png"
+    imagename: "initializing_time_sec.png"
     datafile_path: "source/tables"
     datafile: "benchmarking_initializing_time.csv"
     separator: ";"
     decimal: "."
     x-axis-columns: "Varianten"
     y-axis-columns:
-      - "scale 400 - sek."
-      - "scale 400 - min."
-      - "scale 400 - std."
-      - "scale 1200- sek."
-      - "scale 1200 - min."
-      - "scale 1200 - std."
-      - "scale 3999 - sek."
-      - "scale 3999 - min."
-      - "scale 3999 - std."
-      - "scale 16784 - sek."
-      - "scale 16784 - min."
-      - "scale 16784 - std."
+      - "scale 400"
+      - "scale 1200"
+      - "scale 3999"
+      - "scale 16784"
     x-axis-title: "Varianten"
-    y-axis-title: "Initialisierungszeiten"
+    y-axis-title: "Init-Zeit [sek.]"
     title: "Initialisierungszeiten"
     chart-index:
     chart-kind: "bar"
@@ -1818,10 +1812,14 @@ panda_diagram_plotter:
     agg_funtion:
     agg_colums:
     drop_columns:
-      - "Anzahl Zeilen - scale 400"
-      - "Anzahl Zeilen - scale 1200"
-      - "Anzahl Zeilen - scale 3999"
-      - "Anzahl Zeilen - scale 16784"
+      - "scale 400 - min"
+      - "scale 400 - hour"
+      - "scale 1200 - min"
+      - "scale 1200 - hour"
+      - "scale 3999 - min"
+      - "scale 3999 - hour"
+      - "scale 16784 - min"
+      - "scale 16784 - hour"
     drop_columns_after_operations: False
     column_operations:
       datas:
@@ -1837,10 +1835,159 @@ panda_diagram_plotter:
       pivot_values:
       pivot_agg_func:
     rename_columns:
-      table-size [MiB] - scale 400: "scale 400"
-      table-size [MiB] - scale 1200: "scale 1200"
-      table-size [MiB] - scale 3999: "scale 3999"
-      table-size [MiB] - scale 16784: "scale 16784"
+      variante: "Varianten"
+      scale 400 - sec: "scale 400"
+      scale 1200 - sec: "scale 1200"
+      scale 3999 - sec: "scale 3999"
+      scale 16784 - sec: "scale 16784"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_initializing_time_min:
+    id: "benchmarking_initializing_time_min"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "initializing_time_min.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_initializing_time.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "scale 400"
+      - "scale 1200"
+      - "scale 3999"
+      - "scale 16784"
+    x-axis-title: "Varianten"
+    y-axis-title: "Init-Zeit [min.]"
+    title: "Initialisierungszeiten"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "scale 400 - sec"
+      - "scale 400 - hour"
+      - "scale 1200 - sec"
+      - "scale 1200 - hour"
+      - "scale 3999 - sec"
+      - "scale 3999 - hour"
+      - "scale 16784 - sec"
+      - "scale 16784 - hour"
+    drop_columns_after_operations: False
+    column_operations:
+      datas:
+      operations:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      scale 400 - min: "scale 400"
+      scale 1200 - min: "scale 1200"
+      scale 3999 - min: "scale 3999"
+      scale 16784 - min: "scale 16784"
+    where_clausel:
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+  benchmarking_initializing_time_hour:
+    id: "benchmarking_initializing_time_hour"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "initializing_time_hour.png"
+    datafile_path: "source/tables"
+    datafile: "benchmarking_initializing_time.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "scale 400"
+      - "scale 1200"
+      - "scale 3999"
+      - "scale 16784"
+    x-axis-title: "Varianten"
+    y-axis-title: "Init-Zeit [std.]"
+    title: "Initialisierungszeiten"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor:
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "scale 400 - sec"
+      - "scale 400 - min"
+      - "scale 1200 - sec"
+      - "scale 1200 - min"
+      - "scale 3999 - sec"
+      - "scale 3999 - min"
+      - "scale 16784 - sec"
+      - "scale 16784 - min"
+    drop_columns_after_operations: False
+    column_operations:
+      datas:
+      operations:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      variante: "Varianten"
+      scale 400 - hour: "scale 400"
+      scale 1200 - hour: "scale 1200"
+      scale 3999 - hour: "scale 3999"
+      scale 16784 - hour: "scale 16784"
     where_clausel:
     sorting:
       order_by:
