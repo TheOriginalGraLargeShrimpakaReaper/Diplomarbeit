@@ -229,6 +229,8 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
                 plt = panda_chart_plot[0].get_figure()
                 plt.savefig(image_path, bbox_inches='tight')
             case _:
+                if bbox_to_anchor:
+                    panda_chart_plot.legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
                 plt = panda_chart_plot.get_figure()
                 plt.savefig(image_path, bbox_inches='tight')
 
