@@ -1,0 +1,966 @@
+%! Author = gramic
+%! Date = 17.03.24
+
+% Preamble
+\subsection{csv\_to\_latex\_diplomarbeit.yaml}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Python LaTex - csv\_to\_latex\_diplomarbeit.yaml - Konfigurationsdatei - CSV - LaTex-Tabelle,captionpos=b,label={lst:csv_to_latex_diplomarbeit},breaklines=true]
+tables_inventory:
+ - "db_inventory"
+ - "db_inventory_per_rdbms"
+ - "db_inventory_per_os"
+ - "anforderungskatalog"
+ - "arbeitsrapport"
+ - "projektcontrolling"
+ - "evaluation_inventory"
+ - "dependencis"
+ - "predecision_out"
+ - "predecision_in"
+ - "project_comments"
+ - "evaluation_distributed_sql"
+ - "expert_discussions_overview"
+ - "expert_discussions_full_list"
+ - "stakeholder"
+tables:
+ db_inventory:
+  id: "db_inventory"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
+  caption: "Datenbankinventar - Roh"
+  label: "db_inventory"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "comment"
+   - "eol"
+   - "eol_since"
+   - "releasedate"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   server: "Server - Hostname"
+   os: "OS"
+   rdbms: "RDBMS"
+   instance: "Instanz"
+   databases: "Datenbanken"
+   appliance: "Appliance"
+   comment: "Kommentar"
+   version: "Version"
+   releasedate: "Version - Releasedatum"
+   eol: "EoL"
+   age: "Version - Alter"
+   eol_since: "EoL seit"
+  where_clausel:
+  sorting:
+   order_by:
+    - "server"
+    - "rdbms"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+ db_inventory_per_rdbms:
+  id: "db_inventory_per_rdbms"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
+  caption: "Datenbankinventar"
+  label: "db_inventory_per_rdbms"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory_per_rdbms.tex"
+  decimal_format:
+  group_by:
+   - "rdbms"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+   - "rdbms"
+  drop_columns:
+   - "server"
+   - "os"
+   - "version"
+   - "releasedate"
+   - "eol"
+   - "age"
+   - "eol_since"
+   - "comment"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   rdbms: "RDBMS"
+   instance : "Instanz"
+   databases : "Datenbanken"
+   appliance: "Appliance"
+  where_clausel:
+  sorting:
+   order_by:
+    - "rdbms"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: True
+   margin_name: "Gesamtergebnis"
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+ db_inventory_per_os:
+  id: "db_inventory_per_os"
+  isbigfile:
+  has_longtexts: False
+  separator: ","
+  decimal: "."
+  caption: "Datenbankinventor - Nach Betriebssystemen aufgeschlüsselt"
+  label: "db_inventory_per_os"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "inventory.csv"
+  tablefilename: "db_inventory_per_os.tex"
+  decimal_format:
+  group_by:
+   - "rdbms"
+   - "os"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+   - "os"
+  drop_columns:
+   - "server"
+   - "version"
+   - "releasedate"
+   - "eol"
+   - "age"
+   - "eol_since"
+   - "comment"
+#   - "appliance"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes:
+     - "os"
+     - "rdbms"
+    pivot_indizes_visible: True
+    pivot_rename_indizes:
+     os: "OS"
+     rdbms: "RDBMS"
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+    instance: "sum"
+    databases: "sum"
+    appliance: "sum"
+   transpose: True
+  rename_columns:
+   rdbms: "RDBMS"
+   instance : "Instanz"
+   databases : "Datenbanken"
+   os : "OS"
+   appliance: "Appliance"
+  where_clausel:
+  sorting:
+   order_by:
+   sort_acending: False
+   sort_inplace: True
+  margins:
+   margin: True
+   margin_name: "Gesamtergebnis"
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+ anforderungskatalog:
+  id: "anforderungskatalog"
+  isbigfile:
+  has_longtexts: True
+  separator: ";"
+  decimal: "."
+  caption: "Anforderungskatalog"
+  label: "anforderungskatalog"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "anforderungskatalog.CSV"
+  tablefilename: "anforderungskatalog.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: False
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Beschreibung"
+    table_header: True
+ arbeitsrapport:
+  id: "arbeitsrapport"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Arbeitsrapport"
+  label: "arbeitsrapport"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "arbeitsrapport.CSV"
+  tablefilename: "arbeitsrapport.tex"
+  decimal_format: "{:0.1f}"
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "Hide"
+   - "Geplante Dauer [h]"
+   - "dauer_summe"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel: "Hide == 0"
+  sorting:
+   order_by:
+    - "Datum"
+    - "Von"
+   sort_acending: False
+   sort_inplace: False
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
+    table_header: True
+ projektcontrolling:
+  id: "projektcontrolling"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Projektcontrolling"
+  label: "projektcontrolling"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "arbeitsrapport.CSV"
+  tablefilename: "projektcontrolling.tex"
+  decimal_format: "{:0.1f}"
+  group_by:
+   - "Phase"
+   - "Subphase"
+  group_by_function: "sum"
+  agg_funtion:
+  agg_colums:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+     - "dauer_summe"
+  drop_columns:
+   - "Datum"
+   - "Von"
+   - "Bis"
+   - "Hide"
+   - "Tätigkeit"
+   - "Bemerkung"
+   - "Schwierigkeit"
+   - "Lösungen"
+  column_operations:
+   datas:
+    - "dauer_summe"
+   operations:
+    dauer_summe:
+     operation_function: "diff"
+     axis_number: 1
+     columns:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible:
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+   dauer_summe: "Verbleibende Zeit [h]"
+  where_clausel:
+  sorting:
+   order_by:
+    - "Phase"
+    - "Subphase"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: True
+   margin_name: "Total"
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+    table_header: True
+ evaluation_inventory:
+  id: "evaluation_inventory"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Evaluationssyssteme"
+  label: "evaluation_inventory"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "evaluation_platform_serverlist.csv"
+  tablefilename: "evaluation_inventory.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Server"
+    - "Typ"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+ dependencis:
+  id: "dependencis"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Abhängigkeiten"
+  label: "dependencis"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "dependencis.csv"
+  tablefilename: "dependencis.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Abhängigkeit"
+     - "Beschreibung"
+     - "Status"
+     - "Risiko"
+     - "Impact"
+    table_header: True
+ predecision_out:
+  id: "predecision_out"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Vorauswahl - Ausgeschieden"
+  label: "predecision_out"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "pre-decision.csv"
+  tablefilename: "pre-decision-out.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "hide_state"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel: "hide_state == 1"
+  sorting:
+   order_by:
+    - "Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Begründung"
+    table_header: True
+ predecision_in:
+  id: "predecision_in"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Vorauswahl - Evaluation"
+  label: "predecision_in"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "pre-decision.csv"
+  tablefilename: "pre-decision-in.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+   - "hide_state"
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel: "hide_state == 2"
+  sorting:
+   order_by:
+    - "Nr."
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Begründung"
+    table_header: True
+ project_comments:
+  id: "project_comments"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Kommentare - Anmerkung"
+  label: "project_comments"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "pre-fazit.csv"
+  tablefilename: "pre-fazit.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Woche"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: True
+    linebreak_columns:
+     - "Beschreibung / Event / Problem"
+    table_header: True
+ evaluation_distributed_sql:
+  id: "evaluation_distributed_sql"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Evaluationssysstem - Distributed SQL / Sharding"
+  label: "evaluation_distributed_sql"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "evaluation_platform_distributed_sql.csv"
+  tablefilename: "evaluation_platform_distributed_sql.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+   sort_acending: False
+   sort_inplace: False
+  margins:
+   margin: False
+   margin_name:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: False
+ expert_discussions_overview:
+   id: "expert_discussions_overview"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Fachgespräche"
+   label: "expert_discussions_overview"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "expert_discussions.csv"
+   tablefilename: "expert_discussions_overview.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+      - "Fragen"
+      - "Antworten"
+      - "Sonstige Themen"
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "Fachgespräch"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Studenten"
+      - "Bemerkungen"
+     table_header: True
+ expert_discussions_full_list:
+   id: "expert_discussions_full_list"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Fachgespräche - Protokoll"
+   label: "expert_discussions_full_list"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "expert_discussions.csv"
+   tablefilename: "expert_discussions_full_list.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "Fachgespräch"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Studenten"
+      - "Fragen"
+      - "Antworten"
+      - "Sonstige Themen"
+      - "Bemerkungen"
+     table_header: True
+ stakeholder:
+   id: "stakeholder"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Stakeholder"
+   label: "stakeholder"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "stakeholder.csv"
+   tablefilename: "stakeholder.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+     table_header: True
+\end{lstlisting}
