@@ -244,41 +244,42 @@
 
 
 \bigskip
-
-\textbf{\textcolor[HTML]{2F5496}{\huge\@dispotitel}}
-
-
-\bigskip
+\begin{flushleft}
+    \textbf{\textcolor[HTML]{2F5496}{\huge\@dispotitel}}
 
 
-\bigskip
+    \bigskip
 
 
-\bigskip
+    \bigskip
 
 
-\bigskip
+    \bigskip
 
 
-\bigskip
+    \bigskip
 
 
-\bigskip
+    \bigskip
 
 
-\bigskip
+    \bigskip
 
 
-\textbf{\textcolor[HTML]{2F5496}{Titel der Arbeit: \ \ }}\@arbeittitel
+    \bigskip
 
-\textbf{\textcolor[HTML]{2F5496}{Name: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentname
 
-\textbf{\textcolor[HTML]{2F5496}{Vorname: \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentvorname
+    \textbf{\textcolor[HTML]{2F5496}{Titel der Arbeit: \ \ }}\@arbeittitel
 
-\textbf{\textcolor[HTML]{2F5496}{Klasse: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studiengang
+    \textbf{\textcolor[HTML]{2F5496}{Name: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentname
 
-\textbf{\textcolor[HTML]{2F5496}{Firma: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@arbeitgeber
+    \textbf{\textcolor[HTML]{2F5496}{Vorname: \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studentvorname
 
+    \textbf{\textcolor[HTML]{2F5496}{Klasse: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@studiengang
+
+    \textbf{\textcolor[HTML]{2F5496}{Firma: \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}\@arbeitgeber
+
+\end{flushleft}
 \clearpage
 
 
