@@ -35,7 +35,7 @@
     \begin{description}
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}
-            \item Der Server des Cooordinator-Node wird manuell heruntergefahren.
+            \item Der Server des Leader-Cooordinator-Node wird manuell heruntergefahren.
             \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
             \item Während dem Failover muss mindestens eine längere Abfrage gestartet werden.
         \end{enumerate}
@@ -48,6 +48,7 @@
         \item \textbf{Self Healing}\hfill \\
         \begin{enumerate}[resume]
             \item Der Node muss wieder hochgefahren werden.\\Der Node muss selbstständig Daten synchronisieren.
+            \item Der Leader muss automatisch neu gesetzt werden, wenn notwendig
         \end{enumerate}
     \end{description}
     \paragraph{YugabyteDB}
@@ -69,5 +70,16 @@
             \item Der Node muss wieder hochgefahren werden.\\Der Node muss selbstständig Daten synchronisieren.
         \end{enumerate}
     \end{description}
-
+\end{flushleft}
+\begin{flushleft}
+    \subsubsection{Evaluation - ERD self\_healing\_test}
+    Die Tests müssen bei allen drei Varianten anhand der Datenbank \texttt{self\_healing\_test} durchgeführt werden.\\
+    Dabei werden die Tabellen, im hinblick auf das Citus Schema Based Sharding, in Schemas organisiert.\\
+    Zwischen den einzelnen Schemas sollen einige Tabellen einen Foreign-Key auf andere Tabellen legen:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{source/implementation/evaluation/evaluation_tests/erd_self_healing_test}
+        \caption{Testing - ERD DB self\_healing\_test}
+        \label{fig:erd_self_healing_test}
+    \end{figure}
 \end{flushleft}

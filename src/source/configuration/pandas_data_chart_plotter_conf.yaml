@@ -674,8 +674,10 @@ panda_diagram_plotter:
       stylelist:
       figsize:
       autopct:
-      loc:
-      bbox_to_anchor: !!python/tuple [1,1]
+      loc: "lower center"
+
+#      bbox_to_anchor: !!python/tuple [1,1]
+#      bbox_to_anchor: !!python/tuple [8]
     group_by:
     group_by_function:
     agg_funtion:
@@ -2287,8 +2289,8 @@ panda_diagram_plotter:
       stylelist:
       figsize:
       autopct:
-      loc:
-      bbox_to_anchor: !!python/tuple [1,1]
+      loc: "center"
+#      bbox_to_anchor: !!python/tuple [1,1]
     group_by:
     group_by_function:
     agg_funtion:
@@ -2414,8 +2416,8 @@ panda_diagram_plotter:
       stylelist:
       figsize:
       autopct:
-      loc:
-      bbox_to_anchor: !!python/tuple [1,1]
+      loc: "center"
+#      bbox_to_anchor: !!python/tuple [1,1]
     group_by:
     group_by_function:
     agg_funtion:

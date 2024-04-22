@@ -1,0 +1,20 @@
+\begin{table}[H]
+
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{lrllll}
+\toprule
+Art & Test Case Nr. & Test Case & Erwartetes Ergebnis & Eingetretenes Ergebnis & Begründung \\
+\midrule
+Failover & 1 & Automatismus & \begin{tabular}[c]{@{}l@{}}Wird der Primary Server vom Netz genommen,\\führt Patroni einen Failover auf einen Replika-Node\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}\end{tabular} \\
+Failover & 2 & Connection-Stabilität & \begin{tabular}[c]{@{}l@{}}Bestehende Connections dürfen nicht getrennt werden.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Nicht eingetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Keine.\\StackGres setzt envoy ein.\\Offensichtlich nicht ber einen ganzen Cluster\end{tabular} \\
+Failover & 3 & Geschwindigkeit & \begin{tabular}[c]{@{}l@{}}Der Failover muss so schnell stattfinden,\\dass offene Connections nicht\\wegen eines Timeouts geschlossen werden.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Nicht eingetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Keine.\\StackGres setzt envoy ein.\\Offensichtlich nicht ber einen ganzen Cluster\end{tabular} \\
+Sharding & 4 & Datenkonsistenz\\und Datenintegrität & \begin{tabular}[c]{@{}l@{}}Daten sind Konsistent und Inetger.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}\end{tabular} \\
+Sharding & 5 & Schutz vor Datenverlust & \begin{tabular}[c]{@{}l@{}}Die Daten müssen Konsistent und schnell auf die Shards verteilt werden\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingtetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}\end{tabular} \\
+Self Healing & 6 & Node stellt sich selber wieder her & \begin{tabular}[c]{@{}l@{}}Shard Node wird automatisch synchronisiert\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingtetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}\end{tabular} \\
+Self Healing & 7 & Leader wird automatisch gesetzt & \begin{tabular}[c]{@{}l@{}}Leader wird entweder beibehalten\\oder wird neu gesetzt wenn ein Node zurückkehrt\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eingetroffen\end{tabular} & \begin{tabular}[c]{@{}l@{}}\end{tabular} \\
+\bottomrule
+\end{tabular}
+}
+\caption{Testresultate Evaluation StackGres - Citus} \label{evaluation_tests_stackgres_citus}
+\end{table}
