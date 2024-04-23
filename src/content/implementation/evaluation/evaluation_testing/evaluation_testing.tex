@@ -21,5 +21,21 @@
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{YugabyteDB}
+    YugabyteDB funktionierte so weit.\\
     \input{content/latex_tables/evaluation_tests_yugabytedb}
+    Was es aber bei einer Testinstallation zu prüfen gilt, ist die Zeiteinstellung.
+\end{flushleft}
+\begin{flushleft}
+    Während dem Testing kam es immer wieder vor, dass ein Node Probleme mit der Zeit bekam.\\
+    Dies fiel immer dann auf, wenn ein Node (meistens \texttt{sks1184}), heruntergefahren und später rebooted wurde.\\
+    Der Fehler trat auch erst auf, als die Nodes aus einem Grund aus einem Snapshot wiederhergestellt werden mussten.\\
+    YugabyteDB stellt dann oft mehr als 500ms Zeitunterschied zwischen dem Tablet-Leader und dem Follower fest.\\
+    Sobald dies zutritt, ist der Server Node nicht mehr arbeitsfähig da die Zeit für die Synchronisation der Daten benötigt wird\cite{BYH9Z3MS}.\\
+    Oft kam auch die Meldung, dass \texttt{chronyc} nicht mehr auf dem Pod installiert sei.\\
+    Auf dem Servern scheinen die Zeiten aber synchron zu sein, eine genaue Ursache konnte nicht gefunden werden.\\
+    Eine mögliche Ursache ist eine unsaubere Konfiguration von \gls{rke2}.
+\end{flushleft}
+\begin{flushleft}
+    Der Beschrieb, wie sich der Fehler dann äussert ist hier zu finden:\\
+    \hyperref[subsec:appendix_testing_yugabytedb]{Anhang - YugabyteDB Testing}
 \end{flushleft}
