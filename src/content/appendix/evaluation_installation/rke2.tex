@@ -224,7 +224,6 @@ data:
             image: busybox
 \end{lstlisting}
 
-
 Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=local-path-storage aktualisieren,captionpos=b,label={lst:local-path-storage-apply},breaklines=true]
@@ -267,3 +266,97 @@ Das Manifest musste danach eingespielt werden:
 kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/rke2/metallb-values.yaml
 \end{lstlisting}
 
+\paragraph{local-path-provisioner - Grosse Volumes}
+Sobald die neue Disk im \Gls{VMware vSphere} erfasst wurde, muss die Disk auf den Servern gemountet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=rke2 - 250GiB Disk mount,captionpos=b,label={lst:rke2_250gib_disk_moint},breaklines=true]
+echo "- - -" | tee /sys/class/scsi_host/host*/scan && lsblk
+
+fdisk /dev/sdb
+	n -> all default values
+	t -> 8e
+	p -> Kontrolle
+	w
+
+pvcreate /dev/sdb1 && \
+vgcreate vgdata /dev/sdb1 && \
+lvcreate -l 100%FREE -n lvdata vgdata && \
+mkfs.ext4 /dev/vgdata/lvdata && \
+mkdir -p /srv/data && \
+cp /etc/fstab /tmp/fstab.bak && \
+echo "/dev/vgdata/lvdata	/srv/data	ext4	defaults	0	0" >> /etc/fstab && \
+systemctl daemon-reload && mount -a && lsblk
+\end{lstlisting}
+
+Nun muss das Verzeichnis \texttt{local-path-provisioner} auf der Disk \texttt{/srv/data/} erstellt und berechtigt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=local-path-storage 250GiB auf Linux Bereitstellen,captionpos=b,label={lst:local-path-storage-250gib-provide},breaklines=true]
+root@sks1183:~# mkdir -p /srv/data/local-path-provisioner
+root@sks1183:~# chmod 777 /srv/data/local-path-provisioner
+
+root@sks1184:~# mkdir -p /srv/data/local-path-provisioner
+root@sks1184:~# chmod 777 /srv/data/local-path-provisioner
+
+root@sks1185:~# mkdir -p /srv/data/local-path-provisioner
+root@sks1185:~# chmod 777 /srv/data/local-path-provisioner
+\end{lstlisting}
+
+Spätestens wenn über 200GiB präsentiert werden sollen, muss das Binding auf den jeweiligen Node stattfinden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=local-path-provisioner Grosse Volumes,captionpos=b,label={lst:local-path-provisioner_srv_default.yaml},breaklines=true]
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: local-path-config
+  namespace: local-path-storage
+data:
+  config.json: |-
+        {
+                "nodePathMap":[
+                {
+                        "node":"DEFAULT_PATH_FOR_NON_LISTED_NODES",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1183",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1184",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1185",
+                        "paths":["/srv/data/local-path-provisioner"]
+                }
+                ]
+        }
+  setup: |-
+        #!/bin/sh
+        set -eu
+        mkdir -m 0777 -p "$VOL_DIR"
+  teardown: |-
+        #!/bin/sh
+        set -eu
+        rm -rf "$VOL_DIR"
+  helperPod.yaml: |-
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: helper-pod
+        spec:
+          priorityClassName: system-node-critical
+          tolerations:
+            - key: node.kubernetes.io/disk-pressure
+              operator: Exists
+              effect: NoSchedule
+          containers:
+          - name: helper-pod
+            image: busybox
+\end{lstlisting}
+
+Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=local-path-storage 250GiB aktualisieren,captionpos=b,label={lst:local-path-storage-250gib-apply},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/rke2/local-path-provisioner_srv_default.yaml
+\end{lstlisting}
