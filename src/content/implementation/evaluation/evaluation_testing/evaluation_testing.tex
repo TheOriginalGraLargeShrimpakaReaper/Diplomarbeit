@@ -7,12 +7,15 @@
     %\input{content/implementation/evaluation/evaluation_testing/evaluation_testcases}
     %\input{content/implementation/evaluation/evaluation_testing/yugabyteDB}
     \subsubsection{Patroni}
+    Patroni funktionierte wie gewollt.\\
+    Da kein Connection Pooler auf dem Proxy-Host installiert wurde, kam nicht alles erfüllt werden.\\
+    Wichtig dazu ist zu sagen, dass die REST-API und das Command vollständig funktioniert.\\
     \input{content/latex_tables/evaluation_tests_patroni}
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{StackGres -Citus}
     StackGres kann nicht alle Anforderungen erfüllen.
-    Obwohl es mit \texttt{envoy} und \texttt{pgBounder} einen Proxy und einen Connection Pooler gibt,\\
+    Obwohl es mit \texttt{envoy} und \texttt{pgBouncer} einen Proxy und einen Connection Pooler gibt,\\
     scheint dies nicht über die Coordinator-Nodes selbst zu gehen.\\
     Daher brechen bestehende Connections ab oder laufen irgendwann in ein Timeout, wenn \Gls{Kubernetes} Nodes nicht schnell genug heruntergefahren werden.
     \input{content/latex_tables/evaluation_tests_stackgres_citus}
