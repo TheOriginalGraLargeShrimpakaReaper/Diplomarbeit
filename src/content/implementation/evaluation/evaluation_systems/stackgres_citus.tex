@@ -204,5 +204,10 @@ spec:
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
+    Es gäbe zwar die Möglichkeit, Passwörter via Manifest zu setzen, aber dies funktioniert nicht für postgres- und replicator sowie backup.\\
+    Laut der StackGres-Dokumentation müssen z.B. die Passwörter vom \texttt{postgres}-User im Nachgang via SQL geändert werden.\\
+    Während der Evaluation wurde darauf verzichtet und das generische Passwort aus dem Cluster geholt.
+\end{flushleft}
+\begin{flushleft}
     Die vollständige Dokumentation der Evaluationsinstallation ist im \hyperref[subsec:evaluation_installation_stackgres]{Anhang - Installation StackGres - Citus} zu finden.
 \end{flushleft}
