@@ -3,31 +3,21 @@
 
 % Preamble
 \begin{flushleft}
-    \paragraph{yugabyteDB}
-    Zuerst wurde für die Annährend 5GiB-DB initialisiert:
-%\lstset{style=gra_codestyle}
-%\begin{lstlisting}[language=sql, caption=yugabyteDB - Benchmarking - DB erstellen,captionpos=b,label={lst:yugabytedb-benchmarking-create-db},breaklines=true]
-%yugabyte=# create database pgbench_eval_bench;
-%CREATE DATABASE
-%\end{lstlisting}
-
+    \subsubsection{Benchmarking - Vorgehen}
+    \paragraph{YugabyteDB}
+    Zuerst muss die Datenbank erstellt und die Tablespaces erzeugt werden, die genauen Schritte sind im \hyperref[subsubsec:yugabytedb_benchmarking_sql]{Anhang - YugabyteDB Benchmark SQL} zu finden.\\    Anschliessend
+    Anschliessend muss pro Lauf erst initialisiert werden, dann kann mit dem eigentlichen Benchmarking gestartet werden.\\
+    Alle Benchmarking-Commands sind im \hyperref[subsec:yugabytedb_benchmarking_commands]{Anhang - YugabyteDB Benchmarking Commands} zu finden.
     \paragraph{Patroni}
-    Als die 250GiB DB getestet wurde, zeigte sich, das die Parameter nicht darauf optimiert waren.
+    Als die 250GiB DB getestet wurde, zeigte sich, dass die Parameter nicht darauf optimiert waren.
 
+    \paragraph{StackGres - Citus}
 
     \subsubsection{Benchmarks}
     Der vergleich zwischen den verschiedenen Varianten.\\
 \end{flushleft}
 \begin{flushleft}
-    \begin{warning}
-        \textbf{YugabyteDB}\\
-        4GiB Memory für die \texttt{tserver} waren offensichtlich zu knapp bemessen.
-        Zumindest wenn die Tabelle 120'000'000 Rows hat und ein mixed Benchmark abgesetzt wird.
 
-        Dies äusserte sich in einem Fehler (Absturz)auf zwei von drei \texttt{tserver}-Nodes sowie einer hohen Anzahl an Fehlern bei den mixed-Benchmarks.
-        Daher wurde das Memory auf 8GiB erhöht und die komplette Testreihe erneut gestartet.
-        Zudem wurden die Anzahl Fehler ebenfalls in die Benchmark-Auswertung einbezogen.
-    \end{warning}
 \end{flushleft}
 \begin{flushleft}
     Bei den Transaktionen pro Sekunden gilt, je höher der Wert, umso besser das Ergebnis.\\

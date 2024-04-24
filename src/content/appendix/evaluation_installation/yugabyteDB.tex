@@ -35,7 +35,7 @@ spec:
     path: /var/local-path-provisioner
 \end{lstlisting}
 
-Die Storage Class und das PercistenVolume muss aktiviert werden:
+Die Storage Class und das PersistentVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/yugabytedb/yugabytedb/storageclass.yaml
@@ -1088,11 +1088,12 @@ legacyVolumeClaimAnnotations: false
 \end{lstlisting}
 
 \subsubsection{SQL Statements - Benchmarking}
-Für das Benchmarking wird die Tabelle pgbench\_eval\_bench erstellt.
-Zudem wird je ein Tablespace für die Indizes (eval\_index\_tablespace) und Daten (eval\_data\_tablespace) erstellt.\\
+\label{subsubsec:yugabytedb_benchmarking_sql}
+Für das Benchmarking wird die Tabelle \texttt{pgbench\_eval\_bench} erstellt.\\
+Zudem wird je ein Tablespace für die Indizes (\texttt{eval\_index\_tablespace}) und Daten (\texttt{eval\_data\_tablespace}) erstellt.\\
 Die Tablespaces werden auf die drei Tablet-Server verteilt.\\
 Um die Tablets zu verteilen, müssen die Cloud, Region und Zone mitgegeben werden.\\
-Dies wird folgndermassen via SQL ausgelesen:
+Dies wird folgendermassen via SQL ausgelesen:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=yugabyteDB - Cloud - Region - Zone,captionpos=b,label={lst:yugabytedb-get-cloud-region-zone},breaklines=true]
 select
@@ -1102,7 +1103,8 @@ select
 from yb_servers();
 \end{lstlisting}
 
-Mit diesen Informationen lassen sich nun die
+Mit diesen Informationen lassen sich jetzt die Replikation für die Tablets einstellen.\\
+Es muss auf drei Replikas repliziert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=yugabyteDB - Benchmarking - DB erstellen,captionpos=b,label={lst:yugabytedb-benchmarking-create-db},breaklines=true]
 --  Tabelle pgbench_eval_bench erstellen
@@ -1117,5 +1119,226 @@ CREATE TABLESPACE eval_index_tablespace WITH (replica_placement='{"num_replicas"
 drop tablespace if exists eval_data_tablespace;
 CREATE TABLESPACE eval_data_tablespace WITH (replica_placement='{"num_replicas": 3, "placement_blocks": [ {"cloud":"cloud1","region":"datacenter1","zone":"rack1","min_num_replicas":3}]}');
 \end{lstlisting}
+Die Tabellen werden automatisch von \texttt{ysql\_bench} beim Initialisieren erstellt,\\
+daher sind keine weiteren Schritte notwendig.
 
+Die Grösse der Tabellen lässt sich mit folgendem SQL auslesen:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=yugabyteDB - Benchmarking - Table Size,captionpos=b,label={lst:yugabytedb-benchmarking-table-sizes},breaklines=true]
+select
+  table_name,
+  pg_size_pretty(pg_total_relation_size(quote_ident(table_name))),
+  pg_total_relation_size(quote_ident(table_name))
+from information_schema.tables
+where table_schema = 'public'
+order by 3 desc;
+\end{lstlisting}
 \subsubsection{SQL Statements - Testing}
+Entsprechend dem ERD, müssen die Tabellen erstellt werden:
+\hyperref[subsubsec:erd_self_healing_test]{Evaluation - ERD self\_healing\_test}
+Die Tabelle heisst entsprechend \texttt{self\_healing\_test}.
+Auch hier soll ein Index-Tablespace (\texttt{self\_healing\_indices\_tablespace}) und ein Daten-Tablespace (\texttt{self\_healing\_datas\_tablespace}) erstellt werden.\\
+Neu dazu kommt der Longtext-Tablespace \texttt{self\_healing\_longtexts\_tablespace}.
+Erst werden die Rollen erstellt, gefolgt von den Usern und Schemas.\\
+Die Schemas müssen entsprechend mittels \texttt{GRANT} berechtigt werden.
+Die Tabellen müssen entsprechend den Schemas erstellt werden, wobei einige Tabellen in 3 Tablets pro \texttt{tserver} gesplittet werden sollen (also insgesamt 9).
+Das gesamte \texttt{CREATE}-Skript:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - CREATE-SQL,captionpos=b,label={lst:yugabytedb-self-healing-create-sql},breaklines=true]
+--  self-healing-Tabelle
+create database self_healing_test;
+
+--  Tablespace für Indices
+drop tablespace if exists self_healing_indices_tablespace;
+CREATE TABLESPACE self_healing_indices_tablespace WITH (replica_placement='{"num_replicas": 3, "placement_blocks": [ {"cloud":"cloud1","region":"datacenter1","zone":"rack1","min_num_replicas":3}]}');
+
+--  Genereller Tablespace erstellen
+drop tablespace if exists self_healing_datas_tablespace;
+CREATE TABLESPACE self_healing_datas_tablespace WITH (replica_placement='{"num_replicas": 3, "placement_blocks": [ {"cloud":"cloud1","region":"datacenter1","zone":"rack1","min_num_replicas":3}]}');
+
+--  longtext Tablespace erstellen
+drop tablespace if exists self_healing_longtexts_tablespace;
+CREATE TABLESPACE self_healing_longtexts_tablespace WITH (replica_placement='{"num_replicas": 3, "placement_blocks": [ {"cloud":"cloud1","region":"datacenter1","zone":"rack1","min_num_replicas":3}]}');
+
+--  Rollen erstellen
+drop role if exists hrm;
+create role hrm;
+drop role if exists accountands;
+create role accountands;
+drop role if exists customer_service_officers;
+create role customer_service_officers;
+drop role if exists legal_affairs;
+create role legal_affairs;
+
+--  User erstellen
+drop user if exists hrm_1;
+drop user if exists hrm_2;
+create user hrm_1 with password 'hrm1' role hrm;
+create user hrm_2 with password 'hrm2' role hrm;
+
+drop user if exists cso_1;
+drop user if exists cso_2;
+create user cso_1 with password 'cso1'role customer_service_officers;
+create user cso_2 with password 'cso2' role customer_service_officers;
+
+drop user if exists la_1;
+drop user if exists la_2;
+create user la_1 with password 'la1' role legal_affairs;
+create user la_2 with password 'la2' role legal_affairs;
+
+--  Schemas erstellen
+drop schema if exists hrm;
+create schema hrm authorization hrm;
+drop schema if exists accountands;
+create schema accountands authorization accountands;
+drop schema if exists customer_service_officers;
+create schema customer_service_officers authorization customer_service_officers;
+drop schema if exists generell;
+create schema generell;
+
+--  GRANTS erstellen
+grant all on all tables in schema hrm to legal_affairs;
+grant all on all tables in schema accountands to legal_affairs;
+grant all on all tables in schema customer_service_officers to legal_affairs;
+grant all on all tables in schema generell to legal_affairs;
+grant all on all tables in schema hrm to yadmin;
+grant all on all tables in schema accountands to yadmin;
+grant all on all tables in schema customer_service_officers to yadmin;
+grant all on all tables in schema generell to yadmin;
+
+-- self_healing_accounts für Schema customer_service_officers
+drop table if exists customer_service_officers.self_healing_accounts;
+create table customer_service_officers.self_healing_accounts (
+    account_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+) tablespace self_healing_datas_tablespace SPLIT INTO 3 TABLETS;
+create unique index accounts_personal_mark on customer_service_officers.self_healing_accounts(firstname, lastname, birthday) tablespace self_healing_indices_tablespace;
+
+--  self_healing_employees für Schema hrm
+drop table if exists hrm.self_healing_employees;
+create table hrm.self_healing_employees (
+    employees_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+) tablespace self_healing_datas_tablespace SPLIT INTO 3 TABLETS;
+create unique index employees_personal_mark on hrm.self_healing_employees(firstname, lastname, birthday) tablespace self_healing_indices_tablespace;
+
+--  self_healing_accountand_protocol für Schema accountands
+drop table if exists accountands.self_healing_accountand_protocol;
+create table accountands.self_healing_accountand_protocol (
+       acc_protocol_id int primary key,
+       description varchar(100) not null,
+       protocol_date date not null,
+       employees_id int not null,
+       rapport TEXT,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+) tablespace self_healing_longtexts_tablespace SPLIT INTO 3 TABLETS;
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet;
+create table generell.self_healing_intranet (
+       intranet_id int primary key,
+       content text
+) tablespace self_healing_longtexts_tablespace SPLIT INTO 3 TABLETS;
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet_users;
+create table generell.self_healing_intranet_users (
+       intranet_user_id int primary key,
+       employees_id int not null,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+);
+create unique index intranet_unique_combi on generell.self_healing_intranet_users(intranet_user_id, employees_id);
+\end{lstlisting}
+
+Es sollen aber auch gleich Daten initial geschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - Init Data,captionpos=b,label={lst:yugabytedb-self-healing-init-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (100, 'bla', '07.04.2024', 100, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (200, 'yada', '07.04.2024', 100, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (300, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (100, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (500, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (1000, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(100, 100);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(200, 200);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(300, 300);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Während dem Failover-Test müssen Daten beschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - Failover Data,captionpos=b,label={lst:yugabytedb-self-healing-failover-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (400, 'bla', '07.04.2024', 200, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (500, 'yada', '07.04.2024', 600, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (1000, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (200, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (600, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (900, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(400, 400);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(500, 500);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(600, 600);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Nach dem Recovery müssen die Daten entsprechend vorhanden sein und es müssen weitere Daten beschrieben werden können:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - Recovery Data,captionpos=b,label={lst:yugabytedb-self-healing-recovery-data},breaklines=true]
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (700, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (800, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (1100, 'talking and talking');
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}

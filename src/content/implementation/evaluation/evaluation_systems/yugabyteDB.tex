@@ -161,10 +161,76 @@ serviceEndpoints:
       tcp-ysql-port: "5433"
 ...
     \end{lstlisting}
-
 \end{flushleft}
 \begin{flushleft}
-
-    \paragraph{Connection}
-    Auch mit einem PostgreSQL-
+    Beim Testen mit der höchsten Anzahl an Datensätzen zeigte sich, dass der \gls{local-path-provisioner} nicht sauber konfiguriert waren.\\
+    Damit auf jedem Node die Persistence Volume Claims ausgeführt werden, müssen sie deklariert werden und in den StorageClass-Manifesten auch hinterlegt werden.\\
+    Genauer muss in der \texttt{nodePathMap} folgende konfiguration vorgenommen werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=local-path-provisioner nodePathMap,captionpos=b,label={lst:local-path-provisioner_nodePathMap},breaklines=true]
+...
+                "nodePathMap":[
+                {
+                        "node":"DEFAULT_PATH_FOR_NON_LISTED_NODES",
+                        "paths":["<Lokaler Pfad>"]
+                },
+                {
+                        "node":"<Nodename>",
+                        "paths":["<Lokaler Pfad>"]
+                },
+...
+\end{lstlisting}
+    Hier ein Beispiel wie es mit den grossen Volumes aussieht:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=local-path-provisioner nodePathMap Beispiel,captionpos=b,label={lst:local-path-provisioner_nodePathMap-exampl},breaklines=true]
+...
+                "nodePathMap":[
+                {
+                        "node":"DEFAULT_PATH_FOR_NON_LISTED_NODES",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1183",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1184",
+                        "paths":["/srv/data/local-path-provisioner"]
+                },
+                {
+                        "node":"sks1185",
+                        "paths":["/srv/data/local-path-provisioner"]
+                }
+                ]
+...
+\end{lstlisting}
+    Wird dies nicht gemacht, so wird auf den Default-Path geschrieben.\\
+    Das ist zufällig und hat dann zur Folge, dass alle Volumes auf einem Node präsentiert werden.\\
+    Was sehr schnell logischerweise dazu führt, dass zuwenig Diskspace vorhanden ist.\\
+    Bei YugabyteDB kommt noch dazu, dass es zu Konflikten beim Schreiben von Blocks kommt.
+\end{flushleft}
+\begin{flushleft}
+    Damit die Persistence Volumes sauber präsentiert werden, muss in der StorageClass die \texttt{nodeAffinity} gesetzt werden.\\
+    Hier als Beispiel mit den Nodes \texttt{sks1183}, \texttt{sks1184} und \texttt{sks1185}:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=yugabyteDB - StorageClass nodeAffinity,captionpos=b,label={lst:yugabytedb-storageclass_example},breaklines=true]
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - sks1183
+          - sks1184
+          - sks1185
+\end{lstlisting}
+    \begin{warning}
+        \textbf{hostPath}\\
+        Der \texttt{hostPath} bei der StorageClass muss der gleiche sein, wie der Pfad im Node des nodePathMap von \gls{local-path-provisioner}.
+        Auch sollten die Pfade auf allen Nodes gleich sein.
+    \end{warning}
+\end{flushleft}
+\begin{flushleft}
+    Die Problematik mit dem \texttt{nodePathMap} und der \texttt{nodeAffinity} auf der StorageClass hat auch rund zwei Arbeitstage in Anspruch genommen.
 \end{flushleft}
