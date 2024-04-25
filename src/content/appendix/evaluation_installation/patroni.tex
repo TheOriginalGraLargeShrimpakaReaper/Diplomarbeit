@@ -5,8 +5,6 @@
 \begin{flushleft}
     \subsection{Patroni}
     \subsubsection{Prerequisites}
-\end{flushleft}
-\begin{flushleft}
     Ganz am Anfang steht die Firewall.\\
     Diese muss auf allen drei Patroni-Servern wie folgt gesetzt werden:
 \lstset{style=gra_codestyle}
@@ -82,7 +80,8 @@ Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
     \begin{warning}
     Achtung, die von PostgreSQL beschriebene Variante wurde in Debian 10 als Deprecated gesetzt,
     mit Debian 13 wird diese Repository-Integration einen Fehler werden.
-    \end{warning}    \lstset{style=gra_codestyle}
+    \end{warning}
+\lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - PostgreSQL einbinden,captionpos=b,label={lst:patroni-include-repository},breaklines=true]
 # sks1232 / sks1233 / sks1234
 # PostgreSQL Repository einbinden
@@ -101,7 +100,7 @@ apt install postgresql-16 postgresql-server-dev-16 patroni python3-etcd python3-
 \end{lstlisting}
     Im nächsten Schritt müssen Patroni und der \Gls{PostgreSQL Cluster} gestoppt werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Patroni - Stop Patroni / PostgreSQL,captionpos=b,label={lst:patroni-stop-postgresql-patroni},breaklines=true]
+\begin{lstlisting}[language=bash, caption=Patroni - Stop Patroni und PostgreSQL,captionpos=b,label={lst:patroni-stop-postgresql-patroni},breaklines=true]
 systemctl stop postgresql patroni
 \end{lstlisting}
     Anschliessend muss noch vom PostgreSQL-Verzeichnis \texttt{/usr/lib/postgresql/16/bin/} ein Symlink nach \texttt{/usr/sbin/} gesetzt werden:
@@ -121,7 +120,7 @@ patroni --version
     Damit kann zum \gls{etcd} übergegangen werden.
 \end{flushleft}
 \begin{flushleft}
-    \subsubsection{\gls{etcd}}
+    \subsubsection{etcd}
     Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - etcd-server konfigurieren=b,label={lst:patroni-etcd-server-config},breaklines=true]
@@ -134,13 +133,23 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.0.28.16:2379"
 ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 ETCD_INITIAL_CLUSTER_STATE="new"
 \end{lstlisting}
-
+    Der Service sollte rebooted werden und seine lauffähigkeit getestet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - etcd-server reboot=b,label={lst:patroni-etcd-server-reboot},breaklines=true]
+systemctl restart etcd
+systemctl is-enabled etcd
+systemctl status etcd
+\end{lstlisting}
+    Es sollte nun ein Member gelistet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - etcd-server list menber=b,label={lst:patroni-etcd-server-list-member},breaklines=true]
+etcdctl member list
+\end{lstlisting}
+    Damit kann nun das Bootstrapping gestartet werden.
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{Bootstrapping}
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{HAproxy}
-\end{flushleft}
-\begin{flushleft}
 \end{flushleft}
