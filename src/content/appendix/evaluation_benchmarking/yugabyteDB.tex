@@ -87,3 +87,16 @@
 ./ysql_bench -h 10.0.20.106 -p 5433 -c 25 -C -j 4 -v -t 280 -S -U yadmin pgbench_eval_bench > /home/gramic/4_4_yugabytedb_dql_benchmark.txt
 \end{lstlisting}
 \end{flushleft}
+\begin{flushleft}
+    Die grösse der Tabellen lässt sich wie folgt auslesen:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=yugabyteDB - Benchmarking - Table Size SQL,captionpos=b,label={lst:yugabytedb-benchmarking-table-size-sql},breaklines=true]
+select
+  table_name,
+  pg_size_pretty(pg_total_relation_size(quote_ident(table_name))),
+  pg_total_relation_size(quote_ident(table_name))
+from information_schema.tables
+where table_schema = 'public'
+order by 3 desc;
+\end{lstlisting}
+\end{flushleft}

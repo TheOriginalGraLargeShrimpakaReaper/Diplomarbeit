@@ -14,10 +14,21 @@
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{StackGres -Citus}
-    StackGres kann nicht alle Anforderungen erfüllen.
+    StackGres kann nicht alle Anforderungen erfüllen.\\
     Obwohl es mit \texttt{envoy} und \texttt{pgBouncer} einen Proxy und einen Connection Pooler gibt,\\
     scheint dies nicht über die Coordinator-Nodes selbst zu gehen.\\
     Daher brechen bestehende Connections ab oder laufen irgendwann in ein Timeout, wenn \Gls{Kubernetes} Nodes nicht schnell genug heruntergefahren werden.
+\end{flushleft}
+\begin{flushleft}
+    Aufgrund des Sharding und das in sich geschlossenen \Gls{Kubernetes}-Environments, wurde auf separate Tablespaces verzichtet.
+\end{flushleft}
+\begin{flushleft}
+    Zuerst wurde versucht, das Sharding mit Version 12 eingeführte Schema Based Sharding umzusetzen.\\
+    Wie beim Benchmarking auch, zeigten sich schnell die Grenzen des Citrus-Sharding.\\
+    Sobald ein Foreign-Key zwischen zwei Tabellen, die in verschiedenen Schemas liegen, existiert, kann kein Schema Based Sharding mehr ausgeführt werden.\\
+    Auch hier besteht die Lösung darin, Reference Tables zu erstellen.
+\end{flushleft}
+\begin{flushleft}
     \input{content/latex_tables/evaluation_tests_stackgres_citus}
     Die genauen Details sind im Anhang zu finden:
     \hyperref[subsec:appendix_testing_stackgres_citus]{Anhang - StackGres - Citus Testing}

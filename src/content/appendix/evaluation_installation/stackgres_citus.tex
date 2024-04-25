@@ -17,7 +17,7 @@ metadata:
   name: stackgres-storage
 provisioner: rancher.io/local-path
 parameters:
-  nodePath: /var/local-path-provisioner
+  nodePath: /srv/data/local-path-provisioner
 volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Delete
 ---
@@ -31,16 +31,973 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 3Gi
+    storage: 1Gi
   storageClassName: "stackgres-storage"
   hostPath:
-    path: /var/local-path-provisioner
+    path: /srv/data/local-path-provisioner
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - sks1183
+          - sks1184
+          - sks1185
 \end{lstlisting}
 
 Die Storage Class und das PercistenVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:stackgres_citus-storageclass-apply},breaklines=true]
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:stackgres_citus-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/storageclass.yaml
 storageclass.storage.k8s.io/stackgres-storage created
 persistentvolume/stackgres-storage-pv created
+\end{lstlisting}
+\subsubsection{Installation}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Namespace,captionpos=b,label={lst:stackgres-citus-namespace},breaklines=true]
+kubectl create namespace sg-platform
+\end{lstlisting}
+
+Das Manifest beinhaltet nur die wichtigsten Parameter.\\
+Der Grossteil wird über das Cluster-Deployment gesetzt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Helm Chart Manifest,captionpos=b,label={lst:stackgres_citus-values.yaml},breaklines=true]
+# -- The container registry host (and port) where the images will be pulled from.
+containerRegistry: quay.io
+# -- Image pull policy used for images loaded by the Operator
+imagePullPolicy: "IfNotPresent"
+# Section to configure Operator Installation ServiceAccount
+serviceAccount:
+  # -- If `true` the Operator Installation ServiceAccount will be created
+  create: true
+  # -- Section to configure Operator ServiceAccount annotations
+  annotations: {}
+  # -- Repositories credentials Secret names to attach to ServiceAccounts and Pods
+  repoCredentials: []
+
+# Section to configure Operator Pod
+operator:
+  # Section to configure Operator image
+  image:
+    # -- Operator image name
+    name: "stackgres/operator"
+    # -- Operator image tag
+    tag: "1.9.0"
+    # -- Operator image pull policy
+    pullPolicy: "IfNotPresent"
+  # -- Operator Pod annotations
+  annotations: {}
+  # -- Operator Pod resources. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#resourcerequirements-v1-core
+#  resources: {}
+  resources:
+     requests:
+       cpu: "1"
+       memory: 1Gi
+     limits:
+       cpu: "1"
+       memory: 1Gi
+  # -- Operator Pod node selector
+  nodeSelector: {}
+  # -- Operator Pod tolerations. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#toleration-v1-core
+  tolerations: []
+  # -- Operator Pod affinity. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#affinity-v1-core
+  affinity: {}
+  # Section to configure Operator ServiceAccount
+  serviceAccount:
+    # -- Section to configure Operator ServiceAccount annotations
+    annotations: {}
+    # -- Repositories credentials Secret names to attach to ServiceAccounts and Pods
+    repoCredentials: []
+  # Section to configure Operator Service
+  service:
+    # -- Section to configure Operator Service annotations
+    annotations: {}
+
+# Section to configure REST API Pod
+restapi:
+  # -- REST API Pod name
+  name: stackgres-restapi
+  # Section to configure REST API image
+  image:
+    # -- REST API image name
+    name: "stackgres/restapi"
+    # -- REST API image tag
+    tag: "1.9.0"
+    # -- REST API image pull policy
+    pullPolicy: "IfNotPresent"
+  # -- REST API Pod annotations
+  annotations: {}
+  resources:
+     requests:
+       cpu: "1"
+       memory: 1Gi
+     limits:
+       cpu: "1"
+       memory: 1Gi
+  # -- REST API Pod node selector
+  nodeSelector: {}
+  # -- REST API Pod tolerations. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#toleration-v1-core
+  tolerations: []
+  # -- REST API Pod affinity. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#affinity-v1-core
+  affinity: {}
+  # Section to configure REST API ServiceAccount
+  serviceAccount:
+    # -- REST API ServiceAccount annotations
+    annotations: {}
+    # -- Repositories credentials Secret names to attach to ServiceAccounts and Pods
+    repoCredentials: []
+  # Section to configure REST API Service
+  service:
+    # -- REST API Service annotations
+    annotations: {}
+
+# Section to configure Web Console container
+adminui:
+  # Section to configure Web Console image
+  image:
+    # -- Web Console image name
+    name: "stackgres/admin-ui"
+    # -- Web Console image tag
+    tag: "1.9.0"
+    # -- Web Console image pull policy
+    pullPolicy: "IfNotPresent"
+  resources:
+     requests:
+       cpu: "1"
+       memory: 1Gi
+     limits:
+       cpu: "1"
+       memory: 1Gi
+  # Section to configure Web Console service.
+  service:
+    # -- When set to `true` the HTTP port will be exposed in the Web Console Service
+    exposeHTTP: true
+    # -- The type used for the service of the UI:
+    type: ClusterIP
+    # -- (string) LoadBalancer will get created with the IP specified in
+    loadBalancerIP:          # gramic, load-balancer-IP
+    # -- (array) If specified and supported by the platform,
+    loadBalancerSourceRanges:
+    # -- (integer) The HTTPS port used to expose the Service on Kubernetes nodes
+    nodePort:
+    # -- (integer) The HTTP port used to expose the Service on Kubernetes nodes
+    nodePortHTTP:
+
+# Section to configure Operator Installation Jobs
+jobs:
+  # Section to configure Operator Installation Jobs image
+  image:
+    # -- Operator Installation Jobs image name
+    name: "stackgres/jobs"
+    # -- Operator Installation Jobs image tag
+    tag: "1.9.0"
+    # -- Operator Installation Jobs image pull policy
+    pullPolicy: "IfNotPresent"
+  # -- Operator Installation Jobs annotations
+  annotations: {}
+  # -- Operator Installation Jobs resources. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#resourcerequirements-v1-core
+  resources: {}
+  # -- Operator Installation Jobs node selector
+  nodeSelector: {}
+  # -- Operator Installation Jobs tolerations. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#toleration-v1-core
+  tolerations: []
+  # -- Operator Installation Jobs affinity. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#affinity-v1-core
+  affinity: {}
+
+# Section to configure deployment aspects.
+deploy:
+  # -- When set to `true` the Operator will be deployed.
+  operator: true
+  # -- When set to `true` the Web Console / REST API will be deployed.
+  restapi: true
+
+# Section to configure the Operator, REST API and Web Console certificates and JWT RSA key-pair.
+cert:
+  # -- If set to `true` the CertificateSigningRequest used to generate the certificate used by
+  #   Webhooks will be approved by the Operator Installation Job.
+  autoapprove: true
+  # -- When set to `true` the Operator certificate will be created.
+  createForOperator: true
+  # -- When set to `true` the Web Console / REST API certificate will be created.
+  createForWebApi: true
+  # -- (string) The Secret name with the Operator Webhooks certificate issued by the Kubernetes cluster CA
+  #   of type kubernetes.io/tls. See https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets
+  secretName:
+  # -- When set to `true` the Operator certificates will be regenerated if `createForOperator` is set to `true`, and the certificate is expired or invalid.
+  regenerateCert: true
+  # -- (integer) The duration in days of the generated certificate for the Operator after which it will expire and be regenerated.
+  #   If not specified it will be set to 730 (2 years) by default.
+  certDuration: 730
+  # -- (string) The Secret name with the Web Console / REST API certificate
+  #   of type kubernetes.io/tls. See https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets
+  webSecretName:
+  # -- When set to `true` the Web Console / REST API certificates will be regenerated if `createForWebApi` is set to `true`, and the certificate is expired or invalid.
+  regenerateWebCert: true
+  # -- When set to `true` the Web Console / REST API RSA key pair will be regenerated if `createForWebApi` is set to `true`, and the certificate is expired or invalid.
+  regenerateWebRsa: true
+  # -- (integer) The duration in days of the generated certificate for the Web Console / REST API after which it will expire and be regenerated.
+  #   If not specified it will be set to 730 (2 years) by default.
+  webCertDuration:
+  # -- (integer) The duration in days of the generated RSA key pair for the Web Console / REST API after which it will expire and be regenerated.
+  #   If not specified it will be set to 730 (2 years) by default.
+  webRsaDuration:
+  # -- (string) The private RSA key used to create the Operator Webhooks certificate issued by the
+  #   Kubernetes cluster CA.
+  key:
+  # -- (string) The Operator Webhooks certificate issued by Kubernetes cluster CA.
+  crt:
+  # -- (string) The private RSA key used to generate JWTs used in REST API authentication.
+  jwtRsaKey:
+  # -- (string) The public RSA key used to verify JWTs used in REST API authentication.
+  jwtRsaPub:
+  # -- (string) The private RSA key used to create the Web Console / REST API certificate
+  webKey:
+  # -- (string) The Web Console / REST API certificate
+  webCrt:
+  # Section to configure cert-manager integration to generate Operator certificates
+  certManager:
+    # -- When set to `true` then Issuer and Certificate for Operator and Web Console / REST API
+    #   Pods will be generated
+    autoConfigure: false
+    # -- The requested duration (i.e. lifetime) of the Certificates. See https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1
+    duration: "2160h"
+    # -- How long before the currently issued certificate’s expiry cert-manager should renew the certificate. See https://cert-manager.io/docs/reference/api-docs/#cert-manager.io%2fv1
+    renewBefore: "360h"
+    # -- The private key cryptography standards (PKCS) encoding for this certificate’s private key to be encoded in. See https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificatePrivateKey
+    encoding: PKCS1
+    # -- Size is the key bit size of the corresponding private key for this certificate. See https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificatePrivateKey
+    size: 2048
+
+# Section to configure RBAC for Web Console admin user
+rbac:
+  # -- When set to `true` the admin user is assigned the `cluster-admin` ClusterRole by creating
+  #   ClusterRoleBinding.
+  create: true
+
+# Section to configure Web Console authentication
+authentication:
+  # -- Specify the authentication mechanism to use. By default is `jwt`, see https://stackgres.io/doc/latest/api/rbac#local-secret-mechanism.
+  #   If set to `oidc` then see https://stackgres.io/doc/latest/api/rbac/#openid-connect-provider-mechanism.
+  type: jwt
+  # -- (boolean) When `true` will create the secret used to store the `admin` user credentials to access the UI.
+  createAdminSecret: true
+  # -- The admin username that will be required to access the UI
+  user: admin
+  # -- (string) The admin password that will be required to access the UI
+  #password: "TES2&Daggerfall"
+  password:
+  # Section to configure Web Console OIDC authentication
+  oidc:
+    # tlsVerification -- (string) Can be one of `required`, `certificate-validation` or `none`
+# Section to configure Prometheus integration.
+prometheus:
+
+  allowAutobind: true
+# Section to configure Grafana integration
+grafana:
+  # -- When set to `true` embed automatically Grafana into the Web Console by creating the
+  #   StackGres dashboards and the read-only role used to read it from the Web Console
+  autoEmbed: false
+  # -- The schema to access Grafana. By default http. (used to embed manually and
+  #   automatically grafana)
+  schema: http
+  # -- (string) The service host name to access grafana (used to embed manually and
+  #   automatically Grafana).
+  webHost:
+  # -- The datasource name used to create the StackGres Dashboards into Grafana
+  datasourceName: Prometheus
+  # -- The username to access Grafana. By default admin. (used to embed automatically
+  #   Grafana)
+  user: admin
+  # -- The password to access Grafana. By default prom-operator (the default in for
+  #   kube-prometheus-stack helm chart). (used to embed automatically Grafana)
+  password: prom-operator
+  # -- Use follwing fields to indicate a secret where the grafana admin credentials are stored (replace user/password)
+
+  # -- (string) The namespace of secret with credentials to access Grafana. (used to
+  #   embed automatically Grafana, alternative to use `user` and `password`)
+  secretNamespace:
+  # -- (string) The name of secret with credentials to access Grafana. (used to embed
+  #   automatically Grafana, alternative to use `user` and `password`)
+  secretName:
+  # -- (string) The key of secret with username used to access Grafana. (used to embed
+  #   automatically Grafana, alternative to use `user` and `password`)
+  secretUserKey:
+  # -- (string) The key of secret with password used to access Grafana. (used to
+  #   embed automatically Grafana, alternative to use `user` and `password`)
+  secretPasswordKey:
+  # -- (string) The ConfigMap name with the dashboard JSONs
+  #   that will be created in Grafana. If not set the default
+  #   StackGres dashboards will be created. (used to embed automatically Grafana)
+  dashboardConfigMap:
+  # -- (array) The URLs of the PostgreSQL dashboards created in Grafana (used to embed manually
+  urls:
+  # Create and copy/paste grafana API token:
+  # - Grafana > Configuration > API Keys > Add API key (for viewer) > Copy key value
+  token:
+
+# Section to configure extensions
+extensions:
+  repositoryUrls:
+  - https://extensions.stackgres.io/postgres/repository?proxyUrl=http%3A%2F%2Fsproxy.sivc.first-it.ch%3A8080?skipHostnameVerification:true&setHttpScheme:true
+  cache:
+    # -- When set to `true` enable the extensions cache.
+    enabled: false
+    # -- An array of extensions pattern used to pre-loaded estensions into the extensions cache
+    preloadedExtensions:
+    - x86_64/linux/timescaledb-1\.7\.4-pg12
+    # Section to configure the extensions cache PersistentVolume
+    persistentVolume:
+      size: 60Gi
+      storageClass: "stackgres-storage"
+    hostPath:
+developer:
+  version:
+  # -- (string) Set `quarkus.log.level`. See https://quarkus.io/guides/logging#root-logger-configuration
+  logLevel:
+  # -- If set to `true` add extra debug to any script controlled by the reconciliation cycle of the operator configuration
+  showDebug: false
+  # -- Set `quarkus.log.console.format` to `%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c{4.}] (%t) %s%e%n`. See https://quarkus.io/guides/logging#logging-format
+  showStackTraces: false
+  # -- Only work with JVM version and allow connect
+  # on port 8000 of operator Pod with jdb or similar
+  enableJvmDebug: false
+  # -- Only work with JVM version and if `enableJvmDebug` is `true`
+  #   suspend the JVM until a debugger session is started
+  enableJvmDebugSuspend: false
+  # -- (string) Set the external Operator IP
+  externalOperatorIp:
+  # -- (integer) Set the external Operator port
+  externalOperatorPort:
+  # -- (string) Set the external REST API IP
+  externalRestApiIp:
+  # -- (integer) Set the external REST API port
+  externalRestApiPort:
+  # -- If set to `true` and `extensions.cache.enabled` is also `true`
+  #   it will try to download extensions from images (experimental)
+  allowPullExtensionsFromImageRepository: false
+  # -- It set to `true` disable arbitrary user that is set for OpenShift clusters
+  disableArbitraryUser: false
+  # Section to define patches for some StackGres Pods
+  patches:
+    # Section to define volumes to be used by the operator container
+    operator:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+    # Section to define volumes to be used by the restapi container
+    restapi:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+    # Section to define volumes to be used by the adminui container
+    adminui:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+    # Section to define volumes to be used by the jobs container
+    jobs:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+    # Section to define volumes to be used by the cluster controller container
+    clusterController:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+    # Section to define volumes to be used by the distributedlogs controller container
+    distributedlogsController:
+      # -- Pod volumes. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volume-v1-core
+      volumes: []
+      # -- Pod's container volume mounts. See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#volumemount-v1-core
+      volumeMounts: []
+\end{lstlisting}
+
+Die Installation erfolgt dann wie folgt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Installation,captionpos=b,label={lst:stackgres_citus-values-apply},breaklines=true]
+helm install -n sg-platform stackgres-operator stackgres-charts/stackgres-operator -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/values.yaml
+\end{lstlisting}
+
+Damit nun aber der Cluster sauber läuft und auf den Cluster zugegriffen werden kann, müssen folgende Steps ebenfalls nachträglich ausgeführt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Post-Installation,captionpos=b,label={lst:stackgres_citus-post-installation},breaklines=true]
+# Check if the operator was successfully deployed and is available:
+kubectl describe deployment -n sg-platform stackgres-operator
+kubectl wait -n sg-platform deployment/stackgres-operator --for condition=Available
+# Check if the restapi was successfully deployed and is available:
+kubectl describe deployment -n sg-platform stackgres-restapi
+kubectl wait -n sg-platform deployment/stackgres-restapi --for condition=Available
+# To access StackGres Operator UI from localhost, run the below commands:
+POD_NAME=$(kubectl get pods --namespace sg-platform -l "stackgres.io/restapi=true" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward "$POD_NAME" 8443:9443 --namespace sg-platform
+\end{lstlisting}
+Jetzt kann das GUI unter folgendem Link geöffnet werden:
+\url{https://localhost:8443}
+
+\begin{warning}
+  \textbf{Port Forwarding}\\
+  Wenn das Port Forwarding so gemacht wird, muss die CLI offenbleiben.\\
+  Sonst wird die Verbindung umgehend gekappt.\\
+  Daher empfiehlt es sich, mehrere Terminals offen zu halten.
+\end{warning}
+
+Der Username ist \texttt{admin} aber das Passwort ist generisch.\\
+Der Username liesse sich mit folgendem Command auslesen:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - System Username,captionpos=b,label={lst:stackgres_citus-system-username},breaklines=true]
+kubectl get secret -n sg-platform stackgres-restapi-admin --template '{{ printf "username = %s\n" (.data.k8sUsername | base64decode) }}'
+\end{lstlisting}
+Dieses lässt sich mit folgendem Command auslesen:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - System Passwort,captionpos=b,label={lst:stackgres_citus-system-password},breaklines=true]
+kubectl get secret -n sg-platform stackgres-restapi-admin --template '{{ printf "password = %s\n" (.data.clearPassword | base64decode) }}'
+\end{lstlisting}
+
+Am Schluss sollte das Passwort aber noch gesäubert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - System Passwort Cleanup,captionpos=b,label={lst:stackgres_citus-system-password-cleanup},breaklines=true]
+kubectl patch secret --namespace sg-platform stackgres-restapi-admin --type json -p '[{"op":"remove","path":"/data/clearPassword"}]'
+\end{lstlisting}
+
+\subsubsection{Deployment - Benchmarking}
+Zuerts wurde das Instanz-Profil für den Coordinator und die Shards deployt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGInstanceProfile Coordinator,captionpos=b,label={lst:SGInstanceProfile_pgbench_coord.yaml},breaklines=true]
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-pgbench-coordinator
+spec:
+  cpu: "4"
+  memory: "4Gi"
+\end{lstlisting}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGInstanceProfile Shard,captionpos=b,label={lst:SGInstanceProfile_pgbench_shard.yaml},breaklines=true]
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-pgbench-shard
+spec:
+  cpu: "4"
+  memory: "8Gi"
+\end{lstlisting}
+
+Deployt wird ebenfalls via \texttt{kubectl}:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmarking - Instanz-Profil Deploy,captionpos=b,label={lst:stackgres_citus-deploy-benchmarking-instance-profiles},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_coord.yaml
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_shard.yaml
+\end{lstlisting}
+
+Auf ein Deployment einer \texttt{SGPostgresConfig} wurde verzichtet, da für Patroni in den ersten drei Benchmarks keine spezifischen Anpassungen erfuhr.\\
+Das Manifest für den Benchmark-Cluster sieht entsprechend den vorgaben wie folgt aus:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGShardedCluster,captionpos=b,label={lst:SGShardedCluster_pgbench.yaml},breaklines=true]
+apiVersion: stackgres.io/v1alpha1
+kind: SGShardedCluster
+metadata:
+  name: sg-pgbench
+  namespace: sg-platform
+spec:
+  type: citus
+  database: pgbench_eval_bench
+  postgres:
+    version: '16'
+  coordinator:
+    instances: 1
+    pods:
+      persistentVolume:
+#        size: '75Gi'
+        size: '230Gi'
+        storageClass: "stackgres-storage"
+      disableConnectionPooling: true
+    sgInstanceProfile: "sg-pgbench-coordinator"
+  shards:
+    clusters: 3
+    instancesPerCluster: 1
+    pods:
+      persistentVolume:
+        size: '75Gi'
+        storageClass: "stackgres-storage"
+    sgInstanceProfile: "sg-pgbench-shard"
+  postgresServices:
+    coordinator:
+      primary:
+        type: LoadBalancer
+      any:
+        type: LoadBalancer
+    shards:
+      primaries:
+        type: LoadBalancer
+  metadata:
+    annotations:
+      primaryService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.106
+      replicasService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.153
+        externalTrafficPolicy: "Cluster"
+  profile: "testing"
+\end{lstlisting}
+Der Deploy:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmark - Cluster Deploy,captionpos=b,label={lst:stackgres_citus-benchmnarking-deploy-cluster},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGShardedCluster_pgbench.yaml
+\end{lstlisting}
+
+Damit nun aber eine Verbindung auf die DB (IP 10.0.20.106) gemacht werden kann, muss das Passwort ausgelesen werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmark DB Passwort,captionpos=b,label={lst:stackgres_citus-get-benchmark-cluster-passwd},breaklines=true]
+kubectl get secrets -n sg-platform sg-pgbench -o jsonpath='{.data.superuser-password}' | base64 -d
+\end{lstlisting}
+
+\subsubsection{Deployment - Self Healing Tests}
+Auch hier wurde zuerst das Instanz-Profil für den Coordinator und die Shards deployt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Self Healing Testing - SGInstanceProfile Coordinator,captionpos=b,label={lst:SGInstanceProfile_self_healing_coord.yaml},breaklines=true]
+#Not needed actualy
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-self-healing-coordinator
+spec:
+  cpu: "1"
+  memory: "2Gi"
+\end{lstlisting}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Self Healing Testing - SGInstanceProfile Shard,captionpos=b,label={lst:SGInstanceProfile_self_healing_shard.yaml},breaklines=true]
+#Not needed actualy
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-self-healing-shard
+spec:
+  cpu: "1"
+  memory: "2Gi"
+\end{lstlisting}
+
+Deployt wird ebenfalls via \texttt{kubectl}:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Self Healing Testing - Instanz-Profil Deploy,captionpos=b,label={lst:stackgres_citus-self-healing-testing-deploy-instance-profiles},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_self_healing_coord.yaml
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_self_healing_shard.yaml
+\end{lstlisting}
+
+Auch beim Self Healing Testing wurde auf ein Deployment einer \texttt{SGPostgresConfig} verzichtet.\\
+Dafür wurden drei Coordinator-Instanzen und drei Shard-Instanzen pro Cluster deklariert.\\
+Das Manifest für den Benchmark-Cluster sieht entsprechend den vorgaben wie folgt aus:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Self Healing Testing - SGShardedCluster,captionpos=b,label={lst:SGShardedCluster_self_healing_test.yaml},breaklines=true]
+apiVersion: stackgres.io/v1alpha1
+kind: SGShardedCluster
+metadata:
+  name: sg-healing-test
+  namespace: sg-platform
+spec:
+  type: citus
+  database: self_healing_test
+  postgres:
+    version: '16'
+  coordinator:
+    syncInstances: 3
+    replication: "strict-sync"
+    pods:
+      persistentVolume:
+        size: '2Gi'
+        storageClass: "stackgres-storage"
+    sgInstanceProfile: "sg-self-healing-coordinator"
+  shards:
+    clusters: 3
+    instancesPerCluster: 3
+    pods:
+      persistentVolume:
+        size: '5Gi'
+        storageClass: "stackgres-storage"
+    sgInstanceProfile: "sg-self-healing-shard"
+  postgresServices:
+    coordinator:
+      primary:
+        type: LoadBalancer
+      any:
+        type: LoadBalancer
+    shards:
+      primaries:
+        type: LoadBalancer
+  metadata:
+    annotations:
+      primaryService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.152
+      replicasService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.151
+        externalTrafficPolicy: "Cluster"
+  profile: "testing"
+\end{lstlisting}
+Der Deploy:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Self Healing Testing - Cluster Deploy,captionpos=b,label={lst:stackgres_citus-self-healing-test-deploy-cluster},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGShardedCluster_self_healing_test.yaml
+\end{lstlisting}
+
+Das Passwort für den Cluster (IP 10.0.20.152) muss ebenfalls ausgelesen werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Self Healing Testing DB Passwort,captionpos=b,label={lst:stackgres_citus-get-self-healing-testing-cluster-passwd},breaklines=true]
+kubectl get secrets -n sg-platform sg-healing-test -o jsonpath='{.data.superuser-password}' | base64 -d
+\end{lstlisting}
+
+\subsubsection{Rekonfiguration mit 250GiB Storage}
+\paragraph{Bereinigen}
+Zuerst wurde auch hier der komplette Namespace bereinigt, wobei es zwingend ist, vorher im GUI die Cluster zu löschen und mittels CLI den Operator zu deinstallieren.\\
+Andernfalls wird nicht alles sauber entfernt was zu schwer Nachvollziehbaren Sideeffects führt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Deinstallieren,captionpos=b,label={lst:stackgres_citus-deinstall-cleanup},breaklines=true]
+helm delete stackgres-operator --namespace sg-platform
+kubectl delete namespace sg-platform
+kubectl delete pv stackgres-storage-pv
+kubectl delete storageclass stackgres-storage
+kubectl delete pvc --namespace sg-platform
+kubectl delete pvc --namespace sg-platform
+\end{lstlisting}
+
+\paragraph{StorageClass setzen}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - StorageClass setzen,captionpos=b,label={lst:storageclass_big.yaml},breaklines=true]
+# https://docs.yugabyte.com/preview/yugabyte-platform/install-yugabyte-platform/prepare-environment/kubernetes/#configure-storage-class
+# https://github.com/rancher/local-path-provisioner
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: stackgres-storage-big
+provisioner: rancher.io/local-path
+parameters:
+  nodePath: /srv/data/local-path-provisioner
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: stackgres-storage-pv
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 340Gi
+  storageClassName: "stackgres-storage"
+  hostPath:
+    path: /srv/data/local-path-provisioner
+\end{lstlisting}
+
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - StorageClass / PersistentVolume Grosse Volumes aktivieren,captionpos=b,label={lst:stackgres_citus-storageclass-big-apply},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/storageclass_big.yaml
+\end{lstlisting}
+
+\paragraph{Installation}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Namespace 250GiB,captionpos=b,label={lst:stackgres-citus-namespace-250gib},breaklines=true]
+kubectl create namespace sg-platform
+\end{lstlisting}
+
+Natürlich muss auch wieder das \gls{helm}-Manifest deployt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Installation  250GiB,captionpos=b,label={lst:stackgres_citus-values-apply-250gib},breaklines=true]
+helm install -n sg-platform stackgres-operator stackgres-charts/stackgres-operator -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/values.yaml
+\end{lstlisting}
+\paragraph{Deployment - Benchmarking mit 250GiB}
+Die Ressourcen für die Shards mussten erhöht werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGInstanceProfile Coordinator 250GiB,captionpos=b,label={lst:SGInstanceProfile_pgbench_coord.yaml-250gib},breaklines=true]
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-pgbench-coordinator
+spec:
+  cpu: "4"
+  memory: "4Gi"
+\end{lstlisting}
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGInstanceProfile Shard 250GiB,captionpos=b,label={lst:SGInstanceProfile_pgbench_shard.yaml-250gib},breaklines=true]
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: sg-platform
+  name: sg-pgbench-shard
+spec:
+  cpu: "4"
+  memory: "12Gi"
+\end{lstlisting}
+
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmarking - Instanz-Profil Deploy 250GiB,captionpos=b,label={lst:stackgres_citus-deploy-benchmarking-instance-profiles-250gib},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_coord.yaml
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_shard.yaml
+\end{lstlisting}
+
+Das Manifest für den Benchmark-Cluster wurde die Shard-Cluster Anzahl auf 2 reduziert und die PVC entsprechend dimensioniert:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGShardedCluster 250GiB,captionpos=b,label={lst:SGShardedCluster_pgbench.yaml-250gib},breaklines=true]
+apiVersion: stackgres.io/v1alpha1
+kind: SGShardedCluster
+metadata:
+  name: sg-pgbench
+  namespace: sg-platform
+spec:
+  type: citus
+  database: pgbench_eval_bench
+  postgres:
+    version: '16'
+  coordinator:
+    instances: 1
+    pods:
+      persistentVolume:
+        size: '230Gi'
+        storageClass: "stackgres-storage"
+
+      disableConnectionPooling: true
+    sgInstanceProfile: "sg-pgbench-coordinator"
+  shards:
+    clusters: 2 # gramic, 19.04.2024: 250GiB Tabelle
+    instancesPerCluster: 1
+    pods:
+      persistentVolume:
+        size: '230Gi'
+        storageClass: "stackgres-storage"
+    sgInstanceProfile: "sg-pgbench-shard"
+  postgresServices:
+    coordinator:
+      primary:
+        type: LoadBalancer
+      any:
+        type: LoadBalancer
+    shards:
+      primaries:
+        type: LoadBalancer
+  metadata:
+    annotations:
+      primaryService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.106
+      replicasService:
+        metallb.universe.tf/loadBalancerIPs: 10.0.20.153
+        externalTrafficPolicy: "Cluster"
+  profile: "testing"
+\end{lstlisting}
+
+Der Deploy:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmark - Cluster Deploy 250GiB,captionpos=b,label={lst:stackgres_citus-benchmnarking-deploy-cluster-250gib},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGShardedCluster_pgbench.yaml
+\end{lstlisting}
+
+\subsubsection{SQL Statements - Benchmarking}
+\label{subsubsec:stackgres_citus_benchmarking_sql}
+Für das Benchmarking wird die Tabelle \texttt{pgbench\_eval\_bench} bereits beim Deployment erstellt.\\
+Allerdings ohne Tablespaces.
+
+Daher sind keine weiteren Schritte an dieser Stelle notwendig, die Tabellen werden von \texttt{pgbench} beim Initialisieren erstellt.
+\subsubsection{SQL Statements - Testing}
+\label{subsubsec:stackgres_citus_self-healing-testing_sql}
+Auch hier wird die Tabelle bereits beim Deployment des Clusters erstellt.\\
+Es müssen aber natürlich noch gemäss ERD die Tabellen erstellt werden:
+\hyperref[subsubsec:erd_self_healing_test]{Evaluation - ERD self\_healing\_test}
+Auch hier wird auf Tablespaces verzichtet.\\
+Erst werden die Rollen erstellt, gefolgt von den Usern und Schemas.\\
+Die Schemas müssen entsprechend mittels \texttt{GRANT} berechtigt werden.
+Die Tabellen müssen entsprechend den Schemas erstellt werden, es werden Reference Table Shards erzeugt.\\
+Das gesamte \texttt{CREATE}-Skript:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=StackGres-Citus - Self Healing Tests - CREATE-SQL,captionpos=b,label={stackgres_citus-self-healing-create-sql},breaklines=true]
+--  Rollen erstellen
+drop role if exists hrm;
+create role hrm;
+drop role if exists accountands;
+create role accountands;
+drop role if exists customer_service_officers;
+create role customer_service_officers;
+drop role if exists legal_affairs;
+create role legal_affairs;
+
+--  User erstellen
+drop user if exists hrm_1;
+drop user if exists hrm_2;
+create user hrm_1 with password 'hrm1' role hrm;
+create user hrm_2 with password 'hrm2' role hrm;
+
+drop user if exists cso_1;
+drop user if exists cso_2;
+create user cso_1 with password 'cso1'role customer_service_officers;
+create user cso_2 with password 'cso2' role customer_service_officers;
+
+drop user if exists la_1;
+drop user if exists la_2;
+create user la_1 with password 'la1' role legal_affairs;
+create user la_2 with password 'la2' role legal_affairs;
+
+--  Schemas erstellen
+drop schema if exists hrm;
+create schema hrm authorization hrm;
+drop schema if exists accountands;
+create schema accountands authorization accountands;
+drop schema if exists customer_service_officers;
+create schema customer_service_officers authorization customer_service_officers;
+drop schema if exists generell;
+create schema generell;
+
+--  GRANTS erstellen
+grant all on all tables in schema hrm to legal_affairs;
+grant all on all tables in schema accountands to legal_affairs;
+grant all on all tables in schema customer_service_officers to legal_affairs;
+grant all on all tables in schema generell to legal_affairs;
+grant all on all tables in schema hrm to postgres;
+grant all on all tables in schema accountands to postgres;
+grant all on all tables in schema customer_service_officers to postgres;
+grant all on all tables in schema generell to postgres;
+
+ -- self_healing_accounts für Schema customer_service_officers
+drop table if exists customer_service_officers.self_healing_accounts;
+create table customer_service_officers.self_healing_accounts (
+    account_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+);
+create unique index accounts_personal_mark on customer_service_officers.self_healing_accounts(firstname, lastname, birthday);
+SELECT create_reference_table('customer_service_officers.self_healing_accounts');
+
+--  self_healing_employees für Schema hrm
+drop table if exists hrm.self_healing_employees;
+create table hrm.self_healing_employees (
+    employees_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+);
+create unique index employees_personal_mark on hrm.self_healing_employees(firstname, lastname, birthday);
+SELECT create_reference_table('hrm.self_healing_employees');
+
+--  self_healing_accountand_protocol für Schema accountands
+drop table if exists accountands.self_healing_accountand_protocol;
+create table accountands.self_healing_accountand_protocol (
+       acc_protocol_id int primary key,
+       description varchar(100) not null,
+       protocol_date date not null,
+       employees_id int not null,
+       rapport TEXT,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+);
+SELECT create_reference_table('accountands.self_healing_accountand_protocol');
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet;
+create table generell.self_healing_intranet (
+       intranet_id int primary key,
+       content text
+);
+SELECT create_reference_table('generell.self_healing_intranet');
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet_users;
+create table generell.self_healing_intranet_users (
+       intranet_user_id int primary key,
+       employees_id int not null,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+);
+create unique index intranet_unique_combi on generell.self_healing_intranet_users(intranet_user_id, employees_id);
+SELECT create_reference_table('generell.self_healing_intranet_users');
+\end{lstlisting}
+
+Es sollen aber auch gleich Daten initial geschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=StackGres-Citus - Self Healing Tests - Init Data,captionpos=b,label={lst:stackgres_citus-self-healing-init-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (100, 'bla', '07.04.2024', 100, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (200, 'yada', '07.04.2024', 100, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (300, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (100, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (500, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (1000, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(100, 100);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(200, 200);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(300, 300);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Während dem Failover-Test müssen Daten beschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=StackGres-Citus - Self Healing Tests - Failover Data,captionpos=b,label={lst:stackgres_citus-self-healing-failover-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (400, 'bla', '07.04.2024', 200, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (500, 'yada', '07.04.2024', 600, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (1000, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (200, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (600, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (900, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(400, 400);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(500, 500);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(600, 600);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Nach dem Recovery müssen die Daten entsprechend vorhanden sein und es müssen weitere Daten beschrieben werden können:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=StackGres-Citus - Self Healing Tests - Recovery Data,captionpos=b,label={lst:stackgres_citus-self-healing-recovery-data},breaklines=true]
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(1000, 400);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(2000, 500);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(3000, 600);
+
+select count(*) from customer_service_officers.self_healing_accounts;
+select count(*) from hrm.self_healing_employees;
+select count(*) from accountands.self_healing_accountand_protocol;
+select count(*) from generell.self_healing_intranet;
+select count(*) from generell.self_healing_intranet_users;
 \end{lstlisting}

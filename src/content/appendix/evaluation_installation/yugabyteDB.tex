@@ -661,6 +661,11 @@ spec:
           - sks1185
 \end{lstlisting}
 
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume Grosse Volumes aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-big-apply},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/yugabytedb/yugabytedb/storageclass_250gib.yaml
+\end{lstlisting}
+
 \paragraph{Installation - 250GiB}
 Zuerst muss wieder der Namespace erstellt werden:
 \lstset{style=gra_codestyle}
@@ -1087,7 +1092,6 @@ podSecurityContext:
 ## K8s universe <= 2.5 to >= 2.6
 legacyVolumeClaimAnnotations: false
 \end{lstlisting}
-
 \subsubsection{SQL Statements - Benchmarking}
 \label{subsubsec:yugabytedb_benchmarking_sql}
 Für das Benchmarking wird die Tabelle \texttt{pgbench\_eval\_bench} erstellt.\\

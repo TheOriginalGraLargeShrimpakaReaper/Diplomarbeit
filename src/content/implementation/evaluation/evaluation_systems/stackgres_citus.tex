@@ -17,7 +17,7 @@
     Es stellte sich heraus, dass man relativ leicht die beim \hyperref[subpar:citus_sharding]{Citus Sharding} beschriebene Lösung zum Replizieren leicht umzusetzen ist:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_self_healing_test}
+        \includegraphics[width=1\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_self_healing_test}
         \caption{Stackgres - Citus - Evaluationsarchitektur Self Healing Tests}
         \label{fig:stackgres_citus_architecture_self_healing_test}
     \end{figure}
@@ -31,7 +31,7 @@
     Pro Pod muss mindestens eine CPU gesetzt werden, auch der k8s-Server benötigt mindestens eine CPU, heisst das pro Server mit Minimal setting 5 CPUs benötigt werden:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.1\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_resource_stack}
+        \includegraphics[width=0.2\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_resource_stack}
         \caption{Stackgres - Citus - Resourcen - Stack}
         \label{fig:stackgres_citus_architecture_resource_stack}
     \end{figure}
@@ -43,7 +43,7 @@
     Pro Datenbank wird Standardmässig ein Cluster erstellt mit jeweils mindestens einem Coordinator und dem ganzen Stack der daran hängt:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.1\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_clustering}
+        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_clustering}
         \caption{Stackgres - Citus - Datenbank - Cluster}
         \label{fig:stackgres_citus_architecture_clustering}
     \end{figure}
