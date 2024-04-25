@@ -7,8 +7,49 @@
     \subsubsection{Prerequisites}
 \end{flushleft}
 \begin{flushleft}
-    Zuerst muss der Proxy gesetzt werden:
-    \lstset{style=gra_codestyle}
+    Ganz am Anfang steht die Firewall.\\
+    Diese muss auf allen drei Patroni-Servern wie folgt gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Firewall Settings,captionpos=b,label={lst:patroni-firewall-settings},breaklines=true]
+# sks1232 / sks1233 / sks1234 / sks9016(10.0.28.16)
+nano /etc/iptables/rules.v4
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -s 10.0.9.115/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.115" -j ACCEPT
+-A INPUT -s 10.0.9.76/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.76" -j ACCEPT
+-A INPUT -s 10.0.36.147/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.36.147" -j ACCEPT
+-A INPUT -s 10.0.9.35/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.35" -j ACCEPT
+-A INPUT -s 10.0.9.37/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.37" -j ACCEPT
+-A INPUT -s 10.0.9.74/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.74" -j ACCEPT
+-A INPUT -s 10.0.9.75/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.75" -j ACCEPT
+-A INPUT -s 10.0.9.36/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.36" -j ACCEPT
+-A INPUT -s 10.0.9.14/32 -p udp -m udp --dport 161 -m comment --comment "Allow SNMP for probe 10.0.9.14" -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p icmp -m icmp --icmp-type 8 -j ACCEPT
+# generell
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 443 -j ACCEPT
+# postgres
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 5432 -j ACCEPT
+# patroni
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 2379 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 2380 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 2376 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 6432 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 8008 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 7000 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 8080 -j ACCEPT
+COMMIT
+# Completed
+
+systemctl restart iptables
+systemctl status iptables
+\end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Danach muss der Proxy gesetzt werden:
+\lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Proxy Settings,captionpos=b,label={lst:patroni-proxy-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234
 # Proxy setzen
@@ -26,7 +67,7 @@ export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
     Damit das PostgreSQL-Repository eingebunden werden kann,\\
     muss dem apt-Proxy gesetzt werden.\\
     Da via \Gls{Foreman} Installiert wurde, muss dieser ausgenommen werden:
-    \lstset{style=gra_codestyle}
+\lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - apt-Proxy Settings,captionpos=b,label={lst:patroni-apt-proxy-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234
 # apt-Proxy setzen
@@ -53,22 +94,53 @@ apt update
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    \gls{etcd} wird als nächstes Installiert.\\
-    Hierzu muss zuerst das Repository von \Gls{GitHub} heruntergeladen werden:
+    Nun muss der \Gls{PostgreSQL Cluster}, Patroni, python3-etcd und python3-psycopg2 installiert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Prerequisites installieren,captionpos=b,label={lst:patroni-prerequisites-install},breaklines=true]
+apt install postgresql-16 postgresql-server-dev-16 patroni python3-etcd python3-psycopg2
+\end{lstlisting}
+    Im nächsten Schritt müssen Patroni und der \Gls{PostgreSQL Cluster} gestoppt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Stop Patroni / PostgreSQL,captionpos=b,label={lst:patroni-stop-postgresql-patroni},breaklines=true]
+systemctl stop postgresql patroni
+\end{lstlisting}
+    Anschliessend muss noch vom PostgreSQL-Verzeichnis \texttt{/usr/lib/postgresql/16/bin/} ein Symlink nach \texttt{/usr/sbin/} gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Symlink bin,captionpos=b,label={lst:patroni-symlink-bin},breaklines=true]
+ln -s /usr/lib/postgresql/16/bin/* /usr/sbin/
+\end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
+    Zu guter Letzt sollte geprüft werden, ob alle Versionen passen und am richtigen Ort sind:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Checks,captionpos=b,label={lst:patroni-checks},breaklines=true]
+which patroni
+which psql
+patroni --version
+\end{lstlisting}
+    Damit kann zum \gls{etcd} übergegangen werden.
 \end{flushleft}
 \begin{flushleft}
+    \subsubsection{\gls{etcd}}
+    Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - etcd-server konfigurieren=b,label={lst:patroni-etcd-server-config},breaklines=true]
+# nano /etc/default/etcd
+ETCD_LISTEN_PEER_URLS="http://10.0.28.16:2380"
+ETCD_LISTEN_CLIENT_URLS="http://localhost:2379,http://10.0.28.16:2379"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.0.28.16:2380"
+ETCD_INITIAL_CLUSTER="default=http://10.0.28.16:2380,"
+ETCD_ADVERTISE_CLIENT_URLS="http://10.0.28.16:2379"
+ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
+ETCD_INITIAL_CLUSTER_STATE="new"
+\end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
+    \subsubsection{Bootstrapping}
 \end{flushleft}
 \begin{flushleft}
-    \subsubsection{Installation}
-\end{flushleft}
-\begin{flushleft}
-\end{flushleft}
-\begin{flushleft}
-    \subsubsection{Konfiguration}
+    \subsubsection{HAproxy}
 \end{flushleft}
 \begin{flushleft}
 \end{flushleft}

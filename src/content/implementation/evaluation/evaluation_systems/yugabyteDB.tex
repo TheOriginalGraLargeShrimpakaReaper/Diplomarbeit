@@ -4,6 +4,15 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{yugabyteDB}
+    \paragraph{Architektur}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-evaluation-architecture}
+        \caption{YugabyteDB - Evaluationsarchitektur}
+        \label{fig:yugabytedb-evaluation-architecture}
+    \end{figure}
+    Die Architektur ist einfach.\\
+    Auf allen Worker-Nodes wird je ein \texttt{tmaster} und \texttt{tserver} Pod gestartet werden.
     \paragraph{Installation}
     Wähend der Installation des YugabyteDB Evaluations-Enviroment wurde festgestellt, das man zwei Varianten Installieren kann.
     YugabyteDB (Repository yugabyte) und YugabyteDB Anywhere (Repository yugawre):
