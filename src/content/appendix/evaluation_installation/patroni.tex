@@ -44,6 +44,7 @@ COMMIT
 systemctl restart iptables
 systemctl status iptables
 \end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
     Danach muss der Proxy gesetzt werden:
@@ -60,6 +61,7 @@ export no_proxy=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
 export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 # source /etc/profile.d/proxy.sh
 \end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
     Damit das PostgreSQL-Repository eingebunden werden kann,\\
@@ -74,6 +76,7 @@ Acauire::http::Proxy "http://sproxy.sivc.first-it.ch:8080";
 Acauire::https::Proxy "http://sproxy.sivc.first-it.ch:8080";
 Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
 \end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
     Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.\\
@@ -91,6 +94,7 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 # Ausloggen und wieder einloggen
 apt update
 \end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
     Nun muss der \Gls{PostgreSQL Cluster}, Patroni, python3-etcd und python3-psycopg2 installiert werden:
@@ -108,6 +112,7 @@ systemctl stop postgresql patroni
 \begin{lstlisting}[language=bash, caption=Patroni - Symlink bin,captionpos=b,label={lst:patroni-symlink-bin},breaklines=true]
 ln -s /usr/lib/postgresql/16/bin/* /usr/sbin/
 \end{lstlisting}
+
 \end{flushleft}
 \begin{flushleft}
     Zu guter Letzt sollte geprüft werden, ob alle Versionen passen und am richtigen Ort sind:
@@ -119,7 +124,8 @@ patroni --version
 \end{lstlisting}
     Damit kann zum \gls{etcd} übergegangen werden.
 \end{flushleft}
-\begin{flushleft}
+
+%\begin{flushleft}
     \subsubsection{etcd}
     Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
 \lstset{style=gra_codestyle}
@@ -146,10 +152,10 @@ systemctl status etcd
 etcdctl member list
 \end{lstlisting}
     Damit kann nun das Bootstrapping gestartet werden.
-\end{flushleft}
-\begin{flushleft}
+%\end{flushleft}
+%\begin{flushleft}
     \subsubsection{Bootstrapping}
-\end{flushleft}
-\begin{flushleft}
+%\end{flushleft}
+%\begin{flushleft}
     \subsubsection{HAproxy}
-\end{flushleft}
+%\end{flushleft}
