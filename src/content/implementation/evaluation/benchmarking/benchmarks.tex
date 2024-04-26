@@ -11,45 +11,23 @@
     \paragraph{Patroni}
     Als die 250GiB DB getestet wurde, zeigte sich, dass die Parameter nicht darauf optimiert waren.\\
     Die Standby-Server konnten die \texttt{WAL}-Files nicht mehr abarbeiten, so stauten sich auf dem Primary die Files und die Disk lief jeweils voll.\\
-    Es wurden demnach folgende Parameter angepasst:
-    \begin{description}
-        \item \textbf{max\_connections}\hfill \\Damit die 7000 Transaktionen sicher abgesetzt werden können.
-        \item \textbf{superuser\_reserved\_connections}\hfill \\Mindestens 10 \texttt{postgres}-Verbindungen müssen gemacht werden können.
-        \item \textbf{max\_worker\_processes}\hfill \\Damit genügend Worker vorhanden sind, um die \texttt{WAL}-Files abzuarbeiten, wurde deren Zahl auf 16 erhöht.
-        \item \textbf{wal\_log\_hints}\hfill \\Stellt sicher, dass der gesamte Diskpage-inhalt ins \texttt{WAL} geschrieben wird.
-        \item \textbf{max\_wal\_senders}\hfill \\Um den Replikations-Throughput zu erhöhen, wurden 16 Sender aktiviert
-        \item \textbf{max\_replication\_slots}\hfill \\Damit die 16 Sender auch auf der Gegenseite abgearbeitet werden,\\müssen die entsprechenden Slots bereitgestellt werden.
-        \item \textbf{wal\_keep\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu gross werden und somit auch das Replication-Lag,\\wurde die Grösse auf 1GiB reduziert.\\Das zwingt den Primary dazu, die \texttt{WAL}-Files nur bis zu Maximal 1GiB aufzubewahren bevor sie archiviert werden.\\Das ist wichtig, wenn Diskspace nicht im Überfluss vorhanden ist.
-        \item \textbf{wal\_level}\hfill \\Der Level wurde auf logical gesetzt, damit alle Informationen geschrieben werden.
-        \item \textbf{wal\_buffers}\hfill \\Der Buffer wurde auf 16MiB erhöht.
-        \item \textbf{wal\_writer\_delay}\hfill \\Wenn der WAL-Writer einen Flush durchgeführt hat, geht er in ein Timeout.\\Dies wurde auf 20ms heruntergesetzt, damit rasch wieder geschrieben wird.
-        \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writers auf die Disk geschrieben wird.\\Wurde auf 1MiB gesetzt um rasch auf die Disk schreiben zu können.
-        \item \textbf{min\_wal\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu schnell repliziert werden und die Standby-Server aber auch der Primary-Server nicht überlastet werden,\\sollen die Files mindestens 1GiB gross werden bevor sie repliziert werden.
-        \item \textbf{max\_wal\_size}\hfill \\Auf der anderen Seite soll trotzdem nicht zu lange gewartet werden,\\die maximale grösse wurde auf 5GiB begrenzt.
-        \item \textbf{commit\_delay}\hfill \\Maximal 20ms soll gewartet werden, bevor ein Transaktions-Commit geflushed wird.
-        \item \textbf{commit\_siblings}\hfill \\Maximal 10 Transktionen sollen offen bleiben, bevor es zu einem Flush kommt.
-        \item \textbf{checkpoint\_timeout}\hfill \\Die maximale Zeit zwischen den Checkpoints soll 5min betragen.
-        \item \textbf{archive\_mode}\hfill \\Um Diskspace zu sparen sollen die \texttt{WAL}-Files nicht aktiviert werden.
-        \item \textbf{checkpoint\_completion\_target}\hfill \\Ab 95\% des Checkout-Timeouts soll mit dem Abschluss begonnen werden.
-        \item \textbf{max\_standby\_archive\_delay}\hfill \\Erst nach zehn Minuten sollen die Standby-Queries abgebrochen werden.\\Ist notwendig, da es wegen der grossen Datenmenge und entsprechendem lag sonst schnell zum Abbruch kommen kann.
-        \item \textbf{max\_standby\_streaming\_delay}\hfill \\Beim normalen Standby soll die Zeit nur 3min sein.
-        \item \textbf{wal\_receiver\_status\_interval}\hfill \\Alle 60 sekunden soll der Status ausgetauscht werden.
-        \item \textbf{max\_logical\_replication\_workers}\hfill \\Acht logische Replication worker sollen zum einsatz kommen.
-        \item \textbf{max\_sync\_workers\_per\_subscription}\hfill \\Es soll die maximale Anzahl an workern (8) für das parallelisieren verwendet werden.
-        \item \textbf{shared\_buffers}\hfill \\Der gesamte Server hat 16GiB Memory, \(\frac{1}{4}\) davon soll als Buffer dienen, also 4GiB.
-        \item \textbf{maintenance\_work\_mem}\hfill \\1GiB soll zur Verfügung stehen für den \Gls{AUTOVACUUM}-Job oder Maintenance-Jobs wie das indexieren usw.
-        \item \textbf{work\_mem}\hfill \\Der ganze \Gls{PostgreSQL Cluster} soll 12GiB Memory zur Verfügung haben.
-        \item \textbf{temp\_file\_limit}\hfill \\Damit für das Erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200GiB Diskspace allokieren können.
-        \item \textbf{vacuum\_cost\_delay}\hfill \\Der \Gls{AUTOVACUUM}-Job soll maximal 2ms ruhen.
-        \item \textbf{vacuum\_cost\_limit}\hfill \\Der gesamte Prozess darf maximal zehn sekunden Schlafen.
-        \item \textbf{bgwriter\_delay}\hfill \\Der Hintergrundprozess soll nur 10ms ruhen.
-        \item \textbf{bgwriter\_lru\_maxpages}\hfill \\Maximal dürfen 800 Buffers vom Hintergrundprozess beschrieben werden.
-        \item \textbf{bgwriter\_lru\_multiplier}\hfill \\Insgesamt sollen beim nächsten Schreibzyklus 5 x soviel neue Writer erzeugt werden, wie im aktuellen Zyklus benötigt werden.
-    \end{description}
-    Mit diesen Parametern konnte die Datenmenge verarbeitet werden.
+    Es wurde an verschiedenen Stellschrauben geschraubt, etwa an der Anzahl Worker, der grösse der \texttt{WAL}-Files und anderen.\\
+    Mit den anpassungen wurde die Datenmenge gestemmt.
 \end{flushleft}
 \begin{flushleft}
-
+    Filesystem und Cluster mussten beim initialiseren der letzten Benchmarks permanent überwacht werden.\\
+    Dafür wurden folgende Commands verwendet:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Benchmarking - Monitoring,captionpos=b,label={lst:benchmarking_patroni_monitoring},breaklines=true]
+watch --interval=30 df -h --human-readable
+watch --interval=30 du -h --human-readable /srv/data/
+watch --interval=30 patronictl -c /etc/patroni/config.yml list
+\end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Alle Benchmarking-Commands und SQLs zur ermittlung der grösse sind im \hyperref[subsec:patroni_benchmarking_commands]{Anhang - Patroni Benchmarking Commands} zu finden.
+\end{flushleft}
+\begin{flushleft}
     \paragraph{StackGres - Citus}
     Beim Benchmarking zeigten sich die Grenzen des Citus Shardings.\\
     Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde\cite{6CJFR7RM}.\\

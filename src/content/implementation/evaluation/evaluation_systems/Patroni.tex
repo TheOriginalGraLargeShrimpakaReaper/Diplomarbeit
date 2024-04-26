@@ -95,3 +95,12 @@ patronictl -c /etc/patroni/config.yml edit-config --apply - --force <<'JSON'
 JSON
 \end{lstlisting}
 \end{flushleft}
+\begin{flushleft}
+    Die Vergrösserung der Disks hat nur einen begrenzten Impact.\\
+    Lediglich das Verzeichnis \texttt{pg\_wal}, welches die \texttt{WAL}-Files aufnimmt, muss angepasst werden.\\
+    Um die Umstellung ohne Reinstallation durchführen zu können, muss mit symlinks gearbeitet werden.\\
+    Die Daten können via Tablespace auf die grösseren mounts gesetzt werden.\\
+\end{flushleft}
+\begin{flushleft}
+    Die vollständige Dokumentation der Evaluationsinstallation ist im \hyperref[subsec:evaluation_installation_patroni]{Anhang - Installation Patroni} zu finden.
+\end{flushleft}

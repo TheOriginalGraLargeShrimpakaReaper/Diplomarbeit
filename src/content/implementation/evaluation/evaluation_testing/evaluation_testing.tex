@@ -10,6 +10,47 @@
     Patroni funktionierte wie gewollt.\\
     Da kein Connection Pooler auf dem Proxy-Host installiert wurde, kam nicht alles erfüllt werden.\\
     Wichtig dazu ist zu sagen, dass die REST-API und das Command vollständig funktioniert.\\
+    Ein Switchover wurde mit folgendem Command ausgeführt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Testing - Switchover,captionpos=b,label={lst:testing_patroni_switchover},breaklines=true]
+root@sks1234:~# patronictl -c /etc/patroni/config.yml switchover
+Current cluster topology
++ Cluster: postgres (7357340759952276373) +-----------+----+-----------+
+| Member     | Host        | Role         | State     | TL | Lag in MB |
++------------+-------------+--------------+-----------+----+-----------+
+| postgres01 | 10.0.20.110 | Leader       | running   |  3 |           |
+| postgres02 | 10.0.20.111 | Sync Standby | streaming |  3 |         0 |
+| postgres03 | 10.0.20.112 | Sync Standby | streaming |  3 |         0 |
++------------+-------------+--------------+-----------+----+-----------+
+Primary [postgres01]:
+Candidate ['postgres02', 'postgres03'] []: postgres02
+When should the switchover take place (e.g. 2024-04-26T16:08 )  [now]: now
+Are you sure you want to switchover cluster postgres, demoting current leader postgres01? [y/N]: y
+2024-04-26 15:09:02.68997 Successfully switched over to "postgres02"
++ Cluster: postgres (7357340759952276373) -----+----+-----------+
+| Member     | Host        | Role    | State   | TL | Lag in MB |
++------------+-------------+---------+---------+----+-----------+
+| postgres01 | 10.0.20.110 | Replica | stopped |    |   unknown |
+| postgres02 | 10.0.20.111 | Leader  | running |  3 |           |
+| postgres03 | 10.0.20.112 | Replica | running |  3 |         0 |
++------------+-------------+---------+---------+----+-----------+
+\end{lstlisting}
+    Ein gestoppter Node wurde wie folgt wieder neu aufgebaut:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - Testing - Reinit,captionpos=b,label={lst:testing_patroni_reinit},breaklines=true]
+root@sks1234:~# patronictl -c /etc/patroni/config.yml reinit postgres
++ Cluster: postgres (7357340759952276373) +-----------+----+-----------+
+| Member     | Host        | Role         | State     | TL | Lag in MB |
++------------+-------------+--------------+-----------+----+-----------+
+| postgres01 | 10.0.20.110 | Sync Standby | streaming |  4 |         0 |
+| postgres02 | 10.0.20.111 | Leader       | running   |  4 |           |
+| postgres03 | 10.0.20.112 | Sync Standby | streaming |  4 |         0 |
++------------+-------------+--------------+-----------+----+-----------+
+Which member do you want to reinitialize [postgres03, postgres01]? []: postgres01
+Are you sure you want to reinitialize members postgres01? [y/N]: y
+Success: reinitialize for member postgres01
+\end{lstlisting}
+    Das vollständige ergebnis:
     \input{content/latex_tables/evaluation_tests_patroni}
 \end{flushleft}
 \begin{flushleft}

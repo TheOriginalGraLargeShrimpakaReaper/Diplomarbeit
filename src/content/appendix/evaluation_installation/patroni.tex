@@ -585,4 +585,436 @@ Es sollte nun so aussehen:
     \label{fig:haproxy-webgui}
 \end{figure}
 
-\subsubsection{Installation - 250GiB}
+\subsubsection{Rekonfiguration mit 250GiB Storage}
+Sobald die neue Disk im \Gls{VMware vSphere} erfasst wurde, muss die Disk auf den Servern gemountet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB Disk mount,captionpos=b,label={lst:patroni_250gib_disk_mount},breaklines=true]
+echo "- - -" | tee /sys/class/scsi_host/host*/scan && lsblk
+
+fdisk /dev/sdb
+	n -> all default values
+	t -> 8e
+	p -> Kontrolle
+	w
+
+pvcreate /dev/sdb1 && \
+vgcreate vgdata /dev/sdb1 && \
+lvcreate -l 100%FREE -n lvdata vgdata && \
+mkfs.ext4 /dev/vgdata/lvdata && \
+mkdir -p /srv/data && \
+cp /etc/fstab /tmp/fstab.bak && \
+echo "/dev/vgdata/lvdata	/srv/data	ext4	defaults	0	0" >> /etc/fstab && \
+systemctl daemon-reload && mount -a && lsblk
+\end{lstlisting}
+
+Nun können die Verzeichnisse angelegt werden.\\
+Nebst dem Verzeichnis für die Indizes und Daten braucht es auch ein neues \texttt{pg\_wal}-Verzeichnis:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB Verzeichnisse,captionpos=b,label={lst:patroni_250gib_disk_directories},breaklines=true]
+mkdir -p /srv/data/eval_index_tablespace
+chown -R postgres:postgres /srv/data/eval_index_tablespace
+chmod 700 /srv/data/eval_index_tablespace
+
+mkdir -p /srv/data/eval_data_tablespace
+chown -R postgres:postgres /srv/data/eval_data_tablespace
+chmod 700 /srv/data/eval_data_tablespace
+
+mkdir -p /srv/data/self_healing_test_index_tablespace
+chown -R postgres:postgres /srv/data/self_healing_test_index_tablespace
+chmod 700 /srv/data/self_healing_test_index_tablespace
+
+mkdir -p /srv/data/self_healing_test_data_tablespace
+chown -R postgres:postgres /srv/data/self_healing_test_data_tablespace
+chmod 700 /srv/data/self_healing_test_data_tablespace
+
+mkdir -p /srv/data/pg_wal
+chown -R postgres:postgres /srv/data/pg_wal
+chmod 700 /srv/data/pg_wal
+\end{lstlisting}
+
+Um das \texttt{WAL}-Verzeichnis umzuhängen, muss erst die der Patroni-Cluster gestoppt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB Cluster Pause,captionpos=b,label={lst:patroni_250gib_cluster_stop},breaklines=true]
+patronictl -c /etc/patroni/config.yml pause
+\end{lstlisting}
+
+Wichtig ist, dass auch PostgreSQL gestoppt ist.\\
+Da die PostgreSQL Binaries nun im Patroni-Verzeichnis liegen und auch dort das Socket-File läuft,\\
+muss das Verzeichnis zwingend als Daten-Verzeichnisparameter (\texttt{-D}) angegeben werden,\\
+sonst wird es zu einem Socket-Fehler kommen.\\
+Zwingend ist zudem, das Command als \texttt{postgres}-User auszuführen:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB PostgreSQL stoppen,captionpos=b,label={lst:patroni_250gib_stop_postgresql},breaklines=true]
+sudo su - postgres
+/usr/sbin/pg_ctl stop -D /var/lib/patroni/
+\end{lstlisting}
+
+Ganz wichtig ist nun, das ganze \texttt{pg\_wal}-Verzeichnis zu verschieben.\\
+So das die \texttt{WAL}-Files kopiert werden.\\
+Da ein symlink gezogen wird, muss das bestehende Verzeichnis garantiert gelöscht sein:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB move pg\_wal,captionpos=b,label={lst:patroni_250gib_move_pg_wal},breaklines=true]
+mv /var/lib/patroni/pg_wal/* /srv/data/pg_wal
+ln -s /srv/data/pg_wal /var/lib/patroni/pg_wal
+ls -l /var/lib/patroni/pg_wal
+\end{lstlisting}
+
+Die Berechtigung muss anschliessend wieder mit root-Rechten gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB chmod - chown pg\_wal,captionpos=b,label={lst:patroni_250gib_chmod_chown_pg_wal},breaklines=true]
+chown -R postgres:postgres /var/lib/patroni/pg_wal
+chmod 700 /var/lib/patroni/pg_wal
+\end{lstlisting}
+
+Jetzt muss erst PostgreSQL wieder gestartet werden.\\
+Wenn alle Datenbanken auf allen Patroni-Nodes wieder lauffähig sind, kann der Cluster wieder aktiviert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB PostgreSQL - Patroni resume,captionpos=b,label={lst:patroni_250gib_postgresql_patroni_resume},breaklines=true]
+/usr/sbin/pg_ctl start -D /var/lib/patroni/
+patronictl -c /etc/patroni/config.yml resume
+\end{lstlisting}
+
+Zum Schluss sollte noch zwingend geprüft werden, ob der Cluster funktionsfähig ist:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB Finaler Check,captionpos=b,label={lst:patroni_250gib_final_check},breaklines=true]
+patronictl -c /etc/patroni/config.yml list
+\end{lstlisting}
+
+Wenn Patroni nun wieder einsatzfähig ist, müssen noch die optimierten Parameter gesetzt werden.\\
+Folgende Parameter wurden gesetzt:\\
+\begin{description}
+    \item \textbf{max\_connections}\hfill \\Damit die 7000 Transaktionen sicher abgesetzt werden können.
+    \item \textbf{superuser\_reserved\_connections}\hfill \\Mindestens 10 \texttt{postgres}-Verbindungen müssen gemacht werden können.
+    \item \textbf{max\_worker\_processes}\hfill \\Damit genügend Worker vorhanden sind, um die \texttt{WAL}-Files abzuarbeiten, wurde deren Zahl auf 16 erhöht.
+    \item \textbf{wal\_log\_hints}\hfill \\Stellt sicher, dass der gesamte Diskpage-inhalt ins \texttt{WAL} geschrieben wird.
+    \item \textbf{max\_wal\_senders}\hfill \\Um den Replikations-Throughput zu erhöhen, wurden 16 Sender aktiviert
+    \item \textbf{max\_replication\_slots}\hfill \\Damit die 16 Sender auch auf der Gegenseite abgearbeitet werden,\\müssen die entsprechenden Slots bereitgestellt werden.
+    \item \textbf{wal\_keep\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu gross werden und somit auch das Replication-Lag,\\wurde die Grösse auf 1GiB reduziert.\\Das zwingt den Primary dazu, die \texttt{WAL}-Files nur bis zu Maximal 1GiB aufzubewahren bevor sie archiviert werden.\\Das ist wichtig, wenn Diskspace nicht im Überfluss vorhanden ist.
+    \item \textbf{wal\_level}\hfill \\Der Level wurde auf logical gesetzt, damit alle Informationen geschrieben werden.
+    \item \textbf{wal\_buffers}\hfill \\Der Buffer wurde auf 16MiB erhöht.
+    \item \textbf{wal\_writer\_delay}\hfill \\Wenn der WAL-Writer einen Flush durchgeführt hat, geht er in ein Timeout.\\Dies wurde auf 20ms heruntergesetzt, damit rasch wieder geschrieben wird.
+    \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writers auf die Disk geschrieben wird.\\Wurde auf 1MiB gesetzt um rasch auf die Disk schreiben zu können.
+    \item \textbf{min\_wal\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu schnell repliziert werden und die Standby-Server aber auch der Primary-Server nicht überlastet werden,\\sollen die Files mindestens 1GiB gross werden bevor sie repliziert werden.
+    \item \textbf{max\_wal\_size}\hfill \\Auf der anderen Seite soll trotzdem nicht zu lange gewartet werden,\\die maximale grösse wurde auf 5GiB begrenzt.
+    \item \textbf{commit\_delay}\hfill \\Maximal 20ms soll gewartet werden, bevor ein Transaktions-Commit geflushed wird.
+    \item \textbf{commit\_siblings}\hfill \\Maximal 10 Transktionen sollen offen bleiben, bevor es zu einem Flush kommt.
+    \item \textbf{checkpoint\_timeout}\hfill \\Die maximale Zeit zwischen den Checkpoints soll 5min betragen.
+    \item \textbf{archive\_mode}\hfill \\Um Diskspace zu sparen sollen die \texttt{WAL}-Files nicht aktiviert werden.
+    \item \textbf{checkpoint\_completion\_target}\hfill \\Ab 95\% des Checkout-Timeouts soll mit dem Abschluss begonnen werden.
+    \item \textbf{max\_standby\_archive\_delay}\hfill \\Erst nach zehn Minuten sollen die Standby-Queries abgebrochen werden.\\Ist notwendig, da es wegen der grossen Datenmenge und entsprechendem lag sonst schnell zum Abbruch kommen kann.
+    \item \textbf{max\_standby\_streaming\_delay}\hfill \\Beim normalen Standby soll die Zeit nur 3min sein.
+    \item \textbf{wal\_receiver\_status\_interval}\hfill \\Alle 60 sekunden soll der Status ausgetauscht werden.
+    \item \textbf{max\_logical\_replication\_workers}\hfill \\Acht logische Replication worker sollen zum einsatz kommen.
+    \item \textbf{max\_sync\_workers\_per\_subscription}\hfill \\Es soll die maximale Anzahl an workern (8) für das parallelisieren verwendet werden.
+    \item \textbf{shared\_buffers}\hfill \\Der gesamte Server hat 16GiB Memory, \(\frac{1}{4}\) davon soll als Buffer dienen, also 4GiB.
+    \item \textbf{maintenance\_work\_mem}\hfill \\1GiB soll zur Verfügung stehen für den \Gls{AUTOVACUUM}-Job oder Maintenance-Jobs wie das indexieren usw.
+    \item \textbf{work\_mem}\hfill \\Der ganze \Gls{PostgreSQL Cluster} soll 12GiB Memory zur Verfügung haben.
+    \item \textbf{temp\_file\_limit}\hfill \\Damit für das Erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200GiB Diskspace allokieren können.
+    \item \textbf{vacuum\_cost\_delay}\hfill \\Der \Gls{AUTOVACUUM}-Job soll maximal 2ms ruhen.
+    \item \textbf{vacuum\_cost\_limit}\hfill \\Der gesamte Prozess darf maximal zehn sekunden Schlafen.
+    \item \textbf{bgwriter\_delay}\hfill \\Der Hintergrundprozess soll nur 10ms ruhen.
+    \item \textbf{bgwriter\_lru\_maxpages}\hfill \\Maximal dürfen 800 Buffers vom Hintergrundprozess beschrieben werden.
+    \item \textbf{bgwriter\_lru\_multiplier}\hfill \\Insgesamt sollen beim nächsten Schreibzyklus 5 x soviel neue Writer erzeugt werden, wie im aktuellen Zyklus benötigt werden.
+\end{description}
+
+Entsprechend auch hier mittels \texttt{patronictl}:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni - 250GiB set Parameter,captionpos=b,label={lst:patroni_250gib_set_parameter},breaklines=true]
+patronictl -c /etc/patroni/config.yml edit-config --apply - --force <<'JSON'
+{
+ synchronous_mode: "on",
+ synchronous_mode_strict: "on",
+ synchronous_node_count: 2,
+ "postgresql":
+   {
+   "parameters":{
+     "synchronous_commit": "on",
+     "synchronous_standby_names": "*",
+     "max_connections": 1100,
+     "superuser_reserved_connections":10,
+     "max_worker_processes": 16,
+     "wal_log_hints": "on",
+     "max_wal_senders": 32,
+     "max_replication_slots": 32,
+     "wal_keep_size": "1GB",
+     "wal_level": "logical",
+     "wal_buffers": "16MB",
+     "wal_writer_delay": "20ms",
+     "wal_writer_flush_after": "1MB",
+     "min_wal_size": "1GB",
+     "max_wal_size": "5GB",
+     "commit_delay": 20,
+     "commit_siblings": 10,
+     "checkpoint_timeout": "5min",
+     "checkpoint_completion_target": 0.95,
+     "archive_mode": "off",
+     "max_standby_archive_delay": "10min",
+     "max_standby_streaming_delay": "3min",
+     "wal_receiver_status_interval": "1s",
+     "hot_standby_feedback": "on",
+     "wal_receiver_timeout": "60s",
+     "max_logical_replication_workers": 8,
+     "max_sync_workers_per_subscription": 8,
+     "shared_buffers": "4GB",
+     "maintenance_work_mem": "1GB",
+     "work_mem": "12GB",
+     "temp_file_limit": "200GB",
+     "vacuum_cost_delay": "2ms",
+     "vacuum_cost_limit": 10000,
+     "bgwriter_delay": "10ms",
+     "bgwriter_lru_maxpages": 800,
+     "bgwriter_lru_multiplier": "5.0"
+   }
+  }
+}
+JSON
+\end{lstlisting}
+\subsubsection{SQL Statements - Benchmarking}
+\label{subsubsec:patroni_benchmarking_sql}
+Für das Benchmarking wird die Tabelle \texttt{pgbench\_eval\_bench} erstellt.\\
+Zudem wird je ein Tablespace für die Indizes (\texttt{eval\_index\_tablespace}) und Daten (\texttt{eval\_data\_tablespace}) erstellt.\\
+Dies muss aber zweimal gemacht werden, einmal für die normalen Benchmarks und einmal mit den grossen Volumes:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Benchmarking - DB erstellen,captionpos=b,label={lst:patroni-benchmarking-create-db},breaklines=true]
+--  Datenbank pgbench_eval_bench erstellen
+drop database if exists pgbench_eval_bench;
+create database pgbench_eval_bench;
+
+--  Tablespace für Indices
+drop tablespace if exists eval_index_tablespace;
+CREATE TABLESPACE eval_index_tablespace owner postgres location '/var/lib/patroni/eval_index_tablespace';
+
+--  Genereller Tablespace erstellen
+drop tablespace if exists eval_data_tablespace;
+CREATE TABLESPACE eval_data_tablespace owner postgres location '/var/lib/patroni/eval_data_tablespace';
+\end{lstlisting}
+
+Wird auf die grossen Volumes gewechselt, müssen vorher die Tabellen bereinigt und gelöscht werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Benchmarking - DB Cleanup,captionpos=b,label={lst:patroni-benchmarking-cleanup},breaklines=true]
+--  Daten löschen
+truncate table pgbench_accounts;
+truncate table pgbench_tellers;
+truncate table pgbench_history;
+truncate table pgbench_branches;
+
+--  Tabellen löschen
+drop table pgbench_accounts;
+drop table pgbench_tellers;
+drop table pgbench_history;
+drop table pgbench_branches;
+\end{lstlisting}
+
+Anschliessend werden die neuen Tablespaces erzeugt:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Benchmarking - Tablespaces erneut erstellen,captionpos=b,label={lst:patroni-benchmarking-recreate-tablespaces},breaklines=true]
+--  Tablespace für Indices
+drop tablespace if exists eval_index_tablespace;
+CREATE TABLESPACE eval_index_tablespace owner postgres location '/srv/data/eval_index_tablespace';
+
+--  Genereller Tablespace erstellen
+drop tablespace if exists eval_data_tablespace;
+CREATE TABLESPACE eval_data_tablespace owner postgres location '/srv/data/eval_data_tablespace';
+\end{lstlisting}
+\subsubsection{SQL Statements - Testing}
+Entsprechend dem ERD, müssen die Tabellen erstellt werden:
+\hyperref[subsubsec:erd_self_healing_test]{Evaluation - ERD self\_healing\_test}
+Die Tabelle heisst entsprechend \texttt{self\_healing\_test}.
+Die Tests wurden allerdings erst gemacht, als auf die grossen Volumes gewechselt war.
+Das gesamte \texttt{CREATE}-Skript:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Self Healing Tests - CREATE-SQL,captionpos=b,label={lst:patroni-self-healing-create-sql},breaklines=true]
+--  self-healing-Tabelle
+drop table if exists self_healing_test;
+create database self_healing_test;
+
+--  Tablespace für Indices
+drop tablespace if exists self_healing_indices_tablespace;
+CREATE TABLESPACE self_healing_indices_tablespace owner postgres location '/srv/data/self_healing_test_index_tablespace';
+
+--  Genereller Tablespace erstellen
+drop tablespace if exists self_healing_datas_tablespace;
+CREATE TABLESPACE self_healing_datas_tablespace owner postgres location '/srv/data/self_healing_test_data_tablespace';
+
+--  Rollen erstellen
+drop role if exists hrm;
+create role hrm;
+drop role if exists accountands;
+create role accountands;
+drop role if exists customer_service_officers;
+create role customer_service_officers;
+drop role if exists legal_affairs;
+create role legal_affairs;
+
+--  User erstellen
+drop user if exists hrm_1;
+drop user if exists hrm_2;
+create user hrm_1 with password 'hrm1' role hrm;
+create user hrm_2 with password 'hrm2' role hrm;
+
+drop user if exists cso_1;
+drop user if exists cso_2;
+create user cso_1 with password 'cso1'role customer_service_officers;
+create user cso_2 with password 'cso2' role customer_service_officers;
+
+drop user if exists la_1;
+drop user if exists la_2;
+create user la_1 with password 'la1' role legal_affairs;
+create user la_2 with password 'la2' role legal_affairs;
+
+--  Schemas erstellen
+drop schema if exists hrm;
+create schema hrm authorization hrm;
+drop schema if exists accountands;
+create schema accountands authorization accountands;
+drop schema if exists customer_service_officers;
+create schema customer_service_officers authorization customer_service_officers;
+drop schema if exists generell;
+create schema generell;
+
+--  GRANTS erstellen
+grant all on all tables in schema hrm to legal_affairs;
+grant all on all tables in schema accountands to legal_affairs;
+grant all on all tables in schema customer_service_officers to legal_affairs;
+grant all on all tables in schema generell to legal_affairs;
+grant all on all tables in schema hrm to postgres;
+grant all on all tables in schema accountands to postgres;
+grant all on all tables in schema customer_service_officers to postgres;
+grant all on all tables in schema generell to postgres;
+
+ -- self_healing_accounts für Schema customer_service_officers
+drop table if exists customer_service_officers.self_healing_accounts;
+create table customer_service_officers.self_healing_accounts (
+    account_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+) tablespace self_healing_datas_tablespace;
+create unique index accounts_personal_mark on customer_service_officers.self_healing_accounts(firstname, lastname, birthday) tablespace self_healing_indices_tablespace;
+
+--  self_healing_employees für Schema hrm
+drop table if exists hrm.self_healing_employees;
+create table hrm.self_healing_employees (
+    employees_id int primary key,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    birthday date not null,
+    postal_code varchar(50),
+    street varchar(255),
+    country_code varchar(2),
+    phone varchar(25),
+    mail varchar(255) check (mail like '%@%')
+) tablespace self_healing_datas_tablespace;
+create unique index employees_personal_mark on hrm.self_healing_employees(firstname, lastname, birthday) tablespace self_healing_indices_tablespace;
+
+--  self_healing_accountand_protocol für Schema accountands
+drop table if exists accountands.self_healing_accountand_protocol;
+create table accountands.self_healing_accountand_protocol (
+       acc_protocol_id int primary key,
+       description varchar(100) not null,
+       protocol_date date not null,
+       employees_id int not null,
+       rapport TEXT,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+) tablespace self_healing_datas_tablespace;
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet;
+create table generell.self_healing_intranet (
+       intranet_id int primary key,
+       content text
+) tablespace self_healing_datas_tablespace;
+
+--  self_healing_intranet für public Schema
+drop table if exists generell.self_healing_intranet_users;
+create table generell.self_healing_intranet_users (
+       intranet_user_id int primary key,
+       employees_id int not null,
+       foreign key (employees_id) references hrm.self_healing_employees(employees_id) on update restrict on delete restrict
+) tablespace self_healing_datas_tablespace;
+create unique index intranet_unique_combi on generell.self_healing_intranet_users(intranet_user_id, employees_id) tablespace self_healing_indices_tablespace;
+\end{lstlisting}
+
+Es sollen aber auch gleich Daten initial geschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Self Healing Tests - Init Data,captionpos=b,label={lst:patroni-self-healing-init-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (100, 'a', 'b', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (200, 'c', 'd', '01.01.2000');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (300, 'f', 'g', '01.01.2000');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (100, 'bla', '07.04.2024', 100, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (200, 'yada', '07.04.2024', 100, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (300, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (100, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (500, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (1000, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(100, 100);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(200, 200);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(300, 300);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Während dem Failover-Test müssen Daten beschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Self Healing Tests - Failover Data,captionpos=b,label={lst:patroni-self-healing-failover-data},breaklines=true]
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (500, 'k', 'l', '01.01.2003');
+insert into hrm.self_healing_employees (employees_id, firstname, lastname, birthday) VALUES (600, 'm', 'n', '01.01.2001');
+
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (400, 'bla', '07.04.2024', 200, 'blabla');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (500, 'yada', '07.04.2024', 600, 'ydayadyada');
+insert into accountands.self_healing_accountand_protocol (acc_protocol_id, description, protocol_date, employees_id, rapport)  values (1000, 'something', '07.04.2024', 300, 'something');
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (200, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (600, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (900, 'talking and talking');
+
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(400, 400);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(500, 500);
+insert into generell.self_healing_intranet_users(intranet_user_id, employees_id) values(600, 600);
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
+
+Nach dem Recovery müssen die Daten entsprechend vorhanden sein und es müssen weitere Daten beschrieben werden können:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=Patroni - Self Healing Tests - Recovery Data,captionpos=b,label={lst:patroni-self-healing-recovery-data},breaklines=true]
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (700, 'yadada');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (800, 'bla bla');
+insert into generell.self_healing_intranet(intranet_id, content) VALUES (1100, 'talking and talking');
+
+select * from customer_service_officers.self_healing_accounts;
+select * from hrm.self_healing_employees;
+select * from accountands.self_healing_accountand_protocol;
+select * from generell.self_healing_intranet;
+select * from generell.self_healing_intranet_users;
+\end{lstlisting}
