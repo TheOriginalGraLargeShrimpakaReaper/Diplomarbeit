@@ -13,5 +13,6 @@ y-axis-line-pos: 80
 y-axis-line-label: "Punkte-Minimum"
 y-axis-line-type: "--"
 y-axis-line-color: "green"
-title: "Kosten-Nutzen-Diagramm Beispiel"
+#title: "Kosten-Nutzen-Diagramm Beispiel"
+title: "Kosten-Nutzen-Diagramm"
 

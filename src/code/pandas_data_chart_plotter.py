@@ -96,6 +96,9 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
         # margins (subtotals)
         margin = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('margins').get('margin')
         margin_name = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('margins').get('margin_name')
+        margin_column = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('margins').get('margin_column')
+        non_pivot_margin_column = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('margins').get('non_pivot_margin_column')
+        non_pivot_margin_function = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('margins').get('non_pivot_margin_function')
 
         # chart settings
         chart = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-kind')
@@ -186,7 +189,26 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
                     case 'diff':
                         panda_table_data[column_ops] = panda_table_data[operation_columns[1]] - panda_table_data[operation_columns[0]]
 
+        if (margin and non_pivot_margin_column and non_pivot_margin_function and not (pivot_table_column or pivot_table_value or pivot_table_indizes)):
+            match non_pivot_margin_function:
+                case 'max':
+                    panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].max())
+                case 'min':
+                    panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].min())
+                case 'head':
+                    panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].head())
+                case 'sum':
+                    sum = panda_table_data[non_pivot_margin_column].sum()
+                    sum.name = margin_name
+                    # sum = sum.reset_index()
+                    # panda_table_data = panda_table_data.append(sum.transpose())
+                    # panda_table_data = pd.concat([panda_table_data, pd.DataFrame([sum])])
 
+                    # panda_table_data = pd.concat([panda_table_data, pd.DataFrame([sum])])
+                    # panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].sum())
+                    panda_table_data.loc[margin_name] = panda_table_data[non_pivot_margin_column].sum()
+                case 'mean':
+                    panda_table_data = panda_table_data.append(panda_table_data[non_pivot_margin_column].mean())
 
         # Drop unused columns
         if drop_columns and drop_columns_after_operations:
@@ -209,6 +231,8 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
         # rename indices
         if pivot_table_rename_indizes:
             panda_table_data = panda_table_data.rename_axis(index=pivot_table_rename_indizes)
+
+
 
         #   Plotter
         #   Plotter Process starts here!

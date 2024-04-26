@@ -85,6 +85,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   db_inventory_per_rdbms:
     id: "db_inventory_per_rdbms"
     startpath: "parentdir"
@@ -156,6 +159,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   db_inventory_per_os:
     id: "db_inventory_per_os"
     separator: ","
@@ -242,6 +248,9 @@ panda_diagram_plotter:
     margins:
      margin: False
      margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
   projektcontrolling:
     id: "projektcontrolling"
     separator: ";"
@@ -318,6 +327,9 @@ panda_diagram_plotter:
     margins:
      margin: False
      margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
   time_investment:
     id: "time_investment"
     startpath: "parentdir"
@@ -377,8 +389,15 @@ panda_diagram_plotter:
       sort_acending: True
       sort_inplace: True
     margins:
-      margin: False
-      margin_name:
+     margin: True
+     margin_name: "Totaler Zeitaufwand"
+     margin_column: "Subphase"
+     non_pivot_margin_column:
+      - "Patroni - vanilla"
+      - "Patroni - postgresql-cluster"
+      - "StackGres - Citus"
+      - "YugabyteDB"
+     non_pivot_margin_function: "sum"
   cost_investment:
     id: "cost_investment"
     startpath: "parentdir"
@@ -438,8 +457,15 @@ panda_diagram_plotter:
       sort_acending: True
       sort_inplace: True
     margins:
-      margin: False
-      margin_name:
+     margin: True
+     margin_name: "Totaler Zeitaufwand"
+     margin_column: "Subphase"
+     non_pivot_margin_column:
+      - "Patroni - vanilla"
+      - "Patroni - postgresql-cluster"
+      - "StackGres - Citus"
+      - "YugabyteDB"
+     non_pivot_margin_function: "sum"
   benchmarking_tps_evaluation_mixed:
     id: "benchmarking_tps_evaluation_mixed"
     startpath: "parentdir"
@@ -635,6 +661,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_tps_evaluation_dql:
     id: "benchmarking_tps_evaluation_dql"
     startpath: "parentdir"
@@ -832,6 +861,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_latency_evaluation_mixed:
     id: "benchmarking_latency_evaluation_mixed"
     startpath: "parentdir"
@@ -1027,6 +1059,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_latency_evaluation_dql:
     id: "benchmarking_latency_evaluation_dql"
     startpath: "parentdir"
@@ -1222,6 +1257,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_used_table_space:
     id: "benchmarking_used_table_space"
     startpath: "parentdir"
@@ -1291,6 +1329,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_row_counts:
     id: "benchmarking_row_counts"
     startpath: "parentdir"
@@ -1360,6 +1401,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_pgbench_evaluation_errors_abs:
     id: "benchmarking_pgbench_evaluation_errors"
     startpath: "parentdir"
@@ -1570,6 +1614,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_pgbench_evaluation_errors_per:
     id: "benchmarking_pgbench_evaluation_errors_per"
     startpath: "parentdir"
@@ -1780,6 +1827,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_initializing_time_sec:
     id: "benchmarking_initializing_time_sec"
     startpath: "parentdir"
@@ -1854,6 +1904,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_initializing_time_min:
     id: "benchmarking_initializing_time_min"
     startpath: "parentdir"
@@ -1928,6 +1981,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_initializing_time_hour:
     id: "benchmarking_initializing_time_hour"
     startpath: "parentdir"
@@ -2002,6 +2058,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_patroni_tps_evaluation_mixed:
     id: "benchmarking_patroni_tps_evaluation_mixed"
     startpath: "parentdir"
@@ -2129,6 +2188,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_patroni_tps_evaluation_dql:
     id: "benchmarking_patroni_tps_evaluation_dql"
     startpath: "parentdir"
@@ -2256,6 +2318,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_patroni_latency_evaluation_mixed:
     id: "benchmarking_patroni_latency_evaluation_mixed"
     startpath: "parentdir"
@@ -2383,6 +2448,9 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
   benchmarking_patroni_latency_evaluation_dql:
     id: "benchmarking_patroni_latency_evaluation_dql"
     startpath: "parentdir"
@@ -2510,4 +2578,7 @@ panda_diagram_plotter:
     margins:
       margin: False
       margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
 
