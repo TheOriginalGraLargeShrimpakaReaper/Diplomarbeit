@@ -55,6 +55,25 @@ etcd3:
 %    \textlarger{\textit{\say{Im Zweifelsfall die Komplexität herausnehmen und das ganze System so weit vereinfachen, bis es funktioniert}}}
 \end{flushleft}
 \begin{flushleft}
+    Passwörter können mit dem Bootstrap mitgegeben werden.\\
+    Dazu muss im \texttt{postgresql}-Segment das Subsegment \texttt{authentication} erstellt werden.\\
+    Der Replikationsuser muss mit einem subsegment \texttt{replication} und der postgres-User mit \texttt{superuser} angegeben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Patroni - Passwörter,captionpos=b,label={lst:patroni_passwords},breaklines=true]
+...
+postgresql:
+    ...
+    authentication:
+        replication:
+            username: replicator
+            password: <password>
+        superuser:
+            username: postgres
+            password: <password>
+...
+\end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
     Zuerst lief der Cluster nur Asynchron, auch die ersten beiden Benchmarks wurden so ausgeführt.\\
     Der Cluster lässt sich nämlich nicht Synchron Bootstrapen, die Konfiguration muss nachträglich gemacht werden.\\
     Dazu kann ein JSON mit den geänderten Konfiguration übergeben werden, in dieser Konfiguration musste dabei das yml-File mit der Konfiguration angegeben werden:

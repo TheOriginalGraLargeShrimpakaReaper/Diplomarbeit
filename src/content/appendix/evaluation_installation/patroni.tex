@@ -73,7 +73,7 @@ Acauire::https::Proxy "http://sproxy.sivc.first-it.ch:8080";
 Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
 \end{lstlisting}
 
-Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.\\
+Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.
 \begin{warning}
 Achtung, die von PostgreSQL beschriebene Variante wurde in Debian 10 als Deprecated gesetzt,
 mit Debian 13 wird diese Repository-Integration einen Fehler werden.
@@ -117,10 +117,18 @@ patroni --version
 \end{lstlisting}
 Damit kann zum \gls{etcd} übergegangen werden.
 
-\subsubsection{Installation \gls{etcd}}
+\subsubsection{Installation etcd}
 Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Patroni - etcd-server konfigurieren=b,label={lst:patroni-etcd-server-config},breaklines=true]
+\begin{lstlisting}[language=bash, caption=etcd - Installation,captionpos=b,label={lst:etcd_install},breaklines=true]
+apt update
+apt install etcd-server
+\end{lstlisting}
+
+Die Konfiguration ist simpel.\\
+Die IP muss gesetzt werden, ein Listener auf Localhost und IP gesetzt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=etcd - Konfiguration,captionpos=b,label={lst:etcd_configuration},breaklines=true]
 # nano /etc/default/etcd
 ETCD_LISTEN_PEER_URLS="http://10.0.28.16:2380"
 ETCD_LISTEN_CLIENT_URLS="http://localhost:2379,http://10.0.28.16:2379"
@@ -131,20 +139,450 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 ETCD_INITIAL_CLUSTER_STATE="new"
 \end{lstlisting}
 
-Der Service sollte rebooted werden und seine lauffähigkeit getestet werden:
+Der Service sollte neu gestartet und seine lauffähigkeit getestet werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Patroni - etcd-server reboot=b,label={lst:patroni-etcd-server-reboot},breaklines=true]
+\begin{lstlisting}[language=bash, caption=etcd - restart,captionpos=b,label={lst:etcd_restart},breaklines=true]
 systemctl restart etcd
 systemctl is-enabled etcd
 systemctl status etcd
 \end{lstlisting}
+
 Es sollte nun ein Member gelistet werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Patroni - etcd-server list menber=b,label={lst:patroni-etcd-server-list-member},breaklines=true]
+\begin{lstlisting}[language=bash, caption=etcd - member list,captionpos=b,label={lst:etcd_member_list},breaklines=true]
 etcdctl member list
 \end{lstlisting}
+
 Damit kann nun das Bootstrapping gestartet werden.
 
 \subsubsection{Bootstrapping}
-Zuerst müssen
+Zuerst müssen die yml-Konfigurationen gesetzt werden.\\
+Am besten wird das bestehende File jeweils gelöscht:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni Bootstrap - Konfiguration bereinigen,captionpos=b,label={lst:patroni-bootstrap-cleanup-yml},breaklines=true]
+rm /etc/patroni/config.yml
+nano /etc/patroni/config.yml
+\end{lstlisting}
+
+Die yml-Files sehen wie folgt aus:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Patroni - Konfiguration - sks1232,captionpos=b,label={lst:sks1232_patroni.yml},breaklines=true]
+# Scope of PostgreSQL
+scope: postgres
+# Namespace for the PostgreSQL database
+namespace: /db/
+# Name of the PostgreSQL instance
+name: postgres01
+# Patroni REST API Configuration
+restapi:
+    # The IP address and port on which the REST API should listen
+    listen: 10.0.20.110:8008
+
+    # The IP address and port to which clients should connect
+    connect_address: 10.0.20.110:8008
+# Patroni Etcd Configuration
+etcd3:
+    # The host address and port of the Etcd server
+    host: 10.0.28.16:2379
+# Patroni Bootstrap Configuration
+bootstrap:
+    # Configuration parameters for distributed configuration store (DCS)
+    dcs:
+        ttl: 30
+        loop_wait: 10
+        retry_timeout: 10
+        maximum_lag_on_failover: 1048576
+        postgresql:
+            # Use pg_rewind during bootstrap
+            use_pg_rewind: true
+            #   Change pg_wal
+            create_replica_methods:
+                - basebackup
+            basebackup:
+                max-rate: '100M'
+                waldir: "/srv/data/pg_wal"
+    # Initdb configuration
+    # Initdb configuration
+    initdb:
+        - auth: scram-sha-256
+        - encoding: UTF8
+        - data-checksums
+    # pg_hba.conf entries for replication and general access
+    pg_hba:
+        - host replication replicator 127.0.0.1/32 scram-sha-256
+        - host replication replicator 10.0.20.110/0 scram-sha-256
+        - host replication replicator 10.0.20.111/0 scram-sha-256
+        - host replication replicator 10.0.20.112/0 scram-sha-256
+        - host all all 0.0.0.0/0 scram-sha-256
+    # Adding default user admin with password admin
+    users:
+      admin:
+          password: admin
+          options:
+              - createrole
+              - createdb
+# Patroni PostgreSQL Configuration
+postgresql:
+    # PostgreSQL server listening address and port
+    listen: 10.0.20.110:5432
+    # Connect address for PostgreSQL clients
+    connect_address: 10.0.20.110:5432
+    # Data directory for PostgreSQL
+    data_dir: /var/lib/patroni
+    # Path to the pgpass file
+    pgpass: /tmp/pgpass
+    # Authentication configuration
+    authentication:
+        # Replication of user credentials
+        replication:
+            username: replicator
+            password: replicator
+        # Superuser credentials
+        superuser:
+            username: postgres
+            password: postgres
+    # Additional PostgreSQL parameters
+    parameters:
+
+        # Directory for Unix socket
+        unix_socket_directories: '.'
+        # Password encryption method
+        password_encryption: 'scram-sha-256'
+# Patroni Tags Configuration
+tags:
+    # Prevents a node from being promoted in case of failure
+    nofailover: false
+    # Prevents the load balancer from considering this node
+    noloadbalance: false
+    # Prevents a replica from being created by cloning
+    clonefrom: false
+    # Prevents synchronous replication from being enforced
+    nosync: false
+
+\end{lstlisting}
+
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Patroni - Konfiguration - sks1233,captionpos=b,label={lst:sks1233_patroni.yml},breaklines=true]
+# Scope of PostgreSQL
+scope: postgres
+# Namespace for the PostgreSQL database
+namespace: /db/
+# Name of the PostgreSQL instance
+name: postgres02
+# Patroni REST API Configuration
+restapi:
+    # The IP address and port on which the REST API should listen
+    listen: 10.0.20.111:8008
+
+    # The IP address and port to which clients should connect
+    connect_address: 10.0.20.111:8008
+# Patroni Etcd Configuration
+etcd3:
+    # The host address and port of the Etcd server
+    host: 10.0.28.16:2379
+# Patroni Bootstrap Configuration
+bootstrap:
+    # Configuration parameters for distributed configuration store (DCS)
+    dcs:
+        ttl: 30
+        loop_wait: 10
+        retry_timeout: 10
+        maximum_lag_on_failover: 1048576
+        postgresql:
+            # Use pg_rewind during bootstrap
+            use_pg_rewind: true
+            #   Change pg_wal
+            create_replica_methods:
+                - basebackup
+            basebackup:
+                max-rate: '100M'
+                waldir: "/srv/data/pg_wal"
+    # Initdb configuration
+    # Initdb configuration
+    initdb:
+        - auth: scram-sha-256
+        - encoding: UTF8
+        - data-checksums
+    # pg_hba.conf entries for replication and general access
+    pg_hba:
+        - host replication replicator 127.0.0.1/32 scram-sha-256
+        - host replication replicator 10.0.20.110/0 scram-sha-256
+        - host replication replicator 10.0.20.111/0 scram-sha-256
+        - host replication replicator 10.0.20.112/0 scram-sha-256
+        - host all all 0.0.0.0/0 scram-sha-256
+    # Adding default user admin with password admin
+    users:
+      admin:
+          password: admin
+          options:
+              - createrole
+              - createdb
+# Patroni PostgreSQL Configuration
+postgresql:
+    # PostgreSQL server listening address and port
+    listen: 10.0.20.111:5432
+    # Connect address for PostgreSQL clients
+    connect_address: 10.0.20.111:5432
+    # Data directory for PostgreSQL
+    data_dir: /var/lib/patroni
+    # Path to the pgpass file
+    pgpass: /tmp/pgpass
+
+    # Authentication configuration
+    authentication:
+        # Replication of user credentials
+        replication:
+            username: replicator
+            password: replicator
+        # Superuser credentials
+        superuser:
+            username: postgres
+            password: postgres
+    # Additional PostgreSQL parameters
+    parameters:
+        # Directory for Unix socket
+        unix_socket_directories: '.'
+        # Password encryption method
+        password_encryption: 'scram-sha-256'
+# Patroni Tags Configuration
+tags:
+    # Prevents a node from being promoted in case of failure
+    nofailover: false
+    # Prevents the load balancer from considering this node
+    noloadbalance: false
+    # Prevents a replica from being created by cloning
+    clonefrom: false
+    # Prevents synchronous replication from being enforced
+    nosync: false
+
+\end{lstlisting}
+
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=Patroni - Konfiguration - sks1234,captionpos=b,label={lst:sks1234_patroni.yml},breaklines=true]
+# Scope of PostgreSQL
+scope: postgres
+# Namespace for the PostgreSQL database
+namespace: /db/
+# Name of the PostgreSQL instance
+name: postgres03
+# Patroni REST API Configuration
+restapi:
+    # The IP address and port on which the REST API should listen
+    listen: 10.0.20.112:8008
+
+    # The IP address and port to which clients should connect
+    connect_address: 10.0.20.112:8008
+# Patroni Etcd Configuration
+etcd3:
+    # The host address and port of the Etcd server
+    host: 10.0.28.16:2379
+# Patroni Bootstrap Configuration
+bootstrap:
+    # Configuration parameters for distributed configuration store (DCS)
+    dcs:
+        ttl: 30
+        loop_wait: 10
+        retry_timeout: 10
+        maximum_lag_on_failover: 1048576
+        postgresql:
+            # Use pg_rewind during bootstrap
+            use_pg_rewind: true
+            #   Change pg_wal
+            create_replica_methods:
+                - basebackup
+            basebackup:
+                max-rate: '100M'
+                waldir: "/srv/data/pg_wal"
+    # Initdb configuration
+    initdb:
+        - auth: scram-sha-256
+        - encoding: UTF8
+        - data-checksums
+    # pg_hba.conf entries for replication and general access
+    pg_hba:
+        - host replication replicator 127.0.0.1/32 scram-sha-256
+        - host replication replicator 10.0.20.110/0 scram-sha-256
+        - host replication replicator 10.0.20.111/0 scram-sha-256
+        - host replication replicator 10.0.20.112/0 scram-sha-256
+        - host all all 0.0.0.0/0 scram-sha-256
+    # Adding default user admin with password admin
+    users:
+      admin:
+          password: admin
+          options:
+              - createrole
+              - createdb
+# Patroni PostgreSQL Configuration
+postgresql:
+    # PostgreSQL server listening address and port
+    listen: 10.0.20.112:5432
+    # Connect address for PostgreSQL clients
+    connect_address: 10.0.20.112:5432
+    # Data directory for PostgreSQL
+    data_dir: /var/lib/patroni
+    # Path to the pgpass file
+    pgpass: /tmp/pgpass
+    # Authentication configuration
+    authentication:
+        # Replication of user credentials
+        replication:
+            username: replicator
+            password: replicator
+        # Superuser credentials
+        superuser:
+            username: postgres
+            password: postgres
+    # Additional PostgreSQL parameters
+    parameters:
+        unix_socket_directories: '.'
+        # Password encryption method
+        password_encryption: 'scram-sha-256'
+# Patroni Tags Configuration
+tags:
+    # Prevents a node from being promoted in case of failure
+    nofailover: false
+    # Prevents the load balancer from considering this node
+    noloadbalance: false
+    # Prevents a replica from being created by cloning
+    clonefrom: false
+    # Prevents synchronous replication from being enforced
+    nosync: false
+
+\end{lstlisting}
+
+Sehr wichtig ist, dass das \texttt{pg\_hba.conf}-File mitgegeben wird.\\
+Ansonsten kann nicht auf die Datenbank zugegriffen werden.\\
+Für den User \texttt{replication} müssen die IP-Adressen aller Nodes gesetzt werden.\\
+Im Evaluations-Enviroment soll zudem der Zugriff von überall mit Passwort möglich sein.\\
+Dies wird mit der letzten Zeile ermöglicht:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni Bootstrap - pg\_hba,captionpos=b,label={lst:patroni-pg_hba},breaklines=true]
+host replication replicator 127.0.0.1/32 scram-sha-256
+host replication replicator 10.0.20.110/0 scram-sha-256
+host replication replicator 10.0.20.111/0 scram-sha-256
+host replication replicator 10.0.20.112/0 scram-sha-256
+host all all 0.0.0.0/0 scram-sha-256
+\end{lstlisting}
+
+Nun muss das Verzeichnis für PostgreSQL im Patroni-Verzeichnis erstellt und berechtigt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni Bootstrap - Patroni-Verzeichnis,captionpos=b,label={lst:patroni-directory},breaklines=true]
+mkdir -p /var/lib/patroni
+chown -R postgres:postgres /var/lib/patroni
+chmod 700 /var/lib/patroni
+\end{lstlisting}
+
+Jetzt können die Dienste auf den Patroni-Servern neu gestartet werden, Patroni sollte nun lauffähig sein:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni Bootstrap - Neu starten,captionpos=b,label={lst:patroni-restart},breaklines=true]
+systemctl start patroni
+systemctl status patroni
+patronictl -c /etc/patroni/config.yml list
+\end{lstlisting}
+
+Wenn es lauffähig ist, muss noch aufgeräumt werden.\\
+Der bestehende \Gls{PostgreSQL Cluster} muss disabled werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=Patroni Bootstrap - Disable PostgreSQL,captionpos=b,label={lst:patroni-disable-postgresql},breaklines=true]
+sudo systemctl disable --now postgresql
+\end{lstlisting}
+
 \subsubsection{HAproxy}
+Final kann nun HAproxy installiert werden.\\
+Zuerst müssen die Hosts hinterlegt werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=HAproxy - Hostliste,captionpos=b,label={lst:haproxy_hostlist},breaklines=true]
+#nano /etc/hosts
+10.0.20.110    postgres01
+10.0.20.111    postgres02
+10.0.20.112    postgres03
+\end{lstlisting}
+
+Nun müssen die Repositories aktualisiert werden und HAproxy installiert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=HAproxy - Installation,captionpos=b,label={lst:haproxy_installation},breaklines=true]
+apt update
+apt install haproxy
+\end{lstlisting}
+
+Mit der Installation kommt ein Konfig-File mit.\\
+Das soll gesichert werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=HAproxy - Safe Alte Config,captionpos=b,label={lst:haproxy_safe_old_config},breaklines=true]
+mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+\end{lstlisting}
+
+Nun muss die neue Konfiguration geschrieben werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=HAproxy - Konfiguration,captionpos=b,label={lst:haproxy_config},breaklines=true]
+#nano /etc/haproxy/haproxy.cfg
+# Global configuration settings
+global
+    # Maximum connections globally
+    maxconn 100
+    # Logging settings
+    log 127.0.0.1 local2
+
+# Default settings
+defaults
+    # Global log configuration
+    log global
+    # Set mode to TCP
+    mode tcp
+    # Number of retries
+    retries 2
+    # Client timeout
+    timeout client 30m
+    # Connect timeout
+    timeout connect 4s
+    # Server timeout
+    timeout server 30m
+    # Check timeout
+    timeout check 5s
+
+# Stats configuration
+listen stats
+    # Set mode to HTTP
+    mode http
+    # Bind to port 8080
+    bind *:8080
+    # Enable stats
+    stats enable
+    # Stats URI
+    stats uri /
+
+# PostgreSQL configuration
+listen postgres
+    # Bind to port 5432
+    bind *:5432
+    # Enable HTTP check
+    option httpchk
+    # Expect status 200
+    http-check expect status 200
+    # Server settings
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    # Define PostgreSQL servers
+    server postgres01 10.0.20.110:5432 maxconn 100 check port 8008
+    server postgres02 10.0.20.111:5432 maxconn 100 check port 8008
+    server postgres03 10.0.20.112:5432 maxconn 100 check port 8008
+\end{lstlisting}
+
+Nun kann HAproxy neu gestartet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=HAproxy - Restart,captionpos=b,label={lst:haproxy_restart},breaklines=true]
+systemctl restart haproxy
+systemctl status haproxy
+\end{lstlisting}
+
+Nun kann HAproxy geöffnet werden:
+\url{http://10.0.28.16:8080/}
+
+Es sollte nun so aussehen:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/patroni/haproxy_webgui}
+    \caption{HAproxy - Web-GUI}
+    \label{fig:haproxy-webgui}
+\end{figure}
+
+\subsubsection{Installation - 250GiB}

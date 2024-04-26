@@ -77,12 +77,12 @@
 %\usepackage{minted}
 
 % Quotas
-\usepackage[
-    left = \flqq{},%
-    right = \frqq{},%
-    leftsub = \flq{},%
-    rightsub = \frq{} %
-]{dirtytalk}
+%\usepackage[
+%    left = \flqq{},%
+%    right = \frqq{},%
+%    leftsub = \flq{},%
+%    rightsub = \frq{} %
+%]{dirtytalk}
 
 \newenvironment{warning}
   {\par\begin{mdframed}[linewidth=2pt,linecolor=red]%
@@ -96,7 +96,8 @@
    top=2.13cm,
    bottom=2cm,
    textwidth=8cm,
-   marginpar=3cm}
+   marginpar=3cm
+}
 
 
 % Define yaml as new Listening
@@ -199,17 +200,17 @@
 }
 %    % Headings
 
-\fancypagestyle{lscape}{%
-    \fancyhf{} % clear all header and footer fields
-    \fancyfoot[LE]{%
-    \begin{textblock}{20}(1,5){\rotatebox{90}{\leftmark}}\end{textblock}
-    \begin{textblock}{1}(13,10.5){\rotatebox{90}{\thepage}}\end{textblock}}
-    \fancyfoot[LO] {%
-    \begin{textblock}{1}(13,10.5){\rotatebox{90}{\thepage}}\end{textblock}
-    \begin{textblock}{20}(1,13.25){\rotatebox{90}{\rightmark}}\end{textblock}}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
+%\fancypagestyle{lscape}{%
+%    \fancyhf{} % clear all header and footer fields
+%    \fancyfoot[LE]{%
+%    \begin{textblock}{20}(1,5){\rotatebox{90}{\leftmark}}\end{textblock}
+%    \begin{textblock}{1}(13,10.5){\rotatebox{90}{\thepage}}\end{textblock}}
+%    \fancyfoot[LO] {%
+%    \begin{textblock}{1}(13,10.5){\rotatebox{90}{\thepage}}\end{textblock}
+%    \begin{textblock}{20}(1,13.25){\rotatebox{90}{\rightmark}}\end{textblock}}
+%    \renewcommand{\headrulewidth}{0pt}
+%    \renewcommand{\footrulewidth}{0pt}
+%}
 
 \titleformat{\chapter}[block]{\filright\normalfont\normalsize\normalcolor\fontsize{11.5pt}{13.8pt}\selectfont\sffamily\bfseries\color[HTML]{2F5496}}{{\fontsize{12pt}{14.400001pt}\selectfont \makebox[2.5cm][l]{\thechapter}}}{0pt}{#1}[]
 \titlespacing*{\chapter}{0pt}{0.847cm plus 0.1694cm minus 0.0847cm}{0.212cm plus 0.0424cm minus 0.0212cm}
