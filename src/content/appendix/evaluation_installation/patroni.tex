@@ -1,13 +1,12 @@
-%! Author = gra
-%! Date = 05.04.24
+%! Author = gramic
+%! Date = 26.04.24
 
 % Preamble
-\begin{flushleft}
-    \subsection{Patroni}
-    \label{subsec:evaluation_installation_patroni}
-    \subsubsection{Prerequisites}
-    Ganz am Anfang steht die Firewall.\\
-    Diese muss auf allen drei Patroni-Servern wie folgt gesetzt werden:
+\subsection{Patroni}
+\label{subsec:evaluation_installation_patroni}
+\subsubsection{Prerequisites}
+Ganz am Anfang steht die Firewall.\\
+Die Rules müssen auf \texttt{sks1232}, \texttt{sks1233}, \texttt{sks1234} und \texttt{sks9016} gesetzt werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Firewall Settings,captionpos=b,label={lst:patroni-firewall-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234 / sks9016(10.0.28.16)
@@ -46,9 +45,7 @@ systemctl restart iptables
 systemctl status iptables
 \end{lstlisting}
 
-\end{flushleft}
-\begin{flushleft}
-    Danach muss der Proxy gesetzt werden:
+Danach muss der Proxy gesetzt werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Proxy Settings,captionpos=b,label={lst:patroni-proxy-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234
@@ -63,11 +60,9 @@ export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
 # source /etc/profile.d/proxy.sh
 \end{lstlisting}
 
-\end{flushleft}
-\begin{flushleft}
-    Damit das PostgreSQL-Repository eingebunden werden kann,\\
-    muss dem apt-Proxy gesetzt werden.\\
-    Da via \Gls{Foreman} Installiert wurde, muss dieser ausgenommen werden:
+Damit das PostgreSQL-Repository eingebunden werden kann,\\
+muss dem apt-Proxy gesetzt werden.\\
+Da via \Gls{Foreman} Installiert wurde, muss dieser ausgenommen werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - apt-Proxy Settings,captionpos=b,label={lst:patroni-apt-proxy-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234
@@ -78,13 +73,12 @@ Acauire::https::Proxy "http://sproxy.sivc.first-it.ch:8080";
 Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
 \end{lstlisting}
 
-\end{flushleft}
-\begin{flushleft}
-    Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.\\
-    \begin{warning}
-    Achtung, die von PostgreSQL beschriebene Variante wurde in Debian 10 als Deprecated gesetzt,
-    mit Debian 13 wird diese Repository-Integration einen Fehler werden.
-    \end{warning}
+Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.\\
+\begin{warning}
+Achtung, die von PostgreSQL beschriebene Variante wurde in Debian 10 als Deprecated gesetzt,
+mit Debian 13 wird diese Repository-Integration einen Fehler werden.
+\end{warning}
+
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - PostgreSQL einbinden,captionpos=b,label={lst:patroni-include-repository},breaklines=true]
 # sks1232 / sks1233 / sks1234
@@ -96,39 +90,35 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 apt update
 \end{lstlisting}
 
-\end{flushleft}
-\begin{flushleft}
-    Nun muss der \Gls{PostgreSQL Cluster}, Patroni, python3-etcd und python3-psycopg2 installiert werden:
+Nun muss der \Gls{PostgreSQL Cluster}, Patroni, python3-etcd und python3-psycopg2 installiert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Prerequisites installieren,captionpos=b,label={lst:patroni-prerequisites-install},breaklines=true]
 apt install postgresql-16 postgresql-server-dev-16 patroni python3-etcd python3-psycopg2
 \end{lstlisting}
-    Im nächsten Schritt müssen Patroni und der \Gls{PostgreSQL Cluster} gestoppt werden:
+
+Im nächsten Schritt müssen Patroni und der \Gls{PostgreSQL Cluster} gestoppt werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Stop Patroni und PostgreSQL,captionpos=b,label={lst:patroni-stop-postgresql-patroni},breaklines=true]
 systemctl stop postgresql patroni
 \end{lstlisting}
-    Anschliessend muss noch vom PostgreSQL-Verzeichnis \texttt{/usr/lib/postgresql/16/bin/} ein Symlink nach \texttt{/usr/sbin/} gesetzt werden:
+
+Anschliessend muss noch vom PostgreSQL-Verzeichnis \texttt{/usr/lib/postgresql/16/bin/} ein Symlink nach \texttt{/usr/sbin/} gesetzt werden:
 \lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=Patroni - Symlink bin,captionpos=b,label={lst:patroni-symlink-bin},breaklines=true]
+\begin{lstlisting}[language=bash, caption=Patroni - Symlink binaries,captionpos=b,label={lst:patroni_symlink_bins},breaklines=true]
 ln -s /usr/lib/postgresql/16/bin/* /usr/sbin/
 \end{lstlisting}
 
-\end{flushleft}
-\begin{flushleft}
-    Zu guter Letzt sollte geprüft werden, ob alle Versionen passen und am richtigen Ort sind:
+Zu guter Letzt sollte geprüft werden, ob alle Versionen passen und am richtigen Ort sind:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Checks,captionpos=b,label={lst:patroni-checks},breaklines=true]
 which patroni
 which psql
 patroni --version
 \end{lstlisting}
-    Damit kann zum \gls{etcd} übergegangen werden.
-\end{flushleft}
+Damit kann zum \gls{etcd} übergegangen werden.
 
-%\begin{flushleft}
-    \subsubsection{etcd}
-    Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
+\subsubsection{Installation \gls{etcd}}
+Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - etcd-server konfigurieren=b,label={lst:patroni-etcd-server-config},breaklines=true]
 # nano /etc/default/etcd
@@ -140,23 +130,21 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.0.28.16:2379"
 ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 ETCD_INITIAL_CLUSTER_STATE="new"
 \end{lstlisting}
-    Der Service sollte rebooted werden und seine lauffähigkeit getestet werden:
+
+Der Service sollte rebooted werden und seine lauffähigkeit getestet werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - etcd-server reboot=b,label={lst:patroni-etcd-server-reboot},breaklines=true]
 systemctl restart etcd
 systemctl is-enabled etcd
 systemctl status etcd
 \end{lstlisting}
-    Es sollte nun ein Member gelistet werden:
+Es sollte nun ein Member gelistet werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - etcd-server list menber=b,label={lst:patroni-etcd-server-list-member},breaklines=true]
 etcdctl member list
 \end{lstlisting}
-    Damit kann nun das Bootstrapping gestartet werden.
-%\end{flushleft}
-%\begin{flushleft}
-    \subsubsection{Bootstrapping}
-%\end{flushleft}
-%\begin{flushleft}
-    \subsubsection{HAproxy}
-%\end{flushleft}
+Damit kann nun das Bootstrapping gestartet werden.
+
+\subsubsection{Bootstrapping}
+Zuerst müssen
+\subsubsection{HAproxy}

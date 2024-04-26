@@ -23,7 +23,7 @@
         \item \textbf{wal\_level}\hfill \\Der Level wurde auf logical gesetzt, damit alle Informationen geschrieben werden.
         \item \textbf{wal\_buffers}\hfill \\Der Buffer wurde auf 16MiB erhöht.
         \item \textbf{wal\_writer\_delay}\hfill \\Wenn der WAL-Writer einen Flush durchgeführt hat, geht er in ein Timeout.\\Dies wurde auf 20ms heruntergesetzt, damit rasch wieder geschrieben wird.
-        \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writters auf die Disk geschrieben wird.\\Wurde auf 1MiB gesetzt um rasch auf die Disk schreiben zu können.
+        \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writers auf die Disk geschrieben wird.\\Wurde auf 1MiB gesetzt um rasch auf die Disk schreiben zu können.
         \item \textbf{min\_wal\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu schnell repliziert werden und die Standby-Server aber auch der Primary-Server nicht überlastet werden,\\sollen die Files mindestens 1GiB gross werden bevor sie repliziert werden.
         \item \textbf{max\_wal\_size}\hfill \\Auf der anderen Seite soll trotzdem nicht zu lange gewartet werden,\\die maximale grösse wurde auf 5GiB begrenzt.
         \item \textbf{commit\_delay}\hfill \\Maximal 20ms soll gewartet werden, bevor ein Transaktions-Commit geflushed wird.
@@ -39,7 +39,7 @@
         \item \textbf{shared\_buffers}\hfill \\Der gesamte Server hat 16GiB Memory, \(\frac{1}{4}\) davon soll als Buffer dienen, also 4GiB.
         \item \textbf{maintenance\_work\_mem}\hfill \\1GiB soll zur Verfügung stehen für den \Gls{AUTOVACUUM}-Job oder Maintenance-Jobs wie das indexieren usw.
         \item \textbf{work\_mem}\hfill \\Der ganze \Gls{PostgreSQL Cluster} soll 12GiB Memory zur Verfügung haben.
-        \item \textbf{temp\_file\_limit}\hfill \\Damit für das erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200GiB Diskspace allokieren können.
+        \item \textbf{temp\_file\_limit}\hfill \\Damit für das Erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200GiB Diskspace allokieren können.
         \item \textbf{vacuum\_cost\_delay}\hfill \\Der \Gls{AUTOVACUUM}-Job soll maximal 2ms ruhen.
         \item \textbf{vacuum\_cost\_limit}\hfill \\Der gesamte Prozess darf maximal zehn sekunden Schlafen.
         \item \textbf{bgwriter\_delay}\hfill \\Der Hintergrundprozess soll nur 10ms ruhen.
@@ -54,7 +54,7 @@
     Beim Benchmarking zeigten sich die Grenzen des Citus Shardings.\\
     Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde\cite{6CJFR7RM}.\\
     Das hat einen besonderen Grund.\\
-    Wenn die Tabellen mittels des SELECT-Statements \texttt{create\_distributed\_table} die Tabellen einem Sharding unterzogen werden sollen, kommt es zu einer Fehlermeldung.\\
+    Wenn die Tabellen mittels des SELECT-Statements \texttt{create\_distributed\_table} einem Sharding unterzogen werden sollen, kommt es zu einer Fehlermeldung.\\
     Die Shards würden mit folgenden SQL-Statements erzeugt:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=Citus - Benchmarking - Distributed Table Sharding,captionpos=b,label={lst:benchmarking_distributed_table_sharding},breaklines=true]
@@ -63,7 +63,7 @@ SELECT create_distributed_table('pgbench_tellers', 'tid');
 SELECT create_distributed_table('pgbench_accounts', 'aid');
 SELECT create_distributed_table('pgbench_history', 'aid');
 \end{lstlisting}
-    Ursache ist, dass eine Distributed Table offenbar keine Foreign Key Constraints erlaubt.\\
+    Ursache ist, dass eine Distributed Table keine Foreign Key Constraints erlaubt.\\
     \texttt{pgbench} erzeugt aber gleich mehrere davon:\\
     \begin{figure}[H]
         \centering
