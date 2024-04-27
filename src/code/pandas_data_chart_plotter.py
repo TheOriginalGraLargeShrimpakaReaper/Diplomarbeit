@@ -260,7 +260,6 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
                 plt = panda_chart_plot.get_figure()
                 plt.savefig(image_path, bbox_inches='tight')
 
-
     return "blade runner"
 panda_diagram_plotter_config = load_configuration('pandas_data_chart_plotter_conf.yaml')
 create_panda_diagram_plotter(panda_diagram_plotter_config)

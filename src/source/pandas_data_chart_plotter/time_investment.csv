@@ -1,0 +1,9 @@
+Varianten;Filter;Basisinstallation;Basiskonfiguration;Backup Konfiguration;Monitoring Konfiguration;private container registry Integration;PKI Integration;Automatisierung Backup;Automatisierung Skalierung;Self-Healing;Auto-Recovery;DB Self-Service;Switchover / Pro Aktion;Node Recovery / Pro Aktion;Backup Recovery / Pro Aktion;Quorum erweitern / Pro Aktion;Switchover / 5 Jahre;Node Recovery / 5 Jahre;Backup Recovery / 5 Jahre;Quorum erweitern / 5 Jahre
+Patroni - vanilla;1;5;2;2;2;0;3;2;8;8;8;16;;;;;12.5;6.25;25;30
+Patroni - postgresql_cluster;1;4;1;2;2;0;3;2;4;4;4;16;;;;;12.5;6.25;25;20
+StackGres - Citus;1;5;5;3;2;2;3;4;5;0;16;32;;;;;12.5;50;50;15
+YugabyteDB;1;5;1;3;2;2;3;4;4;0;2;16;;;;;0;25;50;5
+Patroni - vanilla;2;0;0;0;0;0;0;0;0;0;0;0;0.25;0.25;1;6;0;0;0;0
+Patroni - postgresql_cluster;2;0;0;0;0;0;0;0;0;0;0;0;0.25;0.25;1;4;0;0;0;0
+StackGres - Citus;2;0;0;0;0;0;0;0;0;0;0;0;0.25;2;2;3;0;0;0;0
+YugabyteDB;2;0;0;0;0;0;0;0;0;0;0;0;0;1;2;1;0;0;0;0

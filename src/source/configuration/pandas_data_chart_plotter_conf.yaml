@@ -20,6 +20,10 @@ diagram_inventory:
   - "benchmarking_patroni_tps_evaluation_dql"
   - "benchmarking_patroni_latency_evaluation_mixed"
   - "benchmarking_patroni_latency_evaluation_dql"
+  - "time_investment_sum"
+  - "cost_investment_sum"
+  - "time_investment_action"
+  - "cost_investment_action"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -335,16 +339,27 @@ panda_diagram_plotter:
     startpath: "parentdir"
     destination_path: "source/pandas_data_chart_plotter"
     imagename: "time_investment.png"
-    datafile_path: "source/tables"
-    datafile: "measurement_times.csv"
+    datafile_path: "source/pandas_data_chart_plotter"
+    datafile: "time_investment.csv"
     separator: ";"
     decimal: "."
-    x-axis-columns: "Subphase"
+    x-axis-columns: "Varianten"
     y-axis-columns:
-      - "Patroni - vanilla"
-      - "Patroni - postgresql-cluster"
-      - "StackGres - Citus"
-      - "YugabyteDB"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
     x-axis-title: "Phasen"
     y-axis-title: "Aufwand [h]"
     title: "Gemessene und Extrapolierte Aufwände Bsp."
@@ -362,16 +377,40 @@ panda_diagram_plotter:
       figsize:
       autopct:
       loc:
-      bbox_to_anchor:
+      bbox_to_anchor: !!python/tuple [1,1]
     group_by:
     group_by_function:
     agg_funtion:
     agg_colums:
     drop_columns:
       - "Filter"
-      - "Phase"
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
     column_operations:
       datas:
+#        - "Gesamtaufwand"
+      operations:
+        Gesamtaufwand:
+          operation_function: "sum"
+          axis_number: 1
+          columns:
+            - "Basisinstallation"
+            - "Basiskonfiguration"
+            - "Backup Konfiguration"
+            - "Monitoring Konfiguration"
+            - "Backup Konfiguration"
+            - "PKI Integration"
+            - "Automatisierung Backup"
+            - "Automatisierung Skalierung"
+            - "Self-Healing"
+            - "Auto-Recovery"
+            - "DB Self-Service"
+            - "Switchover / 5 Jahre"
+            - "Node Recovery / 5 Jahre"
+            - "Backup Recovery / 5 Jahre"
+            - "Quorum erweitern / 5 Jahre"
     pivot:
       pivot_columns:
       pivot_values:
@@ -383,39 +422,49 @@ panda_diagram_plotter:
       pivot_values:
       pivot_agg_func:
     rename_columns:
+      Gesamtaufwand: "Gesamtaufwand / 5 Jahre"
     where_clausel: "Filter == 1"
     sorting:
       order_by:
       sort_acending: True
       sort_inplace: True
     margins:
-     margin: True
-     margin_name: "Totaler Zeitaufwand"
-     margin_column: "Subphase"
+     margin: False
+     margin_name:
+     margin_column:
      non_pivot_margin_column:
-      - "Patroni - vanilla"
-      - "Patroni - postgresql-cluster"
-      - "StackGres - Citus"
-      - "YugabyteDB"
-     non_pivot_margin_function: "sum"
+     non_pivot_margin_function:
   cost_investment:
     id: "cost_investment"
     startpath: "parentdir"
     destination_path: "source/pandas_data_chart_plotter"
     imagename: "cost_investment.png"
-    datafile_path: "source/tables"
-    datafile: "measurement_times.csv"
+#    datafile_path: "source/tables"
+    datafile_path: "source/pandas_data_chart_plotter"
+#    datafile: "measurement_times.csv"
+    datafile: "cost_investemnt.csv"
     separator: ";"
     decimal: "."
-    x-axis-columns: "Subphase"
+    x-axis-columns: "Varianten"
     y-axis-columns:
-      - "Patroni - vanilla"
-      - "Patroni - postgresql-cluster"
-      - "StackGres - Citus"
-      - "YugabyteDB"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
     x-axis-title: "Phasen"
     y-axis-title: "Kosten [CHF]"
-    title: "Berechnete und Extrapolierte Aufwände Bsp."
+    title: "Berechnete und Extrapolierte Aufwände"
     chart-index:
     chart-kind: "bar"
     chart-designs:
@@ -430,14 +479,17 @@ panda_diagram_plotter:
       figsize:
       autopct:
       loc:
-      bbox_to_anchor:
+      bbox_to_anchor: !!python/tuple [1,1]
     group_by:
     group_by_function:
     agg_funtion:
     agg_colums:
     drop_columns:
       - "Filter"
-      - "Phase"
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
     column_operations:
       datas:
     pivot:
@@ -457,15 +509,11 @@ panda_diagram_plotter:
       sort_acending: True
       sort_inplace: True
     margins:
-     margin: True
-     margin_name: "Totaler Zeitaufwand"
-     margin_column: "Subphase"
+     margin: False
+     margin_name:
+     margin_column:
      non_pivot_margin_column:
-      - "Patroni - vanilla"
-      - "Patroni - postgresql-cluster"
-      - "StackGres - Citus"
-      - "YugabyteDB"
-     non_pivot_margin_function: "sum"
+     non_pivot_margin_function:
   benchmarking_tps_evaluation_mixed:
     id: "benchmarking_tps_evaluation_mixed"
     startpath: "parentdir"
@@ -2581,4 +2629,369 @@ panda_diagram_plotter:
       margin_column:
       non_pivot_margin_column:
       non_pivot_margin_function:
+  time_investment_sum:
+    id: "time_investment_sum"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "time_investment_summe.png"
+    datafile_path: "source/pandas_data_chart_plotter"
+    datafile: "time_investment.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "Gesamtaufwand / 5 Jahre"
+    x-axis-title: "Phasen"
+    y-axis-title: "Aufwand [h]"
+    title: "Gemessene und Extrapolierte Aufwände Total"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "Gesamtaufwand"
+      operations:
+        Gesamtaufwand:
+          operation_function: "sum"
+          axis_number: 1
+          columns:
+            - "Basisinstallation"
+            - "Basiskonfiguration"
+            - "Backup Konfiguration"
+            - "Monitoring Konfiguration"
+            - "Backup Konfiguration"
+            - "PKI Integration"
+            - "Automatisierung Backup"
+            - "Automatisierung Skalierung"
+            - "Self-Healing"
+            - "Auto-Recovery"
+            - "DB Self-Service"
+            - "Switchover / 5 Jahre"
+            - "Node Recovery / 5 Jahre"
+            - "Backup Recovery / 5 Jahre"
+            - "Quorum erweitern / 5 Jahre"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      Gesamtaufwand: "Gesamtaufwand / 5 Jahre"
+    where_clausel: "Filter == 1"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  cost_investment_sum:
+    id: "cost_investment_sum"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "cost_investment_summe.png"
+#    datafile_path: "source/tables"
+    datafile_path: "source/pandas_data_chart_plotter"
+#    datafile: "measurement_times.csv"
+    datafile: "cost_investemnt.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "Gesamtkosten / 5 Jahre"
+    x-axis-title: "Phasen"
+    y-axis-title: "Kosten [CHF]"
+    title: "Berechnete und Extrapolierte Aufwände Total"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
+    drop_columns_after_operations: True
+    column_operations:
+      datas:
+        - "Gesamtaufwand"
+      operations:
+        Gesamtaufwand:
+          operation_function: "sum"
+          axis_number: 1
+          columns:
+            - "Basisinstallation"
+            - "Basiskonfiguration"
+            - "Backup Konfiguration"
+            - "Monitoring Konfiguration"
+            - "Backup Konfiguration"
+            - "PKI Integration"
+            - "Automatisierung Backup"
+            - "Automatisierung Skalierung"
+            - "Self-Healing"
+            - "Auto-Recovery"
+            - "DB Self-Service"
+            - "Switchover / 5 Jahre"
+            - "Node Recovery / 5 Jahre"
+            - "Backup Recovery / 5 Jahre"
+            - "Quorum erweitern / 5 Jahre"
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+      Gesamtaufwand: "Gesamtkosten / 5 Jahre"
+    where_clausel: "Filter == 1"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  time_investment_action:
+    id: "time_investment_action"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "time_investment_action.png"
+    datafile_path: "source/pandas_data_chart_plotter"
+    datafile: "time_investment.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
+    x-axis-title: "Phasen"
+    y-axis-title: "Aufwand [h]"
+    title: "Gemessene und Extrapolierte Aufwände Bsp."
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
+    column_operations:
+      datas:
+      operations:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+    where_clausel: "Filter == 2"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  cost_investment_action:
+    id: "cost_investment_action"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "cost_investment_action.png"
+#    datafile_path: "source/tables"
+    datafile_path: "source/pandas_data_chart_plotter"
+#    datafile: "measurement_times.csv"
+    datafile: "cost_investemnt.csv"
+    separator: ";"
+    decimal: "."
+    x-axis-columns: "Varianten"
+    y-axis-columns:
+      - "Switchover / Pro Aktion"
+      - "Node Recovery / Pro Aktion"
+      - "Backup Recovery / Pro Aktion"
+      - "Quorum erweitern / Pro Aktion"
+    x-axis-title: "Phasen"
+    y-axis-title: "Kosten [CHF]"
+    title: "Berechnete und Extrapolierte Aufwände"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+    group_by_function:
+    agg_funtion:
+    agg_colums:
+    drop_columns:
+      - "Filter"
+      - "Basisinstallation"
+      - "Basiskonfiguration"
+      - "Backup Konfiguration"
+      - "Monitoring Konfiguration"
+      - "Backup Konfiguration"
+      - "PKI Integration"
+      - "Automatisierung Backup"
+      - "Automatisierung Skalierung"
+      - "Self-Healing"
+      - "Auto-Recovery"
+      - "DB Self-Service"
+      - "Switchover / 5 Jahre"
+      - "Node Recovery / 5 Jahre"
+      - "Backup Recovery / 5 Jahre"
+      - "Quorum erweitern / 5 Jahre"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+    where_clausel: "Filter == 2"
+    sorting:
+      order_by:
+      sort_acending: True
+      sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
 
