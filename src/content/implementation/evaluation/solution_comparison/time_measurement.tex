@@ -3,24 +3,81 @@
 
 % Preamble
 \begin{flushleft}
-    \subsubsection{Gemessene Zeiten und Kosten}
     \paragraph{Gegebene Parameter und Annahmen}
-    \paragraph{Gemessene Zeiten}
+    Es wird mit fünf Jahren gerechnet.\\
+    Daher werden also die Zeitaufwände der Betriebstasks pro Jahr berechnet und mit fünf multipliziert.\\
+    Es wurden also folgende Annahmen getroffen resp. folgende Parameter sind gegeben:
+    \input{content/latex_tables/cost_parameters}
+    \paragraph{Varianten}
+    Patroni wurde in zwei Varianten aufgeteilt.\\
+    Einmal die Vanilla-Version, die manuell Aufgesetzt und verwaltet wird.\\
+    Also so wie es bei der Evaluation gemacht wurde.
+\end{flushleft}
+\begin{flushleft}
+    Es gibt allerdings ein \Gls{GitHub}-Repository, welches die ganze Installation in \Gls{Ansible}-Playbooks verpackt hat.\\
+    Der ganze Prozess wurde analysiert und die Aufwände auch für diese Variante geschätzt.\\
+    An der Punkteverteilung ändert sich entsprechend nichts, da die Architektur die gleiche ist.\\
+    Diese Variante wird nachfolgend \texttt{Patroni - postgresql\_cluster} oder vereinfacht nur \texttt{postgresql\_cluster} genannt.
     \paragraph{Zeitvergleiche}
+    Die Zeiten wurden entsprechend den Erfahrungen mit den drei evaluierten Systemen geschätzt.\\
 
     \input{content/latex_tables/time_investment}
+    Die Aufwände für die Betriebstasks wie das erweitern des Quorums, das Wiederherstellen von Nodes und dem Recovery wurde wie folgt geschätzt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/time_investment_action}
+        \caption{Zeitaufwände pro Betriebstask}
+        \label{fig:time_investment_action}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Daraus ergeben sich folgende gesamten Zeitaufwände, wenn sie auf 5 Jahre extrapoliert werden:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/time_investment}
         \caption{Zeitaufwände}
         \label{fig:time_investment}
     \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    In der Summe müssen für die jeweiligen Varianten also mit folgenden Aufwänden gerechnet werden:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/time_investment_summe}
+        \caption{Zeitaufwände summiert}
+        \label{fig:time_investment_summe}
+    \end{figure}
     \paragraph{Kostenvergleiche}
-
+    Die Kostenhochrechnung ist simpel.\\
+    Da der Stundenansatz in der ICT 120 Franken pro Stunde beträgt, wurden die Zeiten einfach mit 120 multipliziert.
+\end{flushleft}
+\begin{flushleft}
+    Für die Betriebstasks wurden daher mit folgenden Kosten gerechnet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/cost_investment_action}
+        \caption{Kostenaufwände pro Betriebstask}
+        \label{fig:cost_investment_action}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Entsprechend entstehen ist auf fünf Jahre verteilt, mit folgenden Kosten zu rechnen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/cost_investment}
         \caption{Kostenaufwände}
         \label{fig:cost_investment}
     \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Total geschätzten Kosten würden sich im Vergleich wie folgt entwickeln:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/cost_investment_summe}
+        \caption{Kostenaufwände Total}
+        \label{fig:cost_investment_summe}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Schlussfolgerung}
 \end{flushleft}

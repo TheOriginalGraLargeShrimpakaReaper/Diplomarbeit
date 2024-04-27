@@ -1,0 +1,7 @@
+Variable;Wert;Beschreibung / Begründung
+Anzahl betrachtete Jahre;5;
+Anzahl Switchovers pro Jahr;10;Alle zwei Monate wird am KSGR ein Reboot\\der Linux Server für das Patching vorgenommen
+Anzahl Node Recoveries pro Jahr;5;Mindestens zweimal wird ein Failover Test gefahren.\\Mit drei weiteren Failovers wird gerechnet.
+Anzahl Backup Restores pro Jahr;5;Mindestens vier Restore Tests müssen gefahren werden.\\Mit einem ungeplanten Restore wird gerechnet
+Anzahl Quorum erweiterungen pro Jahr;1;Es wird mit nur einer erweiterung pro Jahr gerechnet.
+Stundensatz ICT KSGR [CHF];120;

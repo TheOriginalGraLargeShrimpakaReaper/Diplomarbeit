@@ -1,5 +1,5 @@
 id,x-axis,y-axis,variant_name
-1,86,77,Patroni - vanilla
+1,86,78,Patroni - vanilla
 2,86,100,Patroni - postgresql_cluster
-3,83,84,YugabyteDB
-4,78,-34,StackGres - Citus
+3,83,88,YugabyteDB
+4,78,10,StackGres - Citus

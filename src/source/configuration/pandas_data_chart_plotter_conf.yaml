@@ -360,9 +360,9 @@ panda_diagram_plotter:
       - "Node Recovery / 5 Jahre"
       - "Backup Recovery / 5 Jahre"
       - "Quorum erweitern / 5 Jahre"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Aufwand [h]"
-    title: "Gemessene und Extrapolierte Aufwände Bsp."
+    title: "Gemessene und Extrapolierte Aufwände"
     chart-index:
     chart-kind: "bar"
     chart-designs:
@@ -462,7 +462,7 @@ panda_diagram_plotter:
       - "Node Recovery / 5 Jahre"
       - "Backup Recovery / 5 Jahre"
       - "Quorum erweitern / 5 Jahre"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Kosten [CHF]"
     title: "Berechnete und Extrapolierte Aufwände"
     chart-index:
@@ -2641,7 +2641,7 @@ panda_diagram_plotter:
     x-axis-columns: "Varianten"
     y-axis-columns:
       - "Gesamtaufwand / 5 Jahre"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Aufwand [h]"
     title: "Gemessene und Extrapolierte Aufwände Total"
     chart-index:
@@ -2745,7 +2745,7 @@ panda_diagram_plotter:
     x-axis-columns: "Varianten"
     y-axis-columns:
       - "Gesamtkosten / 5 Jahre"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Kosten [CHF]"
     title: "Berechnete und Extrapolierte Aufwände Total"
     chart-index:
@@ -2850,9 +2850,9 @@ panda_diagram_plotter:
       - "Node Recovery / Pro Aktion"
       - "Backup Recovery / Pro Aktion"
       - "Quorum erweitern / Pro Aktion"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Aufwand [h]"
-    title: "Gemessene und Extrapolierte Aufwände Bsp."
+    title: "Gemessene und Extrapolierte Aufwände - Betriebstasks"
     chart-index:
     chart-kind: "bar"
     chart-designs:
@@ -2931,9 +2931,9 @@ panda_diagram_plotter:
       - "Node Recovery / Pro Aktion"
       - "Backup Recovery / Pro Aktion"
       - "Quorum erweitern / Pro Aktion"
-    x-axis-title: "Phasen"
+    x-axis-title: "Varianten"
     y-axis-title: "Kosten [CHF]"
-    title: "Berechnete und Extrapolierte Aufwände"
+    title: "Berechnete und Extrapolierte Aufwände - Betriebstasks"
     chart-index:
     chart-kind: "bar"
     chart-designs:
