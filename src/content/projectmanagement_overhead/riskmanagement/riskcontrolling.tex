@@ -2,20 +2,26 @@
 %! Date = 21.03.24
 
 % Preamble
-\begin{flushleft}
 %    \KOMAoptions{paper=A3,paper=landscape,DIV=20}
 %\storeareas\landscapevaluesbig
-    \begin{landscape}
-        \subsection{Riskcontrolling}
-        \subsubsection{Neu erfasste Risiken}
-        \input{content/latex_tables/riskcontrolling-new-risks}
-    \end{landscape}
-\end{flushleft}
+%    \begin{landscape}
+    \clearpage
+    \KOMAoptions{paper=A3,paper=landscape,pagesize,DIV=20}
+    \recalctypearea
 \begin{flushleft}
-    \begin{landscape}
+    \subsection{Riskcontrolling}
+    \subsubsection{Neu erfasste Risiken}
+    \input{content/latex_tables/riskcontrolling-new-risks}
+%    \end{landscape}
+%    \begin{landscape}
         \subsubsection{Assessment 21.03.2024}
         \input{content/latex_tables/risk-assessments-21-03-2024}
-    \end{landscape}
+%    \end{landscape}
+    \clearpage
+    \KOMAoptions{paper=A4,paper=portrait,pagesize}
+    \recalctypearea
+\end{flushleft}
+\begin{flushleft}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/riskmatrix/project-assessment-21-03-2024}

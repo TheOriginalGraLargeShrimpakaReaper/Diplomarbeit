@@ -57,23 +57,23 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 26.03.2024;14:45;15:00;0.25;0;0;0;2. Expertengespräch;2. Expertengespräch;;;Nornan verspätete sich wegen eines Privaten Notfalls.;Termin wird auf morgen verschoben
 26.03.2024;15:00;16:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;Aus versehen YugabyteDB Anywhere (Repository yugaware) Installiert.\\Diese Installation benötigt zwingend eine Subscription.\\Wäre ein No-Go;YugayteDB (Repository yugabyte) verwenden.\\Dies ist nach wie vor Open-Source
 27.03.2024;10:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
-27.03.2024;15:00;15:30;0.5;0;0;0;Evaluation;Troubleshooting und Lösungsfindung;MetalLB Installation;;YugabyteDB von aussen nicht ansprechbar.;MetalLB installiert und eingesetzt.
-27.03.2024;13:00;16:00;4;0;0;0;Evaluation;Troubleshooting und Lösungsfindung;MetalLB Troubleshooting;;Trotz MetalLB nicht erreichbar;L2Advertisement gesetzt.
+27.03.2024;15:00;15:30;0.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Installation;;YugabyteDB von aussen nicht ansprechbar.;MetalLB installiert und eingesetzt.
+27.03.2024;13:00;16:00;4;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Troubleshooting;;Trotz MetalLB nicht erreichbar;L2Advertisement gesetzt.
 27.03.2024;16:30;17:30;1;0;0;0;2. Expertengespräch;2. Expertengespräch;;;;
 01.04.2024;09:00;09:45;0.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Versuch, das Benchmarking via Cronjobs auszuführen;ysql\_bench hat keinen Passwort-Parameter.\\Ist zudem zu gut geschützt um mit Tricks das Passwort zu übergeben.;Manuell alle 10min ausführen.
 01.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Viel Zeit verloren für das manuelle Benchmarking;;
 02.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;StackGres verfolgt ein anderes Konzept als Yugabyte.;;
-03.04.2024;09:00;09:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
+03.04.2024;09:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
 03.04.2024;14:00;15:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;Installation von Patroni begonnen.;Foreman Repositories waren erreichbar,\\Internet-Repository nicht.;apt-Proxy setzen
 09.04.2024;12:30;14:00;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
 10.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;;etcd-Server bereitet Probleme;
-12.04.2024;14:30;14:45;0.25;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;Proxy gesetzt und http erzwungen
-15.04.2024;18:00;20:00;2;0;0;0;Evaluation;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;
-16.04.2024;13:00;16:00;3;0;0;0;Evaluation;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;Node Annotations auf local-path-provisioner und StorageClass setzen
+12.04.2024;12:30;14:45;2.25;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;Proxy gesetzt und http erzwungen
+15.04.2024;18:00;20:00;2;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;
+16.04.2024;13:00;16:00;3;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;Node Annotations auf local-path-provisioner und StorageClass setzen
 17.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking / Testing;Grosse Volumes testen;;
-17.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Deployment / Testing;;Table Distribution und Schema based Sharding nicht tauglich.\\Foreign-Key-Constraints werfen fehler.;Referenced Tables
+17.04.2024;12:30;19:00;6.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Deployment / Testing;;Table Distribution und Schema based Sharding nicht tauglich.\\Foreign-Key-Constraints werfen fehler.;Referenced Tables
 19.04.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Benchmarking;Auch pgbench muss manuell ausgeführt werden;;
-19.04.2024;13:00;17:00;4;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni  Installation / Testing;;etcd-Server bereitet Probleme;Vereinfachen soweit möglich
+19.04.2024;13:00;19:00;6;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni  Installation / Testing;;etcd-Server bereitet Probleme;Vereinfachen soweit möglich
 20.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking;;;
 20.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking / grosse Volumes;Auf erweiterte Disk umstellen und letzten Benchmark fahren;;
 22.04.2024;09:00;09:15;0.25;0;0;0;Evaluation;Gegenüberstellung;;;;
