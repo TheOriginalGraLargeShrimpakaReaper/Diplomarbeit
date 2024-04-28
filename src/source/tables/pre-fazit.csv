@@ -5,5 +5,11 @@ KW12;- HP-UX Probleme am Montag.\\  Backups sind über das Weekend nicht durchgel
 KW12;- Mittwochvormittag in Zürich, am Nachmittag Probleme mit dfs-Shares.\\  So wenig Zeit.\\- Mit Norman Termin für nächste Woche Fachgespräch organisiert.\\ Freue mich darauf.
 KW12;- Alle Gängigen PostgreSQL HA Lösungen dokumentiert. Aufwand für Die Dokumentation weit grösser als erwartet.
 KW13;- YugabyteDB entpuppt sich als recht fordernd.\\Es benötigt eine \guillemotleft private container registry\guillemotright, mir fehlt die Expertise dazu.\\- Der Aufbau der Projektplanung entpuppt sich begrenzt nutzbar.\\Das erstellen der Evaluationsinfrast
-KW13;- Das Problem mit dem \guillemotleft private container registry\guillemotright rührte daher,\\ dass das YugabyteDB Anywhere (Repository yugaware) verwendet wurde.\\Kurz ein Schock, dass YugabyteDB ausgeschieden ist.\\Später bemerkte ich, dass man das Repository yugabyte verwendet muss.
-KW13;- Bereits jetzt viel gerlernt über Kubernetes, Ranger (rke2) und Helm
+KW13;- Das Problem mit dem \guillemotleft private container registry\guillemotright rührte daher,\\ dass das YugabyteDB Anywhere (Repository yugaware) verwendet wurde.\\Kurz ein Schock, dass YugabyteDB ausgeschieden ist.
+KW13;\\Später bemerkte ich, dass man das Repo yugabytedb auswählen muss.
+KW13;- MetalLB benötigt zwingend L2Advertisement,\\damit Linux die Kommunikation von aussen nach innen leiten kann.
+KW13;- Bereits jetzt viel  über Kubernetes, Ranger (rke2) und Helm gelernt.\\- Benchmarking lässt sich nicht automatisieren,\\die Tools sind zu gut abgesichert.\\Ungeplanter Mehraufwand wegen manuellem Ausführen.
+KW14;HP-UX Probleme und ExaCC Ablöseprojekt bremste stark aus.\\StackGres Extension verursachte Probleme.
+KW15;Viele Termine diese Woche.\\StackGres Extension Problem gelöst.\\Patroni macht weiterhin probleme mit etcd-Server
+KW16;local-path-provisioner machte nochmals Probleme.\\Die ganze Zeit ohne Node-Annotation gearbeitet.\\Danach konnten auch die letzten Benchmarks gemacht werden.
+KW17;Gegenüberstellung fertiggestellt.\\Variantenentscheid getroffen.\\Dokumentation die letzte Zeit vernachlässigt, das rächt sich nun.\\Grossen Change Dienstag auf Mittwoch, mehr oder weniger K.O.

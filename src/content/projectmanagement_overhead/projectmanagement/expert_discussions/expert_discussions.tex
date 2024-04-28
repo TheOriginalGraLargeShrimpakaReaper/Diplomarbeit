@@ -2,13 +2,18 @@
 %! Date = 23.02.24
 
 % Preamble
-\begin{landscape}
+%\begin{landscape}
     \begin{flushleft}
+%        \KOMAoptions{paper=A4,paper=landscape}
+%        \KOMAoptions{paper=A4,paper=landscape}
+%\recalctypearea
+        \storeareas\landscapevaluessmall
         \section{Expertengespräche}
         Folgende Expertengespräche fanden statt:
         \input{content/latex_tables/expert_discussions_overview}
 
         Das Protokoll ist im Anhang zu finden.
     \end{flushleft}
-\end{landscape}
+\noraml
+%\end{landscape}
 
