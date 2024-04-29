@@ -53,7 +53,7 @@
         Stackgres packt PostgreSQL, Patroni, PgBouncer und envoy in einen Kubernetes Pod:
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_pod_architecture}
+            \includegraphics[width=0.65\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_pod_architecture}
             \caption{Stackgres - Grundarchitektur}
             \label{fig:stackgres_pod_architecture}
         \end{figure}
@@ -127,5 +127,10 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Maintenance}
-    \hyperref[subsec:maintenance_stackgres_citus]{Anhang - Maintenance}
+    Bei StackGres und Citus ist Citusdata, welches mittlerweile zu Microsoft gehört, sehr aktiv.\\
+    Citusdata hält nicht nur die Community Standards ein sondern Commited regelmässig und räumt alten Code regelmässig auf.\\
+    Anders sieht es bei Ongres, dem Maintainer von StackGres aus.\\
+    Weder werden besonders viele Community Standards eingehalten, noch wird Regelmässig Commited.\\
+    Die aktivitäten gingen in den letzten Jahren und Monaten zurück, was dazu führt das immer wieder mal grössere Commits notwendig werden.\\
+    DIe genaue Analyse ist im \hyperref[subsec:maintenance_stackgres_citus]{Anhang - Maintenance} zu finden.
 \end{flushleft}
