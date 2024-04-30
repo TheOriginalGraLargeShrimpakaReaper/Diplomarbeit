@@ -2,4 +2,15 @@
 %! Date = 09.11.23
 
 % Preamble
-\section{Troubleshooting und Lösungsfindung}
+\begin{flushleft}
+    \section{Troubleshooting und Lösungsfindung}
+    Folgende Fehler sind während der Evaluation und der Installation des Testsystems aufgetreten:\\
+    \begin{description}
+        \item \textbf{Evaluation - Yugaware}\hfill \\Erst wurde das Lizenzpflichtige Yugaware-Repository verwendet.\\Ohne Lizenzkey lässt sich Yugaware nicht installieren.\\Die Lösung bestand darin,\\auf das Open-Source YugabyteDB-Repository zu wechseln.
+        \item \textbf{Evaluation - etcd für Patroni}\hfill \\Erst wurde versucht, drei etcd-Hosts auf Patroni zu installieren.\\Dies führte zu einem Hostnamenskonflikt.\\So wurde etcd auf den Stanbdalone Server \texttt{sks9016} installiert.
+        \item \textbf{Evaluation - MetalLB}\hfill \\
+        \item \textbf{Evaluation - local-path-provisioner}\hfill \\
+        \item \textbf{Evaluation - StackGres Proxy für Extension}\hfill \\
+        \item \textbf{Testsystem - Proxy}\hfill \\Ansible konnte via Python nicht auf Externe Adressen zugreifen.\\Erst wurde manuell versucht, etcd zu installieren.\\Allerdings konnte das PostgreSQL Repository nicht inkludiert werden, trotz apt-proxy.
+    \end{description}
+\end{flushleft}

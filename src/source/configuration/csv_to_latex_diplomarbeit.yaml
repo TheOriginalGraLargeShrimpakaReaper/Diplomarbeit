@@ -26,6 +26,8 @@ tables_inventory:
  - "evaluation_tests_yugabytedb"
  - "evaluation_tests_stackgres_citus"
  - "cost_parameters"
+ - "construction_inventory"
+ - "construction_components"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -1710,4 +1712,120 @@ tables:
     resize_textwidth: True
     linebreak_columns:
      - "Beschreibung / Begründung"
+    table_header: True
+ construction_inventory:
+  id: "construction_inventory"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Testsystem - Inventar"
+  label: "construction_inventory"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "construction_platform_serverlist.csv"
+  tablefilename: "construction_inventory.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Server"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+ construction_components:
+  id: "construction_components"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Testsystem - Komponenten"
+  label: "construction_components"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "construction_platform_components.csv"
+  tablefilename: "construction_components.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+    - "Aufgabe"
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: True
+    resize_textwidth: False
+    linebreak_columns:
     table_header: True

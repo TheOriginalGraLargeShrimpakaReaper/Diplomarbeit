@@ -1,0 +1,5 @@
+Aufgabe;System
+\Gls{DCS};\gls{etcd}
+Orchestrator;Patroni
+\Gls{Connection Pooler};PgBouncer
+Proxy;Haproxy
