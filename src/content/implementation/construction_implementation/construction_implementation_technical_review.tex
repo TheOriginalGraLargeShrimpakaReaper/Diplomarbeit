@@ -54,3 +54,26 @@
         \label{fig:haproxy_sks1267}
     \end{figure}
 \end{flushleft}
+\begin{flushleft}
+    Die PgBouncer konfiguration passt.\\
+    Alle via \Gls{Ansible} hinterlegten Datenbanken wurden erfasst:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/pgbouncer_databases}
+        \caption{Technical Review - PgBouncer - Datenbanken}
+        \label{fig:pgbouncer_databases}
+    \end{figure}
+    Beim Auslesen der Stats und Datenbanken muss der richtige User gewählt werden.\\
+    So hat der User \texttt{pgbouncer} keine Berechtigung, Lokal zuzugreifen.\\
+    Auch nicht auf die Lokale Datenbank \texttt{pgbouncer}.\\
+    Hierfür muss der User \texttt{postgres} verwendet werden:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=PgBouncer - Connect,captionpos=b,label={lst:pgbouncer_connect},breaklines=true]
+psql -p 6432 -h 127.0.0.1 -U postgres -d pgbouncer
+\end{lstlisting}
+    Die Abfrage der Tabellen wird dann mittels folgendem Command gemacht:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=sql, caption=PgBouncer - Databases,captionpos=b,label={lst:pgbouncer_list_databases},breaklines=true]
+show databases;
+\end{lstlisting}
+\end{flushleft}

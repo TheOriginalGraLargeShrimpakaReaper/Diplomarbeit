@@ -6,7 +6,9 @@
 \toprule
 ID & Definiert / Erkannt & Risiko & Beschreibung / Ursache & Auswirkung & WS & SM & Massnahmen notwendig & WS.1 & SM.1 & Massnahmen \\
 \midrule
-9 & \begin{tabular}[c]{@{}l@{}}19.03.2024\end{tabular} & \begin{tabular}[c]{@{}l@{}}Veeam Kasten K10\cite{P24LQGDK} nicht betriebsbereit\end{tabular} & Abhängigkeit zum KSGR k8s Projekt.\\Ohne Kubernetes kein Veeam Kasten. & \begin{tabular}[c]{@{}l@{}}Keine Kubernetes-Gerechten Sicherungen von Pods usw.\\Sicherungen Inkonsistent o.ä.\\Ohne Backup kann das Ziel des Projekts nicht erreicht werden\end{tabular} & 5 & 5 & Ja & 5 & 2 & \begin{tabular}[c]{@{}l@{}}Backup auf einem nfs-Share ablegen.\\So können Test-DBs wenigstens gesichert werden.\end{tabular} \\
+9 & 19.03.2024 & \begin{tabular}[c]{@{}l@{}}Veeam Kasten K10\cite{P24LQGDK} nicht betriebsbereit\end{tabular} & \begin{tabular}[c]{@{}l@{}}Abhängigkeit zum KSGR k8s Projekt.\\Ohne Kubernetes kein Veeam Kasten.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Keine Kubernetes-Gerechten Sicherungen von Pods usw.\\Sicherungen Inkonsistent o.ä.\\Ohne Backup kann das Ziel des Projekts nicht erreicht werden\end{tabular} & 5 & 5 & Ja & 5 & 2 & \begin{tabular}[c]{@{}l@{}}Backup auf einem nfs-Share ablegen.\\So können Test-DBs wenigstens gesichert werden.\end{tabular} \\
+10 & 29.04.2024 & \begin{tabular}[c]{@{}l@{}}Kubernetes Testumgebung\end{tabular} & \begin{tabular}[c]{@{}l@{}}Abhängigkeit zum KSGR k8s Projekt.\\Ohne Kubernetes keine YugabyteDB\end{tabular} & \begin{tabular}[c]{@{}l@{}}Es fehlt schlicht ein k8s-Testsystem, wo YugabyteDB installiert werden könnte.\end{tabular} & 5 & 1 & Nein & 5 & 1 & \begin{tabular}[c]{@{}l@{}}Patroni wird klassisch als Monolith installiert.\\Für das Projekt besteht zurzeit kein Impact.\end{tabular} \\
+11 & 29.04.2024 & \begin{tabular}[c]{@{}l@{}}Verzug\end{tabular} & \begin{tabular}[c]{@{}l@{}}Evaluationsphase dauerte wesentlich länger als geplant\end{tabular} & \begin{tabular}[c]{@{}l@{}}Rest des Projekts hat einen nicht unerheblichen Verzug\end{tabular} & 4 & 5 & Ja & 4 & 5 & \begin{tabular}[c]{@{}l@{}}Kaum umsetzbar.\\Es lässt sich nur schwer etwas streichen.\end{tabular} \\
 \bottomrule
 \end{tabular}
 }
