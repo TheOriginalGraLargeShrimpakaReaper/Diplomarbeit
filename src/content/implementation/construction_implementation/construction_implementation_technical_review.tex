@@ -1,0 +1,56 @@
+%! Author = gramic
+%! Date = 01.05.24
+
+% Preamble
+\begin{flushleft}
+    \subsection{Technical Review der Umgebung}
+    Die beiden Patroni-Nodes \texttt{sks1264} und \texttt{sks1265} sind Synchrone Replicas und der \texttt{sks1263} ist der Primary:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/patroni_list}
+        \caption{Technical Review - Patroni Nodes}
+        \label{fig:patroni_list}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Alle Datenbanken, die übergeben wurden, sind erstellt worden:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{source/implementation/construction_implementation/technical_review/datenbanken}
+        \caption{Technical Review - Datenbanken}
+        \label{fig:datenbanken}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Extensions wurden ebenfalls installiert:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/extensions}
+        \caption{Technical Review - PostgreSQL Extensions}
+        \label{fig:extensions}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die Rollen und User wurden erstellt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{source/implementation/construction_implementation/technical_review/user_roles}
+        \caption{Technical Review - PostgreSQL User und Rollen}
+        \label{fig:user_roles}
+    \end{figure}
+\end{flushleft}
+\begin{flushleft}
+    Die beiden HAproxy-Hosts \texttt{sks1266} und \texttt{sks1267} sind aktiv:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/haproxy_sks1266}
+        \caption{Technical Review - HAproxy sks1266}
+        \label{fig:haproxy_sks1266}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/haproxy_sks1267}
+        \caption{Technical Review - HAproxy sks1267}
+        \label{fig:haproxy_sks1267}
+    \end{figure}
+\end{flushleft}
