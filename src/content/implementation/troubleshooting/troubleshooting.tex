@@ -8,9 +8,13 @@
     \begin{description}
         \item \textbf{Evaluation - Yugaware}\hfill \\Erst wurde das Lizenzpflichtige Yugaware-Repository verwendet.\\Ohne Lizenzkey lässt sich Yugaware nicht installieren.\\Die Lösung bestand darin,\\auf das Open-Source YugabyteDB-Repository zu wechseln.
         \item \textbf{Evaluation - etcd für Patroni}\hfill \\Erst wurde versucht, drei etcd-Hosts auf Patroni zu installieren.\\Dies führte zu einem Hostnamenskonflikt.\\So wurde etcd auf den Stanbdalone Server \texttt{sks9016} installiert.
-        \item \textbf{Evaluation - MetalLB}\hfill \\
-        \item \textbf{Evaluation - local-path-provisioner}\hfill \\
+        \item \textbf{Evaluation - MetalLB}\hfill \\Trotz Load Balancing mit \Gls{MetalLB} war es nicht möglich, von aussen auf YugabyteDB zuzugreifen.\\Die Lösung bestand darin, ein sogenanntes \texttt{L2Advertisement} auf den Adress-Pool und Namespace zu setzen
+        \item \textbf{Evaluation - local-path-provisioner}\hfill \\Alle Persistence Volume Claims wurden auf einen Node gesetzt.\\Solange die Volumes nicht zu gross wurden,\\war das System lauffähig.\\Bei zu grossen Volumes kam es zu einem Fehler weil die Disk in einen Overflow lief.\\Die Lösung besteht darin, im \texttt{nodePathMap} des \gls{local-path-provisioner} Manifests jeden Node zu spezifieren.\\Beim StorageClass-Manifest muss eine \texttt{nodeAffinity} auf die Nodes gesetzt werden.
         \item \textbf{Evaluation - StackGres Proxy für Extension}\hfill \\
-        \item \textbf{Testsystem - Proxy}\hfill \\Ansible konnte via Python nicht auf Externe Adressen zugreifen.\\Erst wurde manuell versucht, etcd zu installieren.\\Allerdings konnte das PostgreSQL Repository nicht inkludiert werden, trotz apt-proxy.
+        \item \textbf{Testsystem - Proxy}\hfill \\Ansible konnte via Python nicht auf Externe Adressen zugreifen.\\Erst wurde manuell versucht, etcd zu installieren.\\Es gab zwei Lösungswege.
+        \begin{itemize}
+            \item Im \Gls{Ansible} \texttt{vars/main.yml} konnten Proxy-Settings gesetzt werden.\\Dann mussten trotzdem noch die apt-proxy Settings gesetzt werden.
+            \item Das Netzwerkteam änderte die Zugriffspfade der Server um.\\Diese griffen nun, wenn man den Proxy ausschaltet, nicht mehr auf den Proxy zu sondern die Palo-Firewall.\\Die dortigen Rules ermöglichen einen ausgehenden Verkehr.\\Diese Variante wird in Zukunft für \Gls{Kubernetes} Standard.
+        \end{itemize}
     \end{description}
 \end{flushleft}
