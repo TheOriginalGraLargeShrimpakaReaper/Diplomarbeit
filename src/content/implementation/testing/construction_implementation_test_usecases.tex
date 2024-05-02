@@ -4,4 +4,40 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{Testfälle}
+    \begin{description}
+        \item \textbf{Failover}\hfill \\
+        \begin{enumerate}
+            \item Der Server des Primary-Node wird manuell heruntergefahren.
+            \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Vor dem Failover muss mindestens eine längere Abfrage gestartet werden,\\welche über den Failover läuft.
+        \end{enumerate}
+        \item \textbf{Switchover}\hfill \\
+        \begin{enumerate}[resume]
+            \item Mit der REST-API wird der Switchover\\auf einen anderen Nod abgesetzt.
+            \item Mit dem \texttt{patronictl}-Command wird der Switchover gesetzt
+            \item Während dem Switchover müssen Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Vor dem Switchover muss mindestens eine längere Abfrage gestartet werden,\\welche über den Switchover läuft.
+        \end{enumerate}
+        \item \textbf{Restore}\hfill \\
+        \begin{enumerate}[resume]
+            \item Mit der REST-API wird der Node erst mit dem \texttt{reinitialize} wiederhergestellt\\und dann mit einem Switchover wieder als Primary gesetzt.
+            \item Mit dem \texttt{patronictl}-Commandund Parameter \texttt{reinit} der Node wiederhergestellt\\und abschliessend mittels Switchover wieder als Primary gesetzt.
+            \item Mit der REST-API wird der Node mit dem \texttt{reinitialize} wiederhergestellt
+            \item Mit dem \texttt{patronictl}-Commandund Parameter \texttt{reinit} der Node wiederhergestellt
+            \item Vor, während und nach dem Restore müssen Tabellen mit Foreign-Key-Constraints und Daten geprüft werden.
+            \item Während dem Restore muss mindestens eine längere Abfrage gestartet werden und Daten via SQL\\eingeführt und ausgelesen werden.
+        \end{enumerate}
+        \item \textbf{Ansible - Deploy}\hfill \\
+        \begin{enumerate}[resume]
+            \item Mit \Gls{Ansible} kann der Patroni Cluster deployed werden.
+        \end{enumerate}
+        \item \textbf{Ansible - Patroni Node Extend}\hfill \\
+        \begin{enumerate}[resume]
+            \item Mit hilfe eines \Gls{Ansible} Playbooks kann ein Patroni Node angehängt werden.
+        \end{enumerate}
+        \item \textbf{Ansible - HAproxy Node Extend}\hfill \\
+        \begin{enumerate}[resume]
+            \item Mit hilfe eines \Gls{Ansible} Playbooks kann ein HAproxy Node angehängt werden.
+        \end{enumerate}
+    \end{description}
 \end{flushleft}

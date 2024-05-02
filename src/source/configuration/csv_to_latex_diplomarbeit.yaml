@@ -105,6 +105,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  db_inventory_per_rdbms:
   id: "db_inventory_per_rdbms"
   isbigfile:
@@ -180,6 +181,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  db_inventory_per_os:
   id: "db_inventory_per_os"
   isbigfile:
@@ -262,6 +264,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  anforderungskatalog:
   id: "anforderungskatalog"
   isbigfile:
@@ -321,6 +324,7 @@ tables:
     linebreak_columns:
      - "Beschreibung"
     table_header: True
+    multicolumn: True
  arbeitsrapport:
   id: "arbeitsrapport"
   isbigfile:
@@ -387,6 +391,7 @@ tables:
      - "Schwierigkeit"
      - "Lösungen"
     table_header: True
+    multicolumn: False
  projektcontrolling:
   id: "projektcontrolling"
   isbigfile:
@@ -466,6 +471,7 @@ tables:
     resize_textwidth: True
     linebreak_columns:
     table_header: True
+    multicolumn: False
  evaluation_inventory:
   id: "evaluation_inventory"
   isbigfile:
@@ -525,6 +531,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  dependencis:
   id: "dependencis"
   isbigfile:
@@ -588,6 +595,7 @@ tables:
      - "Risiko"
      - "Impact"
     table_header: True
+    multicolumn: False
  predecision_out:
   id: "predecision_out"
   isbigfile:
@@ -648,6 +656,7 @@ tables:
     linebreak_columns:
      - "Begründung"
     table_header: True
+    multicolumn: False
  predecision_in:
   id: "predecision_in"
   isbigfile:
@@ -708,6 +717,7 @@ tables:
     linebreak_columns:
      - "Begründung"
     table_header: True
+    multicolumn: False
  project_comments:
   id: "project_comments"
   isbigfile:
@@ -767,6 +777,7 @@ tables:
     linebreak_columns:
      - "Beschreibung / Event / Problem"
     table_header: True
+    multicolumn: False
  evaluation_distributed_sql:
   id: "evaluation_distributed_sql"
   isbigfile:
@@ -824,6 +835,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: False
+    multicolumn: False
  expert_discussions_overview:
    id: "expert_discussions_overview"
    isbigfile:
@@ -887,6 +899,7 @@ tables:
       - "Studenten"
       - "Bemerkungen"
      table_header: True
+     multicolumn: False
  expert_discussions_full_list:
    id: "expert_discussions_full_list"
    isbigfile:
@@ -950,6 +963,7 @@ tables:
       - "Sonstige Themen"
       - "Bemerkungen"
      table_header: True
+     multicolumn: False
  stakeholder:
    id: "stakeholder"
    isbigfile:
@@ -1007,6 +1021,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  riskcontrolling_new_risks:
    id: "riskcontrolling_new_risks"
    isbigfile:
@@ -1070,6 +1085,7 @@ tables:
       - "Auswirkung"
       - "Massnahmen"
      table_header: True
+     multicolumn: False
  risk_assessments_21_03_2024:
    id: "risk_assessments_21_03_2024"
    isbigfile:
@@ -1131,6 +1147,7 @@ tables:
       - "Ergriffene Massnahmen"
       - "Begründung"
      table_header: True
+     multicolumn: False
  benchmarking_settings_mixed:
    id: "benchmarking_settings_mixed"
    isbigfile:
@@ -1188,6 +1205,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  benchmarking_settings_dql:
    id: "benchmarking_settings_dql"
    isbigfile:
@@ -1245,6 +1263,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  time_investment:
    id: "time_investment"
    isbigfile:
@@ -1303,6 +1322,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  benchmarking_formeln:
    id: "benchmarking_formeln"
    isbigfile:
@@ -1360,6 +1380,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  benchmarking_db_sizes:
    id: "benchmarking_db_sizes"
    isbigfile:
@@ -1417,6 +1438,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  benchmarking_table_sizes:
    id: "benchmarking_table_sizes"
    isbigfile:
@@ -1474,6 +1496,7 @@ tables:
      resize_textwidth: True
      linebreak_columns:
      table_header: True
+     multicolumn: False
  evaluation_tests_patroni:
   id: "evaluation_tests_patroni"
   isbigfile:
@@ -1535,6 +1558,7 @@ tables:
      - "Eingetretenes Ergebnis"
      - "Begründung"
     table_header: True
+    multicolumn: False
  evaluation_tests_yugabytedb:
   id: "evaluation_tests_yugabytedb"
   isbigfile:
@@ -1595,6 +1619,7 @@ tables:
      - "Erwartetes Ergebnis"
      - "Eingetretenes Ergebnis"
     table_header: True
+    multicolumn: False
  evaluation_tests_stackgres_citus:
   id: "evaluation_tests_stackgres_citus"
   isbigfile:
@@ -1656,6 +1681,7 @@ tables:
      - "Eingetretenes Ergebnis"
      - "Begründung"
     table_header: True
+    multicolumn: False
  cost_parameters:
   id: "cost_parameters"
   isbigfile:
@@ -1714,6 +1740,7 @@ tables:
     linebreak_columns:
      - "Beschreibung / Begründung"
     table_header: True
+    multicolumn: False
  construction_inventory:
   id: "construction_inventory"
   isbigfile:
@@ -1772,6 +1799,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  construction_components:
   id: "construction_components"
   isbigfile:
@@ -1830,6 +1858,7 @@ tables:
     resize_textwidth: False
     linebreak_columns:
     table_header: True
+    multicolumn: False
  risk_assessments_29_04_2024:
    id: "risk_assessments_29_04_2024"
    isbigfile:
@@ -1891,3 +1920,4 @@ tables:
       - "Ergriffene Massnahmen"
       - "Begründung"
      table_header: True
+     multicolumn: False

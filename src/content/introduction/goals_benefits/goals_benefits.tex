@@ -3,7 +3,12 @@
 
 % Preamble
 \newpage
-\begin{landscape}
+%\begin{landscape}
+\begin{flushleft}
+\clearpage
+%    \KOMAoptions{paper=A3,paper=landscape,pagesize}
+\KOMAoptions{paper=A3,paper=landscape,pagesize, DIV=16}
+\recalctypearea
 \section{Zieldefinition}
 \begin{flushleft}
 Das administrieren einer \Gls{PostgreSQL} Datenbank umfasst i.d.R. \cite{5TA9H3I4,IFLSFQU4} folgende zehn Tasks die zum täglichen Alltag gehören:
@@ -90,4 +95,11 @@ Daraus ergeben sich folgende Ziele:
 \caption{Ziele}
 \label{tab:ziele}
 \end{table}
-\end{landscape}
+%\end{landscape}
+%\clearpage
+%\KOMAoptions{paper=A4,paper=portrait,pagesize}
+%\recalctypearea
+\end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea

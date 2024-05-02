@@ -173,6 +173,8 @@ def create_latex_tables(panda_latex_tables_config):
 
         table_header = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('table_header')
 
+        multicolumn = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('multicolumn')
+
         # get the pandas (panda data)
         panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal)
 
@@ -286,11 +288,13 @@ def create_latex_tables(panda_latex_tables_config):
         if decimal_format:
             latex_table = panda_table_data.to_latex(header=table_header, bold_rows=False, longtable=longtable,
                                                 sparsify=sparse_columns, label=table_label, caption=table_caption,
-                                                position=table_position, na_rep='', index=pivot_table_indizes_visible, float_format=decimal_format.format)
+                                                position=table_position, na_rep='', index=pivot_table_indizes_visible, float_format=decimal_format.format,
+                                                multicolumn=multicolumn)
         else:
             latex_table = panda_table_data.to_latex(header=table_header, bold_rows=False, longtable=longtable,
                                                 sparsify=sparse_columns, label=table_label, caption=table_caption,
-                                                position=table_position, na_rep='', index=pivot_table_indizes_visible)
+                                                position=table_position, na_rep='', index=pivot_table_indizes_visible,
+                                                multicolumn=multicolumn)
 
         # textwidth resize
         if resize_textwidth:

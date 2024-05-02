@@ -14,9 +14,16 @@
     Wenn der Zeitaufwand reicht, können auch eine Cloud Native und Monolithisches System aufgebaut werden.
 \end{flushleft}
 \begin{flushleft}
-    \begin{landscape}
+%    \begin{landscape}
+    \clearpage
+%    \KOMAoptions{paper=A3,paper=landscape,pagesize}
+    \KOMAoptions{paper=A3,paper=landscape,pagesize, DIV=16}
+    \recalctypearea
     \input{content/latex_tables/anforderungskatalog}
-    \end{landscape}
+    \clearpage
+    \KOMAoptions{paper=A4,paper=portrait,pagesize}
+    \recalctypearea
+%    \end{landscape}
 \end{flushleft}
 %\begin{flushleft}
 %    \begin{description}
@@ -37,25 +44,25 @@
 %
 %
 %\end{flushleft}
-\subsubsection{Stakeholder}
-\input{content/latex_tables/stakeholder}
 \begin{flushleft}
+    \subsubsection{Stakeholder}
+    \input{content/latex_tables/stakeholder}
 \end{flushleft}
 \subsubsection{Gewichtung}
 \begin{flushleft}
     Die Gewichtung wurde mittels einer Präferenzmatrix ermittelt.\\
-    Dabei wurden folgende Anforderungen aus übersichtsgründe in Sub-Matrizen aufgeteilt:
-    \begin{itemize}
-        \item Failover
-        \item Switchover
-        \item Restore
-        \item Replikation
-        \item Sharding
-        \item Quorum
-        \item Management-IP
-        \item Backup
-        \item Performance
-    \end{itemize}
+%    Dabei wurden folgende Anforderungen aus übersichtsgründe in Sub-Matrizen aufgeteilt:
+%    \begin{itemize}
+%        \item Failover
+%        \item Switchover
+%        \item Restore
+%        \item Replikation
+%        \item Sharding
+%        \item Quorum
+%        \item Management-IP
+%        \item Backup
+%        \item Performance
+%    \end{itemize}
 
     Die Grundlegende Gewichtung wurde folgendermassen vorgenommen:
     \begin{figure}[H]
