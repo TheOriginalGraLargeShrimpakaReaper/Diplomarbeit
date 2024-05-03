@@ -173,8 +173,8 @@
 
 \renewcommand\maketitle{
 \setcounter{page}{0}
-
 \begin{titlepage}
+
 %\thispagestyle{headings}
 \thispagestyle{FirstPage}
 \begin{flushleft}
