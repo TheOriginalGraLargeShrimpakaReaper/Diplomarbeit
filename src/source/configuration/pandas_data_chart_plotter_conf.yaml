@@ -24,6 +24,7 @@ diagram_inventory:
   - "cost_investment_sum"
   - "time_investment_action"
   - "cost_investment_action"
+  - "projektcontrolling_balance"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -2994,4 +2995,182 @@ panda_diagram_plotter:
      margin_column:
      non_pivot_margin_column:
      non_pivot_margin_function:
+  projektcontrolling_balance:
+    id: "projektcontrolling_balance"
+    separator: ";"
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "arbeitsrapport.CSV"
+    imagename: "projektcontrolling_balance.png"
+    decimal_format:
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+      - "Dauer [h]"
+      - "Geplante Dauer [h]"
+      - "Verbleibende Zeit [h]"
+    x-axis-title:
+    y-axis-title:
+    title: "Projektcontrolling"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+     - "Subphase"
+    group_by_function: "sum"
+    agg_funtion:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+     - "dauer_summe"
+    agg_colums:
+    drop_columns:
+     - "dauer_summe"
+     - "Datum"
+     - "Von"
+     - "Bis"
+     - "Hide"
+     - "Phase"
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
+    column_operations:
+     datas:
+      - "dauer_summe"
+     operations:
+      dauer_summe:
+       operation_function: "diff"
+       axis_number: 1
+       columns:
+       - "Dauer [h]"
+       - "Geplante Dauer [h]"
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+      pivot_indizes_visible: False
+      pivot_rename_indizes:
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+     transpose: True
+    rename_columns:
+      dauer_summe: "Verbleibende Zeit [h]"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name: "Total"
+     non_pivot_margin_column:
+      - "Dauer [h]"
+      - "Geplante Dauer [h]"
+      - "dauer_summe"
+     non_pivot_margin_function: "sum"
+  projektcontrolling_balance_sum:
+    id: "projektcontrolling_balance_sum"
+    separator: ";"
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "arbeitsrapport.CSV"
+    imagename: "projektcontrolling_balance.png"
+    decimal_format:
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+      - "Dauer [h]"
+      - "Geplante Dauer [h]"
+      - "Verbleibende Zeit [h]"
+    x-axis-title:
+    y-axis-title:
+    title: "Projektcontrolling"
+    chart-index:
+    chart-kind: "bar"
+    chart-designs:
+      subplots: False
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: False
+      secondary_y: False
+      stylelist:
+      figsize:
+      autopct:
+      loc:
+      bbox_to_anchor: !!python/tuple [1,1]
+    group_by:
+     - "Subphase"
+    group_by_function: "sum"
+    agg_funtion:
+     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+     - "dauer_summe"
+    agg_colums:
+    drop_columns:
+     - "dauer_summe"
+     - "Datum"
+     - "Von"
+     - "Bis"
+     - "Hide"
+     - "Phase"
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
+    column_operations:
+     datas:
+      - "dauer_summe"
+     operations:
+      dauer_summe:
+       operation_function: "diff"
+       axis_number: 1
+       columns:
+       - "Dauer [h]"
+       - "Geplante Dauer [h]"
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+      pivot_indizes_visible: False
+      pivot_rename_indizes:
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+     transpose: True
+    rename_columns:
+      dauer_summe: "Verbleibende Zeit [h]"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: True
+     margin_name: "Total"
+     non_pivot_margin_column:
+      - "Dauer [h]"
+      - "Geplante Dauer [h]"
+      - "dauer_summe"
+     non_pivot_margin_function: "sum"
 
