@@ -83,6 +83,16 @@ SELECT create_reference_table('pgbench_history');
     Auf diesen Mehraufwand wurde verzichtet um das \Gls{SAN} und somit das Daily Business nicht zu stark zu belasten.
 \end{flushleft}
 \begin{flushleft}
+    Allerdings war es nicht möglich, die Shards mit rund 250GiB auszuführen.\\
+    Trotz grösserer Disk und mehr Ressourcen auf den Shards und Coordinators, brach das Sharding der Tabelle \texttt{pgbench\_accounts} immer ab.\\
+    Die PostgreSQL-Instanz wurde optimiert, dass heisst, es wurden so viele Parameter wie möglich der Patroni-Evaluation gesetzt, allerdings gab es von Seitens StackGres einschränkungen.\\
+    Das SQL lief für jeweils knapp 13 minuten, ehe es zu einem Disconnect im Java-Code von einem der beiden Shards kam.\\
+    Die vermutung liegt nahe, dass es ein Memory-Leak im Code gibt, das Log gibt allerdings nicht genug her, um die Fehlerursache und eine mögliche Lösung zu finden.
+    \begin{warning}
+        Aufgrund von diesem Fehler, ist das Benchmarking für StackGres unvollständig.
+    \end{warning}
+\end{flushleft}
+\begin{flushleft}
     Alle Benchmarking-Commands und SQLs zur ermittlung der grösse sind im \hyperref[subsec:stackgres_citus_benchmarking_commands]{Anhang - StackGres - Citus Benchmarking Commands} zu finden.
     \subsubsection{Benchmarks}
     Der vergleich zwischen den verschiedenen Varianten.\\
