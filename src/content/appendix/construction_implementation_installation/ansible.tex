@@ -4,4 +4,29 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{Ansible - Installation}
+    Auf \texttt{sks1000} wurde zuerst \Gls{Ansible} installiert:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Ansible - Installation,captionpos=b,label={lst:ansible-installation},breaklines=true]
+sudo apt update && sudo apt install -y python3-pip sshpass git
+pip3 install ansible
+    \end{lstlisting}
+    Das \Gls{GitHub} Repository von \texttt{vitabacks / postgresql\_cluster} muss lokal geklont werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Ansible - Repository Clone,captionpos=b,label={lst:ansible-repository-clone},breaklines=true]
+git clone https://github.com/vitabaks/postgresql_cluster.git
+    \end{lstlisting}
+    Das Verzeichnis ist \texttt{postgresql\_cluster} beinhaltet die Playbooks und Ressourcen.
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Ansible - cd Repository,captionpos=b,label={lst:ansible-cd-repository},breaklines=true]
+cd postgresql_cluster/
+    \end{lstlisting}
+    Die wichtigen Files liegen nun an folgenden Verzeichnissen:
+    \begin{itemize}
+        \item \textbf{inventory}:\hfill \texttt{postgresql\_cluster/inventory}
+        \item \textbf{main.yml}:\hfill \texttt{postgresql\_cluster/vars/main.yml}
+        \item \textbf{inventory}:\hfill \texttt{postgresql\_cluster/deploy\_pgcluster.yml}
+        \item \textbf{inventory}:\hfill \texttt{postgresql\_cluster/config\_pgcluster.yml}
+        \item \textbf{inventory}:\hfill \texttt{postgresql\_cluster/add\_balancer.yml}
+        \item \textbf{inventory}:\hfill \texttt{postgresql\_cluster/add\_pgnode.yml}
+    \end{itemize}
 \end{flushleft}

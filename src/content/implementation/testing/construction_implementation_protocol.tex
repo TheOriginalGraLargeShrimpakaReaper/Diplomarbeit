@@ -2,7 +2,22 @@
 %! Date = 01.05.24
 
 % Preamble
+\clearpage
+\KOMAoptions{paper=A3,paper=landscape,pagesize, DIV=20}
+\recalctypearea
 \begin{flushleft}
     \subsection{Protokollierung}
     \input{content/latex_tables/construction_implementation_tests}
+\end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
+\begin{flushleft}
+    Der Patroni Node wurde erfolgreich angefügt:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/testing/testing_add_pgnode_result}
+        \caption{Testing - Patroni Node hinzufügen - add\_pgnode.yml}
+        \label{fig:testing_add_pgnode_result}
+    \end{figure}
 \end{flushleft}
