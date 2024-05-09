@@ -1,0 +1,28 @@
+%! Author = gramic
+%! Date = 09.05.24
+
+% Preamble
+\begin{flushleft}
+    \subsection{Installation und Konfiguration PostgreSQL HA Cluster}
+    \texttt{vitabacks / postgresql\_cluster} \Gls{GitHub} Repository hat zwei Zentrale Komponten.\\
+    Das eine ist das \texttt{Inventory}-File, welches die IP-Adressen und Hostnamen der Server beinhaltet.\\
+    Dabei ist zu beachten, dass die Host-Einträge überschrieben werden, wenn \texttt{hostname=<hostname>} eingetragen wird.\\
+    Was entsprechend zu Problemen mit den DNS-Einträgen, dem Active Directory oder anderen komponenten führen kann.
+\end{flushleft}
+\begin{flushleft}
+    Die zweite zentrale Komponente ist das \texttt{main.yml}-File.\\
+    Über dieses YAML-File werden alle Aspekte des Patroni-Clusters einstellen.\\
+    Für dieses Testsystem zentrale Konfigurationen waren:
+    \begin{description}
+        \item \textbf{\Gls{DCS}-Typ}\hfill \\Es stehen \gls{etcd} oder \Gls{Consul} zur Auswahl, entsprechend wird \gls{etcd} ausgewählt.\\Es könnten auch bestehende \gls{etcd}-Nodes verwendet werden.
+        \item \textbf{Load Balancing}\hfill \\Grundsätzlich funktionierte der Cluster auch ohne Load Balancer.\\Allerdings muss in diesem Fall \Gls{HAProxy} als Load Balancer eingesetzt werden.
+        \item \textbf{Virtual IP}\hfill \\Auch kann definiert werden ob eine Virtuelle IP verwendet wird.
+        \item \textbf{\Gls{Connection Pooler}}\hfill \\\texttt{PgBounder} kann aktiviert oder deaktiviert werden.\\Ein andererer \Gls{Connection Pooler} steht nicht zur verfügung.
+        \item \textbf{PostgreSQL - User}\hfill \\Alle notwendigen User können bereits definiert werden.
+        \item \textbf{PostgreSQL - Datenbanken}\hfill \\Selbiges gilt für die Datenbanken.\\
+        \item \textbf{PostgreSQL - Extensions}\hfill \\
+        \item \textbf{PostgreSQL - pg\_hba.conf}\hfill \\
+        \item \textbf{PostgreSQL - .pgpass}\hfill \\
+        \item \textbf{Patroni - REST-API}\hfill \\
+    \end{description}
+\end{flushleft}

@@ -77,3 +77,14 @@ psql -p 6432 -h 127.0.0.1 -U postgres -d pgbouncer
 show databases;
 \end{lstlisting}
 \end{flushleft}
+\begin{flushleft}
+    Die Logs werden einmal pro Tag neu erfasst:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/postgresql_log_rotation}
+        \caption{Technical Review - PostgreSQL - Log Rotation}
+        \label{fig:postgresql_log_rotation}
+    \end{figure}
+    Die Einstellungen werden vorerst so belassen.\\
+    Sobald dass \Gls{SIEM} betriebsbereit ist, wird das Format und die Frequenz entsprechend den Anforderungen angepasst.
+\end{flushleft}

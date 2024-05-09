@@ -18,6 +18,10 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Folgende Server stehen daher im Einsatz:
-    \input{content/latex_tables/construction_inventory}
+    \texttt{vitabacks / postgresql\_cluster} hat eine Schwachstelle.\\
+    Der \Gls{Connection Pooler} ist nicht auf dem Level des Proxy sondern auf dem Patroni Node.\\
+    Das Resultat bei einem Node Failure ist zwangsläufig, dass die Connections bei einem \Gls{Switchover} / \Gls{Failover} unterbrochen werden.\\
+    Sollte die Applikation nicht fähig sein, die Connection zu halten und innerhalb eines Timeouts reconnecten zu können,\\
+    kommt es zu einem Finalen Disconnect.\\
+    Ohne weiteres lässt sich der \Gls{Connection Pooler} aber nicht auf den Proxy-Server verschieben, zu tief müsste in den Code eingegriffen werden.
 \end{flushleft}
