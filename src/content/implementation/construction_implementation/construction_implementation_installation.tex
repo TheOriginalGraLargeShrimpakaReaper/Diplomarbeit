@@ -4,7 +4,7 @@
 % Preamble
 \begin{flushleft}
     \subsection{Installation und Konfiguration PostgreSQL HA Cluster}
-    \texttt{vitabacks / postgresql\_cluster} \Gls{GitHub} Repository hat zwei Zentrale Komponten.\\
+    \texttt{vitabacks / postgresql\_cluster} \Gls{GitHub} Repository hat zwei zentrale Komponten.\\
     Das eine ist das \texttt{Inventory}-File, welches die IP-Adressen und Hostnamen der Server beinhaltet.\\
     Dabei ist zu beachten, dass die Host-Einträge überschrieben werden, wenn \texttt{hostname=<hostname>} eingetragen wird.\\
     Was entsprechend zu Problemen mit den DNS-Einträgen, dem Active Directory oder anderen komponenten führen kann.
@@ -12,17 +12,120 @@
 \begin{flushleft}
     Die zweite zentrale Komponente ist das \texttt{main.yml}-File.\\
     Über dieses YAML-File werden alle Aspekte des Patroni-Clusters einstellen.\\
-    Für dieses Testsystem zentrale Konfigurationen waren:
+    Für dieses Testsystem zentrale Konfigurationsabschnitte waren:
     \begin{description}
         \item \textbf{\Gls{DCS}-Typ}\hfill \\Es stehen \gls{etcd} oder \Gls{Consul} zur Auswahl, entsprechend wird \gls{etcd} ausgewählt.\\Es könnten auch bestehende \gls{etcd}-Nodes verwendet werden.
         \item \textbf{Load Balancing}\hfill \\Grundsätzlich funktionierte der Cluster auch ohne Load Balancer.\\Allerdings muss in diesem Fall \Gls{HAProxy} als Load Balancer eingesetzt werden.
-        \item \textbf{Virtual IP}\hfill \\Auch kann definiert werden ob eine Virtuelle IP verwendet wird.
-        \item \textbf{\Gls{Connection Pooler}}\hfill \\\texttt{PgBounder} kann aktiviert oder deaktiviert werden.\\Ein andererer \Gls{Connection Pooler} steht nicht zur verfügung.
+        \item \textbf{Virtual IP}\hfill \\Auch kann definiert werden ob eine Virtuelle IP verwendet wird.\\Ohne Load Balancer würde die virtuelle IP dem Primary Patroni Node zugewiesen.
+        \item \textbf{\Gls{Connection Pooler}}\hfill \\\texttt{PgBounder} kann aktiviert oder deaktiviert werden, entsprechend wurde dieser aktiviert.\\Die Konfiguration wurde belassen.\\Ein andererer \Gls{Connection Pooler} steht nicht zur verfügung.
         \item \textbf{PostgreSQL - User}\hfill \\Alle notwendigen User können bereits definiert werden.
-        \item \textbf{PostgreSQL - Datenbanken}\hfill \\Selbiges gilt für die Datenbanken.\\
-        \item \textbf{PostgreSQL - Extensions}\hfill \\
-        \item \textbf{PostgreSQL - pg\_hba.conf}\hfill \\
-        \item \textbf{PostgreSQL - .pgpass}\hfill \\
-        \item \textbf{Patroni - REST-API}\hfill \\
+        \item \textbf{PostgreSQL - Datenbanken}\hfill \\Selbiges gilt für die Datenbanken.\\Folgende Datenbanken wurden eingetragen:
+        \begin{itemize}
+            \item \textbf{k8s\_core\_gitlab\_prod}\hfill \\Leere DB Hülle für die \Gls{GitLab} Datenbank
+            \item \textbf{k8s\_core\_harbor\_prod}\hfill \\Leere DB Hülle für die \Gls{Harbor} Datenbank
+            \item \textbf{k8s\_core\_keycloak\_prod}\hfill \\Leere DB Hülle für die \Gls{Keycloak} Datenbank
+            \item \textbf{gramic\_test}\hfill \\Diese DB wird nur für die Benchmarking-Tests und als Test-DB für die Maintenance-Skripte verwendet.
+        \end{itemize}
+        \item \textbf{PostgreSQL - Extensions}\hfill \\Alle Datenbanken benötigen die Extension \texttt{pgstattuple}.\\Diese wird verwendet, um Bloated Tables und Indices zu ermitteln.
+        \item \textbf{PostgreSQL - pg\_hba.conf}\hfill \\Ist eine IP oder ein Netzwerk nicht erfasst, kann trotz korrekten Zugangsdaten nicht auf die DB zugegriffen werden.\\Entsprechend müssen die User und Client Adressen erfasst werden.
+        \item \textbf{PostgreSQL - .pgpass}\hfill \\Im Passwortfile \texttt{.pgpass} werden die Passwörter zu den Usern erfasst.\\Zusätzlich kann hier der Zugriff ebenfalls auf bestimmte Adressen eingeschränkt werden.\\Als Alternative würde \texttt{postgresql\_pg\_ident} zur Auswahl stehen.
+        \item \textbf{Patroni - REST-API}\hfill \\Die REST-API kann auf \texttt{localhost} beschränkt werden oder so eingestellt werden,\\dass die REST-AIP auf die Patroni Adresse oder den Hostnamen hört.
     \end{description}
+\end{flushleft}
+\begin{flushleft}
+    \subsubsection{Vorbedingungen}
+    Zuerst mussten auf allen Servern die entsprechenden Ports auf der Firewall freigegeben werden.\\
+    Standardmässig setzt \texttt{vitabacks / postgresql\_cluster} folgende offenen Ports voraus:
+    \input{content/latex_tables/construction_implementation_used_ports}
+\end{flushleft}
+\begin{flushleft}
+    Es reicht nicht, auf den Servern einen Proxy einzustellen.\\
+    Entweder es werden Firewall-Rules erstellt, welche die Ziele von \Gls{GitHub} und den \Gls{Debian}-Repositories freigeben,\\
+    oder aber der Proxy wird dem \texttt{main.yml} mitgegeben.\\
+    Bei den erweiterungstests gng es nicht mehr anders, der Server \texttt{sks9016} ist nur eine Spielwiese für das \Gls{Foreman} Provisioning.\\
+    Auch ist dieser Server nicht in der entsprechenden AD-Gruppe der Patroni Test Gruppe, also muss der alte Proxy verwendet werden.\\
+    Die Proxy Settings sind zuoberst, wird die Firewall verwendet, wird folgendens eingetragen:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=main.xyml - No Proxy,captionpos=b,label={lst:main.yml-no-proxy},breaklines=true]
+proxy_env: {}
+    \end{lstlisting}
+    Der Gruppenproxy funktioniert mit folgenden Proxy-Settings:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=main.xyml - Gruppenproxy,captionpos=b,label={lst:main.yml-webproxy},breaklines=true]
+proxy_env:
+  http_proxy: "http://xksgr_vks0041_inet:<Password Secure / Safe>f@webproxy.sivc.first-it.ch:9090"
+  https_proxy: "http://xksgr_vks0041_inet:<Password Secure / Safe>@webproxy.sivc.first-it.ch:9090"
+    \end{lstlisting}
+    Der Proxy für alles andere benötigt folgenden Eintrag:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=main.xyml - SProxy,captionpos=b,label={lst:main.yml-sproxy},breaklines=true]
+proxy_env:
+  http_proxy: http://sproxy.sivc.first-it.ch:8080
+  https_proxy: http://sproxy.sivc.first-it.ch:8080
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    \subsubsection{Installation / Deploy - deploy\_pgcluster.yml}
+    Die Installation ist simpel.\\
+    Nachdem alle Konfigurationen vollzogen sind, muss nur das entsprechende Playbook ausgeführt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Deploy - deploy\_pgcluster.yml,captionpos=b,label={lst:deploy-pgcluster},breaklines=true]
+ansible-playbook deploy_pgcluster.yml
+    \end{lstlisting}
+    Das reine Deplyoment dauerte jeweils etwas mehr als fünf minuten.\\
+    Danach war ein voll funktionsfähiger Patroni Cluster betriebsbereit.
+    \subsubsection{Maintenance - config\_pgcluster.yml}
+    Nachdem die Anpassungen am \texttt{main.yml} vorgenommen waren, musste nur das entsprechende Playbook ausgeführt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance - config\_pgcluster.yml,captionpos=b,label={lst:config-pgcluster},breaklines=true]
+ansible-playbook config_pgcluster.yml
+    \end{lstlisting}
+    \begin{warning}
+        Die Nodes, um die der Cluster in den nächsten beiden Schritten erweitert wurde,\\
+        durften noch nicht ins \texttt{Inventory} eingetragen werden, ansonsten wären Fehlermeldungen und ein Abbruch des Playbooks die folge gewesen,\\da es die entsprechenden Nodes noch gar nicht gab.\\
+        Ebenso musste ein Proxy in das \texttt{main.yml} eingetragen werden, da der Testsserver \texttt{sks9016} nicht der angepassten Firewall-Rule unterstand.
+    \end{warning}
+\begin{flushleft}
+    Zum Testen wurden nachträglich folgende Werte hinzugefügt:
+    \begin{itemize}
+        \item Der Proxy wurde gesetzt
+        \item Der REST-API wurde die Patroni-Adresse mittels \texttt{patroni\_restapi\_listen\_addr: "\{\{ inventory\_hostname \}\}"} hinzugefügt
+        \item Das \texttt{pg\_hba.conf} musste einmal um den \texttt{patroni\_replication\_username} Usereintrag auf die virtuelle Tabelle \texttt{replication} erweitert werden (damit dieser Node replizieren darf)\\als auch um den generellen Zugriff erweitert werden (damit \Gls{HAProxy} zugreifen darf).
+        \item Zuletzt musste es auch möglich sein, einen Restart vollziehen zu können wenn es notwendig wäre,\\daher wurde \texttt{pending\_restart: true} gesetzt.
+    \end{itemize}
+\end{flushleft}
+    \subsubsection{\Gls{HAProxy} Node hinzufügen - add\_balancer.yml}
+    Um die erweiterung des Proxy-Layers vorzunehmen, waren zwei Sachen notwendig.\\
+    Zuerst musste das \texttt{Inventory} um den Node erweitert werden, der entsprechend als neuer Node markiert wurde:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=HAProxy Node erweitern - Inventory,captionpos=b,label={lst:add-balancer-inventory},breaklines=true]
+[balancers]
+10.0.22.176
+10.0.22.177
+10.0.20.43 new_node=true
+    \end{lstlisting}
+    Zum Schluss muss nur noch das Playbook ausgeführt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=HAProxy Node erweitern - add\_balancer.yml,captionpos=b,label={lst:add-balancer},breaklines=true]
+ansible-playbook add_balancer.yml
+    \end{lstlisting}
+    \subsubsection{Patroni Node hinzufügen - add\_pgnode.yml}
+    Das vorgehen ist gleich wie beim erweitern von \Gls{HAProxy}.\\
+    Das \texttt{Inventory} wurde erweitert:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Patroni Node erweitern - Inventory,captionpos=b,label={lst:add-pgnode-inventory},breaklines=true]
+[master]
+10.0.22.173 postgresql_exists=false
+
+[replica]
+10.0.22.174 postgresql_exists=false
+10.0.22.175 postgresql_exists=false
+10.0.28.16 postgresql_exists=false new_node=true
+    \end{lstlisting}
+    Das Deployment erfolgt nun ebenfalls via Playbook:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Patroni Node erweitern - add\_pgnode.yml,captionpos=b,label={lst:add-pgnode},breaklines=true]
+ansible-playbook add_pgnode.yml
+    \end{lstlisting}
+
 \end{flushleft}

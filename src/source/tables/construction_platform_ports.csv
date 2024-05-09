@@ -1,0 +1,10 @@
+Port;Beschreibung
+5432;PostgreSQL
+6432;PgBounder
+8008;Patroni REST-API
+2379;\gls{etcd}
+2380;\gls{etcd}
+5000;\Gls{HAProxy} - Read/Write - Primary
+5001;\Gls{HAProxy} - Read Only - Replikas
+5002;\Gls{HAProxy} - Read Only - Synchronous Replikas
+5003;\Gls{HAProxy} - HAproy Stats
