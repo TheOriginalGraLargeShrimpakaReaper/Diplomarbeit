@@ -2387,8 +2387,100 @@ export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
     \subsection{Haproxy erweitern}
     Zuerst musste das \texttt{Inventory} um den entsprechenden Node erweitert werden:
     \lstset{style=gra_codestyle}
-    \begin{lstlisting}[language=bash, caption=Testsystem - Deployment - inventory,captionpos=b,label={lst:testsystem-deployment-inventory},breaklines=true]
+    \begin{lstlisting}[language=bash, caption=Testsystem - Anhang - add\_balancer.yml - inventory,captionpos=b,label={lst:testsystem-add-balancer-inventory},breaklines=true]
+[etcd_cluster]  # recommendation: 3, or 5-7 nodes
+10.0.22.170
+10.0.22.171
+10.0.22.172
+
+# if dcs_exists: false and dcs_type: "consul"
+[consul_instances]  # recommendation: 3 or 5-7 nodes
+
+# if with_haproxy_load_balancing: true
+[balancers]
+10.0.22.176
+10.0.22.177
+10.0.18.16 new_node=true
+
+# PostgreSQL nodes
+[master]
+10.0.22.173 postgresql_exists=false
+
+[replica]
+10.0.22.174 postgresql_exists=false
+10.0.22.175 postgresql_exists=false
+
+[postgres_cluster:children]
+master
+replica
+
+# if pgbackrest_install: true and "repo_host" is set
+[pgbackrest]  # optional (Dedicated Repository Host)
+
+# Connection settings
+[all:vars]
+ansible_connection='ssh'
+ansible_ssh_port='22'
+ansible_user='itgramic'
+ansible_ssh_pass='<Secret ;-)>'  # "sshpass" package is required for use "ansible_ssh_pass"
+#ansible_ssh_private_key_file=
+ansible_python_interpreter='/usr/bin/env python3'
+
+[pgbackrest:vars]
 
     \end{lstlisting}
+    Nun muss das Playbook add\_balancer.yml ausgeführt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Testsystem - Anhang - add\_balancer.yml,captionpos=b,label={lst:add-appendix-balancer},breaklines=true]
+ansible-playbook add_balancer.yml
+    \end{lstlisting}
     \subsection{Patroni Node}
+    Zuerst musste das \texttt{Inventory} um den entsprechenden Node erweitert werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Testsystem - Anhang - add\_pgnode.yml - inventory,captionpos=b,label={lst:testsystem-add-pgnode-inventory},breaklines=true]
+[etcd_cluster]  # recommendation: 3, or 5-7 nodes
+10.0.22.170
+10.0.22.171
+10.0.22.172
+
+# if dcs_exists: false and dcs_type: "consul"
+[consul_instances]  # recommendation: 3 or 5-7 nodes
+
+# if with_haproxy_load_balancing: true
+[balancers]
+10.0.22.176
+10.0.22.177
+
+# PostgreSQL nodes
+[master]
+10.0.22.173 postgresql_exists=false
+
+[replica]
+10.0.22.174 postgresql_exists=false
+10.0.22.175 postgresql_exists=false
+10.0.28.16 postgresql_exists=false new_node=true
+
+[postgres_cluster:children]
+master
+replica
+
+# if pgbackrest_install: true and "repo_host" is set
+[pgbackrest]  # optional (Dedicated Repository Host)
+
+# Connection settings
+[all:vars]
+ansible_connection='ssh'
+ansible_ssh_port='22'
+ansible_user='itgramic'
+ansible_ssh_pass='<Secret ;-)>'  # "sshpass" package is required for use "ansible_ssh_pass"
+#ansible_ssh_private_key_file=
+ansible_python_interpreter='/usr/bin/env python3'
+
+[pgbackrest:vars]
+    \end{lstlisting}
+    Das Deployment erfolgt nun ebenfalls via Playbook add\_pgnode.yml:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Testsystem - Anhang - add\_pgnode.yml,captionpos=b,label={lst:add-appendix-pgnode},breaklines=true]
+ansible-playbook add_pgnode.yml
+    \end{lstlisting}
 \end{flushleft}

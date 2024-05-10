@@ -1,0 +1,19 @@
+%! Author = gramic
+%! Date = 10.05.24
+
+% Preamble
+\begin{flushleft}
+    \subsubsection{Maintenance-Tool - Generell}
+    Da das \Gls{Kubernetes} Testsystem des KSGR noch nicht freigegeben ist,\\
+    wurden die Maintenance-Jobs auf der Evaluationsplattform betrieben.\\
+    Dadurch ergaben sich ein paar einschränkungen.
+    \begin{description}
+        \item \textbf{Ressourcen}\hfill \\Ressourcen wie Python-Skripte sollten in einer Produktiven Umgebung z.B. in einem \Gls{helm} Chart abgebildet werden.\\Da die erstellung eines \gls{helm} Charts den Rahmen der Diplomarbeit sprengen würde, wurden Python-Skripte als \texttt{ConfigMap} deployt.\\In der Produktiven Umgebung ist dies tunlichst zu vermeiden!
+        \item \textbf{\Gls{Keycloak} / Sectrets}\hfill \\Die Zugangsdaten (Username und Passwort) werden mit grosser Wahrscheinlichkeit in \Gls{Keycloak} abgebildet.\\In diesem Fall wird ein Secret deployt und das Secret als Filesystem gemountet.\\Die grösse Schwäche hierbei ist, dass die Secrets unverschlüsselt auf dem Filesystem des Pods liegen, selbst wenn mit Base64 ein Hash erzeugt wurde.\\Daher ist auch dieses Verfahren nicht für die Produktion geeignet.
+        \item \textbf{Mailing}\hfill \\Mailing steht auf der Evaluationsumgebung nicht zur verfügung.
+    \end{description}
+\end{flushleft}
+\begin{flushleft}
+    Die Mainenance-Jobs sollen nach dem Microservice-Gedanken aufgebaut werden.\\
+    So soll die Automatisierbarkeit erhöht und flexibilisiert werden.
+\end{flushleft}

@@ -1,0 +1,62 @@
+%! Author = gramic
+%! Date = 10.05.24
+
+% Preamble
+\begin{flushleft}
+    \subsubsection{Maintenance-Tool - Bloated Tables / Indices}
+    \paragraph{Ziel und Zweck}
+    \Gls{PostgreSQL} hat mit \Gls{AUTOVACUUM} eine Funktionalität, welche Tabellen und Indizes aufräumt und bereinigt.\\
+    Allerdings gelten die Parameter für den ganzen \Gls{PostgreSQL Cluster}, einzelne Tabellen werden zwangsläufig nicht optimal vakuumiert.\\
+\end{flushleft}
+\begin{flushleft}
+    Daher war ein Ziel, dass Bloated Tables und Indices von einem Maintenance Skript erkannt und bereinigt werden.
+\end{flushleft}
+\begin{flushleft}
+    \paragraph{Funktionsweise}
+    Der Maintenance-Job soll anhand der
+    Auf allen Datenbanken muss die Extension \texttt{pgstattuple} installiert werden.\\
+    Die Extension sammelt und stellt Informationen über Tabellen, Indizes, Tupels usw., zur verfügung.
+\end{flushleft}
+\begin{flushleft}
+    Mit Python werden alle Tabellen, welche bei \texttt{pgstattuple} mehr als einen konfigurationen Wert, aktuell 1.5\%, gelistet.\\
+    Das SQL Statement hierzu, ist wie folgt aufgebaut:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=sql, caption=Maintenance-Tool - List - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-list-bloated-tables},breaklines=true]
+select
+    relname as table,
+    (pgstattuple(oid)).dead_tuple_percent
+from pg_class
+where
+    relkind = 'r' and
+    (pgstattuple(oid)).dead_tuple_percent > %s
+order by dead_tuple_percent desc;
+    \end{lstlisting}
+    Anschliessend werden die entsprechenden Tabellen mittels VACUUM-Befehl manuell vakuumiert:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=sql, caption=Maintenance-Tool - VACUUM - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-vacuum-bloated-tables},breaklines=true]
+vacuum <table>;
+    \end{lstlisting}
+    \begin{warning}
+        Ein \texttt{VACUUM} kann nicht in einer normalen Transaktion abgesetzt werden!\\
+        Bei \texttt{psycopg2} muss der Transaktions-Isolations Level auf \texttt{ISOLATION\_LEVEL\_AUTOCOMMIT} gesetzt werden.\\
+        Anders lässt sich das SQL nicht absetzen.
+    \end{warning}
+    Im Nachgang werden alle Indizes für die ganze Tabelle neu aufgebaut (\texttt{REINDEX}):
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=sql, caption=Maintenance-Tool - REINDEX - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-reindex-bloated-tables},breaklines=true]
+reindex table <table>;
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Wichtig ist eine vorangehende Prüfung, ob ein \Gls{AUTOVACUUM}-Job am laufen ist.\\
+    Trifft dies zu, darf das Skript in diesem Lauf nicht ausgeführt werden.\\
+    Überprüft kann dies mit folgendem SQL werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=sql, caption=Maintenance-Tool - Check AUTOVACUUM - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-check-autovacuum-bloated-tables},breaklines=true]
+select count(*) as active from pg_stat_activity where query like 'autovacuum:%';
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Dem Microservice-Gedanken entsprechend, soll es pro Datenbank einen Job geben,\\
+    der die Tabellen auf Bloated Tables untersucht und diese bereinigt.
+\end{flushleft}
