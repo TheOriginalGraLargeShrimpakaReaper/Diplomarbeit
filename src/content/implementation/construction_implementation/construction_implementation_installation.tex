@@ -14,6 +14,7 @@
     Über dieses YAML-File werden alle Aspekte des Patroni-Clusters einstellen.\\
     Für dieses Testsystem zentrale Konfigurationsabschnitte waren:
     \begin{description}
+        \item \textbf{Clustername}\hfill \\Der Clustename lautet \guillemotleft k8s-core-psql\guillemotright.\\Dazu muss folgender Eintrag gesetzt werden: \texttt{patroni\_cluster\_name: \"k8s-core-psql\"}
         \item \textbf{\Gls{DCS}-Typ}\hfill \\Es stehen \gls{etcd} oder \Gls{Consul} zur Auswahl, entsprechend wird \gls{etcd} ausgewählt.\\Es könnten auch bestehende \gls{etcd}-Nodes verwendet werden.
         \item \textbf{Load Balancing}\hfill \\Grundsätzlich funktionierte der Cluster auch ohne Load Balancer.\\Allerdings muss in diesem Fall \Gls{HAProxy} als Load Balancer eingesetzt werden.
         \item \textbf{Virtual IP}\hfill \\Auch kann definiert werden ob eine Virtuelle IP verwendet wird.\\Ohne Load Balancer würde die virtuelle IP dem Primary Patroni Node zugewiesen.
@@ -30,6 +31,7 @@
         \item \textbf{PostgreSQL - pg\_hba.conf}\hfill \\Ist eine IP oder ein Netzwerk nicht erfasst, kann trotz korrekten Zugangsdaten nicht auf die DB zugegriffen werden.\\Entsprechend müssen die User und Client Adressen erfasst werden.
         \item \textbf{PostgreSQL - .pgpass}\hfill \\Im Passwortfile \texttt{.pgpass} werden die Passwörter zu den Usern erfasst.\\Zusätzlich kann hier der Zugriff ebenfalls auf bestimmte Adressen eingeschränkt werden.\\Als Alternative würde \texttt{postgresql\_pg\_ident} zur Auswahl stehen.
         \item \textbf{Patroni - REST-API}\hfill \\Die REST-API kann auf \texttt{localhost} beschränkt werden oder so eingestellt werden,\\dass die REST-AIP auf die Patroni Adresse oder den Hostnamen hört.
+%        \item \textbf{Clustername}\hfill \\Der Clustename lautet \guillemotleftk 8s-core-psql\guillemotright.\\Dazu muss folgender Eintrag gesetzt werden: \texttt{patroni\_cluster\_name: \"k8s-core-psql\"}
     \end{description}
 \end{flushleft}
 \begin{flushleft}
@@ -113,7 +115,7 @@ ansible-playbook add_balancer.yml
     Das vorgehen ist gleich wie beim erweitern von \Gls{HAProxy}.\\
     Das \texttt{Inventory} wurde erweitert:
     \lstset{style=gra_codestyle}
-    \begin{lstlisting}[language=bash, caption=Patroni Node erweitern - Inventory,captionpos=b,label={lst:add-pgnode-inventory},breaklines=true]
+    \begin{lstlisting}[language=yaml, caption=Patroni Node erweitern - Inventory,captionpos=b,label={lst:add-pgnode-inventory},breaklines=true]
 [master]
 10.0.22.173 postgresql_exists=false
 
@@ -127,5 +129,7 @@ ansible-playbook add_balancer.yml
     \begin{lstlisting}[language=bash, caption=Patroni Node erweitern - add\_pgnode.yml,captionpos=b,label={lst:add-pgnode},breaklines=true]
 ansible-playbook add_pgnode.yml
     \end{lstlisting}
-
+\end{flushleft}
+\begin{flushleft}
+    Die vollständige Dokumentation ist im \hyperref[sec:construction_implementation_installation]{Anhang - Installation Testsystem} zu finden.
 \end{flushleft}
