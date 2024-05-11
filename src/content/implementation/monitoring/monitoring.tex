@@ -17,7 +17,7 @@
     Zusätzlich wurde ein Python Custom Sensor erstellt.\\
     Dieser nutzt die Patroni REST-API um folgende Werte abzufragen:
     \begin{description}
-        \item \textbf{Cluster Status}\hfill \\Prüft, ob der Cluster noch im Status running ist.\\Dabei wird
+        \item \textbf{Cluster Status}\hfill \\Prüft, ob der Cluster noch im Status running ist.\\Dabei wird geprüft ob der Cluster \guillemotleft running\guillemotright ist.\\Ist der Cluster pausiert, wird eine Warnung ausgegeben.\\Andernfalls wird ein Fehler geworfen.
         \item \textbf{Cluster Unlock}\hfill \\
         \item \textbf{Failsafe Mode Activity}\hfill \\
         \item \textbf{Replication Lag}\hfill \\
