@@ -97,6 +97,8 @@
 \newcommand{\dokuemnttitel}[1]{\gdef\@dokuemnttitel{#1}}
 \newcommand{\@toptitel}{}
 \newcommand{\toptitel}[1]{\gdef\@toptitel{#1}}
+\newcommand{\@fachexperte}{}
+\newcommand{\fachexperte}[1]{\gdef\@fachexperte{#1}}
 \newcommand{\@datum}{}
 \newcommand{\datum}[1]{\gdef\@datum{#1}}
 %\newcommand{\@department}{}
@@ -211,6 +213,15 @@
 \bigskip
 \begin{flushleft}
 \textbf{\textcolor[HTML]{000000}{ \ \Huge\@dokuemnttitel}}
+\end{flushleft}
+\bigskip
+
+\bigskip
+\bigskip
+
+\bigskip
+\begin{flushleft}
+\textbf{\textcolor[HTML]{000000}{ \ \huge\@fachexperte}}
 \end{flushleft}
 \bigskip
 
