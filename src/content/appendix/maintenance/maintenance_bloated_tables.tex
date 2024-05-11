@@ -1,0 +1,230 @@
+%! Author = gramic
+%! Date = 11.05.24
+
+% Preamble
+\begin{flushleft}
+    \subsection{Maintenance - Bloated Tables}
+    Das Python-Skript Connected
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=python, caption=Maintenance-Tool - Bloated Tables / Indices - ksgr\_postgresql\_maintenance\_bloated\_tables.py,captionpos=b,label={lst:maintenannce-tool-bloated-tables-python},breaklines=true]
+import os
+import psycopg2
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import yaml
+from kubernetes import client, config
+import base64
+import sys
+
+#   Pass Excption Class
+class OneException(Exception):
+    pass
+
+#   Read the ConfigMap
+#
+#   Get the ConfigMap from the Namespace
+def read_config(confimap):
+    # config = os.environ['config-map-connections.yaml']
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    configfile = os.path.join(script_dir, confimap)
+    config = dict()
+    with open(configfile, "r") as file:
+        config = yaml.load(file, Loader=yaml.FullLoader)
+    print(config)
+    return config
+
+#   Open Database Connection
+#
+#   Opens a Database Connection to the over given Database.
+#   Returns the opened Connection.
+def database_connection(config, database, user, password):
+    # user = config['connectiondata']['username']
+    host = config['host']
+    port = config['port']
+    conn = psycopg2.connect(database=database,
+                            user=user,
+                            host=host,
+                            password=password,
+                            port=port)
+    return conn
+
+#   Get the Secret
+#
+#   Get the Secret from the Namespace
+def get_secret(secret_name):
+    secret = open(secret_name, "r").read()
+    print("secret",secret)
+    return secret
+
+#   Get the Username
+#
+#   Get the Username from the Secret from the Namespace
+def get_username(secret_name):
+    username = open(secret_name, "r").read()
+    print("username", username)
+    return username
+
+#   Cleanup Bloated Database
+#
+#   Connected to the Database, check the AUTOVACUUM and VACUUM the Table and
+#   REINDEX all Indices of the Table
+def cleanup_bloated_database(config):
+    #   Get Configuration
+    dead_tuple_percent = config['dead_tuple_percent']
+    database = config['database']
+    secret_username = config['secret_username']
+    secret_password = config['secret_password']
+
+    #   Get Secret of the Database
+    secret = get_secret(secret_password)
+
+    #   Get Username for the Database
+    user = get_username(secret_username)
+
+    #   Open Database Connection
+    connection = database_connection(config, database, user, secret)
+
+    #   Get the AUTOVACUUM State
+    active_autovaacum = check_autovacuum(connection)
+
+    #   Ckeck AUTOVACUUM State
+    #
+    #   Run Maintenance Job if no AUTOVACUUM is running
+    if active_autovaacum == 0:
+        #   Get bloated Tables
+        bloated_tables = get_bloated_tables(connection, dead_tuple_percent)
+        #   Cleanup bloated Tables
+        cleanup_bloated_tables(connection, bloated_tables)
+    else:
+        print('autovacuum maintenance active!')
+
+    #   Close Database Connection
+    connection.close()
+
+#   Check AUTOVACUUM
+#
+#   Check if an AUTOVACUUM Job is running.
+#   For this, a Select on the Table pg_stat_activity on all Queries like autovacuum:% is used.
+def check_autovacuum(connection):
+    cur = connection.cursor()
+    sql = "select count(*) as active from pg_stat_activity where query like 'autovacuum:%';"
+    cur.execute(sql)
+    active_autovaacum = cur.fetchone()
+    active_autovaacum = active_autovaacum[0]
+
+    return active_autovaacum
+
+#   Get Bloated Tables
+#
+#   Select the Bloated Tables.
+def get_bloated_tables(connection, dead_tuple_percent):
+    cur = connection.cursor()
+    sql = """select
+    relname as table,
+    (pgstattuple(oid)).dead_tuple_percent
+from pg_class
+where
+    relkind = 'r' and
+    (pgstattuple(oid)).dead_tuple_percent > %s
+order by dead_tuple_percent desc;
+        """
+    cur.execute(sql, (dead_tuple_percent,))
+    return cur
+
+#   Cleanup Bloated Tables
+#
+#   Run through the Bloated Tables and VACUUM and REINDEX
+def cleanup_bloated_tables(connection, cur):
+    bloated_tables = cur.fetchall()
+    for bloated_table in bloated_tables:
+        table = bloated_table[0]
+        vacuum_table(connection, table)
+        reindex_table(connection, table)
+    print("finished")
+
+#   VACUUM Table
+#
+#   VACUUM the Table
+def vacuum_table(connection, table):
+    old_isolation = connection.isolation_level
+    connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+    cur = connection.cursor()
+    sql = "vacuum " + table + ";"
+    cur.execute(sql)
+    connection.set_isolation_level(old_isolation)
+    print("vaccum table " + table + " successfully")
+
+#   REINDEX
+#
+#   REINDEX the whole Table
+def reindex_table(connection, table):
+    cur = connection.cursor()
+    sql = "reindex table " + table + ";"
+    cur.execute(sql)
+    connection.commit()
+    print("reindex table " + table + " successfully")
+
+#   Main Method
+def maintenance_bloated_databases(confimap):
+    # confimap = confimap_Arg[0]
+    try:
+        # print(confimap)
+        config = read_config(confimap)
+        cleanup_bloated_database(config)
+    except OneException as e:
+        print(repr(e))
+
+arg1 = sys.argv[1]
+maintenance_bloated_databases( arg1 )
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Zuerst muss der Namespace \texttt{ksgr-postgresql-maintenance} erstellt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Namespace,captionpos=b,label={lst:maintenannce-tool-bloated-tables-namespace},breaklines=true]
+kubectl create namespace ksgr-postgresql-maintenance
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Das Python-Skript \texttt{ksgr\_postgresql\_maintenance\_bloated\_tables.py} kann in ein ConfigMap umgewandelt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Python > ConfigMap,captionpos=b,label={lst:maintenannce-tool-bloated-tables-python-to-configmap},breaklines=true]
+kubectl create configmap ksgr-postgresql-maintenance-bloated-tables --from-file /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/ksgr_postgresql_maintenance_bloated_tables.py --dry-run=client -o yaml > /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/ksgr_postgresql_maintenance_bloated_tables.yml -n ksgr-postgresql-maintenance
+    \end{lstlisting}
+    Entsprechend lässt es sich deployen:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Python - ConfigMap Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-python-configmap-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/ksgr_postgresql_maintenance_bloated_tables.yml -n ksgr-postgresql-maintenance
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Der Username und das Passwort für den Cluster wird als Secret gespeichert.\\
+    Dazu werden erst die Daten in Base64 Strings umgewandelt:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Base64,captionpos=b,label={lst:maintenannce-tool-bloated-tables-base64},breaklines=true]
+USER=postgres
+PASSWORD=<Password Secure / Safe>
+echo -n ${USER} | base64
+echo -n ${PASSWORD} | base64
+    \end{lstlisting}
+    Diese werden nun in ein Secret gegeben:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - Secret,captionpos=b,label={lst:maintenannce-tool-bloated-tables-secret},breaklines=true]
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-vks0041
+  namespace: ksgr-postgresql-maintenance
+type: Opaque
+data:
+  user: <Base64 User>
+  password: <Base64 Password>
+    \end{lstlisting}
+    Das Secret kann deployt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - Secret Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-secret-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/secret_vks0041.yaml
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+
+\end{flushleft}
