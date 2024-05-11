@@ -60,3 +60,6 @@ select count(*) as active from pg_stat_activity where query like 'autovacuum:%';
     Dem Microservice-Gedanken entsprechend, soll es pro Datenbank einen Job geben,\\
     der die Tabellen auf Bloated Tables untersucht und diese bereinigt.
 \end{flushleft}
+\begin{flushleft}
+    Die vollständige Dokumentation ist im \hyperref[subsec:maintenance_bloated_tables]{Anhang - Maintenance-Tool - Bloated Tables} zu finden.
+\end{flushleft}

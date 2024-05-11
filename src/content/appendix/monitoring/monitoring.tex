@@ -3,5 +3,254 @@
 
 % Preamble
 \begin{flushleft}
-    \section{Evaluationssysteme - Installation}
+    \section{Monitoring - \Gls{PRTG}}
+    \label{sec:monitoring}
+    Bevor das Python-Skript abgelegt werden kann, müssen einige PyPI-Packages auf allen Probe-Server installiert werden:
+    \begin{itemize}
+        \item json
+        \item socket
+        \item requests
+    \end{itemize}
+\end{flushleft}
+\begin{flushleft}
+    \begin{warning}
+        Bei \Gls{PRTG} sind die Status folgendermassen aufgeteilt:\\
+        0 = OK, 1 = Warning und 2 = Error.\\
+        Dies gilt es zu beachten.
+    \end{warning}
+    Das Python-Skript \texttt{KSGR - Patroni - Healthcheck.py} sieht wie folgt aus:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=python, caption=Monitoring - KSGR - Patroni - Healthcheck.py,captionpos=b,label={lst:monitoring-python},breaklines=true]
+# -*- coding: utf-8 -*-
+
+"""
+Created:    2024-05-05
+
+@author:    Michael Graber, Kantonsspital Graubuenden, Switzerland
+"""
+import json
+import socket
+import sys
+
+import requests
+from paesslerag_prtg_sensor_api.sensor.result import CustomSensorResult
+from paesslerag_prtg_sensor_api.sensor.units import ValueUnit
+
+
+#   node_state = 0  # ok
+#   node_state = 1  # warning
+#   node_state = 2  # error
+
+def check_patroni_cluster(host, replication_mode, lag_warning, lag_error):
+    #   Get the IP
+    resolution = socket.gethostbyname_ex(host)
+    ip_address_block = resolution[2]
+    ip_address = ip_address_block[0]
+    print(str(ip_address))
+
+    #   Variable declaration
+    patroni_comment = ''
+    cluster_state = 2
+    cluster_unlocked = 2
+    failsafe_mode_is_active = 2
+    sync_replication_state = 2
+    replication_lage_state = 2
+
+    #   Get the Cluster State
+    patroni_cluster_state_url = 'http://' + ip_address + ':8008/patroni'
+    patroni_cluster_state_response = requests.get(patroni_cluster_state_url)
+    patroni_cluster_state_response_json = patroni_cluster_state_response.json()
+    patroni_cluster_state_response_code = patroni_cluster_state_response.status_code
+
+    patroni_cluster_name = patroni_cluster_state_response_json.get('patroni').get('name')
+    patroni_cluster_state = patroni_cluster_state_response_json.get('state')
+    patroni_role = patroni_cluster_state_response_json.get('role')
+
+    if 'paused' in patroni_cluster_state_response_json:
+        patroni_cluster_paused = patroni_cluster_state_response_json.get('paused')
+    else:
+        patroni_cluster_paused = False
+
+    if patroni_cluster_state == 'running' and patroni_cluster_paused:
+        cluster_state = 1
+        patroni_comment = '(Cluster ' + patroni_cluster_name + ' paused)'
+    elif not(patroni_cluster_state):
+        cluster_state = 2
+        patroni_comment = '(Cluster ' + patroni_cluster_name + ' not running)'
+    else:
+        cluster_state = 0
+
+    if 'cluster_unlocked' in patroni_cluster_state_response_json:
+        patroni_cluster_unlocked = patroni_cluster_state_response_json.get('cluster_unlocked')
+        if 'failsafe_mode_is_active' in patroni_cluster_state_response_json:
+            patroni_failsafe_mode_is_active = patroni_cluster_state_response_json.get('failsafe_mode_is_active')
+            if patroni_cluster_unlocked == True and patroni_failsafe_mode_is_active == True:
+                patroni_comment += ' (DCS Failsafe Mode)'
+                cluster_unlocked = 2
+                failsafe_mode_is_active = 2
+        else:
+                cluster_unlocked = 2
+                failsafe_mode_is_active = 0
+    else:
+        cluster_unlocked = 0
+        failsafe_mode_is_active = 0
+
+    #   Get the Cluster Node States
+    patroni_nodes_state_url = 'http://' + ip_address + ':8008/cluster'
+    patroni_cluster_nodes_response = requests.get(patroni_nodes_state_url)
+    patroni_cluster_nodes_response_json = patroni_cluster_nodes_response.json()
+    patroni_cluster_nodes_response_code = patroni_cluster_nodes_response.status_code
+
+    replica_count = 0
+    sync_replica_count = 0
+    if patroni_role == 'master':
+        patroni_replication = patroni_cluster_state_response_json.get('replication')
+        for patroni_replication_member in patroni_replication:
+            patroni_sync_state = patroni_replication_member.get('sync_state')
+            if patroni_sync_state == replication_mode:
+                sync_replica_count = sync_replica_count + 1
+                replica_count = replica_count + 1
+    else:
+        cluster_members = patroni_cluster_nodes_response_json.get('members')
+        for cluster_node in cluster_members:
+            node_role = cluster_node.get('role')
+            if node_role == 'leader':
+                leader_api = cluster_node.get('api_url')
+                patroni_leader_state_response = requests.get(leader_api)
+                patroni_leader_state_response_json = patroni_leader_state_response.json()
+                patroni_leader_state_response_code = patroni_leader_state_response.status_code
+
+                patroni_replication = patroni_leader_state_response_json.get('replication')
+                for patroni_replication_member in patroni_replication:
+                    patroni_sync_state = patroni_replication_member.get('sync_state')
+                    if patroni_sync_state == replication_mode:
+                        sync_replica_count = sync_replica_count + 1
+                        replica_count = replica_count + 1
+
+    if sync_replica_count == sync_replica_count:
+        sync_replication_state = 0
+    elif sync_replica_count > 0:
+        sync_replication_state = 1
+        patroni_comment += ' (Not all Replicas run in sync standby mode)'
+    else:
+        sync_replication_state = 2
+        patroni_comment += ' (None of the Replicas run in sync standby mode)'
+
+    #   Get the Replication lag warning
+    lag_warning_url = 'http://' + ip_address + ':8008//replica?lag=' + lag_warning
+    lag_warning_response = requests.get(lag_warning_url)
+    lag_warning_response_code = lag_warning_response.status_code
+
+    #   Get the Replication lag error
+    lag_error_url = 'http://' + ip_address + ':8008//replica?lag=' + lag_error
+    lag_error_response = requests.get(lag_error_url)
+    lag_error_response_code = lag_error_response.status_code
+
+    if patroni_role == 'master':
+        replication_lage_state = 0
+    else:
+        if lag_warning_response_code != 200:
+            replication_lage_state = 1
+            patroni_comment += ' (replication lag over ' + lag_warning + ')'
+        elif lag_error_response_code != 200:
+            replication_lage_state = 2
+            patroni_comment += ' (replication lag over ' + lag_error + ')'
+        else:
+            replication_lage_state = 0
+
+    csr = CustomSensorResult(text="This sensor runs on %s" % data["host"])
+
+    #   Patroni Cluster State
+    channel_name = "PATRONI CLUSTER - " + patroni_cluster_name
+    csr.add_primary_channel(name=patroni_cluster_name,
+                            value=cluster_state,
+                            unit=ValueUnit.CUSTOM,
+                            is_float=False,
+                            is_limit_mode=True,
+                            limit_max_warning=0.75,
+                            limit_max_error=1.5,
+                            limit_warning_msg=channel_name + " Warning",
+                            limit_error_msg=channel_name + " Error")
+
+    channel_name = "CLUSTER UNLOCK"
+    csr.add_channel(name=channel_name,
+                    value=cluster_unlocked,
+                    unit=ValueUnit.CUSTOM,
+                    is_float=False,
+                    is_limit_mode=True,
+                    limit_max_warning=0.75,
+                    limit_max_error=1.5,
+                    limit_warning_msg=channel_name + " Warning",
+                    limit_error_msg=channel_name + " Error")
+
+    channel_name = "FAILSAFE MODE ACTIVITY"
+    csr.add_channel(name=channel_name,
+                    value=failsafe_mode_is_active,
+                    unit=ValueUnit.CUSTOM,
+                    is_float=False,
+                    is_limit_mode=True,
+                    limit_max_warning=0.75,
+                    limit_max_error=1.5,
+                    limit_warning_msg=channel_name + " Warning",
+                    limit_error_msg=channel_name + " Error")
+
+    channel_name = "REPLICATION STATE"
+    csr.add_channel(name=channel_name,
+                    value=sync_replication_state,
+                    unit=ValueUnit.CUSTOM,
+                    is_float=False,
+                    is_limit_mode=True,
+                    limit_max_warning=0.75,
+                    limit_max_error=1.5,
+                    limit_warning_msg=channel_name + " Warning",
+                    limit_error_msg=channel_name + " Error")
+
+    channel_name = "REPLICATION LAG"
+    csr.add_channel(name=channel_name,
+                    value=replication_lage_state,
+                    unit=ValueUnit.CUSTOM,
+                    is_float=False,
+                    is_limit_mode=True,
+                    limit_max_warning=0.75,
+                    limit_max_error=1.5,
+                    limit_warning_msg=channel_name + " Warning",
+                    limit_error_msg=channel_name + " Error")
+
+    #   Overwrite the Sensor Text and create a custom Warning/Error Message
+    patroni_comment = patroni_comment.strip()
+    csr.text = "This sensor runs on %s" % data["host"] + ' ' + patroni_comment
+
+    return csr
+
+if __name__ == "__main__":
+    try:
+        #   Get Parameters
+        data1 = sys.argv[1]
+        data = json.loads(data1)
+        data_overgiven = json.loads(data1)
+
+        #   Get the overgiven Parameter String and cast to a Dictionary
+        params = data_overgiven["params"]
+        perams = dict(param.split('=') for param in params.split(','))
+
+        #   Get the used Binary
+        replication_mode = perams["replication_mode"]
+        lag_warning = perams["lag_warning"]
+        lag_error = perams["lag_error"]
+
+        #   Call Function / Method
+        csr = check_patroni_cluster(data["host"], replication_mode, lag_warning, lag_error)
+
+        #   Return the Value
+        print(csr.json_result)
+
+    except Exception as e:
+        csr = CustomSensorResult(text="Python Script execution error")
+        csr.error = "Python Script execution error: %s" % str(e)
+        print(csr.json_result)
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Das Python-Skript muss auf allen \Gls{PRTG} Probes, welches die entsprechenden Sensoren ausführt, in folgendes Verzeichnis angelegt werden:\\
+%    \textbackslash\textbackslashsks1041\textbackslashc\$\textbackslashProgram Files (x86)\textbackslashPRTG Network Monitor\textbackslashCustom Sensors\textbackslashpython
 \end{flushleft}

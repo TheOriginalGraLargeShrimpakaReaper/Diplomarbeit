@@ -3,5 +3,325 @@
 
 % Preamble
 \begin{flushleft}
-    \subsection{Maintenance - \Gls{AUTOVACUUM}}
+    \subsection{Maintenance-Tool - \Gls{AUTOVACUUM}}
+    \label{subsec:maintenance_autovacuum}
+    Das Python-Skript:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=python, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - ksgr\_postgresql\_maintenance\_autovacuum\_calculation.py,captionpos=b,label={lst:maintenannce-tool-autovacuum-python},breaklines=true]
+import os
+import sys
+from datetime import date
+
+import pandas as pd
+import psycopg2
+import yaml
+
+
+#   Pass Excption Class
+class OneException(Exception):
+    pass
+
+#   Read the ConfigMap
+#
+#   Get the ConfigMap from the Namespace
+def read_config(confimap):
+    # config = os.environ['config-map-connections.yaml']
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    configfile = os.path.join(script_dir, confimap)
+    config = dict()
+    with open(configfile, "r") as file:
+        config = yaml.load(file, Loader=yaml.FullLoader)
+    print(config)
+    return config
+
+
+#   Open Database Connection
+#
+#   Opens a Database Connection to the over given Database.
+#   Returns the opened Connection.
+def database_connection(config, database, user, password):
+    # user = config['connectiondata']['username']
+    host = config['host']
+    port = config['port_ro']
+    conn = psycopg2.connect(database=database,
+                            user=user,
+                            host=host,
+                            password=password,
+                            port=port)
+    return conn
+
+
+#   Get the Secret
+#
+#   Get the Secret from the Namespace
+def get_secret(secret_name):
+    secret = open(secret_name, "r").read()
+    return secret
+
+#   Get the Username
+#
+#   Get the Username from the Secret from the Namespace
+def get_username(secret_name):
+    username = open(secret_name, "r").read()
+    print("username", username)
+    return username
+
+#   Get PostgreSQL Parameters
+#
+#   Get autovacuum_vacuum_scale_factor and autovacuum_vacuum_threshold from pg_settings
+#   Get sum of reltuples from pg_class and get the sender_host (Primary) IP Address from pg_stat_wal_receiver
+def get_paramaters(connection):
+    cur = connection.cursor()
+    sql = """select
+    (
+        select
+            setting as autovacuum_vacuum_scale_factor
+        from pg_settings
+        where
+            name = 'autovacuum_vacuum_scale_factor'
+    ) as autovacuum_vacuum_scale_factor,
+    (
+        select
+            setting as autovacuum_vacuum_threshold
+        from pg_settings
+        where
+            name = 'autovacuum_vacuum_threshold'
+    ) as autovacuum_vacuum_threshold,
+    (
+        select
+            sum(reltuples) as reltuples
+        from pg_class
+    ) as reltuples,
+    (
+        select
+            sender_host
+        from pg_stat_wal_receiver
+    ) as sender_host
+;"""
+    cur.execute(sql)
+    postgresql_parameters = cur.fetchone()
+    autovacuum_vacuum_scale_factor = postgresql_parameters[0]
+    autovacuum_vacuum_threshold = postgresql_parameters[1]
+    reltuples = postgresql_parameters[2]
+    sender_host = postgresql_parameters[3]
+
+    postgresql_parameter = dict(autovacuum_vacuum_scale_factor=autovacuum_vacuum_scale_factor,
+                                autovacuum_vacuum_threshold=autovacuum_vacuum_threshold, reltuples=reltuples,
+                                sender_host=sender_host)
+
+    return postgresql_parameter
+
+#   Calculate and Check AUTOVACUUM
+#
+#   Calculate needed autovacuum_vacuum_scale_factor and check with the configured ones.
+#   Create HTML Table if values are different
+def calculate_check_autovacuum(postgres_params, configmap_autovacuum):
+    autovacuum_vacuum_scale_factor_actual = float(postgres_params.get('autovacuum_vacuum_scale_factor'))
+    autovacuum_vacuum_threshold = float(postgres_params.get('autovacuum_vacuum_threshold'))
+    reltuples = float(postgres_params.get('reltuples'))
+    sender_host = postgres_params.get('sender_host')
+    max_death_tuples = configmap_autovacuum.get('max_death_tuples')
+    autovacuum_vacuum_scale_factor = round(((max_death_tuples - autovacuum_vacuum_threshold) / reltuples), 2)
+
+    if autovacuum_vacuum_scale_factor != autovacuum_vacuum_scale_factor_actual:
+        result_table = create_pandas_dataframe(autovacuum_vacuum_scale_factor_actual, autovacuum_vacuum_scale_factor, ['autovacuum_vacuum_scale_factor'])
+        result_path = configmap_autovacuum.get('calc_result')
+        filename_prefix = configmap_autovacuum.get('filename_prefix')
+        filename = filename_prefix + str(date.today()) + '.html'
+        write_calculating_result(result_table, result_path, filename)
+
+#   Pandas DataFrame
+#
+#   Create a Pandas DataFrame from the overgiven Parameters
+def create_pandas_dataframe(autovacuum_vacuum_scale_factor_actual, autovacuum_vacuum_scale_factor, index):
+    data = {'Bestehend': autovacuum_vacuum_scale_factor_actual, 'Berechnet': autovacuum_vacuum_scale_factor}
+    result_df = pd.DataFrame(data, index=index)
+    return result_df
+
+
+#   Write HTML
+#
+#   Write the Result Pandas DataFrame to HTML Table
+def write_calculating_result(result_table, path, filename):
+    # html = result_table.to_html(classes='table table-stripped')
+    html = result_table.to_html()
+    filepath = path + '/' + filename
+    text_file = open(filepath, "w")
+    text_file.write(html)
+    text_file.close()
+
+#   Maintenance Main
+#
+#   Calculate the AUTOVACUUM Parameters
+def maintenance_autovacuum_calculation(confimap_conn, configmap_autovacuum):
+    try:
+        #   Read the Configs
+        config = read_config(confimap_conn)
+        config_autovac = read_config(configmap_autovacuum)
+
+        #   Get Configuration
+        database = config['database']
+        secret_username = config['secret_username']
+        secret_password = config['secret_password']
+
+        #   Get Secret of the Database
+        secret = get_secret(secret_password)
+
+        #   Get Username for the Database
+        user = get_username(secret_username)
+
+        #   Open Database Connection
+        connection = database_connection(config, database, user, secret)
+
+        #   Get the PostgreSQL Parameters
+        postgres_params = get_paramaters(connection)
+
+        #   Calculate and Check the Autovacuum Vacuum Scale Factor
+        calculate_check_autovacuum(postgres_params, config_autovac)
+
+        #   Close Database Connection
+        connection.close()
+
+        # cleanup_bloated_database(config)
+    except OneException as e:
+        print(repr(e))
+
+arg1 = sys.argv[1]
+arg2 = sys.argv[2]
+maintenance_autovacuum_calculation(arg1, arg2)
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Das Python-Skript \texttt{ksgr\_postgresql\_maintenance\_autovacuum\_calculation.py} kann in ein ConfigMap umgewandelt werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - Python > ConfigMap,captionpos=b,label={lst:maintenannce-tool-autovacuum-python-to-configmap},breaklines=true]
+kubectl create configmap ksgr-postgresql-maintenance-autovacuum-calculation --from-file /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/ksgr_postgresql_maintenance_autovacuum_calculation.py --dry-run=client -o yaml > /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/ksgr_postgresql_maintenance_autovacuum_calculation.yml -n ksgr-postgresql-maintenance
+    \end{lstlisting}
+    Entsprechend lässt es sich deployen:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Python - ConfigMap Deploy,captionpos=b,label={lst:maintenannce-tool-autovacuum-python-configmap-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/ksgr_postgresql_maintenance_autovacuum_calculation.yml -n ksgr-postgresql-maintenance
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Ein neues Secret muss nicht deployt werden.
+\end{flushleft}
+\begin{flushleft}
+    Im ConfigMap \texttt{configmap-vks0041-postgres} wird der Hostname, den Read-Write Port, der Read-Only Port, die Datenbank und die Secret-Pfade gespeichert:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-postgres,captionpos=b,label={lst:maintenannce-tool-autovacuum-configmap-vks0041-postgres},breaklines=true]
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-vks0041-postgres
+  namespace: ksgr-postgresql-maintenance
+data:
+  configmap-vks0041-postgres.yaml: |-
+    host: "10.0.22.178"
+    port_rw: "5000"
+    port_ro: "5001"
+    database: "postgres"
+    secret_username: "/mnt/etc/secret-volume/secret-vks0041/user"
+    secret_password: "/mnt/etc/secret-volume/secret-vks0041/password"
+    \end{lstlisting}
+    Das deployment sieht entsprechend aus:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-postgres Deploy,captionpos=b,label={lst:maintenannce-tool-configmap-vks0041-postgres-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/configmap-vks0041-postgres.yaml
+    \end{lstlisting}
+    Für das \Gls{AUTOVACUUM} wird zudem die ConfigMap \texttt{configmap-vks0041-autovacuum} erstellt.\\
+    In diesem werden der Pfad zum Node (Host) Filesystem, die Anzahl Toter Tupels und dem Filenamen-Präfix:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-autovacuum,captionpos=b,label={lst:maintenannce-tool-autovacuum-configmap-vks0041-autovacuum},breaklines=true]
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-vks0041-autovacuum
+  namespace: ksgr-postgresql-maintenance
+data:
+  configmap-vks0041-autovacuum.yaml: |-
+    calc_result: "/mnt/data"
+    max_death_tuples: 1000
+    filename_prefix: "autovacuum-parameter-"
+    \end{lstlisting}
+    Das deployment sieht entsprechend aus:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-autovacuum Deploy,captionpos=b,label={lst:maintenannce-tool-configmap-vks0041-autovacuum-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/configmap-vks0041-autovacuum.yaml
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Das finale Deployment erfolgt mittels einem CronJob.\\
+    Jeden Tag um Mitternacht wird ein Pod deployt, welcher Skript ausführt.\\
+    Dabei müssen erst folgende Dependencis installiert werden:
+    \begin{itemize}
+        \item psycopg2-binary
+        \item PyYAML
+        \item kubernetes
+        \item pandas
+    \end{itemize}
+    Normalerweise würden diese PyPi-Packages in einem \gls{helm} Chart als Ressource mitgegeben werden.\\
+    Dann wird das Skript mit dem beiden ConfigMaps ausgeführt.\\
+    Dazu wird das Secret und die ConfigMaps in das Pod-Filesystem gemouted.
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - ksgr-maintenance-autovacuum-caluclation,captionpos=b,label={lst:maintenannce-tool-autovacuum-ksgr-maintenance-autovacuum-caluclation},breaklines=true]
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ksgr-maintenance-autovacuum-caluclation
+  namespace: ksgr-postgresql-maintenance
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            workload: cronjob
+            type: ksgr-postgresql-maintenance
+        spec:
+          containers:
+            - name: ksgr-maintenance-autovacuum-caluclation-container
+              image: python:3.11-bookworm
+              command: ["sh", "-c"]
+              args:
+                [
+                  "python -m pip install --proxy http://sproxy.sivc.first-it.ch:8080 psycopg2-binary PyYAML kubernetes pandas;
+                  python /tmp/python/ksgr_postgresql_maintenance_autovacuum_calculation.py /tmp/conf/postgres/configmap-vks0041-postgres.yaml /tmp/conf/autovacuum/configmap-vks0041-autovacuum.yaml"
+                ]
+              volumeMounts:
+              - name: ksgr-postgresql-maintenance-autovacuum-calculation
+                mountPath: /tmp/python
+              - name: configmap-vks0041-postgres
+                mountPath: /tmp/conf/postgres
+              - name: configmap-vks0041-autovacuum
+                mountPath: /tmp/conf/autovacuum
+              - name: secret-volume
+                readOnly: true
+                mountPath: /mnt/etc/secret-volume/secret-vks0041
+              - name: ksgr-data
+                mountPath: /mnt/data
+          restartPolicy: Never
+          volumes:
+            - name: ksgr-postgresql-maintenance-autovacuum-calculation
+              configMap:
+                name: ksgr-postgresql-maintenance-autovacuum-calculation
+            - name: configmap-vks0041-postgres
+              configMap:
+                name: configmap-vks0041-postgres
+            - name: configmap-vks0041-autovacuum
+              configMap:
+                name: configmap-vks0041-autovacuum
+            - name: ksgr-data
+              hostPath:
+                path: /mnt/data
+            - name: secret-volume
+              secret:
+                secretName: secret-vks0041
+    \end{lstlisting}
+    Das Deployment sieht entsprechend aus:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - ksgr-maintenance-autovacuum-caluclation Deploy,captionpos=b,label={lst:maintenannce-tool-autovacuum-ksgr-maintenance-autovacuum-caluclation-deploy},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/ksgr_postgresql_maintenance_autovacuum_calculation_cronjob.yaml
+    \end{lstlisting}
 \end{flushleft}

@@ -3,8 +3,9 @@
 
 % Preamble
 \begin{flushleft}
-    \subsection{Maintenance - Bloated Tables}
-    Das Python-Skript Connected
+    \subsection{Maintenance-Tool - Bloated Tables}
+    \label{subsec:maintenance_bloated_tables}
+    Das Python-Skript:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=python, caption=Maintenance-Tool - Bloated Tables / Indices - ksgr\_postgresql\_maintenance\_bloated\_tables.py,captionpos=b,label={lst:maintenannce-tool-bloated-tables-python},breaklines=true]
 import os
@@ -221,10 +222,99 @@ data:
     \end{lstlisting}
     Das Secret kann deployt werden:
     \lstset{style=gra_codestyle}
-    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - Secret Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-secret-deploy},breaklines=true]
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - Secret Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-secret-deploy},breaklines=true]
 kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/secret_vks0041.yaml
     \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
+    Die ConfigMap \texttt{configmap-vks0041-gramic-test} beinhaltet den Hostname, den Port, den Datenbanknamen sowie den Pfad zu den Secrets:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - configmap-vks0041-gramic-test,captionpos=b,label={lst:maintenannce-tool-bloated-tables-configmap-vks0041-gramic-test},breaklines=true]
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-vks0041-gramic-test
+  namespace: ksgr-postgresql-maintenance
+data:
+  configmap-vks0041-gramic-test.yaml: |-
+    host: "10.0.22.178"
+    port: "5000"
+    database: "gramic_test"
+    secret_username: "/mnt/etc/secret-volume/secret-vks0041/user"
+    secret_password: "/mnt/etc/secret-volume/secret-vks0041/password"
+    dead_tuple_percent: "1.5"
+    \end{lstlisting}
+    Das deployment sieht entsprechend aus:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - configmap-vks0041-gramic-test Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-configmap-vks0041-gramic-test-deploy},breaklines=true]
+kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/configmap-vks0041-gramic_test.yaml
+    \end{lstlisting}
+\end{flushleft}
+\begin{flushleft}
+    Das finale Deployment erfolgt mittels einem CronJob.\\
+    Jeden Tag um Mitternacht wird ein Pod deployt, welcher Skript ausführt.\\
+    Dabei müssen erst folgende Dependencis installiert werden:
+    \begin{itemize}
+        \item psycopg2-binary
+        \item PyYAML
+        \item kubernetes
+    \end{itemize}
+    Normalerweise würden diese PyPi-Packages in einem \gls{helm} Chart als Ressource mitgegeben werden.\\
+    Dann wird das Skript mit dem ConfigMap ausgeführt.\\
+    Dazu wird das Secret und das ConfigMap in das Pod-Filesystem gemouted.
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - ksgr-maintenance-bloating-vks0041-gramic-test,captionpos=b,label={lst:maintenannce-tool-bloated-tables-ksgr-maintenance-bloating-vks0041-gramic-test},breaklines=true]
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ksgr-maintenance-bloating-vks0041-gramic-test
+  namespace: ksgr-postgresql-maintenance
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            workload: cronjob
+            type: ksgr-postgresql-maintenance
+        spec:
+          containers:
+            - name: ksgr-maintenance-bloating-vks0041-gramic-test-container
+              image: python:3.11-bookworm
+              command: ["sh", "-c"]
+              args:
+                [
+                  "python -m pip install --proxy http://sproxy.sivc.first-it.ch:8080 psycopg2-binary PyYAML kubernetes;
+                  python /tmp/python/ksgr_postgresql_maintenance_bloated_tables.py /tmp/conf/configmap-vks0041-gramic-test.yaml"
+                ]
+              volumeMounts:
+              - name: ksgr-postgresql-maintenance-bloated-tables
+                mountPath: /tmp/python
+              - name: configmap-vks0041-gramic-test
+                mountPath: /tmp/conf
+              - name: secret-volume
+                readOnly: true
+                mountPath: /mnt/etc/secret-volume/secret-vks0041
 
+          restartPolicy: Never
+          volumes:
+            - name: sproxy
+              configMap:
+                name: sproxy
+            - name: ksgr-postgresql-maintenance-bloated-tables
+              configMap:
+                name: ksgr-postgresql-maintenance-bloated-tables
+            - name: configmap-vks0041-gramic-test
+              configMap:
+                name: configmap-vks0041-gramic-test
+            - name: secret-volume
+              secret:
+                secretName: secret-vks0041
+    \end{lstlisting}
+    Das Deployment:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - Bloated Tables / Indices - ksgr-maintenance-bloating-vks0041-gramic-test Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-ksgr-maintenance-bloating-vks0041-gramic-test-deploy},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/ksgr-maintenance-bloating-vks0041-gramic_test-cronjob.yaml
+    \end{lstlisting}
 \end{flushleft}
