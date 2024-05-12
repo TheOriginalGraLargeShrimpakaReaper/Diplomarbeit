@@ -4,4 +4,37 @@
 % Preamble
 \begin{flushleft}
     \section{Persönliches Fazit}
+    Aus heutiger Sicht würde ich die Ziele weiter reduzieren.\\
+    Die Evaluation alleine hat wesentlich mehr Zeit in Anspruch genommen, als geplant.\\
+    Heute würde ich auf die Umsetzung eines Testsystems verzichten und stattdessen ein oder zwei Systeme mehr evaluieren und installieren.\\
+    Generell habe ich wohl unterschätzt, wie Tief der Dive in die Konzepte und Architekturen gehen wird.
+\end{flushleft}
+\begin{flushleft}
+    Den gesamten Zeitplan aber auch die Dokumentenstruktur würde ich heute anders aufbauen.\\
+    Die Evaluation hätte wesentlich mehr Raum und auch den Maintenance-Tools stünde eigene Arbeitspakete zur Verfügung.\\
+    Das Projektmanagement hat keine eigenen Arbeitspakete erhalten und musste daher immer an anderer Stelle abgebucht werden.\\
+    Ein weiterer Punkt den ich anders machen würde, gerade mit einer etwas ausgedehnteren Evaluationsphase wäre mehr Zeit für das Projektmanagement vorhanden gewesen.
+\end{flushleft}
+\begin{flushleft}
+    Erkenntnisse und Lehren habe ich auf zwei Perspektiven gewonnen.\\
+    Einmal aus der Technischen Sicht.\\
+    So konnte ich mit \gls{rke2} von Grund auf ein \Gls{Kubernetes} System aufbauen und mit \gls{local-path-provisioner} sowie \Gls{MetalLB} Sinnvoll erweitern.\\
+    Zudem durfte ich tiefe Einblicke in neue und zukunftsfähige Konzepte wie den Distributed SQL Systemen gewinnen.\\
+    Als DBA gehörte ich eher zu einer Konservativen IT-Sparte, die nach wie vor stark auf Monolithischer Systeme setzt und neuen Ansätzen eher Misstrauisch gegenübersteht.\\
+    Durch die Diplomarbeit habe ich meinen Horizont um verteilte Systeme und dem CloudNative Ansatz erweitert.\\
+    Kommt hinzu, dass es für die Evaluation sehr reizvoll war, ein falsch konfiguriertes System einfach zu löschen und angepasst neu zu deployen.\\
+    Bei Patroni, dass ein monolithisches System war, brauchte es immer einen Snapshot Restore.
+\end{flushleft}
+\begin{flushleft}
+    Auf der anderen Seite habe ich auch aus der Sicht der Herangehensweise eine wichtige Lektion gelernt.
+    Beim Aufbau von \gls{rke2} sowie dem Umgang mit \gls{local-path-provisioner} und \Gls{MetalLB} hatte ich mit diversen Problemen zu kämpfen,\\
+    doch gelang es mir, durch intensive Recherche jeweils Lösungen für diese Probleme zu finden.\\
+    Beim Aufbau des Patroni Evaluationssystems brachte dieser Zeitraubende Ansatz keinen Erfolg mehr.\\
+    Daher war ich gezwungen, einen Schritt zurückzutreten und das System auf das absolut notwendige Minimum zu vereinfachen.\\
+    Mit nur noch einem \gls{etcd} Node, der auf einem anderen Server installiert war, gelang der Aufbau des Evaluationssystems.\\
+    Diesen Ansatz nahm ich mit Erfolg mit, als ich bei den Maintenance-Tools wieder auf herausforderungen traf.
+\end{flushleft}
+\begin{flushleft}
+    Auf einen Satz reduziert, dürfte daher die wichtigste Erkenntnis aus der Diplomarbeit folgende sein:\\
+    \guillemotleft Im Zweifelsfall geht man besser einen Schritt zurück und nimmt soviel Komplexität aus einem System wie möglich!\guillemotright
 \end{flushleft}
