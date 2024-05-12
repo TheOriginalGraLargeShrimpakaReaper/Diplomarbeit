@@ -94,6 +94,20 @@ Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätig
 30.04.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
 30.04.2024;15:00;16:30;1.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;Installation;Umstellen lassen auf Init7 ohne Proxy dafür mit Firewall Rules.\\\Gls{GitHub} verursacht Probleme.;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;Proxy Settings im Ansible vars/main.yml setzen
 30.04.2024;17:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Grundsätzlich Funktionsfähig;pg\_hba.conf Fehler;
-01.04.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
-01.04.2024;10:00;10:15;0.25;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport;;
-01.04.2024;14:15;16:15;2;0;0;0;Aufbau und Implementation Testsystem;Technical Review;Review vitabaks/postgresql\_cluster System;;;
+01.05.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
+01.05.2024;10:00;10:15;0.25;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport;;
+01.05.2024;14:15;16:15;2;0;0;0;Aufbau und Implementation Testsystem;Technical Review;Review vitabaks/postgresql\_cluster System;;;
+03.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;\Gls{PRTG} Sensor bauen;;;
+03.05.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Beginn Bau Maintenance-Tool - Bloated Tables;;
+03.05.2024;12:30;13:45;1.25;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
+03.05.2024;15:30;17:00;2.5;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
+06.05.2024;07:30;10:00;2.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Bau Maintenance-Tool - Bloated Tables;;
+06.05.2024;10:00;11:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Beginn Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+06.05.2024;13:30;14:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+09.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+09.05.2024;12:30;15:00;2.5;0;0;0;Testing;Testing Testsystem;Testing Maintenance-Tool;;;
+09.05.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+09.05.2024;19:00;21:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+10.05.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+12.05.2024;13:00;15:15;2.25;0;0;0;Testing;Review und Auswertung;;;;
+12.05.2024;16:15;16:15;1;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;

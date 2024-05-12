@@ -4,4 +4,22 @@
 % Preamble
 \begin{flushleft}
     \subsection{Review und Auswertung}
+    \subsubsection{vitabaks/postgresql\_cluster}
+    vitabaks/postgresql\_cluster ist sehr schnell und zuverlässig deployt.\\
+    Das \Gls{Ansible}-Repository hat allerdings eine schwachstelle.\\
+    Der \Gls{Connection Pooler} ist auf dem Level der Patroni Nodes, nicht auf dem Proxy-Level.\\
+    Dadurch verliert ein Client die Verbindung, wenn der entsprechende Server nicht mehr erreichbar ist.
+\end{flushleft}
+\begin{flushleft}
+    Auch der \Gls{HAProxy} hat eine Schwäche.\\
+    Es handelt sich um einen Layer 7 Proxy, dadurch ist \Gls{HAProxy} nicht in der Lage, SQL Statements zu analysieren.\\
+    Wenn also die Read-Only Statements auf die Replikas geleitet werden sollen, muss die Applikation diese auf den entsprechenden Port zugreifen.\\
+    Ist die Applikation selber nicht in der Lage, die Lese- und Schreibprozesse an zwei verschiedene Ports zu leiten, geht der gesamte Load auf den Primary Node.
+\end{flushleft}
+\begin{flushleft}
+    \subsubsection{Maintenance-Tool - Bloating Tables}
+    Aufgeblähte Tabellen werden zuverlässig erkannt und die Tabelle vakuumiert.\\
+    Zudem werden die Indices neu aufgebaut und somit geordnet.
+    \subsubsection{Maintenance-Tool - \Gls{AUTOVACUUM}}
+    Der Parameter \texttt{autovacuum\_vacuum\_scale\_factor} wird zuverlässig berechnet und abgelegt.
 \end{flushleft}
