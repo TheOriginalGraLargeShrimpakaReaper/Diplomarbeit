@@ -3,10 +3,11 @@
 
 % Preamble
 %\begin{landscape}
+\begin{flushleft}
 \clearpage
 \KOMAoptions{paper=A3,paper=landscape,pagesize,DIV=20}
 \recalctypearea
-\begin{flushleft}
+\pagestyle{headings}
 %    \clearpage
 %    \KOMAoptions{paper=A3,paper=landscape,pagesize,DIV=20}
 %    \recalctypearea
@@ -14,12 +15,39 @@
     \section{Projektplanung}
     \subsection{Projektcontrolling}
     \input{content/latex_tables/projektcontrolling}
-
+\end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
+\begin{flushleft}
+%\clearpage
+%\KOMAoptions{paper=A4,paper=portrait,pagesize}
+%\recalctypearea
+\pagestyle{headings}
+%\begin{flushleft}
+%    \begin{figure}[H]
+%        \centering
+%        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/projektcontrolling}
+%        \caption{Projektcontrolling}
+%        \label{fig:projektcontrolling}
+%    \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/projektcontrolling}
-        \caption{Projektcontrolling}
-        \label{fig:projektcontrolling}
+        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/projektcontrolling_dauer}
+        \caption{Projektcontrolling - Dauer}
+        \label{fig:projektcontrolling_dauer}
     \end{figure}
 \end{flushleft}
+\begin{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/projektcontrolling_geplant}
+        \caption{Projektcontrolling - Geplante Dauer}
+        \label{fig:projektcontrolling_geplant}
+    \end{figure}
+\end{flushleft}
+\clearpage
 %\end{landscape}

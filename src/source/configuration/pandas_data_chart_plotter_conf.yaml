@@ -7,7 +7,7 @@ diagram_inventory:
   - "db_inventory_per_rdbms_database"
   - "db_inventory_per_rdbms"
   - "db_inventory_per_os"
-  - "projektcontrolling"
+#  - "projektcontrolling"
   - "time_investment"
   - "cost_investment"
   - "benchmarking_tps_evaluation_mixed"
@@ -30,6 +30,8 @@ diagram_inventory:
   - "time_investment_action"
   - "cost_investment_action"
   - "projektcontrolling_balance"
+  - "projektcontrolling_dauer"
+  - "projektcontrolling_geplant"
 panda_diagram_plotter:
   tps_mixed:
     id: "tps_mixed"
@@ -3067,6 +3069,7 @@ panda_diagram_plotter:
      - "dauer_summe"
     agg_colums:
     drop_columns:
+     - "Nr."
      - "dauer_summe"
      - "Datum"
      - "Von"
@@ -3157,6 +3160,7 @@ panda_diagram_plotter:
      - "dauer_summe"
     agg_colums:
     drop_columns:
+     - "Nr."
      - "dauer_summe"
      - "Datum"
      - "Von"
@@ -3631,4 +3635,168 @@ panda_diagram_plotter:
       margin_column:
       non_pivot_margin_column:
       non_pivot_margin_function:
+  projektcontrolling_dauer:
+    id: "projektcontrolling_dauer"
+    separator: ";"
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "arbeitsrapport.CSV"
+    imagename: "projektcontrolling_dauer.png"
+    decimal_format:
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Projektcontrolling - Dauer [h]"
+    chart-index: "Subphase"
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: False
+      subplot:
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [8,8]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "Subphase"
+    group_by_function: "sum"
+    agg_funtion:
+     - "Dauer [h]"
+#     - "Geplante Dauer [h]"
+    agg_colums:
+    drop_columns:
+     - "Nr."
+     - "dauer_summe"
+     - "Datum"
+     - "Von"
+     - "Bis"
+     - "Hide"
+     - "Phase"
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
+     - "Geplante Dauer [h]"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number: 1
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+      pivot_indizes_visible: False
+      pivot_rename_indizes:
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+     transpose: True
+    rename_columns:
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  projektcontrolling_geplant:
+    id: "projektcontrolling_geplant"
+    separator: ";"
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "arbeitsrapport.CSV"
+    imagename: "projektcontrolling_geplant.png"
+    decimal_format:
+    x-axis-columns: "Subphase"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Projektcontrolling - Geplante Dauer [h]"
+    chart-index: "Subphase"
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: False
+      subplot:
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [8,8]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "Subphase"
+    group_by_function: "sum"
+    agg_funtion:
+#     - "Dauer [h]"
+     - "Geplante Dauer [h]"
+    agg_colums:
+    drop_columns:
+     - "Nr."
+     - "dauer_summe"
+     - "Datum"
+     - "Von"
+     - "Bis"
+     - "Hide"
+     - "Phase"
+     - "Tätigkeit"
+     - "Bemerkung"
+     - "Schwierigkeit"
+     - "Lösungen"
+     - "Dauer [h]"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number: 1
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+      pivot_indizes_visible: False
+      pivot_rename_indizes:
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+     transpose: True
+    rename_columns:
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
 

@@ -156,11 +156,23 @@
     \input{content/latex_tables/db_inventory_per_rdbms}
 \end{flushleft}
 \begin{flushleft}
+%    \begin{figure}[H]
+%        \centering
+%        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_rdbms}
+%        \caption{Datenbanken - Aufgeschlüsselt nach RDBMS}
+%        \label{fig:db_inventory_per_rdbms}
+%    \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_rdbms}
-        \caption{Datenbanken - Aufgeschlüsselt nach RDBMS}
-        \label{fig:db_inventory_per_rdbms}
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_rdbms_database}
+        \caption{Datenbanken - Aufgeschlüsselt nach RDBMS - Datenbanken}
+        \label{fig:db_inventory_per_rdbms_database}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_rdbms_instance}
+        \caption{Datenbanken - Aufgeschlüsselt nach RDBMS - Instanzen}
+        \label{fig:db_inventory_per_rdbms_instance}
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
@@ -198,11 +210,29 @@
     \input{content/latex_tables/db_inventory_per_os}
 \end{flushleft}
 \begin{flushleft}
+%    \begin{figure}[H]
+%        \centering
+%        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_os}
+%        \caption{Datenbanken - Aufgeschlüsselt nach Betriebssystem}
+%        \label{fig:db_inventory_per_os}
+%    \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_os}
-        \caption{Datenbanken - Aufgeschlüsselt nach Betriebssystem}
-        \label{fig:db_inventory_per_os}
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_os_databases}
+        \caption{Datenbanken - Aufgeschlüsselt nach Betriebssystem - Datenbanken}
+        \label{fig:db_inventory_per_os_databases}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_os_instances}
+        \caption{Datenbanken - Aufgeschlüsselt nach Betriebssystem - Instanzen}
+        \label{fig:db_inventory_per_os_instances}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/db_inventory_per_os_appliance}
+        \caption{Datenbanken - Aufgeschlüsselt nach Betriebssystem - Appliances}
+        \label{fig:db_inventory_per_os_appliance}
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
@@ -257,7 +287,7 @@
 %    \KOMAoptions{paper=A3,paper=landscape,DIV=20}
 %    \storeareas\landscapevaluesbig
     Dadurch ergeben sich nach BSI folgende Risiken:
-    \begin{table}[]
+    \begin{table}[H]
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{llllllllllll}
     \hline
@@ -279,10 +309,8 @@
     \end{table}
 %    \end{landscape}
 \end{flushleft}
-\clearpage
-\KOMAoptions{paper=A4,pagesize}
-\recalctypearea
-\begin{flushleft}
+
+%\begin{flushleft}
 %\begin{figure}[H]
 %    \centering
 %    \includegraphics[width=0.75\linewidth]{source/riskmatrix/riskmatrixproblem}
@@ -292,10 +320,13 @@
 
 % Python matplot risk management => versuchen
 %https://stackoverflow.com/questions/62154079/risk-matrix-with-pythyon
-\end{flushleft}
+%\end{flushleft}
 \begin{flushleft}
 %    \KOMAoptions{paper=A4,pagesize}
 %    \recalctypearea
+\clearpage
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
     Daraus ergeben sich folgende Strategien und Handlungsfelder um die Massnahmen zur Risikominimierung umzusetzen:
     \begin{itemize}
         \item Systemabsicherung erarbeiten und einsetzen

@@ -39,7 +39,7 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Architektur}
-    yugabyteDB ist kein reines \Gls{RDBMS}, resp. gar keines.
+    YugabyteDB ist kein reines \Gls{RDBMS}, resp. gar keines.
     Die Basis besteht aus einem \Gls{Key-Value-Store}.
     Darüber wurde eine \Gls{Cassandra}-like Query API und eine PostgreSQL like SQL API aufgebaut:
     \begin{figure}[H]
@@ -60,7 +60,7 @@
 \end{flushleft}
 \begin{flushleft}
     \subparagraph{yugabyteDB - Sharding}
-    yugabyteDB teilt seine Tabellen in Tablets auf.
+    YugabyteDB teilt seine Tabellen in Tablets auf.
     Die Aufteilung kann gemäss Sharding-Standards gemacht werden:
     \begin{figure}[H]
         \centering
@@ -91,7 +91,8 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Durch das Raft-Protokoll werden die Tablet-Leader regelmässig gewechselt.
+    Durch das Raft-Protokoll werden die Tablet-Leader regelmässig gewechselt.\\
+    Das Raft-Protokoll ist im \hyperref[subsec:subsec:mraft_consensus]{Anhang - Raft-Consensus} beschrieben.\\
     \end{flushleft}
 \begin{flushleft}
     Mehrere Nodes können zu Zonen zusammengebunden werden, die dann z.B. auf verschiedene Rechenzentren verteilt werden:

@@ -33,6 +33,7 @@ tables_inventory:
  - "construction_implementation_used_ports"
  - "construction_implementation_tests"
  - "result_goal_review"
+ - "risk_assessments_13_05_2024"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -351,6 +352,7 @@ tables:
    - "Hide"
    - "Geplante Dauer [h]"
    - "dauer_summe"
+   - "Nr."
   column_operations:
    datas:
    operations:
@@ -453,8 +455,7 @@ tables:
   where_clausel:
   sorting:
    order_by:
-    - "Phase"
-    - "Subphase"
+    - "Nr."
    sort_acending: True
    sort_inplace: True
   margins:
@@ -2165,3 +2166,65 @@ tables:
      - "Begründung / Beschreibung"
     table_header: True
     multicolumn: False
+ risk_assessments_13_05_2024:
+   id: "risk_assessments_13_05_2024"
+   isbigfile:
+   has_longtexts: False
+   separator: ";"
+   decimal: "."
+   caption: "Risiko-Assessment 13.05.2024"
+   label: "risk_assessments_13_05_2024"
+   startpath: "parentdir"
+   destination_path: "content/latex_tables"
+   datafile_path: "source/tables"
+   datafile: "risk-assessments-13-05-2024.csv"
+   tablefilename: "risk-assessments-13-05-2024.tex"
+   decimal_format:
+   group_by:
+   group_by_function:
+   agg_funtion:
+   agg_colums:
+   drop_columns:
+   column_operations:
+    datas:
+    operations:
+     dauer_summe:
+      operation_function:
+      axis_number:
+      columns:
+   pivot:
+    pivot_columns:
+    pivot_values:
+   pivot_table:
+    pivot_index:
+     pivot_indizes_visible: False
+     pivot_rename_indizes:
+    pivot_columns:
+    pivot_values:
+    pivot_agg_func:
+   rename_columns:
+   where_clausel:
+   sorting:
+    order_by:
+     - "ID"
+    sort_acending: True
+    sort_inplace: True
+   margins:
+    margin: False
+    margin_name:
+    non_pivot_margin_column:
+    non_pivot_margin_function:
+   table_styles:
+    selector: "caption"
+    props:
+     caption-side: "below"
+     position: "H"
+     sparse_columns: True
+     longtable: False
+     resize_textwidth: True
+     linebreak_columns:
+      - "Risiko"
+      - "Ergriffene Massnahmen"
+      - "Begründung"
+     table_header: True
+     multicolumn: False

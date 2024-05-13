@@ -1,118 +1,122 @@
-Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätigkeit;Bemerkung;Schwierigkeit;Lösungen
-14.02.2024;;;0;16;0;1;Evaluation;Anorderungskatalog;;;;
-14.02.2024;;;0;80;0;1;Dokumentation;Dokumentation;;;;
-14.02.2024;;;0;16;0;1;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Patroni;;
-14.02.2024;;;0;4;0;1;Evaluation;Vorbereitung Benchmarking;;;;
-14.02.2024;;;0;8;0;1;Evaluation;Gegenüberstellung;;;;
-14.02.2024;;;0;4;0;1;Evaluation;Variantenentscheid;;;;
-14.02.2024;;;0;4;0;1;Aufbau und Implementation Testsystem;Basisinfrastruktur;;;;
-14.02.2024;;;0;20;0;1;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;;;;
-14.02.2024;;;0;3;0;1;Aufbau und Implementation Testsystem;Technical Review;;;;
-14.02.2024;;;0;8;0;1;Testing;Testing Testsystem;;;;
-14.02.2024;;;0;4;0;1;Testing;Protokollierung;;;;
-14.02.2024;;;0;2;0;1;Testing;Review und Auswertung;;;;
-14.02.2024;;;0;8;0;1;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;;;;
-14.02.2024;;;0;2;0;1;Resultate;Zielüberprüfung;;;;
-14.02.2024;;;0;2;0;1;Resultate;Schlussfolgerung;;;;
-14.02.2024;;;0;1;0;1;Resultate;Weiteres Vorgehen / offene Arbeiten;;;;
-14.02.2024;;;0;2;0;1;Resultate;Persönliches Fazit;;;;
-14.02.2024;;;0;1;0;1;1. Expertengespräch;1. Expertengespräch;;;;
-14.02.2024;;;0;1;0;1;2. Expertengespräch;2. Expertengespräch;;;;
-14.02.2024;;;0;1;0;1;Letztes Expertengespräch;Letztes Expertengespräch;;;;
-14.02.2024;;;0;16;0;1;Puffer;Puffer;;;;
-14.02.2024;19:00;20:00;1;0;0;0;1. Expertengespräch;1. Expertengespräch;;;;
-21.02.2024;15:00;16:00;1;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
-22.02.2024;16:00;17:30;1.5;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
-27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
-27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
-01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp.\\das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
-08.03.2024;07:00;09:00;2;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
-11.03.2024;07:00;11:30;4.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Informationen Sammeln;pgpool II;pgpool II hat kein GitHub Repository.\\Das macht es unmöglich, diese Lösung mit all den anderen zu vergleichen.;pgpool II fällt somit direkt aus der betrachtung raus,\\da kein vergleich möglich ist.
-11.03.2024;12:00;13:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
-11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Stakeholder erfassen;;
-13.03.2024;17:45;19:45;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Stackgres und Citus analysieren;Citus row-based-sharding;Citus Dokumentation stark Textlastig.\\Wenig Abbildungen, vieles muss selber gezeichnet werden.;
-14.03.2024;19:45;20:45;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Citus row-based-sharding;;
-14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;Citus row-based-sharding Dokumentieren;;
-16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
-17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
-17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;ACID Exkurs erfassen;;
-17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
-18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
-18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
-19.03.2024;08:00;10:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;;
-19.03.2024;10:00;10:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Backup Anbindungen;;Veeam Kast K10 wird nicht vor Anbgabe Diplomarbeit fertig sein;Backups lokal speichern.\\Veeam Integration wird im Nachgang implementiert.
-19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;yugabytedb;;
-20.03.2024;16:00;16:15;0.25;0;0;0;Dokumentation;Dokumentation;Termin für 2. Fachgespräch organisiert;;;
-21.03.2024;18:00;20:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling gemacht.;;
-22.03.2024;09:00;11:00;2;0;0;0;Evaluation;Vorbereitung Benchmarking;zabbix analysieren;;;
-22.03.2024;13:00;14:30;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;Benchmark Settings setzen;;;
-22.03.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling und Dokumentation;;
-22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
-24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
-24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
-25.03.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;rke2 - local-path-provisioner Installieren;;;
-25.03.2024;13:00;14:45;2.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;Anforderungen recht hoch.\\Es wird ein \\guillemotleftprivate container registry\\guillemotright verlangt.\\Das KSGR hat Harbor im Einsatz,\\allerdings ist dieses nicht für das Evaluationssetting gedacht.;Eine mögliche Lösung könnte sein, rke2 als Registry zu verwenden.
-26.03.2024;12:00;13:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
-26.03.2024;14:45;15:00;0.25;0;0;0;2. Expertengespräch;2. Expertengespräch;;;Nornan verspätete sich wegen eines Privaten Notfalls.;Termin wird auf morgen verschoben
-26.03.2024;15:00;16:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;Aus versehen YugabyteDB Anywhere (Repository yugaware) Installiert.\\Diese Installation benötigt zwingend eine Subscription.\\Wäre ein No-Go;YugayteDB (Repository yugabyte) verwenden.\\Dies ist nach wie vor Open-Source
-27.03.2024;10:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
-27.03.2024;15:00;15:30;0.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Installation;;YugabyteDB von aussen nicht ansprechbar.;MetalLB installiert und eingesetzt.
-27.03.2024;13:00;16:00;4;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Troubleshooting;;Trotz MetalLB nicht erreichbar;L2Advertisement gesetzt.
-27.03.2024;16:30;17:30;1;0;0;0;2. Expertengespräch;2. Expertengespräch;;;;
-01.04.2024;09:00;09:45;0.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Versuch, das Benchmarking via Cronjobs auszuführen;ysql\_bench hat keinen Passwort-Parameter.\\Ist zudem zu gut geschützt um mit Tricks das Passwort zu übergeben.;Manuell alle 10min ausführen.
-01.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Viel Zeit verloren für das manuelle Benchmarking;;
-02.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;StackGres verfolgt ein anderes Konzept als Yugabyte.;;
-03.04.2024;09:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
-03.04.2024;14:00;15:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;Installation von Patroni begonnen.;Foreman Repositories waren erreichbar,\\Internet-Repository nicht.;apt-Proxy setzen
-09.04.2024;12:30;14:00;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
-10.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;;etcd-Server bereitet Probleme;
-12.04.2024;12:30;14:45;2.25;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;Proxy gesetzt und http erzwungen
-15.04.2024;18:00;20:00;2;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;
-16.04.2024;13:00;16:00;3;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;Node Annotations auf local-path-provisioner und StorageClass setzen
-17.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking / Testing;Grosse Volumes testen;;
-17.04.2024;12:30;19:00;6.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Deployment / Testing;;Table Distribution und Schema based Sharding nicht tauglich.\\Foreign-Key-Constraints werfen fehler.;Referenced Tables
-19.04.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Benchmarking;Auch pgbench muss manuell ausgeführt werden;;
-19.04.2024;12:00;14:00:00:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Analyse vitabaks/postgresql\_cluster// / Architektur;Analyse von vitabaks/postgresql\_cluster auf \Gls{GitHub}.\\Aufbau analog ursprüngliche Evaluationsplattform von Patroni.\\Architektur entsprechend zeichnen.;;
-19.04.2024;14:00;20:00;6;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni  Installation / Testing;;etcd-Server bereitet Probleme;Vereinfachen soweit möglich
-19.04.2024;20:00;21:00;1;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Patroni Test Server DMT / Auftrag;DMT Einträge für Patroni Testserver erstellt.\\Ticket an Niculin Fürst für Foreman Job.;;
-20.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking;;;
-20.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking / grosse Volumes;Auf erweiterte Disk umstellen und letzten Benchmark fahren;;
-22.04.2024;09:00;09:15;0.25;0;0;0;Evaluation;Gegenüberstellung;;;;
-22.04.2024;09:30;11:00;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
-23.04.2024;13:45;14:00;0.25;0;0;0;Evaluation;Gegenüberstellung;;;;
-24.04.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
-25.04.2024;14:00;16:00;0;0;0;0;Evaluation;Gegenüberstellung;;;;
-26.04.2024;13:30;14:30;1;0;0;0;Evaluation;Variantenentscheid;;;;
-26.04.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
-29.04.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Anpassungen / Passwörter;Prequenteries umgesetzt.\\Snapshots auf \Gls{VMware vSphere} gesetzt.\\Passwörter gesetzt und im Password Secure (Safe) erfasst.\\Ansible installation auf sks9016;;
-29.04.2024;11:00;11:30;0.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
-29.04.2024;12:30;14:00;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
-29.04.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
-29.04.2024;16:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
-30.04.2024;07:00;08:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
-30.04.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
-30.04.2024;15:00;16:30;1.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;Installation;Umstellen lassen auf Init7 ohne Proxy dafür mit Firewall Rules.\\\Gls{GitHub} verursacht Probleme.;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;Proxy Settings im Ansible vars/main.yml setzen
-30.04.2024;17:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Grundsätzlich Funktionsfähig;pg\_hba.conf Fehler;
-01.05.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
-01.05.2024;10:00;10:15;0.25;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport;;
-01.05.2024;14:15;16:15;2;0;0;0;Aufbau und Implementation Testsystem;Technical Review;Review vitabaks/postgresql\_cluster System;;;
-03.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;\Gls{PRTG} Sensor bauen;;;
-03.05.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Beginn Bau Maintenance-Tool - Bloated Tables;;
-03.05.2024;12:30;13:45;1.25;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
-03.05.2024;15:30;17:00;2.5;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
-03.05.2024;17:00;19:00;2;0;0;0;Testing;Protokollierung;;;;
-06.05.2024;07:30;10:00;2.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Bau Maintenance-Tool - Bloated Tables;;
-06.05.2024;10:00;11:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Beginn Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
-06.05.2024;13:30;14:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
-09.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
-09.05.2024;12:30;15:00;2.5;0;0;0;Testing;Testing Testsystem;Testing Maintenance-Tool;;;
-09.05.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
-09.05.2024;19:00;21:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
-10.05.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
-12.05.2024;13:00;15:15;2.25;0;0;0;Testing;Review und Auswertung;;;;
-12.05.2024;16:15;16:15;1;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
-12.05.2024;17:45;18:15;0.5;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
-12.05.2024;19:30;20:30;1;0;0;0;Resultate;Schlussfolgerung;Schlussfolgerung geschrieben;;;
-12.05.2024;20:30;21:00;0.5;0;0;0;Resultate;Weiteres Vorgehen / offene Arbeiten;Weiteres vorgehen erfasst;;;
-12.05.2024;21:00;21:45;0.75;0;0;0;Resultate;Persönliches Fazit;Persönliches Fazit niedergeschrieben;;;
+Nr.;Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;Tätigkeit;Bemerkung;Schwierigkeit;Lösungen
+1;14.02.2024;;;0;16;0;1;Evaluation;Anorderungskatalog;;;;
+21;14.02.2024;;;0;80;0;1;Dokumentation;Dokumentation;;;;
+3;14.02.2024;;;0;16;0;1;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Patroni;;
+2;14.02.2024;;;0;4;0;1;Evaluation;Vorbereitung Benchmarking;;;;
+4;14.02.2024;;;0;8;0;1;Evaluation;Gegenüberstellung;;;;
+5;14.02.2024;;;0;4;0;1;Evaluation;Variantenentscheid;;;;
+6;14.02.2024;;;0;4;0;1;Aufbau und Implementation Testsystem;Basisinfrastruktur;;;;
+7;14.02.2024;;;0;20;0;1;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;;;;
+8;14.02.2024;;;0;3;0;1;Aufbau und Implementation Testsystem;Technical Review;;;;
+9;14.02.2024;;;0;8;0;1;Testing;Testing Testsystem;;;;
+10;14.02.2024;;;0;4;0;1;Testing;Protokollierung;;;;
+11;14.02.2024;;;0;2;0;1;Testing;Review und Auswertung;;;;
+12;14.02.2024;;;0;8;0;1;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;;;;
+13;14.02.2024;;;0;2;0;1;Resultate;Zielüberprüfung;;;;
+14;14.02.2024;;;0;2;0;1;Resultate;Schlussfolgerung;;;;
+15;14.02.2024;;;0;1;0;1;Resultate;Weiteres Vorgehen / offene Arbeiten;;;;
+16;14.02.2024;;;0;2;0;1;Resultate;Persönliches Fazit;;;;
+17;14.02.2024;;;0;1;0;1;1. Expertengespräch;1. Expertengespräch;;;;
+18;14.02.2024;;;0;1;0;1;2. Expertengespräch;2. Expertengespräch;;;;
+19;14.02.2024;;;0;1;0;1;Letztes Expertengespräch;Letztes Expertengespräch;;;;
+20;14.02.2024;;;0;16;0;1;Puffer;Puffer;;;;
+;14.02.2024;19:00;20:00;1;0;0;0;1. Expertengespräch;1. Expertengespräch;;;;
+;21.02.2024;15:00;16:00;1;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
+;22.02.2024;16:00;17:30;1.5;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
+;27.02.2024;10:00;11:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+;27.02.2024;13:00;16:00;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+;28.02.2024;09:00;11:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;Viele LaTEX Tabellen.;Generator mit python pandas gebaut für alle möglichen Tabellen.\\Inkl. Aggregation und Pivot-Mechaniken
+;01.03.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation Exkurs Architektur;Um Entscheidungen Transparent zu machen,\\müssen Grundlegende Konzepte aufgezeigt werden.\\Nicht alle Konzepte wie z.B. Distributed SQL sind bekannt resp.\\das zusammenspiel mit Kubernetes.;Konzepte wie Distributed SQL sind nicht einfach zu erklären.;
+;08.03.2024;07:00;09:00;2;0;0;0;Evaluation;Anorderungskatalog;Anorderungskatalog erarbeiten;;;
+;11.03.2024;07:00;11:30;4.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Informationen Sammeln;pgpool II;pgpool II hat kein GitHub Repository.\\Das macht es unmöglich, diese Lösung mit all den anderen zu vergleichen.;pgpool II fällt somit direkt aus der betrachtung raus,\\da kein vergleich möglich ist.
+;11.03.2024;12:00;13:30;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+;11.03.2024;16:45;17:30;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Stakeholder erfassen;;
+;13.03.2024;17:45;19:45;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Stackgres und Citus analysieren;Citus row-based-sharding;Citus Dokumentation stark Textlastig.\\Wenig Abbildungen, vieles muss selber gezeichnet werden.;
+;14.03.2024;19:45;20:45;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;;Citus row-based-sharding;;
+;14.03.2024;20:45;21:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;Citus row-based-sharding Dokumentieren;;
+;16.03.2024;17:45;18:30;0.75;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
+;17.03.2024;14:45;16:30;1.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Zweiter Statusbericht verfassen;;
+;17.03.2024;19:30;20:00;0.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;ACID Exkurs erfassen;;
+;17.03.2024;20:15;21:00;0.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Listings sauber machen.\\Neue Listing-Sprache für yaml-Files erstellt,\\da noch einige folgen werden.;;
+;18.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Statusbericht 2 fertig Schrieben und Mail an Norman Süsstrunk senden;;
+;18.03.2024;20:20;21:50;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;pgbench analysieren;Percona ist Dein Freund;;
+;19.03.2024;08:00;10:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;;
+;19.03.2024;10:00;10:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Backup Anbindungen;;Veeam Kast K10 wird nicht vor Anbgabe Diplomarbeit fertig sein;Backups lokal speichern.\\Veeam Integration wird im Nachgang implementiert.
+;19.03.2024;14:00;16:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;yugabytedb;;
+;20.03.2024;16:00;16:15;0.25;0;0;0;Dokumentation;Dokumentation;Termin für 2. Fachgespräch organisiert;;;
+;21.03.2024;18:00;20:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling gemacht.;;
+;22.03.2024;09:00;11:00;2;0;0;0;Evaluation;Vorbereitung Benchmarking;zabbix analysieren;;;
+;22.03.2024;13:00;14:30;1.5;0;0;0;Evaluation;Vorbereitung Benchmarking;Benchmark Settings setzen;;;
+;22.03.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Projektcontrolling und Dokumentation;;
+;22.03.2024;16:45;19:00;2.75;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Benchmarking;;
+;24.03.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren;;
+;24.03.2024;19:30;22:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Analyse gängiger PostgreSQL HA Cluster Lösungen\\- Patroni, Stackgres, CloudNativePG dokumentieren\\/ Arbeitsrapport;;
+;25.03.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;rke2 - local-path-provisioner Installieren;;;
+;25.03.2024;13:00;14:45;2.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb;;Anforderungen recht hoch.\\Es wird ein \\guillemotleftprivate container registry\\guillemotright verlangt.\\Das KSGR hat Harbor im Einsatz,\\allerdings ist dieses nicht für das Evaluationssetting gedacht.;Eine mögliche Lösung könnte sein, rke2 als Registry zu verwenden.
+;26.03.2024;12:00;13:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
+;26.03.2024;14:45;15:00;0.25;0;0;0;2. Expertengespräch;2. Expertengespräch;;;Nornan verspätete sich wegen eines Privaten Notfalls.;Termin wird auf morgen verschoben
+;26.03.2024;15:00;16:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;Aus versehen YugabyteDB Anywhere (Repository yugaware) Installiert.\\Diese Installation benötigt zwingend eine Subscription.\\Wäre ein No-Go;YugayteDB (Repository yugabyte) verwenden.\\Dies ist nach wie vor Open-Source
+;27.03.2024;10:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;yugabytedb Installation;;;
+;27.03.2024;15:00;15:30;0.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Installation;;YugabyteDB von aussen nicht ansprechbar.;MetalLB installiert und eingesetzt.
+;27.03.2024;13:00;16:00;4;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;MetalLB Troubleshooting;;Trotz MetalLB nicht erreichbar;L2Advertisement gesetzt.
+;27.03.2024;16:30;17:30;1;0;0;0;2. Expertengespräch;2. Expertengespräch;;;;
+;01.04.2024;09:00;09:45;0.75;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Versuch, das Benchmarking via Cronjobs auszuführen;ysql\_bench hat keinen Passwort-Parameter.\\Ist zudem zu gut geschützt um mit Tricks das Passwort zu übergeben.;Manuell alle 10min ausführen.
+;01.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking;Viel Zeit verloren für das manuelle Benchmarking;;
+;02.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;StackGres verfolgt ein anderes Konzept als Yugabyte.;;
+;03.04.2024;09:00;11:30;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
+;03.04.2024;14:00;15:30;0.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;Installation von Patroni begonnen.;Foreman Repositories waren erreichbar,\\Internet-Repository nicht.;apt-Proxy setzen
+;09.04.2024;12:30;14:00;1.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;
+;10.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Installation;;etcd-Server bereitet Probleme;
+;12.04.2024;12:30;14:45;2.25;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Installation;;Extension Server nicht erreichbar;Proxy gesetzt und http erzwungen
+;15.04.2024;18:00;20:00;2;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;
+;16.04.2024;13:00;16:00;3;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;rke2 - local-path-provisioner 250GiB;Versuch, grosse Volumes einzubinden;Alles landet auf einem Node;Node Annotations auf local-path-provisioner und StorageClass setzen
+;17.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking / Testing;Grosse Volumes testen;;
+;17.04.2024;12:30;19:00;6.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Deployment / Testing;;Table Distribution und Schema based Sharding nicht tauglich.\\Foreign-Key-Constraints werfen fehler.;Referenced Tables
+;19.04.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Benchmarking;Auch pgbench muss manuell ausgeführt werden;;
+;19.04.2024;12:00;14:00:00:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Analyse vitabaks/postgresql\_cluster// / Architektur;Analyse von vitabaks/postgresql\_cluster auf \Gls{GitHub}.\\Aufbau analog ursprüngliche Evaluationsplattform von Patroni.\\Architektur entsprechend zeichnen.;;
+;19.04.2024;14:00;20:00;6;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni  Installation / Testing;;etcd-Server bereitet Probleme;Vereinfachen soweit möglich
+;19.04.2024;20:00;21:00;1;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Patroni Test Server DMT / Auftrag;DMT Einträge für Patroni Testserver erstellt.\\Ticket an Niculin Fürst für Foreman Job.;;
+;20.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking;;;
+;20.04.2024;14:00;16:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking / grosse Volumes;Auf erweiterte Disk umstellen und letzten Benchmark fahren;;
+;22.04.2024;09:00;09:15;0.25;0;0;0;Evaluation;Gegenüberstellung;;;;
+;22.04.2024;09:30;11:00;1.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+;23.04.2024;13:45;14:00;0.25;0;0;0;Evaluation;Gegenüberstellung;;;;
+;24.04.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+;25.04.2024;14:00;16:00;0;0;0;0;Evaluation;Gegenüberstellung;;;;
+;26.04.2024;13:30;14:30;1;0;0;0;Evaluation;Variantenentscheid;;;;
+;26.04.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
+;29.04.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Anpassungen / Passwörter;Prequenteries umgesetzt.\\Snapshots auf \Gls{VMware vSphere} gesetzt.\\Passwörter gesetzt und im Password Secure (Safe) erfasst.\\Ansible installation auf sks9016;;
+;29.04.2024;11:00;11:30;0.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
+;29.04.2024;12:30;14:00;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
+;29.04.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
+;29.04.2024;16:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;30.04.2024;07:00;08:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;30.04.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;30.04.2024;15:00;16:30;1.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;Installation;Umstellen lassen auf Init7 ohne Proxy dafür mit Firewall Rules.\\\Gls{GitHub} verursacht Probleme.;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;Proxy Settings im Ansible vars/main.yml setzen
+;30.04.2024;17:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Grundsätzlich Funktionsfähig;pg\_hba.conf Fehler;
+;01.05.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
+;01.05.2024;10:00;10:15;0.25;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport;;
+;01.05.2024;14:15;16:15;2;0;0;0;Aufbau und Implementation Testsystem;Technical Review;Review vitabaks/postgresql\_cluster System;;;
+;03.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;\Gls{PRTG} Sensor bauen;;;
+;03.05.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Beginn Bau Maintenance-Tool - Bloated Tables;;
+;03.05.2024;12:30;13:45;1.25;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
+;03.05.2024;15:30;17:00;2.5;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
+;03.05.2024;17:00;19:00;2;0;0;0;Testing;Protokollierung;;;;
+;06.05.2024;07:30;10:00;2.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Bau Maintenance-Tool - Bloated Tables;;
+;06.05.2024;10:00;11:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Beginn Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;06.05.2024;13:30;14:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;09.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;09.05.2024;12:30;15:00;2.5;0;0;0;Testing;Testing Testsystem;Testing Maintenance-Tool;;;
+;09.05.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+;09.05.2024;19:00;21:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+;10.05.2024;07:00;09:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
+;12.05.2024;13:00;15:15;2.25;0;0;0;Testing;Review und Auswertung;;;;
+;12.05.2024;16:15;16:15;1;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
+;12.05.2024;17:45;18:15;0.5;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
+;12.05.2024;19:30;20:30;1;0;0;0;Resultate;Schlussfolgerung;Schlussfolgerung geschrieben;;;
+;12.05.2024;20:30;21:00;0.5;0;0;0;Resultate;Weiteres Vorgehen / offene Arbeiten;Weiteres vorgehen erfasst;;;
+;12.05.2024;21:00;21:45;0.75;0;0;0;Resultate;Persönliches Fazit;Persönliches Fazit niedergeschrieben;;;
+;12.05.2024;07:30;09:30;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport / Abschlussbericht KSGR;;
+;13.05.2024;09:30;11:30;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Design;;
+;13.05.2024;12:30;15:00;2.5;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Fehlende Passagen ergänzen;;
+;13.05.2024;20:00;22:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Fehlende Passagen ergänzen / Layout;;

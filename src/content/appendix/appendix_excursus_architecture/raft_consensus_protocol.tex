@@ -3,5 +3,50 @@
 
 % Preamble
 \begin{flushleft}
-    \subsection{Raft-Konsensus}
+    \subsection{Raft-Consensus}
+    \label{subsec:mraft_consensus}
+    Raft ist eine kombination aus einer Log Replikation und einer \Gls{State Machine}\cite{529SHBCA}.\\
+    Ein Node kann dabei einen von drei States einnehmen:\\
+    \begin{description}
+        \item \textbf{Leader}\hfill \\Empfängt als einziger Requests von den Clients und hat die Hoheit über die Transaktionen im Log
+        \item \textbf{Canditate}\hfill \\Wenn ein Leader ausgefallen ist oder für einen Follower nicht mehr innerhalb eines zufälligen Timeouts erreichbar ist,\\ernennt dieser sich zum Kandidaten als neuer Leader und wählt sich selbst.\\Dazu versendet er alle seine Informationen inklusive seinem Log.\\Gewählt wird dann jener Candidate, der ein konsistentes, vollständiges und jüngste Log besitzt.
+        \item \textbf{Follower}\hfill \\Follower können nur Commands empfangen und Response Messages senden.
+    \end{description}
+\end{flushleft}
+\begin{flushleft}
+    Das Prozedere für die Bestimmung eines Leaders kann viele Ursachen haben.\\
+    Etwa weil ein System neu gestartet wird oder ein Leader nicht mehr verfügbar oder erreichbar ist.\\
+    Dann werden folgende Schritte vorgenommen:
+    \begin{enumerate}
+        \item Alle Nodes starten als Follower und warten auf einen Leader
+        \item Wenn kein Leader vorhanden ist, startet mindestens ein Follower die elektion eines Leaders.\\Mindetsens eine Request Vote wird versendet.
+        \item Die Follower wählen dann ihren neuen Leader aus.
+        \item Der neue Leader sendet nun Append Entries als Heartbeat-Message und anweisungen an die Follower, Log Einträge zu replizieren.
+    \end{enumerate}
+\end{flushleft}
+\begin{flushleft}
+    Das zufällige Heartbeat-Timeout der Follower verhindert dabei,\\
+    dass sich alle Follower gleichzeitig als Candidate ausrufen und sich selber Wählen.\\
+    Sonst hätte man eine Split-Brain Situation.
+\end{flushleft}
+\begin{flushleft}
+    Ist ein Leader aktiv, wird der Log konsens wie folgt ausgeführt:
+    \begin{enumerate}
+        \item Der Leader erhält einen Requet von einem Client, Daten zu schreiben
+        \item DFer Leader legt dieses als neuen Eintrag ein
+        \item Der Leader sendet Append Entry Messages zu den Followern
+        \item Eine Mehrheit der Follower müssen nun bestätigen,\\das sie diese erhalten und in ihr Log geschrieben haben.
+        \item Der Leader schreibt nun ein Commit in seine \Gls{State Machine}
+        \item Der Leader sendet nun Append Entry Messages, dass er die Einträge commited hat.\\Der Leader befiehlt den Followern, es ihm gleichzutun
+        \item Nun ist eine Konsistente Transaktion auf den Cluster geschrieben
+    \end{enumerate}
+\end{flushleft}
+\begin{flushleft}
+    Dem Log wird immer der Index des vorangegangenen Eintrags gesendet.\\
+    Fällt ein Follower aus und wird später wieder dem \Gls{Quorum} hinzugefügt,\\
+    meldet er einen Fehler wenn er neue Daten erhält, ihm fehlen ja Einträge.\\
+    Der Leader sendet dem Follower also den Eintrag.\\
+    Fehlen weitere vorangehende Einträge, wird der Vorgang solange ausgeführt,\\
+    bis wieder ein Konsistenter Stand erreicht ist.\\
+    Das System ist so Selbstheilend.
 \end{flushleft}
