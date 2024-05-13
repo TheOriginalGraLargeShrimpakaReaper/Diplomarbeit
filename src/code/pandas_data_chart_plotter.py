@@ -119,6 +119,7 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
         secondary_y = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('secondary_y')
         stylelist = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('stylelist')
         subplots = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('subplots')
+        subplot = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('subplot')
         autopct = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('autopct')
         loc = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('loc')
         bbox_to_anchor = panda_diagram_plotter_config.get('panda_diagram_plotter').get(table_item).get('chart-designs').get('bbox_to_anchor')
@@ -232,10 +233,15 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
         if pivot_table_rename_indizes:
             panda_table_data = panda_table_data.rename_axis(index=pivot_table_rename_indizes)
 
+        # if subplots and subplot:
+        #     column = subplot[0]
+        #     row = subplot[1]
+        #     # plt.subplots(nrows=row, ncols=column)
 
 
         #   Plotter
         #   Plotter Process starts here!
+
         if autopct:
             panda_chart_plot = panda_table_data.plot(kind=chart, title=title, y=y_axis_columns, x=x_axis_columns, xlabel=x_axis_title,
                                                  ylabel=y_axis_title, grid=grid, stacked=stacked, legend=legend,
@@ -249,8 +255,18 @@ def create_panda_diagram_plotter(panda_diagram_plotter_config):
 
         match chart:
             case 'pie':
+                # if subplots and subplot:
+                #     column = subplot[0]
+                #     row = subplot[1]
+                #     panda_chart_plot[0].legend(loc=loc, bbox_to_anchor=bbox_to_anchor, nrows=row, ncols=column)
+                # else:
+                #     panda_chart_plot[0].legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
                 panda_chart_plot[0].legend(loc=loc, bbox_to_anchor=bbox_to_anchor)
                 plt = panda_chart_plot[0].get_figure()
+                # if subplots and subplot:
+                #     column = subplot[0]
+                #     row = subplot[1]
+                #     plt.subplots(nrows=row, ncols=column)
                 plt.savefig(image_path, bbox_inches='tight')
             case _:
                 if bbox_to_anchor:

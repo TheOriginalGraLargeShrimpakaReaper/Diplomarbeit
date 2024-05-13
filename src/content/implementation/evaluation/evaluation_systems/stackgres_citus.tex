@@ -97,7 +97,7 @@ extensions:
     \begin{description}
         \item \textbf{StorageClass}\hfill \\Die StorageClass für den Cluster.\\Je nachdem empfiehlt es sich, für den Coordinator eine eigene StorageClass zu erzeugen.
         \item \textbf{SGInstanceProfile}\hfill \\Das Instanz-Profil definiert, wie viel CPU und Memory der Pod erhält.\\Die konfigurationsmöglichkeiten gehen so tief,\\das innerhalb von Pods auch Containern Ressourcen zugewiesen werden können.\\ Empfehlenswert ist, Coordinator und Worker zu trennen.\\Ohne ein separates Instanz-Profil wird ein Standardprofil mit einer CPU und einem GiB Memory allokiert.
-        \item \textbf{SGPostgresConfig}\hfill \\PostgreSQL-Spezifische Einstellungen können hierüber konfiguriert werden.\\Wie das Instanz-Profil auch, ist dies nicht zwingend, allerdings wird dann eine PostgreSQL-DB mit minimalem Setting deployt.
+        \item \textbf{SGPostgresConfig}\hfill \\PostgreSQL-Spezifische Einstellungen können hierüber konfiguriert werden.\\Wie das Instanz-Profil auch, ist dies nicht zwingend.
         \item \textbf{SGShardedCluster}\hfill \\Mit diesem Manifest wird der Cluster oder Sharded Cluster deployt.\\Eigene Ressourcen wie Instanz-Profile müssen entsprechend deklariert werden.
     \end{description}
 \end{flushleft}
@@ -207,6 +207,23 @@ spec:
     Es gäbe zwar die Möglichkeit, Passwörter via Manifest zu setzen, aber dies funktioniert nicht für postgres- und replicator sowie backup.\\
     Laut der StackGres-Dokumentation müssen z.B. die Passwörter vom \texttt{postgres}-User im Nachgang via SQL geändert werden.\\
     Während der Evaluation wurde darauf verzichtet und das generische Passwort aus dem Cluster geholt.
+\end{flushleft}
+\begin{flushleft}
+    Für den 250GiB-Benchmark wurde, ähnlich zur Patroni-Evaluation, spezifische \Gls{PostgreSQL Cluster} Konfigurationen im Manifest \texttt{SGPostgresConfig} vorgenommen.\\
+    Diese Settings können dann jeweils für die Shards als auch für die Coordinators zugewisen werden:
+    \lstset{style=gra_codestyle}
+    \begin{lstlisting}[language=yaml, caption=StackGres-Citus - SGPostgresConfig,captionpos=b,label={lst:stackgres-citus-SGPostgresConfig-profile},breaklines=true]
+  ...
+  coordinator:
+    ...
+    configurations:
+      sgPostgresConfig: "<SGPostgresConfig Name>"
+  ...
+  shards:
+    ...
+    configurations:
+      sgPostgresConfig: "<SGPostgresConfig Name>"
+    \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
     Die vollständige Dokumentation der Evaluationsinstallation ist im \hyperref[subsec:evaluation_installation_stackgres]{Anhang - Installation StackGres - Citus} zu finden.

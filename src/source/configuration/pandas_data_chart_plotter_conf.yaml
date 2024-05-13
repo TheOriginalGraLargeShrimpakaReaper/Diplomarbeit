@@ -1,5 +1,10 @@
 diagram_inventory:
   #- "tps_mixed"
+  - "db_inventory_per_os_databases"
+  - "db_inventory_per_os_instances"
+  - "db_inventory_per_os_appliance"
+  - "db_inventory_per_rdbms_instance"
+  - "db_inventory_per_rdbms_database"
   - "db_inventory_per_rdbms"
   - "db_inventory_per_os"
   - "projektcontrolling"
@@ -111,14 +116,15 @@ panda_diagram_plotter:
     chart-kind: "pie"
     chart-designs:
       subplots: True
-      grid: False
+      grid: True
       legend: True
       rot:
       fontsize:
       stacked: True
+      subplot: !!python/tuple [1,2]
       secondary_y: False
       stylelist:
-      figsize: !!python/tuple [25,10]
+      figsize: !!python/tuple [10,15]
       autopct: '%1.0f%%'
       loc: "best"
       bbox_to_anchor:
@@ -186,6 +192,7 @@ panda_diagram_plotter:
     chart-kind: "pie"
     chart-designs:
       subplots: True
+      subplot: !!python/tuple [1,3]
       grid: False
       legend: False
       rot:
@@ -280,6 +287,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize: !!python/tuple [25,10]
@@ -373,6 +381,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -475,6 +484,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -550,6 +560,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -748,6 +759,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -948,6 +960,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1146,6 +1159,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1336,6 +1350,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1408,6 +1423,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1488,6 +1504,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1701,6 +1718,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1906,6 +1924,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -1983,6 +2002,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -2060,6 +2080,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -2139,6 +2160,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -2269,6 +2291,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -2399,6 +2422,7 @@ panda_diagram_plotter:
       rot:
       fontsize:
       stacked: False
+      subplot:
       secondary_y: False
       stylelist:
       figsize:
@@ -2524,6 +2548,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -2649,6 +2674,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -2753,6 +2779,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -2858,6 +2885,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -2939,6 +2967,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -3017,6 +3046,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -3106,6 +3136,7 @@ panda_diagram_plotter:
     chart-kind: "bar"
     chart-designs:
       subplots: False
+      subplot:
       grid: True
       legend: True
       rot:
@@ -3173,4 +3204,431 @@ panda_diagram_plotter:
       - "Geplante Dauer [h]"
       - "dauer_summe"
      non_pivot_margin_function: "sum"
+  db_inventory_per_os_databases:
+    id: "db_inventory_per_os_databases"
+    separator: ","
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    imagename: "db_inventory_per_os_databases.png"
+    decimal_format:
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro OS"
+    chart-index:
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      subplot: !!python/tuple [1,3]
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: True
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [8,8]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "rdbms"
+     - "os"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+     - "os"
+    drop_columns:
+     - "server"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "instance"
+  #   - "appliance"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number:
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+       - "os"
+       - "rdbms"
+      pivot_indizes_visible: True
+      pivot_rename_indizes:
+       os: "OS"
+       rdbms: "RDBMS"
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+#      instance: "sum"
+      databases: "sum"
+#      appliance: "sum"
+     transpose: True
+    rename_columns:
+     rdbms: "RDBMS"
+#     instance : "Instanz"
+     databases : "Datenbanken"
+     os : "OS"
+#     appliance: "Appliance"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  db_inventory_per_os_instances:
+    id: "db_inventory_per_os_instances"
+    separator: ","
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    imagename: "db_inventory_per_os_instances.png"
+    decimal_format:
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro OS"
+    chart-index:
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      subplot: !!python/tuple [1,3]
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: True
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [8,8]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "rdbms"
+     - "os"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+     - "os"
+    drop_columns:
+     - "server"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "databases"
+#     - "instance"
+  #   - "appliance"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number:
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+       - "os"
+       - "rdbms"
+      pivot_indizes_visible: True
+      pivot_rename_indizes:
+       os: "OS"
+       rdbms: "RDBMS"
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+      instance: "sum"
+#      databases: "sum"
+#      appliance: "sum"
+     transpose: True
+    rename_columns:
+     rdbms: "RDBMS"
+     instance : "Instanz"
+#     databases : "Datenbanken"
+     os : "OS"
+#     appliance: "Appliance"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  db_inventory_per_os_appliance:
+    id: "db_inventory_per_os_appliance"
+    separator: ","
+    decimal: "."
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    imagename: "db_inventory_per_os_appliance.png"
+    decimal_format:
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro OS"
+    chart-index:
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      subplot: !!python/tuple [1,3]
+      grid: False
+      legend: False
+      rot:
+      fontsize:
+      stacked: True
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [8,8]
+      autopct: '%1.0f%%'
+      loc: "upper center"
+      bbox_to_anchor: !!python/tuple [0,0]
+    group_by:
+     - "rdbms"
+     - "os"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+     - "os"
+    drop_columns:
+     - "server"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "databases"
+     - "instance"
+#     - "appliance"
+    column_operations:
+     datas:
+     operations:
+      dauer_summe:
+       operation_function:
+       axis_number:
+       columns:
+    pivot:
+     pivot_columns:
+     pivot_values:
+    pivot_table:
+     pivot_index:
+      pivot_indizes:
+       - "os"
+       - "rdbms"
+      pivot_indizes_visible: True
+      pivot_rename_indizes:
+       os: "OS"
+       rdbms: "RDBMS"
+     pivot_columns:
+     pivot_values:
+     pivot_agg_func:
+#      instance: "sum"
+#      databases: "sum"
+      appliance: "sum"
+     transpose: True
+    rename_columns:
+     rdbms: "RDBMS"
+#     instance : "Instanz"
+#     databases : "Datenbanken"
+     os : "OS"
+     appliance: "Appliance"
+    where_clausel:
+    sorting:
+     order_by:
+     sort_acending: False
+     sort_inplace: True
+    margins:
+     margin: False
+     margin_name:
+     margin_column:
+     non_pivot_margin_column:
+     non_pivot_margin_function:
+  db_inventory_per_rdbms_instance:
+    id: "db_inventory_per_rdbms_instance"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "db_inventory_per_rdbms_instance.png"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    separator: ","
+    decimal: "."
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro RDBMS"
+    chart-index: "RDBMS"
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: True
+      subplot: !!python/tuple [1,2]
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [10,8]
+      autopct: '%1.0f%%'
+      loc: "best"
+      bbox_to_anchor:
+    group_by:
+      - "rdbms"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+      - "rdbms"
+    drop_columns:
+     - "server"
+     - "os"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "appliance"
+     - "databases"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+     rdbms: "RDBMS"
+     instance : "Instanz"
+     databases : "Datenbanken"
+     appliance: "Appliance"
+    where_clausel:
+    sorting:
+      order_by:
+        - "rdbms"
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
+  db_inventory_per_rdbms_database:
+    id: "db_inventory_per_rdbms_database"
+    startpath: "parentdir"
+    destination_path: "source/pandas_data_chart_plotter"
+    imagename: "db_inventory_per_rdbms_database.png"
+    datafile_path: "source/tables"
+    datafile: "inventory.csv"
+    separator: ","
+    decimal: "."
+    x-axis-columns: "RDBMS"
+    y-axis-columns:
+    x-axis-title:
+    y-axis-title:
+    title: "Datenbankinventor - Pro RDBMS"
+    chart-index: "RDBMS"
+    chart-kind: "pie"
+    chart-designs:
+      subplots: True
+      grid: True
+      legend: True
+      rot:
+      fontsize:
+      stacked: True
+      subplot: !!python/tuple [1,2]
+      secondary_y: False
+      stylelist:
+      figsize: !!python/tuple [10,8]
+      autopct: '%1.0f%%'
+      loc: "best"
+      bbox_to_anchor:
+    group_by:
+      - "rdbms"
+    group_by_function: "sum"
+    agg_funtion:
+    agg_colums:
+      - "rdbms"
+    drop_columns:
+     - "server"
+     - "os"
+     - "version"
+     - "releasedate"
+     - "eol"
+     - "age"
+     - "eol_since"
+     - "comment"
+     - "appliance"
+     - "instance"
+    column_operations:
+      datas:
+    pivot:
+      pivot_columns:
+      pivot_values:
+    pivot_table:
+      pivot_index:
+       pivot_indizes_visible: False
+       pivot_rename_indizes:
+      pivot_columns:
+      pivot_values:
+      pivot_agg_func:
+    rename_columns:
+     rdbms: "RDBMS"
+     instance : "Instanz"
+     databases : "Datenbanken"
+     appliance: "Appliance"
+    where_clausel:
+    sorting:
+      order_by:
+        - "rdbms"
+      sort_acending: True
+      sort_inplace: True
+    margins:
+      margin: False
+      margin_name:
+      margin_column:
+      non_pivot_margin_column:
+      non_pivot_margin_function:
 

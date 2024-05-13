@@ -499,7 +499,7 @@ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stac
 kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_shard.yaml
 \end{lstlisting}
 
-Auf ein Deployment einer \texttt{SGPostgresConfig} wurde verzichtet, da für Patroni in den ersten drei Benchmarks keine spezifischen Anpassungen erfuhr.\\
+Auf ein Deployment einer \texttt{SGPostgresConfig} wurde bei den ersten drei Benchamrks verzichtet, da für Patroni in den ersten drei Benchmarks keine spezifischen Anpassungen erfuhr.\\
 Das Manifest für den Benchmark-Cluster sieht entsprechend den vorgaben wie folgt aus:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGShardedCluster,captionpos=b,label={lst:SGShardedCluster_pgbench.yaml},breaklines=true]
@@ -747,7 +747,75 @@ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stac
 kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGInstanceProfile_pgbench_shard.yaml
 \end{lstlisting}
 
-Das Manifest für den Benchmark-Cluster wurde die Shard-Cluster Anzahl auf 2 reduziert und die PVC entsprechend dimensioniert:
+Nun wurde ein \texttt{SGPostgresConfig} erstellt.\\
+Die Settings entsprechen der Patroni Konfiguration.\\
+Bei StackGres gibt es allerdings einige Parameter, die für die Konfiguration gesperrt sind.\\
+In diesem Fall waren es folgende:
+\begin{itemize}
+  \item wal\_log\_hints
+  \item wal\_level
+  \item archive\_mode
+\end{itemize}
+
+Das Manifest sieht folgendermassen aus:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGPostgresConfig,captionpos=b,label={lst:SGPostgresConfig.yaml},breaklines=true]
+#Not needed actualy
+apiVersion: stackgres.io/v1
+kind: SGPostgresConfig
+metadata:
+  namespace: sg-platform
+  name: sg-evaluation-250gib
+spec:
+  postgresVersion: '16'
+  postgresql.conf:
+    random_page_cost: '1.5'
+    password_encryption: 'scram-sha-256'
+    log_checkpoints: 'on'
+    max_connections: '1100'
+    superuser_reserved_connections: '10'
+    max_worker_processes: '16'
+#    wal_log_hints: 'on'
+    max_wal_senders: '32'
+    max_replication_slots: '32'
+    wal_keep_size: '1GB'
+#    wal_level: 'logical'
+    wal_buffers: '16MB'
+    wal_writer_delay: '20ms'
+    wal_writer_flush_after: '1MB'
+    min_wal_size: '1GB'
+    max_wal_size: '5GB'
+    commit_delay: '20'
+    commit_siblings: '10'
+    checkpoint_timeout: '5min'
+    checkpoint_completion_target: '0.95'
+#    archive_mode: 'off'
+    max_standby_archive_delay: '10min'
+    max_standby_streaming_delay: '3min'
+    wal_receiver_status_interval: '1s'
+    hot_standby_feedback: 'on'
+    wal_receiver_timeout: '60s'
+    max_logical_replication_workers: '8'
+    max_sync_workers_per_subscription: '8'
+    shared_buffers: '4GB'
+    maintenance_work_mem: '1GB'
+    work_mem: '12GB'
+    temp_file_limit: '200GB'
+    vacuum_cost_delay: '2ms'
+    vacuum_cost_limit: '10000'
+    bgwriter_delay: '10ms'
+    bgwriter_lru_maxpages: '800'
+    bgwriter_lru_multiplier: '5.0'
+\end{lstlisting}
+
+Der Deploy:
+\lstset{style=gra_codestyle}
+\begin{lstlisting}[language=bash, caption=StackGres-Citus - Benchmark - Deploy SGPostgresConfig,captionpos=b,label={lst:stackgres_citus-benchmnarking-deploy-SGPostgresConfig},breaklines=true]
+kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/SGPostgresConfig.yaml
+\end{lstlisting}
+
+Das Manifest für den Benchmark-Cluster wurde die Shard-Cluster Anzahl auf 2 reduziert und die PVC entsprechend dimensioniert.\\
+Zudem wurde das \texttt{SGPostgresConfig}-Profil \texttt{sgPostgresConfig} eingebunden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGShardedCluster 250GiB,captionpos=b,label={lst:SGShardedCluster_pgbench.yaml-250gib},breaklines=true]
 apiVersion: stackgres.io/v1alpha1
@@ -766,9 +834,10 @@ spec:
       persistentVolume:
         size: '230Gi'
         storageClass: "stackgres-storage"
-
-      disableConnectionPooling: true
+      disableConnectionPooling: true   # gramic, 19.04.2024: create_distributed_table auf pgbench_accounts lässt sich nicht ausführen wegen pgbouncer problemen
     sgInstanceProfile: "sg-pgbench-coordinator"
+    configurations:
+      sgPostgresConfig: "sg-evaluation-250gib"
   shards:
     clusters: 2 # gramic, 19.04.2024: 250GiB Tabelle
     instancesPerCluster: 1
@@ -777,6 +846,8 @@ spec:
         size: '230Gi'
         storageClass: "stackgres-storage"
     sgInstanceProfile: "sg-pgbench-shard"
+    configurations:
+      sgPostgresConfig: "sg-evaluation-250gib"
   postgresServices:
     coordinator:
       primary:
