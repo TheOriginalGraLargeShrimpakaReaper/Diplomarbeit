@@ -2,17 +2,17 @@
 %! Date = 05.12.23
 
 % Preamble
-\subsubsection{CAP Theorem}
-Das CAP Theorem besagt, das nur zwei der drei folgenden drei Merkmale von verteilten Systeme gewährleistet werden können\cite{EE6EQHU2}.
+\subsubsection{CAP-Theorem}
+Das CAP-Theorem besagt, das nur zwei der drei folgenden drei Merkmale von verteilten Systeme gewährleistet werden können\cite{EE6EQHU2}.
 \begin{flushleft}
 \textbf{Konsistenz - Consistency}\\
-    Die Datenbank ist Konsistent, alle Clients seher gleichzeitig die gleichen Daten unabhängig auf welchem Node Zugegriffen wird.
-    Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit zurückgegeben werden, also eine Synchrone Replikation stattfinden.
+    Die Datenbank ist konsistent, alle Clients sehen gleichzeitig die gleichen Daten unabhängig, auf welchem Node zugegriffen wird.
+    Hierzu muss eine Replikation der Daten an alle Nodes stattfinden und der Commit zurückgegeben werden, also eine synchrone Replikation stattfinden.
 \end{flushleft}
 \begin{flushleft}
 \textbf{Verfügbarkeit - Availability}\\
     Jeder Client, der eine Anfrage sendet, muss auch eine Antwort erhalten.
-    Unabhängig davon wie viele Nodes im Cluster noch aktiv ist.
+    Unabhängig davon, wie viele Nodes im Cluster noch aktiv ist.
 \end{flushleft}
 \begin{flushleft}
 \textbf{Ausfalltoleranz / Partitionstoleranz - Partition tolerance}\\

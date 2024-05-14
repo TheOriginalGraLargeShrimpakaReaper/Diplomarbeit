@@ -7,13 +7,13 @@
 \begin{flushleft}
     Ein Quorum-System soll die Integrität und Konsistenz in einem Datenbank-Cluster sicherstellen.
     Dabei gilt zu beachten, das nicht eine beliebige Anzahl an Nodes hinzugefügt werden können.
-    Auch hat das Hinzufügen von Nodes immer eine einbusse an Performance zur Folge, besonders dann, wenn eine Synchrone Replikation gewählt wird und auf jedes Commitmend von den Replica-Nodes gewartet werden muss.
+    Auch hat das Hinzufügen von Nodes immer eine Einbusse an Performance zur Folge, besonders dann, wenn eine synchrone Replikation gewählt wird und auf jedes Commitment von den Replica-Nodes gewartet werden muss.
 
     \begin{description}
-        \item \textbf{Quorum}\hfill \\Die Mehrheit der Server, die einen funktionierenden Betrieb gewährleisten können, ohne eine \Gls{Split-brain}Situation zu erzeugen.
+        \item \textbf{Quorum}\hfill \\Die Mehrheit der Server, die einen funktionierenden Betrieb gewährleisten können, ohne eine \Gls{Split-brain}-Situation zu erzeugen.
         Die Formel ist gemeinhin \(n/2 + 1\)
-        \item \textbf{Throughput}\hfill \\Beschreibt, wie sich die Anzahl Nodes auf die Schreibgeschwindigkeit der Commitments auf die restlichen Nodes auswirkt.\\Die verdopplung der Server halbiert i.d.R. den Throughput.
-        \item \textbf{Fehlertoleranz}\hfill \\Beschreibt, wie viele Nodes ausfallen können, damit der Cluster noch Arbeitsfähig ist.\\Wobei eine erhöhung der Nodes von 3 auf 4 die Fehlertoleranz nicht erhöht da nun eine \Gls{Split-brain}-Situation entstehen kann.
+        \item \textbf{Throughput}\hfill \\Beschreibt, wie sich die Anzahl Nodes auf die Schreibgeschwindigkeit der Commitments auf die restlichen Nodes auswirkt.\\Die Verdopplung der Server halbiert i. d. R. den Throughput.
+        \item \textbf{Fehlertoleranz}\hfill \\Beschreibt, wie viele Nodes ausfallen können, damit der Cluster noch arbeitsfähig ist.\\Wobei eine Erhöhung der Nodes von 3 auf 4 die Fehlertoleranz nicht erhöht, da nun eine \Gls{Split-brain}-Situation entstehen kann.
     \end{description}
     %\begin{landscape}
     %\begin{table}[]
@@ -37,7 +37,7 @@
     %\subsubsection{Split-brain}
     %\label{chap:Split-brain}
     Hier ein Beispiel wie sie in den Artikeln \cite{UMIGLCCI, YDS7DTYM, V4XLXN7W} beschrieben werden.
-    Es zeigt auf, ab wie vielen Nodes die Fehlertoleranz erhöht wird und wie sich der Representative Throughput verhält.
+    Es zeigt auf, ab wie vielen Nodes die Fehlertoleranz erhöht wird und wie sich der repräsentative Throughput verhält.
 %\end{flushleft}
 %\begin{flushleft}
     \begin{table}[H]
