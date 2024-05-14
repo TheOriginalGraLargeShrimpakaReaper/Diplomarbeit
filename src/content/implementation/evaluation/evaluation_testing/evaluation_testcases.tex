@@ -8,9 +8,9 @@
     \begin{description}
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}
-            \item Der Server des Primary-Node wird manuell heruntergefahren.
-            \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
-            \item Während dem Failover muss mindestens eine längere Abfrage gestartet werden.
+            \item Der Server des primäre Node wird manuell heruntergefahren.
+            \item Während des Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Während des Failover muss mindestens eine längere Abfrage gestartet werden.
         \end{enumerate}
         \item \textbf{Switchover}\hfill \\
 %        \setcounter{enumi}{4}
@@ -36,8 +36,8 @@
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}
             \item Der Server des Leader-Cooordinator-Node wird manuell heruntergefahren.
-            \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
-            \item Während dem Failover muss mindestens eine längere Abfrage gestartet werden.
+            \item Während des Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Während des Failover muss mindestens eine längere Abfrage gestartet werden.
         \end{enumerate}
         \item \textbf{Sharding}\hfill \\
 %        \setcounter{enumi}{4}
@@ -48,7 +48,7 @@
         \item \textbf{Self Healing}\hfill \\
         \begin{enumerate}[resume]
             \item Der Node muss wieder hochgefahren werden.\\Der Node muss selbstständig Daten synchronisieren.
-            \item Der Leader muss automatisch neu gesetzt werden, wenn notwendig
+            \item Der Leader muss, falls notwendig, automatisch neu gesetzt werden.
         \end{enumerate}
     \end{description}
     \paragraph{YugabyteDB}
@@ -56,8 +56,8 @@
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}
             \item Ein k8s Node wird manuell heruntergefahren,\\indem der entsprechende Server heruntergefahren wird.
-            \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
-            \item Während dem Failover muss mindestens eine längere Abfrage gestartet werden.
+            \item Während des Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Während des Failover muss mindestens eine längere Abfrage gestartet werden.
         \end{enumerate}
         \item \textbf{Sharding}\hfill \\
 %        \setcounter{enumi}{4}
@@ -75,7 +75,7 @@
     \subsubsection{Evaluation - ERD self\_healing\_test}
     \label{subsubsec:erd_self_healing_test}
     Die Tests müssen bei allen drei Varianten anhand der Datenbank \texttt{self\_healing\_test} durchgeführt werden.\\
-    Dabei werden die Tabellen, im hinblick auf das Citus Schema Based Sharding, in Schemas organisiert.\\
+    Dabei werden die Tabellen im Hinblick auf das Citus Schema Based Sharding in Schemas organisiert.\\
     Zwischen den einzelnen Schemas sollen einige Tabellen einen Foreign-Key auf andere Tabellen legen:
     \begin{figure}[H]
         \centering
