@@ -2,7 +2,7 @@
 %! Author = itgramic
 %! Date = 22.11.23
 \usepackage[skip=0cm plus 0cm,indent=0cm]{parskip}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr} % kaput
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{book}[2023/11/08 v0.1 Klasse fuer Michael Graber ibw Diplomarbeit Disposition]
@@ -118,17 +118,19 @@
 %\newcommand{\@footertitel}{}
 %\newcommand{\footertitel}[1]{\gdef\@footertitel{#1}}
 
-\pagestyle{fancy}
-\thispagestyle{fancy}
-\markright{\protect\@fancypagestyle}
-\setlength{\skip\footins}{0.119cm}
-\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
+% kaput
+%\pagestyle{fancy}
+%\thispagestyle{fancy}
+%\markright{\protect\@fancypagestyle}
+%\setlength{\skip\footins}{0.119cm}
+%\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
+
 %\title{ibW Höhere Fachschule Südostschweiz}
 %\author{Thomas Leemann}
 %\date{2023-08-17}
 
 % Title Page
-\pagestyle{fancy}
+%\pagestyle{fancy} % kaput
 
 %\pagehead{
 %\thispagestyle{Standard}
@@ -176,12 +178,12 @@
 \renewcommand\maketitle{
 \setcounter{page}{0}
 \begin{titlepage}
-
+%\pagestyle{scrheadings}
 %\thispagestyle{headings}
-%\thispagestyle{FirstPage}
-\ihead{\includegraphics{source/main/ksgr}\includegraphics[width=115pt]{source/main/ibW_Logo_4fbg}}
-\chead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[32em][l]{Kantonsspital Graubünden} \\ \makebox[32em][l]{Departement ICT} \\ \makebox[32em][l]{\textbf{Data Center}} \\ \makebox[32em][l]{www.ksgr.ch} \\}
-\ohead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[8em][l]{\textbf{Michael}} \\ \makebox[8em][l]{\textbf{Graber}} \\ \makebox[8em][l]{Datenbank Administrator} \\ \makebox[8em][l]{michael.graber@ksgr.ch} \\ \makebox[8em][l]{+41 81 256 68 25} \\}
+\thispagestyle{FirstPage}
+%\ihead{\includegraphics{source/main/ksgr}\includegraphics[width=115pt]{source/main/ibW_Logo_4fbg}}
+%\chead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[32em][l]{Kantonsspital Graubünden} \\ \makebox[32em][l]{Departement ICT} \\ \makebox[32em][l]{\textbf{Data Center}} \\ \makebox[32em][l]{www.ksgr.ch} \\}
+%\ohead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[8em][l]{\textbf{Michael}} \\ \makebox[8em][l]{\textbf{Graber}} \\ \makebox[8em][l]{Datenbank Administrator} \\ \makebox[8em][l]{michael.graber@ksgr.ch} \\ \makebox[8em][l]{+41 81 256 68 25} \\}
 \begin{flushleft}
 \markright{\protect\@titlehead}
 \end{flushleft}
