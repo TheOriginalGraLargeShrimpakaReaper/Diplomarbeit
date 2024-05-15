@@ -99,6 +99,8 @@
 \newcommand{\toptitel}[1]{\gdef\@toptitel{#1}}
 \newcommand{\@fachexperte}{}
 \newcommand{\fachexperte}[1]{\gdef\@fachexperte{#1}}
+\newcommand{\@student}{}
+\newcommand{\student}[1]{\gdef\@student{#1}}
 \newcommand{\@datum}{}
 \newcommand{\datum}[1]{\gdef\@datum{#1}}
 %\newcommand{\@department}{}
@@ -119,9 +121,9 @@
 %\newcommand{\footertitel}[1]{\gdef\@footertitel{#1}}
 
 % kaput
-%\pagestyle{fancy}
-%\thispagestyle{fancy}
-%\markright{\protect\@fancypagestyle}
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\markright{\protect\@fancypagestyle}
 %\setlength{\skip\footins}{0.119cm}
 %\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
 
@@ -130,7 +132,7 @@
 %\date{2023-08-17}
 
 % Title Page
-%\pagestyle{fancy} % kaput
+\pagestyle{fancy} % kaput
 
 %\pagehead{
 %\thispagestyle{Standard}
@@ -226,7 +228,16 @@
 
 \bigskip
 \begin{flushleft}
-\textbf{\textcolor[HTML]{000000}{ \ \huge\@fachexperte}}
+\textbf{\textcolor[HTML]{000000}{Fachexperte: \ \huge\@fachexperte}}
+\end{flushleft}
+\bigskip
+
+\bigskip
+\bigskip
+
+\bigskip
+\begin{flushleft}
+\textbf{\textcolor[HTML]{000000}{Student: \ \huge\@student}}
 \end{flushleft}
 \bigskip
 

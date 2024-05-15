@@ -238,7 +238,7 @@
   \renewcommand\thepage{\arabic{page}}
 }
 \fancypagestyle{FirstPage}{\fancyhf{}
-%  \fancyhead[L]{}
+  \fancyhead[R]{}
   \fancyfoot[L]{}
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
@@ -278,13 +278,37 @@
     \toptitel{Diplomarbeit Technik und Wirtschaftsinformatik 2023-2024}
     \dokuemnttitel{PostgreSQL HA Cluster - Konzeption und Implementation}
     \fachexperte{Norman Süsstrunk}
+    \student{Michael Graber}
     \datum{24.05.2024}
 %    \end{flushleft}
     \maketitle
 
     \begin{managementsummary}
         \begin{flushleft}
-            Diplomarbeit Michael Graber
+            Das KSGR (Kantonsspital Graubünden) betreibt über zwanzig \Gls{PostgreSQL} Datenbanken.\\
+            Diese Datenbanken werden nicht auf einem zentralen Cluster betrieben, sondern oft als single Instanz auf diversen Servern.\\
+            In Zukunft wird das KSGR vermehrt auf \Gls{Kubernetes} setzen, was eine noch unbekannte Anzahl weiterer \Gls{PostgreSQL} Datenbanken mit sich bringen wird.\\
+            Auch sollen eine ganze Reihe \Gls{MariaDB} / \Gls{MySQL} und Oracle Datenbanken auf \Gls{PostgreSQL} migriert werden.
+        \end{flushleft}
+        \begin{flushleft}
+            Um den administrativen Aufwand zu verringern, die Anzahl der Server zu konsolidieren und um die Kontrolle zu erhöhen,\\
+            soll nun eine hochverfügbare Clusterlösung für die \Gls{PostgreSQL} Datenbanken evaluiert werden.\\
+            Ziel dieser Arbeit ist demnach, die Evaluation einer Clusterlösung aus drei Evaluationssystemen zu ermitteln und das geeignetste als Testsystem zu implementieren.\\
+            Da, dass KSGR in Zukunft stark auf die Cloud setzen wird, muss ein monolithisches und mindestens ein verteiltes System genauer untersucht werden.
+        \end{flushleft}
+        \begin{flushleft}
+            Auf dem Markt lassen sich einige Open-Source, Closed-Source- und proprietäre Lösungen finden.\\
+            Der Scope der Arbeit lag dabei nur auf den Open-Source-Lösungen.\\
+            In der Evaluation wurden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht und jeweils als Evaluationssystem installiert und getestet.\\
+            Nach dem Testing und den Benchmark-Tests setzte sich Patroni gegen die beiden anderen Varianten durch.\\
+            YugabyteDB hat sich indes für als \Gls{PostgreSQL} Clustersystem für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden sollen.
+        \end{flushleft}
+        \begin{flushleft}
+            Im Anschluss wurde ein Patroni-Testsystem mithilfe des \Gls{Ansible}-Repositories vitabacks / postgresql\_cluster installiert.\\
+            Das \Gls{Ansible}-Repository bietet eine Reihe von Playbooks, von welchen das Deployment-Playbook, das Maintenance-Playbook sowie ein Playbook zur Erweiterung von Patroni- und Proxy Nodes getestet wurden.\\
+            Die Umsetzung mit vitabacks / postgresql\_cluster bestand die Tests.\\
+            Bis zur Produktivsetzung müssen im Nachgang der Diplomarbeit noch Arbeitspakete umgesetzt werden,\\
+            welche während der Diplomarbeit nicht umgesetzt werden konnten, da die Voraussetzungen nicht gegeben waren.
         \end{flushleft}
     \end{managementsummary}
 
@@ -294,7 +318,7 @@
         \tableofcontents
     }
     \pagestyle{headings}
-%    \thispagestyle{fancy} % kaput
+    \thispagestyle{fancy} % kaput
 %    \input{content/abbreviations/abbreviations}
     \startThesis % Befehl muss vor dem ersten chapter stehen (Seitennummerierung!)
     \input{content/introduction/introduction}
