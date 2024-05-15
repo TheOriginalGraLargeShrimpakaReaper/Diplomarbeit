@@ -178,7 +178,10 @@
 \begin{titlepage}
 
 %\thispagestyle{headings}
-\thispagestyle{FirstPage}
+%\thispagestyle{FirstPage}
+\ihead{\includegraphics{source/main/ksgr}\includegraphics[width=115pt]{source/main/ibW_Logo_4fbg}}
+\chead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[32em][l]{Kantonsspital Graubünden} \\ \makebox[32em][l]{Departement ICT} \\ \makebox[32em][l]{\textbf{Data Center}} \\ \makebox[32em][l]{www.ksgr.ch} \\}
+\ohead{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[8em][l]{\textbf{Michael}} \\ \makebox[8em][l]{\textbf{Graber}} \\ \makebox[8em][l]{Datenbank Administrator} \\ \makebox[8em][l]{michael.graber@ksgr.ch} \\ \makebox[8em][l]{+41 81 256 68 25} \\}
 \begin{flushleft}
 \markright{\protect\@titlehead}
 \end{flushleft}
