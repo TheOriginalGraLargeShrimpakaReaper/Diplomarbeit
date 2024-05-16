@@ -190,6 +190,7 @@
 \markright{\protect\@titlehead}
 \end{flushleft}
 
+
 %\textbf{ibW Höhere Fachschule Südostschweiz}
 \textbf{}\\
 \bigskip
