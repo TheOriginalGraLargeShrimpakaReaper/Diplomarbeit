@@ -175,7 +175,7 @@
 %\newcommand{\@eingereichtBei}{}
 %\newcommand{\eingereichtBei}[1]{\gdef\@eingereichtBei{#1}}
 
-\renewcommand{\dedication}[1]{\gdef\@dedication{\ \vfill\begin{center}#1\end{center}\vfill\vfill\ \newpage}}
+\renewcommand{\dedication}[1]{\gdef\@dedication{\ \vfill\begin{center}#1\end{center}\vfill\vfill\ \newpage\pagestyle{headings}}}
 
 \renewcommand\maketitle{
 \setcounter{page}{0}
@@ -213,22 +213,13 @@
 \bigskip
 %\textbf{\textcolor[HTML]{000000}\fontsize{13pt}{{\@toptitel}}
 \begin{flushleft}
-\textcolor[HTML]{000000}{ \ \huge\@toptitel}\newline
+    \textcolor[HTML]{000000}{Lehrgang: \ \huge\@toptitel}\newline
 \end{flushleft}
 \bigskip
 
 \bigskip
 \begin{flushleft}
-\textbf{\textcolor[HTML]{000000}{ \ \Huge\@dokuemnttitel}}
-\end{flushleft}
-\bigskip
-
-\bigskip
-\bigskip
-
-\bigskip
-\begin{flushleft}
-\textbf{\textcolor[HTML]{000000}{Fachexperte: \ \huge\@fachexperte}}
+    \textbf{\textcolor[HTML]{000000}{Titel: \ \Huge\@dokuemnttitel}}
 \end{flushleft}
 \bigskip
 
@@ -237,7 +228,16 @@
 
 \bigskip
 \begin{flushleft}
-\textbf{\textcolor[HTML]{000000}{Student: \ \huge\@student}}
+    \textbf{\textcolor[HTML]{000000}{Fachexperte: \ \huge\@fachexperte}}
+\end{flushleft}
+\bigskip
+
+\bigskip
+\bigskip
+
+\bigskip
+\begin{flushleft}
+    \textbf{\textcolor[HTML]{000000}{Student: \ \huge\@student}}
 \end{flushleft}
 \bigskip
 
@@ -247,7 +247,7 @@
 
 \bigskip
 \begin{flushleft}
-\textcolor[HTML]{000000}{\ \LARGE\@datum}
+    \textcolor[HTML]{000000}{\ \LARGE\@datum}
 \end{flushleft}
 \bigskip
 
