@@ -3,18 +3,19 @@
 
 % Preamble
 \begin{flushleft}
-    \subsubsection{yugabyteDB}
+    \subsubsection{YugabyteDB}
     \paragraph{Architektur}
+    Die Architektur ist einfach.\\
+    Auf allen Worker-Nodes wird je ein \texttt{tmaster} und \texttt{tserver} Pod gestartet,\\
+    wie dem Architekturschaubild zu entnehmen ist:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-evaluation-architecture}
         \caption{YugabyteDB - Evaluationsarchitektur}
         \label{fig:yugabytedb-evaluation-architecture}
     \end{figure}
-    Die Architektur ist einfach.\\
-    Auf allen Worker-Nodes wird je ein \texttt{tmaster} und \texttt{tserver} Pod gestartet werden.
     \paragraph{Installation}
-    Wähend der Installation des YugabyteDB Evaluations-Enviroment wurde festgestellt, das man zwei Varianten Installieren kann.
+    Während der Installation des YugabyteDB Evaluations-Environment wurde festgestellt, das man zwei Varianten Installieren kann.\\
     YugabyteDB (Repository yugabyte) und YugabyteDB Anywhere (Repository yugawre):
     \begin{figure}[H]
         \centering
@@ -26,10 +27,10 @@
 \begin{flushleft}
     Es stellte sich auch heraus, dass wenn man YugabyteDB 4 Cores pro Node zur Verfügung geben will (je zwei für den \texttt{master} und \texttt{tserver}),\\
     der Server mehr als 4 Cores haben muss.\\
-    Andernfalls wird Kubernetes einen der beiden Pods nicht deployen, weil zuwenig Cores zur verfügung stehen.
+    Andernfalls wird Kubernetes einen der beiden Pods nicht deployen, weil zu wenig Cores zur Verfügung stehen.
 \end{flushleft}
 \begin{flushleft}
-    Bei der konstelation \gls{rke2}, \Gls{Cilium} und \Gls{MetalLB}, muss nebst dem \texttt{IPAddressPool} auch ein \texttt{L2Advertisement} für den Pool gesetzt werden.\\
+    Installation von \gls{rke2}, \Gls{Cilium} und \Gls{MetalLB}, muss nebst dem \texttt{IPAddressPool} auch ein \texttt{L2Advertisement} für den Pool gesetzt werden.\\
     Ansonsten kann die im YugabyteDB values.yaml gesetzte IP für den \texttt{tserver} von aussen nicht angesprochen werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=metallb - Konfig YAML - Detail L2Advertisement,captionpos=b,label={lst:metallb-l2advertisement-setting},breaklines=true]
@@ -43,9 +44,9 @@ spec:
   ipAddressPools:
   - distributed-sql
     \end{lstlisting}
-    Dieses Problem ist schwer zu greifen und hat zwei Tage in Anspruch genommen, es zu Lösen.
-    Die Vorschläge zum Lösen des Problems reichten von deakivieren von \texttt{kube-proxy} bis hin zu einer Migration zum \Gls{Cilium}-Loadb-Balancers.\\
-    Mit diesem funktionierte dann nicht einmal mehr die Installation von yugabyteDB.\\
+%    Dieses Problem ist schwer zu greifen und hat zwei Tage in Anspruch genommen, es zu Lösen.
+    Die Vorschläge zum Lösen des Problems reichten von Deaktivieren von \texttt{kube-proxy} bis hin zu einer Migration zum \Gls{Cilium}-Loadb-Balancers.\\
+    Mit diesem funktionierte dann nicht einmal mehr die Installation von YugabyteDB.\\
     Lösung brachte nur ein \texttt{GitHub}-Eintrag\cite{D4IZIEFN}, wo oben genannter Ansatz empfohlen wurde.
 \end{flushleft}
 \begin{flushleft}
@@ -62,7 +63,7 @@ Image:
 ...
     \end{lstlisting}
 
-    Die StorageClass muss im \texttt{values.yaml} gesetzt werden, einmal für den \texttt{master} und einmal für den \texttt{tserver}
+    Die StorageClass muss im \texttt{values.yaml} gesetzt werden, je einmal für den \texttt{tmaster} und \texttt{tserver}:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=yugabyteDB - Helm Chart Manifest - Detail StorageClass,captionpos=b,label={lst:yugabytedb-storageclass-setting},breaklines=true]
 ...
@@ -78,9 +79,8 @@ storage:
     storageClass: "yb-storage"
 ...
     \end{lstlisting}
-
-    Dem node werden je 4 Cores zur verfügung gestellt.
-    Zei für den \texttt{master} und zwei für den \texttt{tserver}.
+    Dem Node werden je 4 Cores zur verfügung gestellt.
+    Zwei für den \texttt{master} und zwei für den \texttt{tserver}.
     Beide erhalten 4GiB Memory:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=yugabyteDB - Helm Chart Manifest - Detail Resources,captionpos=b,label={lst:yugabytedb-resources-setting},breaklines=true]
@@ -110,8 +110,7 @@ resource:
       memory: 4Gi
 ...
     \end{lstlisting}
-
-    Die Shards, oder Tablets wie sie Yugabyte nennt, sollen auf allen drei Nodes repliziert werden:
+    Die Shards oder Tablets wie sie Yugabyte nennt, sollen auf allen drei Nodes repliziert werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=yugabyteDB - Helm Chart Manifest - Detail Replika,captionpos=b,label={lst:yugabytedb-replica-setting},breaklines=true]
 ...
@@ -133,11 +132,10 @@ disableYsql: false
 ...
     \end{lstlisting}
 
-    Nun muss die Domain und die Service-Endpoints konfiguriert werden.\\
+    Nun müssen die Domain und die Service-Endpoints konfiguriert werden.\\
     Der Domainname bleibt vorerst \texttt{cluster.local} wie Default hinterlegt.\\
     Die Servicenamen und Ports werden nicht angetastet, wichtig ist die LoadBalancer-IP.\\
     Sie ist entsprechend der gewählten VirtualIP mit \texttt{10.0.20.106} zu setzen.
-
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=yugabyteDB - Helm Chart Manifest - Detail Domainname und Service-Endpoints,captionpos=b,label={lst:yugabytedb-domainname-serviceendpoints-setting},breaklines=true]
 ...
@@ -174,7 +172,7 @@ serviceEndpoints:
 \begin{flushleft}
     Beim Testen mit der höchsten Anzahl an Datensätzen zeigte sich, dass der \gls{local-path-provisioner} nicht sauber konfiguriert waren.\\
     Damit auf jedem Node die Persistence Volume Claims ausgeführt werden, müssen sie deklariert werden und in den StorageClass-Manifesten auch hinterlegt werden.\\
-    Genauer muss in der \texttt{nodePathMap} folgende konfiguration vorgenommen werden:
+    Genauer muss in der \texttt{nodePathMap} folgende Konfiguration vorgenommen werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=local-path-provisioner nodePathMap,captionpos=b,label={lst:local-path-provisioner_nodePathMap},breaklines=true]
 ...
@@ -189,7 +187,7 @@ serviceEndpoints:
                 },
 ...
 \end{lstlisting}
-    Hier ein Beispiel wie es mit den grossen Volumes aussieht:
+    Hier ein Beispiel, wie es mit den grossen Volumes aussieht:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=local-path-provisioner nodePathMap Beispiel,captionpos=b,label={lst:local-path-provisioner_nodePathMap-exampl},breaklines=true]
 ...
@@ -215,7 +213,7 @@ serviceEndpoints:
 \end{lstlisting}
     Wird dies nicht gemacht, so wird auf den Default-Path geschrieben.\\
     Das ist zufällig und hat dann zur Folge, dass alle Volumes auf einem Node präsentiert werden.\\
-    Was sehr schnell logischerweise dazu führt, dass zuwenig Diskspace vorhanden ist.\\
+    Was sehr schnell zur Folge hat, dass zu wenig Diskspace vorhanden ist.\\
     Bei YugabyteDB kommt noch dazu, dass es zu Konflikten beim Schreiben von Blocks kommt.
 \end{flushleft}
 \begin{flushleft}

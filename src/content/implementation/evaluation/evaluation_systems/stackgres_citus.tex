@@ -190,10 +190,10 @@ extensions:
     Bei einem produktiven System müsste dieser Bug aber gefixt werden.
 \end{flushleft}
 \begin{flushleft}
-    Bei einem Drei-Node Environment wie es für die Evaluation verwendet wird,\\kommt es zu einem Konflikt, wenn drei Shard-Pods erzeugt werden.\\
+    Bei einem Drei-Node Environment, wie es für die Evaluation verwendet wird,\\kommt es zu einem Konflikt, wenn drei Shard-Pods erzeugt werden.\\
     In diesem Fall muss ein Testing- oder Development-Profil gesetzt werden.\\
-    Alternativ können Pod Anti-Affinities oder Pod Affinities gesetzt werden, was sich aber als schwieriges unterfangen auszeichnete da Ongres dies nicht wirklich Dokumentiert hat.\\
-    Daher wurde immer ein Testing-Profil gesetzt:
+    Alternativ können Pod Anti-Affinities oder Pod Affinities gesetzt werden, was nicht einfach ist, da Ongres die Pod Anti-Affinities unzureichend dokumentiert hat.\\
+    Daher wurden Testing-Profil-Flags aktiviert:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Cluster Profil,captionpos=b,label={lst:stackgres-citus-cluster-profile},breaklines=true]
 apiVersion: stackgres.io/v1alpha1
@@ -208,12 +208,12 @@ spec:
 \end{flushleft}
 \begin{flushleft}
     Es gäbe zwar die Möglichkeit, Passwörter via Manifest zu setzen, aber dies funktioniert nicht für postgres- und replicator sowie backup.\\
-    Laut der StackGres-Dokumentation müssen z.B. die Passwörter vom \texttt{postgres}-User im Nachgang via SQL geändert werden.\\
+    Laut der StackGres-Dokumentation müssen z. B. die Passwörter vom \texttt{postgres}-User im Nachgang via SQL geändert werden.\\
     Während der Evaluation wurde darauf verzichtet und das generische Passwort aus dem Cluster geholt.
 \end{flushleft}
 \begin{flushleft}
-    Für den 250GiB-Benchmark wurde, ähnlich zur Patroni-Evaluation, spezifische \Gls{PostgreSQL Cluster} Konfigurationen im Manifest \texttt{SGPostgresConfig} vorgenommen.\\
-    Diese Settings können dann jeweils für die Shards als auch für die Coordinators zugewisen werden:
+    Für den 250GiB-Benchmark wurden ähnlich zur Patroni-Evaluation spezifische \Gls{PostgreSQL Cluster} Konfigurationen im Manifest \texttt{SGPostgresConfig} vorgenommen.\\
+    Diese Settings können dann jeweils für die Shards als auch für die Coordinators Zugewiesen werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=StackGres-Citus - SGPostgresConfig,captionpos=b,label={lst:stackgres-citus-SGPostgresConfig-profile},breaklines=true]
   ...

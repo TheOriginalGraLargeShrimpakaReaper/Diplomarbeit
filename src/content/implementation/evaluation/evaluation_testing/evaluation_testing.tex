@@ -50,7 +50,7 @@ Which member do you want to reinitialize [postgres03, postgres01]? []: postgres0
 Are you sure you want to reinitialize members postgres01? [y/N]: y
 Success: reinitialize for member postgres01
 \end{lstlisting}
-    Das vollständige ergebnis:
+    Das vollständige Ergebnis:
     \input{content/latex_tables/evaluation_tests_patroni}
 \end{flushleft}
 \begin{flushleft}
@@ -61,7 +61,7 @@ Success: reinitialize for member postgres01
     Daher brechen bestehende Connections ab oder laufen irgendwann in ein Timeout, wenn \Gls{Kubernetes} Nodes nicht schnell genug heruntergefahren werden.
 \end{flushleft}
 \begin{flushleft}
-    Aufgrund des Sharding und das in sich geschlossenen \Gls{Kubernetes}-Environments, wurde auf separate Tablespaces verzichtet.
+    Aufgrund des Sharding und das in sich geschlossenen \Gls{Kubernetes}-Environments wurde auf separate Tablespaces verzichtet.
 \end{flushleft}
 \begin{flushleft}
     Zuerst wurde versucht, das Sharding mit Version 12 eingeführte Schema Based Sharding umzusetzen.\\
@@ -71,26 +71,24 @@ Success: reinitialize for member postgres01
 \end{flushleft}
 \begin{flushleft}
     \input{content/latex_tables/evaluation_tests_stackgres_citus}
-    Die genauen Details sind im Anhang zu finden:
-    \hyperref[subsec:appendix_testing_stackgres_citus]{Anhang - StackGres - Citus Testing}
+    Die genauen Details sind im \hyperref[subsec:appendix_testing_stackgres_citus]{Anhang - StackGres - Citus Testing} zu finden.
 \end{flushleft}
 \begin{flushleft}
     \subsubsection{YugabyteDB}
-    YugabyteDB funktionierte so weit.\\
+    YugabyteDB funktionierte so weit:\\
     \input{content/latex_tables/evaluation_tests_yugabytedb}
     Was es aber bei einer Testinstallation zu prüfen gilt, ist die Zeiteinstellung.
 \end{flushleft}
 \begin{flushleft}
-    Während dem Testing kam es immer wieder vor, dass ein Node Probleme mit der Zeit bekam.\\
+    Während des Testing kam es immer wieder vor, dass ein Node Probleme mit der Zeit bekam.\\
     Dies fiel immer dann auf, wenn ein Node (meistens \texttt{sks1184}), heruntergefahren und später rebooted wurde.\\
     Der Fehler trat auch erst auf, als die Nodes aus einem Grund aus einem Snapshot wiederhergestellt werden mussten.\\
     YugabyteDB stellt dann oft mehr als 500ms Zeitunterschied zwischen dem Tablet-Leader und dem Follower fest.\\
-    Sobald dies zutritt, ist der Server Node nicht mehr arbeitsfähig da die Zeit für die Synchronisation der Daten benötigt wird\cite{BYH9Z3MS}.\\
+    Sobald dies zutritt, ist der Server Node nicht mehr arbeitsfähig, da die Zeit für die Synchronisation der Daten benötigt wird\cite{BYH9Z3MS}.\\
     Oft kam auch die Meldung, dass \texttt{chronyc} nicht mehr auf dem Pod installiert sei.\\
     Auf dem Servern scheinen die Zeiten aber synchron zu sein, eine genaue Ursache konnte nicht gefunden werden.\\
     Eine mögliche Ursache ist eine unsaubere Konfiguration von \gls{rke2}.
 \end{flushleft}
 \begin{flushleft}
-    Der Beschrieb, wie sich der Fehler dann äussert ist hier zu finden:\\
-    \hyperref[subsec:appendix_testing_yugabytedb]{Anhang - YugabyteDB Testing}
+    Der Beschrieb, wie sich der Fehler dann äussert, ist hier im \hyperref[subsec:appendix_testing_yugabytedb]{Anhang - YugabyteDB Testing} zu finden.
 \end{flushleft}
