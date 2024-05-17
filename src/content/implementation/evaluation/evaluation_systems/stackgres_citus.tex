@@ -5,8 +5,8 @@
 \begin{flushleft}
     \subsubsection{StackGres - Citus}
     \paragraph{Architektur}
-    Für das Benchmarking wurde ein minimales setting ausgewählt.\\
-    Ein Coordinator und einen Shard-Node mit einem Leader- und Replica-Pod.\\
+    Für das Benchmarking wurde ein minimales Setting ausgewählt.\\
+    Ein Coordinator und einen Shard-Node mit einem Leader- und Replika-Pod.\\
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres-citus-evaluation-architecture}
@@ -14,7 +14,10 @@
         \label{fig:stackgres-citus-evaluation-architecture}
     \end{figure}
     Für die Self Healing Tests wurde eine umfangreichere Architektur vorgenommen.\\
-    Es stellte sich heraus, dass man relativ leicht die beim \hyperref[subpar:citus_sharding]{Citus Sharding} beschriebene Lösung zum Replizieren leicht umzusetzen ist:
+    Es stellte sich heraus, dass man die beim \hyperref[subpar:citus_sharding]{Citus Sharding} beschriebene Lösung zum Replizieren leicht umsetzen kann.\\
+    Wie dem Architekturschaubild zu entnehmen ist,\\
+    wurden drei Coordinator-Nodes und drei Shard-Nodes gesetzt.\\
+    Die Shard-Nodes wurden dabei auf jeweils drei Nodes repliziert:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_self_healing_test}
@@ -26,9 +29,9 @@
     \paragraph{Ressourcenhunger}
     Aus den Architekturschemen ist bereits ersichtlich, dass StackGres sehr viele Pods erstellt.\\
     StackGres erzeugt mindestens einen Operator- und einen REST-API-Pod, der aber auch für das GUI verwendet wird.\\
-    Nun kommt der Coordinator-Pod hinzu und je nach Auswahl pro Node ein Shard-Pod wobei es mindestens eine Instanz braucht.\\
-    Will heissen, im Worst-Case sind auf einem Node mindestens 4 Pods, auf dem Server kann aber auch noch der k8s-server (control-plane) stehen.\\
-    Pro Pod muss mindestens eine CPU gesetzt werden, auch der k8s-Server benötigt mindestens eine CPU, heisst das pro Server mit Minimal setting 5 CPUs benötigt werden:
+    Nun kommt der Coordinator-Pod hinzu und je nach Auswahl pro Node ein Shard-Pod, wobei es mindestens eine Instanz braucht.\\
+    Will heissen, im Worstcase sind auf einem Node mindestens 4 Pods, auf dem Server kann aber auch noch der k8s-server (control-plane) stehen.\\
+    Pro Pod muss mindestens eine CPU gesetzt werden, auch der k8s-Server benötigt mindestens eine CPU, heisst das pro Server mit Minimal Setting 5 CPUs benötigt werden:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.2\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_resource_stack}
@@ -39,8 +42,8 @@
     Dazu kommt noch eine weitere eigenheit von StackGres.
 \end{flushleft}
 \begin{flushleft}
-    Dazu kommt noch eine weitere eigenheit von StackGres.\\
-    Pro Datenbank wird Standardmässig ein Cluster erstellt mit jeweils mindestens einem Coordinator und dem ganzen Stack der daran hängt:
+    Dazu kommt noch eine weitere Eigenheit von StackGres.\\
+    Pro Datenbank wird standardmässig ein Cluster erstellt mit jeweils mindestens einem Coordinator und dem ganzen Stack der daran hängt:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_citus_architecture_clustering}
@@ -51,27 +54,27 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Installation}
-    OnGres bietet für StackGres ein \gls{helm}-Chart, welches über ein eigenes \texttt{values.yaml}-Manifest oder direkt aus dem Repository mittels Parametern deployet werden kann.\\
+    Ongres bietet für StackGres ein \gls{helm}-Chart, welches über ein eigenes \texttt{values.yaml}-Manifest oder direkt aus dem Repository mit Hilfe von Parametern deployet werden kann.\\
     Beim KSGR wurde das \gls{helm}-Chart heruntergeladen und entsprechend ein eigenes Manifest geschrieben.
 \end{flushleft}
 \begin{flushleft}
     StackGres bietet von Haus aus an, einen Sharded Cluster mit Citus zu installieren.\\
-    Dabei muss allerdings das StackGres Extension Repository erreichbar sein, welches mit \texttt{https} erreichbar sein muss.
+    Dabei muss allerdings das StackGres Extension Repository erreichbar sein, wobei primär über \texttt{https} kommuniziert wird.
 \end{flushleft}
 \begin{flushleft}
     Hier wird es nun knifflig, sobald Proxys im Spiel sind.\\
     Selbst wenn die Proxy-Settings auf dem Host und im \gls{rke2} (\texttt{CONTAINERD\_HTTPS\_PROXY} / \texttt{CONTAINERD\_HTTP\_PROXY} / \texttt{CONTAINERD\_NO\_PROXY}) gesetzt sind,\\
-    ist dies keine Garantie das mittels \texttt{https} aus dem Pod heraus kommuniziert werden kann, selbst wenn es mit \texttt{curl} möglich ist.\\
-    Damit dies möglich ist, müssen die Proxy-Zertifikate auf den Host installiert werden.\\
+    ist dies keine Garantie, das mit Hilfe von \texttt{https} aus dem Pod heraus kommuniziert werden kann, selbst wenn es mit \texttt{curl} möglich ist.\\
+    Damit eine Kommunikation stattfinden kann, müssen die Proxy-Zertifikate auf den Host installiert werden.\\
     Alternativ kann die Kommunikation über \texttt{http} erzwungen werden.\\
-    StackGres bietet diese möglichkeit und da es sich um eine Evaluationsumgebung handelt, wurde dieser Weg gewählt.\\
+    StackGres bietet diese Möglichkeit und da es sich um eine Evaluationsumgebung handelt, wurde dieser Weg gewählt.\\
     Zum einen muss der Proxy nach der \texttt{proxyUrl} eingegeben werden, danach müssen die Parameter \texttt{skipHostnameVerification:true} und \texttt{setHttpScheme:true} gesetzt werden.\\
     Die Proxy-URL muss dabei wie folgt aufgebaut werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres - values.yaml - Extension proxyUrl,captionpos=b,label={lst:stackgres_extension_proxyurl},breaklines=true]
 <proxy scheme>%3A%2F%2F<proxy host>%3A<proxy port>
 \end{lstlisting}
-    Proxy Schema meint dabei \texttt{http} oder \texttt{https}
+    Proxy Schema meint dabei \texttt{http} oder \texttt{https}.\\
     Für den KSGR-Proxy sieht der gesamte String entsprechend so aus:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres - values.yaml - Extension Proxy,captionpos=b,label={lst:stackgres_extension_proxy},breaklines=true]
@@ -81,13 +84,13 @@ extensions:
 \end{lstlisting}
 %\end{flushleft}
 %\begin{flushleft}
-    Die Ursachenforschung hat viel Zeit in Anspruch genommen.\\
-    Es sind nebst dem Versuch, eine Freigabe via Pod-Affinität zu lösen, drei Tage verstrichen bis StackGres die Extensions ausführen konnte.
+%    Die Ursachenforschung hat viel Zeit in Anspruch genommen.\\
+%    Es sind nebst dem Versuch, eine Freigabe via Pod-Affinität zu lösen, drei Tage verstrichen bis StackGres die Extensions ausführen konnte.
 \end{flushleft}
 \begin{flushleft}
-    Anders als bei YugabyteDB, kann man das Web-GUI nicht mittels eines Load Balancer Exposing nach aussen präsentieren, auch wenn eine Cluster-IP gesetzt werden kann.\\
+    Anders als bei YugabyteDB kann man das Web-GUI nicht Zuhilfenahme eines Load Balancer Exposing nach aussen präsentieren, auch wenn eine Cluster-IP gesetzt werden kann.\\
     Soll das Web-GUI und die REST-API permanent von aussen verfügbar sein, muss auf dem rest-api Pod ein permanentes Forwarding implementiert werden.\\
-    Umsetzen lässt sich dies mittels der entsprechenden Keys im \texttt{values.yaml} oder den Parametern beim Deploy.
+    Umsetzen lässt sich dies mit Hilfe der entsprechenden Keys im \texttt{values.yaml} oder den Parametern beim Deploy.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Cluster Deployment}
@@ -96,17 +99,17 @@ extensions:
     Dazu braucht es vorgängig folgende Ressourcen, die deployt werden müssen:\\
     \begin{description}
         \item \textbf{StorageClass}\hfill \\Die StorageClass für den Cluster.\\Je nachdem empfiehlt es sich, für den Coordinator eine eigene StorageClass zu erzeugen.
-        \item \textbf{SGInstanceProfile}\hfill \\Das Instanz-Profil definiert, wie viel CPU und Memory der Pod erhält.\\Die konfigurationsmöglichkeiten gehen so tief,\\das innerhalb von Pods auch Containern Ressourcen zugewiesen werden können.\\ Empfehlenswert ist, Coordinator und Worker zu trennen.\\Ohne ein separates Instanz-Profil wird ein Standardprofil mit einer CPU und einem GiB Memory allokiert.
+        \item \textbf{SGInstanceProfile}\hfill \\Das Instanz-Profil definiert, wie viel CPU und Memory der Pod erhält.\\Die Konfigurationsmöglichkeiten gehen so tief,\\dass innerhalb von Pods auch Containern Ressourcen zugewiesen werden können.\\ Empfehlenswert ist, Coordinator und Worker zu trennen.\\Ohne ein separates Instanz-Profil wird ein Standardprofil mit einer CPU und einem GiB Memory allokiert.
         \item \textbf{SGPostgresConfig}\hfill \\PostgreSQL-Spezifische Einstellungen können hierüber konfiguriert werden.\\Wie das Instanz-Profil auch, ist dies nicht zwingend.
         \item \textbf{SGShardedCluster}\hfill \\Mit diesem Manifest wird der Cluster oder Sharded Cluster deployt.\\Eigene Ressourcen wie Instanz-Profile müssen entsprechend deklariert werden.
     \end{description}
 \end{flushleft}
 \begin{flushleft}
     Beim \texttt{SGShardedCluster}-Manifest gilt es einige Punkte zu beachten.\\
-    Wird beim Coordinator mehr als eine Instanz angegeben, so wird der Coordinator mittels Patroni in einem Replica-Cluster betrieben.\\Dies hat den Vorteil, dass der Unterbruch bei einem Node Failure kleiner ist.
+    Wird beim Coordinator mehr als eine Instanz angegeben, so wird der Coordinator mit Hilfe von Patroni in einem Replica-Cluster betrieben.\\Dies hat den Vorteil, dass der Unterbruch bei einem Node Failure kleiner ist.
 \end{flushleft}
 \begin{flushleft}
-    Bei den \texttt{shards} gibt es allerdings zwei Parameter die entscheidend sind.\\Zum einen \texttt{clusters}, die entsprechend die Anzahl an Shard-Pods erzeugen.\\
+    Bei den \texttt{shards} gibt es allerdings zwei Parameter, die entscheidend sind.\\Zum einen \texttt{clusters}, die entsprechend die Anzahl an Shard-Pods erzeugen.\\
     Es müssen dann aber auch die Anzahl Instanzen beim Parameter \texttt{instancesPerCluster} gesetzt werden.\\Bei nur einer Instanz wird keine Replikation auf die Nodes erzeugt, bei mehr als einer Instanz wird auf die Nodes verteilt.\\
     Bei drei Nodes und drei Instanzen wird entsprechend auf alle Nodes repliziert, bei zwei Instanzen nur auf zwei von drei Nodes.
 \end{flushleft}
@@ -171,7 +174,7 @@ extensions:
 \begin{flushleft}
     Beim Benchmarking kam es zu einem sehr unschönen Fehler.\\
     PgBounder verlor die Verbindung.\\
-    Nach einer kurzen Suche, zeigte sich das es wohl einen Bug bei grösseren Workloads gibt, zumindest ist dies meine Interpretation.\\
+    Nach einer kurzen Suche zeigte sich, dass es wohl einen Bug bei grösseren Workloads gibt, zumindest ist dies meine Interpretation.\\
     Die Lösung bei einigen schien zu sein, dass das Pooling abgeschaltet wird\cite{JU2PRK9L}.\\
     Für das Benchmarking wurde dies dann auch umgesetzt.\\
     Dies wird folgendermassen gemacht:

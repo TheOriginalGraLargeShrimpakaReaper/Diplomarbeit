@@ -7,7 +7,7 @@
     \paragraph{Architektur}
     Ursprünglich sollte auf jedem Patroni Server (\texttt{sks1232}, \texttt{sks1233} und \texttt{sks1234}) ein \gls{etcd}-Node installiert werden.\\
     Auch sollte auf \texttt{sks1234} der \Gls{HAProxy} installiert werden.\\
-    Im Kapitel Installation wird erklärt, wieso sich die Architektur folgendermassen aussieht:
+    Im Kapitel \hyperref[par:patroni_installation]{Installation} wird erklärt, wieso die Architektur nun folgendermassen aussieht:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/patroni/patroni-evaluation-architecture}
@@ -18,6 +18,7 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Installation}
+    \label{par:patroni_installation}
     Wie schon erwähnt, wurde versucht die \gls{etcd}-Nodes auf die Patroni-Nodes zu installieren.
 \end{flushleft}
 \begin{flushleft}
@@ -43,10 +44,10 @@ etcd3:
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Der Primary-Node konnte jeweils installiert und deployt werden.\\
+    Der Primary-Node konnte in jeden Fall installiert und deployt werden.\\
     Sobald aber jeweils die Replika-Nodes gestartet wurden, kam es zu einem Fehler.\\
-    Die Ursache war, dass es ja bereits einen Host für den jeweiligen Hostnamen resp.
-    die jeweilige IP gab, nämlich den \gls{etcd}-Node.\\
+    Die Ursache war, dass es ja bereits einen Host-Key für den jeweiligen Hostnamen resp.
+    die entsprechende IP gab, nämlich den \gls{etcd}-Node.\\
     So kam es jeweils zu einem Key-Error.\\
     Nach einigem Versuchen, etwa die Keys neu zu beschreiben, brach ich die übung ab.\\
     Der \gls{etcd}-Node wurde nun nur noch auf dem Server \texttt{sks9060} installiert.\\
@@ -74,8 +75,8 @@ postgresql:
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Zuerst lief der Cluster nur Asynchron, auch die ersten beiden Benchmarks wurden so ausgeführt.\\
-    Der Cluster lässt sich nämlich nicht Synchron Bootstrapen, die Konfiguration muss nachträglich gemacht werden.\\
+    Zuerst lief der Cluster nur asynchron, auch die ersten beiden Benchmarks wurden so ausgeführt.\\
+    Der Cluster lässt sich nämlich nicht synchron Bootstrapen, die Konfiguration muss nachträglich gemacht werden.\\
     Dazu kann ein JSON mit den geänderten Konfiguration übergeben werden, in dieser Konfiguration musste dabei das yml-File mit der Konfiguration angegeben werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Synchrone Replikation setzen,captionpos=b,label={lst:patroni_set_sync_replication},breaklines=true]
