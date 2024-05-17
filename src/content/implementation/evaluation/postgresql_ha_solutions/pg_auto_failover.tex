@@ -4,7 +4,7 @@
 % Preamble
 \begin{flushleft}
     \subsubsection{pg\_auto\_failover}
-    pg\_auto\_failover ist eine PostgreSQL erweiterung, die von der Microsoft Subunternehmen Citus Data entwickelt wird.
+    pg\_auto\_failover ist eine PostgreSQL-Erweiterung, die von der Microsoft Subunternehmen Citus Data entwickelt wird.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Core-Features}
@@ -20,30 +20,29 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Replikation}
-    pg\_auto\_failover bietet die Standard PostgreSQL Replikationen.
+    pg\_auto\_failover bietet die Standard PostgreSQL-Replikationen.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Proxy}
-    pg\_auto\_failover benötigt einen \Gls{HAProxy}, um Load Balancing usw. \cite{VYXTI7BS}
+    pg\_auto\_failover benötigt einen \Gls{HAProxy}, um Load Balancing betreiben zu können\cite{VYXTI7BS}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{API / Skripte}
     pg\_auto\_failover bietet ein eigenes CLI-Tool, \texttt{pg\_autoctl}.
-    Dieses bietet Commands für das einbinden neuer Nodes,\\
+    Dieses stellt Commands für das Einbinden neuer Nodes,\\
     das Managen von Nodes (Maintenance resp. Switchover),\\
-    konfigurieren oder monitoren des Systems bietet\cite{4X2AKDB6}.
+    Konfigurieren oder Monitoren des Systems zur Verfügung\cite{4X2AKDB6}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Architektur}
-    Die Dokumentation von pg\_auto\_failover \cite{PZZIZ5RT} zeigt auf, wie der Failover funktioniert:
+    Die Dokumentation resp. Grafik von pg\_auto\_failover \cite{PZZIZ5RT} zeigt auf, wie der Failover funktioniert:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover/pg_auto-failover_arch-single-standby}
         \caption{pg\_auto\_failover-Architektur - Single Standby}
         \label{fig:pg_auto-failover_arch-single-standby}
     \end{figure}
-
-    Aber auch Multi-Nodes können eingebunden werden\cite{4ZKBDG57}:
+    Aber wie die Grafik zeigt, können auch Multi-Nodes können eingebunden werden\cite{4ZKBDG57}:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover/pg_auto-failover_arch-multi-standby}
@@ -51,8 +50,9 @@
         \label{fig:pg_auto-failover_arch-multi-standby}
     \end{figure}
 
-    pg\_auto\_failover kann Citus einbinden\cite{3FVHLIFE}.
-    Allerdings bleibt die Architektur im Kern immer Monolothisch.
+    pg\_auto\_failover kann Citus einbinden.
+    Allerdings bleibt die Architektur im Kern immer monolithisch.\\
+    ie nachfolgende Grafik zeigt die Architektur mit Citus\cite{3FVHLIFE}:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/pg_auto_failover/pg_auto-failover_arch-citus}
@@ -66,7 +66,7 @@
     Allerdings ist keine Kubernetes-Integration dokumentiert.
 \end{flushleft}
 \begin{flushleft}
-    Damit bietet pg\_auto\_failover keine möglichkeit,\\
+    Damit bietet pg\_auto\_failover keine Möglichkeit\\
     Synergien zwischen monolithischer Architektur und einer Cloud-Native-Umsetzung auf Kubernetes.\\
     Entsprechend ist kein Mehrwert vorhanden.
 \end{flushleft}

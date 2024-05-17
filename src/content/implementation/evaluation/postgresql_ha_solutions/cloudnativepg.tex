@@ -11,20 +11,20 @@
     \paragraph{Core-Features}
     Die wichtigsten Features von CloudNativePG sind\cite{5ALQPE2U}:
     \begin{itemize}
-        \item k8s API integration
-        \item Autoamtischer Failover
+        \item k8s API Integration
+        \item Automatischer Failover
         \item Self-Healing von Nodes resp. Replikas
-        \item Skalierbarkeit (Vertikal, Horizontal bedingt)
+        \item Skalierbarkeit (vertikal, horizontal bedingt)
         \item Volumne Backup
         \item Object Backup
         \item Rolling PostgreSQL Upgrade / Updates
         \item Pooling mit PgBouncer
-        \item Offline und Online Import von bestehenden PostgreSQL DBs
+        \item Offline und Online Import von bestehenden \Gls{PostgreSQL} DBs
     \end{itemize}
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Replikation}
-    CloudNativePG bietet die üblichen PostgreSQL Replikaionen an.
+    CloudNativePG bietet die üblichen PostgreSQL-Replikaionen an.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Proxy}
@@ -32,7 +32,7 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Pooling}
-    CloudNativePG unterstützt pgBouncer als Pooler.
+    CloudNativePG unterstützt pgBouncer als \Gls{Connection Pooler}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{API / Skripte}
@@ -40,7 +40,7 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Architektur}
-    Kubernetes regelt die Zugriffe mittels eines entsprechenden Services in die Nodes auf den Pods:
+    Kubernetes regelt die Zugriffe mit Hilfe eines entsprechenden Services in die Nodes auf den Pods:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/k8s-pg-architecture}
@@ -49,7 +49,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Dabei werden die Read-write workloads an den Primary Node gesendet:
+    Dabei werden die Read-write workloads an den primären Node gesendet:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-rw}
@@ -58,7 +58,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Read-only workloads werden mit Round robin an die Replicas zugewiesen:
+    Read-only workloads werden mit Round robin an die Replikas zugewiesen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-read-only}
@@ -71,12 +71,15 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Maintenance}
-    \hyperref[subsec:maintenance_cloudnativepg]{Anhang - Maintenance}
-
+    Das Projekt hat viele offene Issues.\\
+    Der Code wird aber gut gepflegt, nicht mehr verwendeter Code wird auch regelmässig entfernt.\\
+    Hin und wieder müssen grössere Aufräumaktionen gestartet, zudem finden die Commits immer wieder am Monatsende statt.\\
+    Dafür erfüllt das Projekt die meisten Community Standards.\\
+    Die Vollständige Dokumentation ist im \hyperref[subsec:maintenance_cloudnativepg]{Anhang - Maintenance} zu finden.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Synergien und Mehrwert}
-    CloudNativePG bleibt ein Monolithisches System,\\welches aber keine Möglichkeit bietet,\\auch auf einem Normalen Serversetting betrieben zu werden.
+    CloudNativePG bleibt ein monolithisches System,\\welches aber keine Möglichkeit bietet,\\auch auf einem normalen Serversetting betrieben zu werden.
 \end{flushleft}
 \begin{flushleft}
     Daher bietet CloudNativePG weder einen Benefit durch seine Architektur noch mit der Möglichkeit,\\Synergien nutzen zu können.

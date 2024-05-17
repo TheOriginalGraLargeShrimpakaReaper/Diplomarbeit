@@ -6,24 +6,29 @@
     \subsubsection{Sharding}
     \paragraph{Vertikales / Horizontales Sharding}
     Tabellen können horizontal oder vertikal partitioniert werden.
+    Bei der vertikalen Partitionierung werden Tabellen ähnlich zur Normalisierung vertikal aufgeteilt, nur dass der Primary Key derselbe bleibt.
+    Nachfolgend ein Beispiel zur vertikalen Partitionierung:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/excursus_architecture/sharding_vertical_partitioning}
         \caption{Sharding - Vertikale Partitionierung}
         \label{fig:sharding_vertical_partitioning}
     \end{figure}
+    Die horizontale Partitionierung geht den umgekehrten Weg.
+    Die Datensätze einer Tabelle werden anhand bestimmter Regeln in Partitionen mit gleicher Struktur verteilt.
+    Nachfolgend ein Beispiel einer horizontalen Partitionierung:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/excursus_architecture/sharding_horizontal_partitioning}
         \caption{Sharding - Horizontales Partitionierung}
         \label{fig:sharding_horizontal_partitioning}
     \end{figure}
-    Horizontales Partitionieren wird meistens für das Sharding von Tabellen benutzt.
+    Horizontales Partitionieren wird oft für das Sharding von Tabellen benutzt.
     Die Partitionen entsprechen dann den Shards.
 \begin{flushleft}
 \end{flushleft}
     \paragraph{Key Based Sharding}
-    Hierbei wird das sharding anhand eines oder mehreren Keys ausgeführt.
+    Hierbei wird das Sharding anhand eines oder mehreren Keys ausgeführt.
 \begin{flushleft}
 \end{flushleft}
     \paragraph{Range Based Sharding}
@@ -32,7 +37,7 @@
 \begin{flushleft}
 \end{flushleft}
     \paragraph{Directory Based Sharding}
-    Hierfür wird eine lookup-Tabelle geführt, welche die Schlüssel für das Sharding bereitstellen.
+    Hierfür wird eine Lookup-Tabelle geführt, welche die Schlüssel für das Sharding bereitstellen.
     Anhand dieser werden dann die entsprechenden Zieltabellen aufgeteilt.
 \begin{flushleft}
 \end{flushleft}

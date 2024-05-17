@@ -17,15 +17,14 @@ Das CAP-Theorem besagt, das nur zwei der drei folgenden drei Merkmale von vertei
 \begin{flushleft}
 \textbf{Ausfalltoleranz / Partitionstoleranz - Partition tolerance}\\
     Der Cluster muss auch dann noch funktionsfähig bleiben, wenn es eine beliebige Anzahl von Verbindungsunterbrüchen oder anderen Netzwerkproblemen zwischen den Nodes gibt.
-
 \end{flushleft}
 \begin{flushleft}
+    Das CAP-Theorem lässt sich am einfachsten mit folgenden Venn-Diagramm visualisieren:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/implementation/evaluation/excursus_architecture/cap_theorem}
         \caption{CAP-Theorem}
         \label{fig:cap_theorem}
     \end{figure}
-
     \Gls{PostgreSQL}, \Gls{Oracle Database} oder \Gls{IBM DB2} präferieren CA, also Konsistenz und Verfügbarkeit.
 \end{flushleft}

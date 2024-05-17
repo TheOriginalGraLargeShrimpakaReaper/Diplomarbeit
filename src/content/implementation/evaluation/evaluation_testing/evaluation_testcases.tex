@@ -24,11 +24,11 @@
 %        \setcounter{enumi}{9}
         \begin{enumerate}[resume]
             \item Mit der REST-API wird der Node erst mit dem \texttt{reinitialize} wiederhergestellt\\und dann mit einem Switchover wieder als Primary gesetzt.
-            \item Mit dem \texttt{patronictl}-Commandund Parameter \texttt{reinit} der Node wiederhergestellt\\und abschliessend mittels Switchover wieder als Primary gesetzt.
+            \item Mit dem \texttt{patronictl}-Commandund Parameter \texttt{reinit} der Node wiederhergestellt\\und abschliessend mit Hilfe Switchover wieder als Primary gesetzt.
             \item Mit der REST-API wird der Node mit dem \texttt{reinitialize} wiederhergestellt
             \item Mit dem \texttt{patronictl}-Commandund Parameter \texttt{reinit} der Node wiederhergestellt
             \item Vor, während und nach dem Restore müssen Tabellen mit Foreign-Key-Constraints und Daten geprüft werden.
-            \item Während dem Restore muss mindestens eine längere Abfrage gestartet werden und Daten via SQL\\eingeführt und ausgelesen werden.
+            \item Während des Restore muss mindestens eine längere Abfrage gestartet werden und Daten via SQL\\eingeführt und ausgelesen werden.
         \end{enumerate}
     \end{description}
     \paragraph{StackGres - Citus}

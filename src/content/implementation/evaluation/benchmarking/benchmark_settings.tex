@@ -19,7 +19,7 @@
     950 Datenpunkte abgeholt.
 \end{flushleft}
 \begin{flushleft}
-    Da der grossteil der Netzwerksysteme aber erfasst sind, wird die Anzahl Items nicht mehr stark anwachsen.
+    Da der Grossteil der Netzwerksysteme aber erfasst sind, wird die Anzahl Items nicht mehr stark anwachsen.
 \end{flushleft}
 \begin{flushleft}
     Auf die Datenbank wird sehr stark zugegriffen.
@@ -49,7 +49,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Auch das wachstum ist beachtlich.
+    Auch das Wachstum ist beachtlich.
     Die DB startete mit 180GiB und ist zurzeit bei rund 232GiB, war aber schon bei 238GiB:
     \begin{figure}[H]
         \centering
@@ -59,7 +59,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Nun kommen noch die restlichen, kleineren DBs hinzu.
+    Nun kommen noch die kleineren DBs hinzu.
     Heisst, für den Mixed Benchmark (DML und DQL \Gls{Transaktion}en) werden folgende Werte und Parameter gesetzt:
     \input{content/latex_tables/benchmarking_settings_mixed}
 \end{flushleft}
@@ -68,7 +68,7 @@
     \input{content/latex_tables/benchmarking_settings_dql}
 \end{flushleft}
 \begin{flushleft}
-    Bei \texttt{pgbench} kann nicht einfach die grösse angegeben werden.\\
+    Bei \texttt{pgbench} kann nicht die Grösse angegeben werden.\\
     Es muss der Skalierungsfaktor angepasst werden.\\
     Dieser legt allerdings fest, wie viele Daten gespeichert werden.\\
     Wird eine \texttt{1} eingeben, so werden \texttt{100'000} Records angelegt.\\
@@ -78,14 +78,14 @@
     \input{content/latex_tables/benchmarking_formeln}
 \end{flushleft}
 \begin{flushleft}
-    Daraus errechnen sich für die DB-Grössen des Benchmark-Settings folgende skalierungsfaktoren:\\
+    Daraus errechnen sich für die DB-Grössen des Benchmark-Settings folgende Skalierungsfaktoren:\\
     \input{content/latex_tables/benchmarking_db_sizes}
 \end{flushleft}
 \begin{flushleft}
-    yugabyteDB speichert die Daten anders als PostgreSQL, nämlich als \Gls{Key-Value-Store}.\\
+    YugabyteDB speichert die Daten anders als PostgreSQL, nämlich als \Gls{Key-Value-Store}.\\
     Das verhindert, dass die DB Grösse nicht ausgelesen werden kann, nur die Tabellen sind ersichtlich.\\
     Um einen Vergleich zu haben, muss daher die Tabellengrösse berechnet werden.\\
-    Der skalierungsfaktor für die Tabellen ist folgendermassen aufgebaut:\\
+    Der Skalierungsfaktor für die Tabellen ist folgendermassen aufgebaut:\\
     \input{content/latex_tables/benchmarking_table_sizes}
 \end{flushleft}
 \begin{flushleft}

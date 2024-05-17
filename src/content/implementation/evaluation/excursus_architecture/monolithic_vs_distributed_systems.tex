@@ -4,13 +4,14 @@
 % Preamble
 \subsubsection{Monolithische vs. verteilte SQL Systeme}
 \begin{flushleft}
-    Klassische SQL-Datenbanken sind monolithische Systeme, selbst wenn sie mittels Replikation eine Primary/Stand-by-Architektur aufweisen.
-    Man kann mittels eines SQL-Proxys ein gewisses Mass an Load Balancing betreiben, hat aber immer noch das Problem, das es einen primären Node gibt, auf dem beschrieben wird.
+    Klassische SQL-Datenbanken sind monolithische Systeme, selbst wenn sie mit Hilfe Replikation eine Primary/Stand-by-Architektur aufweisen.
+    Man kann mit eines SQL-Proxys ein gewisses Mass an Load Balancing betreiben, hat aber immer noch das Problem, das es einen primären Node gibt, auf dem beschrieben wird.
     Monolithische Systeme sind daher nicht Cloud Native.
 \end{flushleft}
 \begin{flushleft}
-    Nur verteilte Systeme, sogenannte Distributed SQL wiederum sind Cloud Native
-
+    Nur verteilte Systeme, sogenannte Distributed SQL Systeme, sind wirklich Cloud Native fähig,\\
+    da die Last gleichmässig auf horizontal skalierenden Nodes verteilt werden kann.\\
+    Nachfolgend die schematische Darstellung der beiden Konzepte:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/implementation/evaluation/excursus_architecture/monolith_distributed}
