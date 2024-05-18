@@ -13,7 +13,7 @@
         \end{enumerate}
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}[resume]
-            \item Der Server des Primary-Node wird manuell rebooted.
+            \item Der Server des primären Nodes wird manuell rebooted.
 %            \item Während dem Failover müssen Daten via SQL\\eingeführt und ausgelesen werden.
 %            \item Während dem Switchover muss ein mixed \texttt{pgbench} abgesetzt werden
         \end{enumerate}
@@ -25,7 +25,7 @@
         \item \textbf{Restore}\hfill \\
         \begin{enumerate}[resume]
             \item Der Primary Node Server muss gestoppt werden, ein mixed \texttt{pgbench} abgesetzt werden und der Server wieder gestartet werden.
-            \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der der Node wiederhergestellt\\und abschliessend mittels Switchover wieder als Primary gesetzt.
+            \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der der Node wiederhergestellt\\und abschliessend mit Hilfe von Switchover wieder als Primary gesetzt.
             \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der Replica-Node wiederhergestellt
             \item Vor, während und nach dem Restore müssen Tabellen mit Foreign-Key-Constraints und Daten geprüft werden.
 %            \item Während dem Restore muss ein \texttt{pgbench} mixed Benchmark abgesetzt werden
@@ -39,16 +39,16 @@
             \item Mit \Gls{Ansible} sollen folgende Parameter angepasst werden:
             \begin{itemize}
                 \item Das \texttt{pg\_hba.conf} File.\\So dass der \Gls{HAProxy} Node \texttt{10.0.28.16} erweitert werden kann.
-                \item Die Patroni REST-API soll für den jeweiligen Host von aussen Ansprechbar sein.\\Entsprechend muss der Eintrag gesetzt werden
+                \item Die Patroni REST-API soll für den jeweiligen Host von aussen ansprechbar sein.\\Entsprechend muss der Eintrag gesetzt werden
             \end{itemize}
         \end{enumerate}
         \item \textbf{Ansible - Patroni Node Extend}\hfill \\
         \begin{enumerate}[resume]
-            \item Mit hilfe eines \Gls{Ansible} Playbooks kann ein Patroni Node angehängt werden.
+            \item Mit Hilfe eines \Gls{Ansible} Playbooks kann ein Patroni Node angehängt werden.
         \end{enumerate}
         \item \textbf{Ansible - HAproxy Node Extend}\hfill \\
         \begin{enumerate}[resume]
-            \item Mit hilfe eines \Gls{Ansible} Playbooks kann ein HAproxy Node angehängt werden.
+            \item Mit Hilfe eines \Gls{Ansible} Playbooks kann ein HAproxy Node angehängt werden.
         \end{enumerate}
     \end{description}
     \begin{warning}

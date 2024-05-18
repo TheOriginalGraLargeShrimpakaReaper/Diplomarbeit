@@ -4,7 +4,7 @@
 % Preamble
 \begin{flushleft}
     \subsection{Technical Review der Umgebung}
-    Die beiden Patroni-Nodes \texttt{sks1264} und \texttt{sks1265} sind Synchrone Replicas und der \texttt{sks1263} ist der Primary:
+    Die beiden Patroni-Nodes \texttt{sks1264} und \texttt{sks1265} sind synchrone Replikas und der \texttt{sks1263} ist der Primary:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/implementation/construction_implementation/technical_review/patroni_list}
@@ -55,7 +55,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Die PgBouncer konfiguration passt.\\
+    Die PgBouncer Konfiguration passt.\\
     Alle via \Gls{Ansible} hinterlegten Datenbanken wurden erfasst:
     \begin{figure}[H]
         \centering
@@ -64,14 +64,14 @@
         \label{fig:pgbouncer_databases}
     \end{figure}
     Beim Auslesen der Stats und Datenbanken muss der richtige User gewählt werden.\\
-    So hat der User \texttt{pgbouncer} keine Berechtigung, Lokal zuzugreifen.\\
-    Auch nicht auf die Lokale Datenbank \texttt{pgbouncer}.\\
+    So hat der User \texttt{pgbouncer} keine Berechtigung, lokal zuzugreifen.\\
+    Auch nicht auf die lokale Datenbank \texttt{pgbouncer}.\\
     Hierfür muss der User \texttt{postgres} verwendet werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=PgBouncer - Connect,captionpos=b,label={lst:pgbouncer_connect},breaklines=true]
 psql -p 6432 -h 127.0.0.1 -U postgres -d pgbouncer
 \end{lstlisting}
-    Die Abfrage der Tabellen wird dann mittels folgendem Command gemacht:
+    Die Abfrage der Tabellen wird dann mit Hilfe von folgendem Command gemacht:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=PgBouncer - Databases,captionpos=b,label={lst:pgbouncer_list_databases},breaklines=true]
 show databases;
@@ -86,5 +86,5 @@ show databases;
         \label{fig:postgresql_log_rotation}
     \end{figure}
     Die Einstellungen werden vorerst so belassen.\\
-    Sobald dass \Gls{SIEM} betriebsbereit ist, wird das Format und die Frequenz entsprechend den Anforderungen angepasst.
+    Sobald dass \Gls{SIEM} betriebsbereit ist, werden das Format und die Frequenz entsprechend den Anforderungen angepasst.
 \end{flushleft}

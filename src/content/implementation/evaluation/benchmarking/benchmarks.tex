@@ -79,27 +79,27 @@ SELECT create_reference_table('pgbench_history');
     Es zeigte sich aber auch rasch, dass der Coordinator die gleiche Grösse annahm wie die Shard-Pods.\\
     Das führte dazu, dass beim letzten Benchmark nur noch 2 Shard-Instanzen deployt werden konnten,\\
     da sonst bei jeder Disk nochmals mindestens 350GiB hinzugefügt hätte werden müssen (da sich der Coordinator den Node mit einem Shard geteilt hätte und der Coordinator auf jedem Node erscheinen könnte).\\
-    Es hätten also für die Evaluation 3 x 700GiB (plus noch 3 x 50GiB für den Rest), also 3 x 750GiB, allokiert werden müssen.\\
+    Es hätten also für die Evaluation 3 x 700GiB (plus noch 3 x 50GiB für den Rest), sprich 3 x 750GiB, allokiert werden müssen.\\
     Auf diesen Mehraufwand wurde verzichtet, um das \Gls{SAN} und somit das Daily Business nicht zu stark zu belasten.
 \end{flushleft}
 \begin{flushleft}
     Allerdings war es nicht möglich, die Shards mit rund 250GiB auszuführen.\\
-    Trotz grösserer Disk und mehr Ressourcen auf den Shards und Coordinators, brach das Sharding der Tabelle \texttt{pgbench\_accounts} immer ab.\\
-    Die PostgreSQL-Instanz wurde optimiert, dass heisst, es wurden so viele Parameter wie möglich der Patroni-Evaluation gesetzt, allerdings gab es von Seitens StackGres Einschränkungen.\\
-    Das SQL lief für jeweils knapp 13 minuten, ehe es zu einem Disconnect im Java-Code von einem der beiden Shards kam.\\
-    Die vermutung liegt nahe, dass es ein Memory-Leak im Code gibt, das Log gibt allerdings nicht genug her, um die Fehlerursache und eine mögliche Lösung zu finden.
+    Trotz grösserer Disk und mehr Ressourcen auf den Shards und Coordinators brach das Sharding der Tabelle \texttt{pgbench\_accounts} immer ab.\\
+    Die PostgreSQL-Instanz wurde optimiert, das heisst, es wurden so viele Parameter wie möglich der Patroni-Evaluation gesetzt, allerdings gab es von seitens StackGres Einschränkungen.\\
+    Das SQL lief für jeweils knapp 13 Minuten, ehe es zu einem Disconnect im Java-Code von einem der beiden Shards kam.\\
+    Die Vermutung liegt nahe, dass es ein Memory-Leak im Code gibt, s lassen sich aber nicht genug Informationen aus den Logs gewinnen, um die Fehlerursache und eine mögliche Lösung zu finden.
     \begin{warning}
-        Aufgrund von diesem Fehler, ist das Benchmarking für StackGres unvollständig.
+        Aufgrund von diesem Fehler ist das Benchmarking für StackGres unvollständig.
     \end{warning}
 \end{flushleft}
 \begin{flushleft}
-    Alle Benchmarking-Commands und SQLs zur ermittlung der grösse sind im \hyperref[subsec:stackgres_citus_benchmarking_commands]{Anhang - StackGres - Citus Benchmarking Commands} zu finden.
+    Alle Benchmarking-Commands und SQLs zur Ermittlung der Grösse sind im \hyperref[subsec:stackgres_citus_benchmarking_commands]{Anhang - StackGres - Citus Benchmarking Commands} zu finden.
     \subsubsection{Benchmarks}
-    Der vergleich zwischen den verschiedenen Varianten.\\
+    Der Vergleich zwischen den verschiedenen Varianten.\\
 \end{flushleft}
-\begin{flushleft}
-
-\end{flushleft}
+%\begin{flushleft}
+%
+%\end{flushleft}
 \begin{flushleft}
     Bei den Transaktionen pro Sekunden gilt, je höher der Wert, umso besser das Ergebnis.\\
 %    Zuerst die Ergebnisse mit den mixed-Transaktionen:
@@ -126,7 +126,7 @@ SELECT create_reference_table('pgbench_history');
         \caption{Benchmarks - tps}
         \label{fig:tps_varianten}
     \end{figure}
-    Bei der Latenz ist es genau andersrum, je höher der Wert desto schlechter schnitt die Variante ab.\\
+    Bei der Latenz ist es genau andersrum, je höher der Wert, desto schlechter schnitt die Variante ab.\\
 %    Auch hier zuerst wieder die mixed-Transaktionen:
 %    \begin{figure}[H]
 %        \centering
@@ -153,8 +153,8 @@ SELECT create_reference_table('pgbench_history');
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Die ersten beiden läufe mit Patroni wurde erst nur mit der Asynchronen Standard-Replikation von Patroni vorgenommen.\\
-    Später wurden die Benchmarks mit der Synchronen Replikation wiederholt.\\
+    Die ersten beiden Läufe mit Patroni wurde erst nur mit der asynchronen Standard-Replikation von Patroni vorgenommen.\\
+    Später wurden die Benchmarks mit der synchronen Replikation wiederholt.\\
     Daraus ergab sich die Möglichkeit, beide Methoden direkt zu vergleichen:
     \begin{figure}[H]
         \centering
@@ -172,7 +172,7 @@ SELECT create_reference_table('pgbench_history');
         \caption{Benchmarks - latency Patroni Replica}
         \label{fig:latency_patroni_replica}
     \end{figure}
-    Die Asynchrone Replikation ist dabei ein klein wenig schneller als die Synchrone Replikation.
+    Die asynchrone Replikation ist dabei ein klein wenig schneller als die synchrone Replikation.
 \end{flushleft}
 \begin{flushleft}
     Ein weiterer Benchmark sind die Fehler, die bei den DML-Transktionen beim mixed-Benchnmark auftreten können.
@@ -186,7 +186,7 @@ SELECT create_reference_table('pgbench_history');
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Ebenfalls ein wichtiger Benchmark ist die Zeit, die benötigt wird, um mittels \texttt{pgbench} initialisiert die Tabellen zu erstellen.
+    Ebenfalls ein wichtiger Benchmark ist die Zeit, die benötigt wird, um mit Hilfe von \texttt{pgbench} initialisiert die Tabellen zu erstellen.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/initializing_time_sec}
@@ -208,6 +208,4 @@ SELECT create_reference_table('pgbench_history');
     Dabei fällt auf, mit Patroni werden die Tabellen am schnellsten geladen.\\
     StackGres selber generiert ebenfalls wesentlich schneller als YugabyteDB.\\
     Werden dann aber die Tabellen in Shards aufgeteilt, verändert sich die Initialisierungszeit zuungunsten von StackGres - Citus.
-
-
 \end{flushleft}

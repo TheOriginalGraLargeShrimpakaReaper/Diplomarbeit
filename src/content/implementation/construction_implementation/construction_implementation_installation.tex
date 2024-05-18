@@ -4,10 +4,10 @@
 % Preamble
 \begin{flushleft}
     \subsection{Installation und Konfiguration PostgreSQL HA Cluster}
-    \texttt{vitabacks / postgresql\_cluster} \Gls{GitHub} Repository hat zwei zentrale Komponten.\\
+    \texttt{vitabacks / postgresql\_cluster} \Gls{GitHub} Repository hat zwei zentrale Komponenten.\\
     Das eine ist das \texttt{Inventory}-File, welches die IP-Adressen und Hostnamen der Server beinhaltet.\\
     Dabei ist zu beachten, dass die Host-Einträge überschrieben werden, wenn \texttt{hostname=<hostname>} eingetragen wird.\\
-    Was entsprechend zu Problemen mit den DNS-Einträgen, dem Active Directory oder anderen komponenten führen kann.
+    Was entsprechend zu Problemen mit den DNS-Einträgen, dem Active Directory oder anderen Komponenten führen kann.
 \end{flushleft}
 \begin{flushleft}
     Die zweite zentrale Komponente ist das \texttt{main.yml}-File.\\
@@ -44,9 +44,9 @@
     Es reicht nicht, auf den Servern einen Proxy einzustellen.\\
     Entweder es werden Firewall-Rules erstellt, welche die Ziele von \Gls{GitHub} und den \Gls{Debian}-Repositories freigeben,\\
     oder aber der Proxy wird dem \texttt{main.yml} mitgegeben.\\
-    Bei den erweiterungstests gng es nicht mehr anders, der Server \texttt{sks9016} ist nur eine Spielwiese für das \Gls{Foreman} Provisioning.\\
+    Bei den Erweiterungstests ging es nicht mehr anders, der Server \texttt{sks9016} ist nur eine Spielwiese für das \Gls{Foreman} Provisioning.\\
     Auch ist dieser Server nicht in der entsprechenden AD-Gruppe der Patroni Test Gruppe, also muss der alte Proxy verwendet werden.\\
-    Die Proxy Settings sind zuoberst, wird die Firewall verwendet, wird folgendens eingetragen:
+    Die Proxy Settings sind zuoberst, wird die Firewall angepasst, wird folgendens eingetragen:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=main.xyml - No Proxy,captionpos=b,label={lst:main.yml-no-proxy},breaklines=true]
 proxy_env: {}
@@ -74,7 +74,7 @@ proxy_env:
     \begin{lstlisting}[language=bash, caption=Deploy - deploy\_pgcluster.yml,captionpos=b,label={lst:deploy-pgcluster},breaklines=true]
 ansible-playbook deploy_pgcluster.yml
     \end{lstlisting}
-    Das reine Deplyoment dauerte jeweils etwas mehr als fünf minuten.\\
+    Das reine Deplyoment dauerte jeweils etwas mehr als fünf Minuten.\\
     Danach war ein voll funktionsfähiger Patroni Cluster betriebsbereit.
     \subsubsection{Maintenance - config\_pgcluster.yml}
     Nachdem die Anpassungen am \texttt{main.yml} vorgenommen waren, musste nur das entsprechende Playbook ausgeführt werden:
@@ -84,20 +84,20 @@ ansible-playbook config_pgcluster.yml
     \end{lstlisting}
     \begin{warning}
         Die Nodes, um die der Cluster in den nächsten beiden Schritten erweitert wurde,\\
-        durften noch nicht ins \texttt{Inventory} eingetragen werden, ansonsten wären Fehlermeldungen und ein Abbruch des Playbooks die folge gewesen,\\da es die entsprechenden Nodes noch gar nicht gab.\\
+        durften noch nicht ins \texttt{Inventory} eingetragen werden, ansonsten wären Fehlermeldungen und ein Abbruch des Playbooks die Folge gewesen,\\da es die entsprechenden Nodes noch gar nicht gab.\\
         Ebenso musste ein Proxy in das \texttt{main.yml} eingetragen werden, da der Testsserver \texttt{sks9016} nicht der angepassten Firewall-Rule unterstand.
     \end{warning}
 \begin{flushleft}
     Zum Testen wurden nachträglich folgende Werte hinzugefügt:
     \begin{itemize}
         \item Der Proxy wurde gesetzt
-        \item Der REST-API wurde die Patroni-Adresse mittels \texttt{patroni\_restapi\_listen\_addr: "\{\{ inventory\_hostname \}\}"} hinzugefügt
+        \item Der REST-API wurde die Patroni-Adresse mit Hilfe von \texttt{patroni\_restapi\_listen\_addr: "\{\{ inventory\_hostname \}\}"} hinzugefügt
         \item Das \texttt{pg\_hba.conf} musste einmal um den \texttt{patroni\_replication\_username} Usereintrag auf die virtuelle Tabelle \texttt{replication} erweitert werden (damit dieser Node replizieren darf)\\als auch um den generellen Zugriff erweitert werden (damit \Gls{HAProxy} zugreifen darf).
-        \item Zuletzt musste es auch möglich sein, einen Restart vollziehen zu können wenn es notwendig wäre,\\daher wurde \texttt{pending\_restart: true} gesetzt.
+        \item Zuletzt musste es auch möglich sein, einen Restart vollziehen zu können, wenn es notwendig wäre,\\daher wurde \texttt{pending\_restart: true} gesetzt.
     \end{itemize}
 \end{flushleft}
     \subsubsection{\Gls{HAProxy} Node hinzufügen - add\_balancer.yml}
-    Um die erweiterung des Proxy-Layers vorzunehmen, waren zwei Sachen notwendig.\\
+    Um die Erweiterung des Proxy-Layers vorzunehmen, waren zwei Sachen notwendig.\\
     Zuerst musste das \texttt{Inventory} um den Node erweitert werden, der entsprechend als neuer Node markiert wurde:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=HAProxy Node erweitern - Inventory,captionpos=b,label={lst:add-balancer-inventory},breaklines=true]
@@ -112,7 +112,7 @@ ansible-playbook config_pgcluster.yml
 ansible-playbook add_balancer.yml
     \end{lstlisting}
     \subsubsection{Patroni Node hinzufügen - add\_pgnode.yml}
-    Das vorgehen ist gleich wie beim erweitern von \Gls{HAProxy}.\\
+    Das Vorgehen ist gleich wie beim Erweitern von \Gls{HAProxy}.\\
     Das \texttt{Inventory} wurde erweitert:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=Patroni Node erweitern - Inventory,captionpos=b,label={lst:add-pgnode-inventory},breaklines=true]

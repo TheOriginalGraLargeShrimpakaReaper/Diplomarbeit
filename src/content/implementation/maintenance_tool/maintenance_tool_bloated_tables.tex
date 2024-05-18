@@ -13,13 +13,13 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Funktionsweise}
-    Der Maintenance-Job soll anhand der
     Auf allen Datenbanken muss die Extension \texttt{pgstattuple} installiert werden.\\
-    Die Extension sammelt und stellt Informationen über Tabellen, Indizes, Tupels usw., zur verfügung.
+    Die Extension sammelt und stellt Informationen über Tabellen, Indizes, Tupels usw., zur Verfügung.
 \end{flushleft}
 \begin{flushleft}
-    Mit Python werden alle Tabellen, welche bei \texttt{pgstattuple} mehr als einen konfigurationen Wert, aktuell 1.5\%, gelistet.\\
-    Das SQL Statement hierzu, ist wie folgt aufgebaut:
+    Mit Python werden alle Tabellen gelistet, bei denen \texttt{pgstattuple} mehr als einen konfigurierten Wert zurückgeben.\\
+    Der Schwellwert liegt derzeit bei1.5\%.\\
+    Das SQL-Statement hierzu ist wie folgt aufgebaut:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=sql, caption=Maintenance-Tool - List - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-list-bloated-tables},breaklines=true]
 select
@@ -31,7 +31,7 @@ where
     (pgstattuple(oid)).dead_tuple_percent > %s
 order by dead_tuple_percent desc;
     \end{lstlisting}
-    Anschliessend werden die entsprechenden Tabellen mittels VACUUM-Befehl manuell vakuumiert:
+    Anschliessend werden die entsprechenden Tabellen mit Hilfe des VACUUM-Befehl manuell vakuumiert:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=sql, caption=Maintenance-Tool - VACUUM - Maintenance-Tool - Bloated Tables / Indices,captionpos=b,label={lst:maintenannce-tool-vacuum-bloated-tables},breaklines=true]
 vacuum <table>;
@@ -48,7 +48,7 @@ reindex table <table>;
     \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Wichtig ist eine vorangehende Prüfung, ob ein \Gls{AUTOVACUUM}-Job am laufen ist.\\
+    Wichtig ist eine vorangehende Prüfung, ob ein \Gls{AUTOVACUUM}-Job am Laufen ist.\\
     Trifft dies zu, darf das Skript in diesem Lauf nicht ausgeführt werden.\\
     Überprüft kann dies mit folgendem SQL werden:
     \lstset{style=gra_codestyle}
@@ -57,7 +57,7 @@ select count(*) as active from pg_stat_activity where query like 'autovacuum:%';
     \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Dem Microservice-Gedanken entsprechend, soll es pro Datenbank einen Job geben,\\
+    Dem Microservice-Gedanken entsprechend soll es pro Datenbank einen Job geben,\\
     der die Tabellen auf Bloated Tables untersucht und diese bereinigt.
 \end{flushleft}
 \begin{flushleft}
