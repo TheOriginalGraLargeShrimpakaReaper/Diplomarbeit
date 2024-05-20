@@ -62,7 +62,7 @@ export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
 
 Damit das PostgreSQL-Repository eingebunden werden kann,\\
 muss dem apt-Proxy gesetzt werden.\\
-Da via \Gls{Foreman} Installiert wurde, muss dieser ausgenommen werden:
+Da via \Gls{Foreman} installiert wurde, muss dieser ausgenommen werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - apt-Proxy Settings,captionpos=b,label={lst:patroni-apt-proxy-settings},breaklines=true]
 # sks1232 / sks1233 / sks1234
@@ -76,7 +76,7 @@ Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
 Im nächsten Schritt kann das PostgreSQL-Repository eingebunden werden.
 \begin{warning}
 Achtung, die von PostgreSQL beschriebene Variante wurde in Debian 10 als Deprecated gesetzt,
-mit Debian 13 wird diese Repository-Integration einen Fehler werden.
+mit Debian 13 wird diese Repository-Integration zu einem Fehler werden.
 \end{warning}
 
 \lstset{style=gra_codestyle}
@@ -116,7 +116,6 @@ which psql
 patroni --version
 \end{lstlisting}
 Damit kann zum \gls{etcd} übergegangen werden.
-
 \subsubsection{Installation etcd}
 Auf \texttt{sks9016} sollte erst das Repository angepasst werden und anschliessend der \texttt{etcd-server} installiert werden:
 \lstset{style=gra_codestyle}
@@ -139,7 +138,7 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 ETCD_INITIAL_CLUSTER_STATE="new"
 \end{lstlisting}
 
-Der Service sollte neu gestartet und seine lauffähigkeit getestet werden:
+Der Service sollte neu gestartet und seine Lauffähigkeit getestet werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=etcd - restart,captionpos=b,label={lst:etcd_restart},breaklines=true]
 systemctl restart etcd
@@ -686,38 +685,38 @@ Folgende Parameter wurden gesetzt:\\
     \item \textbf{max\_connections}\hfill \\Damit die 7000 Transaktionen sicher abgesetzt werden können.
     \item \textbf{superuser\_reserved\_connections}\hfill \\Mindestens 10 \texttt{postgres}-Verbindungen müssen gemacht werden können.
     \item \textbf{max\_worker\_processes}\hfill \\Damit genügend Worker vorhanden sind, um die \texttt{WAL}-Files abzuarbeiten, wurde deren Zahl auf 16 erhöht.
-    \item \textbf{wal\_log\_hints}\hfill \\Stellt sicher, dass der gesamte Diskpage-inhalt ins \texttt{WAL} geschrieben wird.
+    \item \textbf{wal\_log\_hints}\hfill \\Stellt sicher, dass der gesamte Diskpage-Inhalt ins \texttt{WAL} geschrieben wird.
     \item \textbf{max\_wal\_senders}\hfill \\Um den Replikations-Throughput zu erhöhen, wurden 16 Sender aktiviert
     \item \textbf{max\_replication\_slots}\hfill \\Damit die 16 Sender auch auf der Gegenseite abgearbeitet werden,\\müssen die entsprechenden Slots bereitgestellt werden.
-    \item \textbf{wal\_keep\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu gross werden und somit auch das Replication-Lag,\\wurde die Grösse auf 1GiB reduziert.\\Das zwingt den Primary dazu, die \texttt{WAL}-Files nur bis zu Maximal 1GiB aufzubewahren bevor sie archiviert werden.\\Das ist wichtig, wenn Diskspace nicht im Überfluss vorhanden ist.
+    \item \textbf{wal\_keep\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu gross werden und somit auch das Replication-Lag,\\wurde die Grösse auf 1 GiB reduziert.\\Das zwingt den Primary dazu, die \texttt{WAL}-Files nur bis zu maximal 1 GiB aufzubewahren, bevor sie archiviert werden.\\Das ist wichtig, wenn Diskspace nicht im Überfluss vorhanden ist.
     \item \textbf{wal\_level}\hfill \\Der Level wurde auf logical gesetzt, damit alle Informationen geschrieben werden.
-    \item \textbf{wal\_buffers}\hfill \\Der Buffer wurde auf 16MiB erhöht.
-    \item \textbf{wal\_writer\_delay}\hfill \\Wenn der WAL-Writer einen Flush durchgeführt hat, geht er in ein Timeout.\\Dies wurde auf 20ms heruntergesetzt, damit rasch wieder geschrieben wird.
-    \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writers auf die Disk geschrieben wird.\\Wurde auf 1MiB gesetzt um rasch auf die Disk schreiben zu können.
-    \item \textbf{min\_wal\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu schnell repliziert werden und die Standby-Server aber auch der Primary-Server nicht überlastet werden,\\sollen die Files mindestens 1GiB gross werden bevor sie repliziert werden.
-    \item \textbf{max\_wal\_size}\hfill \\Auf der anderen Seite soll trotzdem nicht zu lange gewartet werden,\\die maximale grösse wurde auf 5GiB begrenzt.
-    \item \textbf{commit\_delay}\hfill \\Maximal 20ms soll gewartet werden, bevor ein Transaktions-Commit geflushed wird.
-    \item \textbf{commit\_siblings}\hfill \\Maximal 10 Transktionen sollen offen bleiben, bevor es zu einem Flush kommt.
+    \item \textbf{wal\_buffers}\hfill \\Der Buffer wurde auf 16 MiB erhöht.
+    \item \textbf{wal\_writer\_delay}\hfill \\Wenn der WAL-Writer einen Flush durchgeführt hat, geht er in ein Timeout.\\Dies wurde auf 20 ms heruntergesetzt, damit rasch wieder geschrieben wird.
+    \item \textbf{wal\_writer\_flush\_after}\hfill \\Definiert, ab welcher Grösse der Cache des WAL-Writers auf die Disk geschrieben wird.\\Wurde auf 1 MiB gesetzt um rasch auf die Disk schreiben zu können.
+    \item \textbf{min\_wal\_size}\hfill \\Damit die \texttt{WAL}-Files nicht zu schnell repliziert werden und die Standby-Server, aber auch der Primary-Server nicht überlastet werden,\\sollen die Files mindestens 1 GiB gross werden, bevor sie repliziert werden.
+    \item \textbf{max\_wal\_size}\hfill \\Auf der anderen Seite soll trotzdem nicht zu lange gewartet werden,\\die maximale Grösse wurde auf 5 GiB begrenzt.
+    \item \textbf{commit\_delay}\hfill \\Maximal 20 ms soll gewartet werden, bevor ein Transactions-Commit geflushed wird.
+    \item \textbf{commit\_siblings}\hfill \\Maximal 10 Transktionen sollen offenbleiben, bevor es zu einem Flush kommt.
     \item \textbf{checkpoint\_timeout}\hfill \\Die maximale Zeit zwischen den Checkpoints soll 5min betragen.
     \item \textbf{archive\_mode}\hfill \\Um Diskspace zu sparen sollen die \texttt{WAL}-Files nicht aktiviert werden.
     \item \textbf{checkpoint\_completion\_target}\hfill \\Ab 95\% des Checkout-Timeouts soll mit dem Abschluss begonnen werden.
     \item \textbf{max\_standby\_archive\_delay}\hfill \\Erst nach zehn Minuten sollen die Standby-Queries abgebrochen werden.\\Ist notwendig, da es wegen der grossen Datenmenge und entsprechendem lag sonst schnell zum Abbruch kommen kann.
-    \item \textbf{max\_standby\_streaming\_delay}\hfill \\Beim normalen Standby soll die Zeit nur 3min sein.
+    \item \textbf{max\_standby\_streaming\_delay}\hfill \\Beim normalen Standby soll die Zeit nur 3 min sein.
     \item \textbf{wal\_receiver\_status\_interval}\hfill \\Alle 60 sekunden soll der Status ausgetauscht werden.
-    \item \textbf{max\_logical\_replication\_workers}\hfill \\Acht logische Replication worker sollen zum einsatz kommen.
-    \item \textbf{max\_sync\_workers\_per\_subscription}\hfill \\Es soll die maximale Anzahl an workern (8) für das parallelisieren verwendet werden.
-    \item \textbf{shared\_buffers}\hfill \\Der gesamte Server hat 16GiB Memory, \(\frac{1}{4}\) davon soll als Buffer dienen, also 4GiB.
-    \item \textbf{maintenance\_work\_mem}\hfill \\1GiB soll zur Verfügung stehen für den \Gls{AUTOVACUUM}-Job oder Maintenance-Jobs wie das indexieren usw.
-    \item \textbf{work\_mem}\hfill \\Der ganze \Gls{PostgreSQL Cluster} soll 12GiB Memory zur Verfügung haben.
-    \item \textbf{temp\_file\_limit}\hfill \\Damit für das Erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200GiB Diskspace allokieren können.
-    \item \textbf{vacuum\_cost\_delay}\hfill \\Der \Gls{AUTOVACUUM}-Job soll maximal 2ms ruhen.
-    \item \textbf{vacuum\_cost\_limit}\hfill \\Der gesamte Prozess darf maximal zehn sekunden Schlafen.
-    \item \textbf{bgwriter\_delay}\hfill \\Der Hintergrundprozess soll nur 10ms ruhen.
+    \item \textbf{max\_logical\_replication\_workers}\hfill \\Acht logische Replication worker sollen zum Einsatz kommen.
+    \item \textbf{max\_sync\_workers\_per\_subscription}\hfill \\Es soll die maximale Anzahl an workern (8) für das Parallelisieren verwendet werden.
+    \item \textbf{shared\_buffers}\hfill \\Der gesamte Server hat 16 GiB Memory, \(\frac{1}{4}\) davon soll als Buffer dienen, also 4 GiB.
+    \item \textbf{maintenance\_work\_mem}\hfill \\1 GiB soll zur Verfügung stehen für den \Gls{AUTOVACUUM}-Job oder Maintenance-Jobs wie das Indexieren usw.
+    \item \textbf{work\_mem}\hfill \\Der ganze \Gls{PostgreSQL Cluster} soll 12 GiB Memory zur Verfügung haben.
+    \item \textbf{temp\_file\_limit}\hfill \\Damit für das Erzeugen von Primary Keys, Foreign-Keys oder Indizes genügend Platz vorhanden ist,\\sollen temporäre Tabellen 200 GiB Diskspace allokieren können.
+    \item \textbf{vacuum\_cost\_delay}\hfill \\Der \Gls{AUTOVACUUM}-Job soll maximal 2 ms ruhen.
+    \item \textbf{vacuum\_cost\_limit}\hfill \\Der gesamte Prozess darf maximal zehn Sekunden schlafen.
+    \item \textbf{bgwriter\_delay}\hfill \\Der Hintergrundprozess soll nur 10 ms ruhen.
     \item \textbf{bgwriter\_lru\_maxpages}\hfill \\Maximal dürfen 800 Buffers vom Hintergrundprozess beschrieben werden.
     \item \textbf{bgwriter\_lru\_multiplier}\hfill \\Insgesamt sollen beim nächsten Schreibzyklus 5 x soviel neue Writer erzeugt werden, wie im aktuellen Zyklus benötigt werden.
 \end{description}
 
-Entsprechend auch hier mittels \texttt{patronictl}:
+Entsprechend auch hier der Command mit \texttt{patronictl}:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - 250GiB set Parameter,captionpos=b,label={lst:patroni_250gib_set_parameter},breaklines=true]
 patronictl -c /etc/patroni/config.yml edit-config --apply - --force <<'JSON'
@@ -817,7 +816,7 @@ drop tablespace if exists eval_data_tablespace;
 CREATE TABLESPACE eval_data_tablespace owner postgres location '/srv/data/eval_data_tablespace';
 \end{lstlisting}
 \subsubsection{SQL Statements - Testing}
-Entsprechend dem ERD, müssen die Tabellen erstellt werden:
+Entsprechend dem ERD müssen die Tabellen erstellt werden:
 \hyperref[subsubsec:erd_self_healing_test]{Evaluation - ERD self\_healing\_test}
 Die Tabelle heisst entsprechend \texttt{self\_healing\_test}.
 Die Tests wurden allerdings erst gemacht, als auf die grossen Volumes gewechselt war.
@@ -969,7 +968,7 @@ select * from accountands.self_healing_accountand_protocol;
 select * from generell.self_healing_intranet_users;
 \end{lstlisting}
 
-Während dem Failover-Test müssen Daten beschrieben werden:
+Während des \Gls{Failover}-Test müssen Daten beschrieben werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=Patroni - Self Healing Tests - Failover Data,captionpos=b,label={lst:patroni-self-healing-failover-data},breaklines=true]
 insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');

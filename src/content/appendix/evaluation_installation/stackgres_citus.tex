@@ -47,7 +47,7 @@ spec:
           - sks1185
 \end{lstlisting}
 
-Die Storage Class und das PercistenVolume muss aktiviert werden:
+Die StorageClass und das PercistenVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=StackGres-Citus - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:stackgres_citus-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stackgres_citus/storageclass.yaml
@@ -55,6 +55,7 @@ storageclass.storage.k8s.io/stackgres-storage created
 persistentvolume/stackgres-storage-pv created
 \end{lstlisting}
 \subsubsection{Installation}
+Auch bei StackGres braucht es zuerst einen entsprechenden Namespace:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=StackGres-Citus - Namespace,captionpos=b,label={lst:stackgres-citus-namespace},breaklines=true]
 kubectl create namespace sg-platform
@@ -468,7 +469,7 @@ kubectl patch secret --namespace sg-platform stackgres-restapi-admin --type json
 \end{lstlisting}
 
 \subsubsection{Deployment - Benchmarking}
-Zuerts wurde das Instanz-Profil für den Coordinator und die Shards deployt:
+Zuerst wurde das Instanz-Profil für den Coordinator und die Shards deployt:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGInstanceProfile Coordinator,captionpos=b,label={lst:SGInstanceProfile_pgbench_coord.yaml},breaklines=true]
 apiVersion: stackgres.io/v1
@@ -500,7 +501,7 @@ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stac
 \end{lstlisting}
 
 Auf ein Deployment einer \texttt{SGPostgresConfig} wurde bei den ersten drei Benchamrks verzichtet, da für Patroni in den ersten drei Benchmarks keine spezifischen Anpassungen erfuhr.\\
-Das Manifest für den Benchmark-Cluster sieht entsprechend den vorgaben wie folgt aus:
+Das Manifest für den Benchmark-Cluster sieht entsprechend den Vorgaben wie folgt aus:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Benchmarking - SGShardedCluster,captionpos=b,label={lst:SGShardedCluster_pgbench.yaml},breaklines=true]
 apiVersion: stackgres.io/v1alpha1
@@ -596,7 +597,7 @@ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stac
 
 Auch beim Self Healing Testing wurde auf ein Deployment einer \texttt{SGPostgresConfig} verzichtet.\\
 Dafür wurden drei Coordinator-Instanzen und drei Shard-Instanzen pro Cluster deklariert.\\
-Das Manifest für den Benchmark-Cluster sieht entsprechend den vorgaben wie folgt aus:
+Das Manifest für den Benchmark-Cluster sieht entsprechend den Vorgaben wie folgt aus:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=StackGres-Citus - Self Healing Testing - SGShardedCluster,captionpos=b,label={lst:SGShardedCluster_self_healing_test.yaml},breaklines=true]
 apiVersion: stackgres.io/v1alpha1
@@ -658,7 +659,7 @@ kubectl get secrets -n sg-platform sg-healing-test -o jsonpath='{.data.superuser
 \subsubsection{Rekonfiguration mit 250GiB Storage}
 \paragraph{Bereinigen}
 Zuerst wurde auch hier der komplette Namespace bereinigt, wobei es zwingend ist, vorher im GUI die Cluster zu löschen und mittels CLI den Operator zu deinstallieren.\\
-Andernfalls wird nicht alles sauber entfernt was zu schwer Nachvollziehbaren Sideeffects führt:
+Andernfalls wird nicht alles sauber entfernt, was zu schwer nachvollziehbaren Sideeffects führt:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=StackGres-Citus - Deinstallieren,captionpos=b,label={lst:stackgres_citus-deinstall-cleanup},breaklines=true]
 helm delete stackgres-operator --namespace sg-platform
@@ -748,7 +749,7 @@ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/stackgres_citus/stac
 \end{lstlisting}
 
 Nun wurde ein \texttt{SGPostgresConfig} erstellt.\\
-Die Settings entsprechen der Patroni Konfiguration.\\
+Die Settings entsprechen der Patroni-Konfiguration.\\
 Bei StackGres gibt es allerdings einige Parameter, die für die Konfiguration gesperrt sind.\\
 In diesem Fall waren es folgende:
 \begin{itemize}

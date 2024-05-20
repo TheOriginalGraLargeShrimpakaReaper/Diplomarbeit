@@ -244,14 +244,14 @@ data:
     secret_password: "/mnt/etc/secret-volume/secret-vks0041/password"
     dead_tuple_percent: "1.5"
     \end{lstlisting}
-    Das deployment sieht entsprechend aus:
+    Das Deployment sieht entsprechend aus:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Maintenance-Tool - Bloated Tables / Indices - configmap-vks0041-gramic-test Deploy,captionpos=b,label={lst:maintenannce-tool-bloated-tables-configmap-vks0041-gramic-test-deploy},breaklines=true]
 kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/cleaned/configmap-vks0041-gramic_test.yaml
     \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Das finale Deployment erfolgt mittels einem CronJob.\\
+    Das finale Deployment erfolgt mittels eineS CronJob.\\
     Jeden Tag um Mitternacht wird ein Pod deployt, welcher Skript ausführt.\\
     Dabei müssen erst folgende Dependencis installiert werden:
     \begin{itemize}

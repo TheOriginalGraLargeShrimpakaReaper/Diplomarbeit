@@ -5,7 +5,7 @@
 \begin{flushleft}
     \subsection{YugabyteDB}
     \label{subsec:appendix_testing_yugabytedb}
-    Zum einen, kann der Fehler irgendwann auftreten.\\
+    Zum einen kann der Fehler irgendwann auftreten.\\
     In diesem Fall wird erst im Log die Fehlermeldung geworfen, dass die Zeitdifferenz zu gross ist:
     \begin{figure}[H]
         \centering
@@ -13,7 +13,7 @@
         \caption{YugabyteDB - Too big clock skew is detected}
         \label{fig:yugabytedb_too_big_clock_skew_is_detected}
     \end{figure}
-    Eine folge ist, dass kein neuer Leader bestimmt werden kann:
+    Eine Folge ist, dass kein neuer Leader bestimmt werden kann:
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{source/appendix/evaluation_testing/yugabytedb_tablet_leader_lease}
@@ -27,7 +27,7 @@
         \caption{YugabyteDB - CrashLoopBackOff}
         \label{fig:yugabytedb_crashloopbackoff}
     \end{figure}
-    Der ganze Cluster an sich aber bleibt Arbeitsfähig.
+    Der ganze Cluster an sich aber bleibt arbeitsfähig.
 \end{flushleft}
 \begin{flushleft}
     Anders sieht es aus, wenn auch \texttt{tmaster}-Nodes von Start weg betroffen sind.\\

@@ -224,13 +224,13 @@ data:
     secret_username: "/mnt/etc/secret-volume/secret-vks0041/user"
     secret_password: "/mnt/etc/secret-volume/secret-vks0041/password"
     \end{lstlisting}
-    Das deployment sieht entsprechend aus:
+    Das Deployment sieht entsprechend aus:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-postgres Deploy,captionpos=b,label={lst:maintenannce-tool-configmap-vks0041-postgres-deploy},breaklines=true]
 kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/configmap-vks0041-postgres.yaml
     \end{lstlisting}
     Für das \Gls{AUTOVACUUM} wird zudem die ConfigMap \texttt{configmap-vks0041-autovacuum} erstellt.\\
-    In diesem werden der Pfad zum Node (Host) Filesystem, die Anzahl Toter Tupels und dem Filenamen-Präfix:
+    In diesem werden der Pfad zum Node (Host) Filesystem, die Anzahl toter Tupels und dem Filenamen-Präfix:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-autovacuum,captionpos=b,label={lst:maintenannce-tool-autovacuum-configmap-vks0041-autovacuum},breaklines=true]
 apiVersion: v1
@@ -244,14 +244,14 @@ data:
     max_death_tuples: 1000
     filename_prefix: "autovacuum-parameter-"
     \end{lstlisting}
-    Das deployment sieht entsprechend aus:
+    Das Deployment sieht entsprechend aus:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Maintenance-Tool - \Gls{AUTOVACUUM} - configmap-vks0041-autovacuum Deploy,captionpos=b,label={lst:maintenannce-tool-configmap-vks0041-autovacuum-deploy},breaklines=true]
 kubectl create -f /home/gramic/PycharmProjects/ksgr_postgresql_maintenance/configmap-vks0041-autovacuum.yaml
     \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Das finale Deployment erfolgt mittels einem CronJob.\\
+    Das finale Deployment erfolgt mit Hilfe von eines CronJob.\\
     Jeden Tag um Mitternacht wird ein Pod deployt, welcher Skript ausführt.\\
     Dabei müssen erst folgende Dependencis installiert werden:
     \begin{itemize}

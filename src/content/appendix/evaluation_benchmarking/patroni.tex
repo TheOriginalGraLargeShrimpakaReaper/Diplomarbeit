@@ -85,7 +85,7 @@ pgbench -h 10.0.28.16 -p 5432 -c 25 -C -j 4 -v -t 280 -S -U postgres pgbench_eva
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Die grösse der Tabellen lässt sich wie folgt auslesen:
+    Die Grösse der Tabellen lässt sich wie folgt auslesen:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=Patroni - Benchmarking - Table Size SQL,captionpos=b,label={lst:patroni-benchmarking-table-size-sql},breaklines=true]
 SELECT pg_size_pretty( pg_database_size('pgbench_eval_bench') );

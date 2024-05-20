@@ -84,14 +84,14 @@ server: https://10.0.20.97:9345
 token: K1042bf32f28282edad37cbac4b77ccfa1cd44a26f0ea2c19111ed664013954a326::server:7a430a28b29501b778543f0882a156b8
 \end{lstlisting}
 
-Nun muss der Dienst restartet werden
+Nun muss der Dienst restarted werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=-rke2 agent service restart,captionpos=b,label={lst:rke2-agent-service-restart},breaklines=true]
 systemctl start rke2-agent.service
 \end{lstlisting}
 
 \paragraph{Cluster Konfiguration}
-\subparagraph{server}
+\subparagraph{server und agents}
 Auch für Kubernetes und die Pots müssen die Proxy-Einstellungen gemacht werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=rke2 server proxy,captionpos=b,label={lst:rke2-server-proxy},breaklines=true]
@@ -104,30 +104,29 @@ CONTAINERD_HTTPS_PROXY=http://sproxy.sivc.first-it.ch:8080
 CONTAINERD_HTTP_PROXY=http://sproxy.sivc.first-it.ch:8080
 CONTAINERD_NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 \end{lstlisting}
-
-Dieses File muss entsprechend in das Homeverzeichnis gespeichert werden:
-\lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=rke2 server proxy kopieren,captionpos=b,label={lst:rke2-server-proxy-copy},breaklines=true]
-
-\end{lstlisting}
-
-Für den Netzwerkteil muss nun Cilium installiert werden:
-\lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=rke2 server cilium installieren,captionpos=b,label={lst:rke2-server-cilium-install},breaklines=true]
-
-\end{lstlisting}
-
-Cilium muss nun aktiviert werden:
-\begin{lstlisting}[language=bash, caption=rke2 server cilium aktivieren,captionpos=b,label={lst:rke2-server-cilium-apply},breaklines=true]
-
-\end{lstlisting}
-
-Der rke2-Server muss nun mit der entsprechenden Config gestartet werden, anschliessend muss Cilium noch in die Conig und diese mittels Service reboot aktiviert werden:
-\lstset{style=gra_codestyle}
-\begin{lstlisting}[language=bash, caption=rke2 server starten,captionpos=b,label={lst:rke2-server-start},breaklines=true]
-
-\end{lstlisting}
-
+%
+%Dieses File muss entsprechend in das Homeverzeichnis gespeichert werden:
+%\lstset{style=gra_codestyle}
+%\begin{lstlisting}[language=bash, caption=rke2 server proxy kopieren,captionpos=b,label={lst:rke2-server-proxy-copy},breaklines=true]
+%
+%\end{lstlisting}
+%
+%Für den Netzwerkteil muss nun Cilium installiert werden:
+%\lstset{style=gra_codestyle}
+%\begin{lstlisting}[language=bash, caption=rke2 server cilium installieren,captionpos=b,label={lst:rke2-server-cilium-install},breaklines=true]
+%
+%\end{lstlisting}
+%
+%Cilium muss nun aktiviert werden:
+%\begin{lstlisting}[language=bash, caption=rke2 server cilium aktivieren,captionpos=b,label={lst:rke2-server-cilium-apply},breaklines=true]
+%
+%\end{lstlisting}
+%
+%Der rke2-Server muss nun mit der entsprechenden Config gestartet werden, anschliessend muss Cilium noch in die Conig und diese mittels Service reboot aktiviert werden:
+%\lstset{style=gra_codestyle}
+%\begin{lstlisting}[language=bash, caption=rke2 server starten,captionpos=b,label={lst:rke2-server-start},breaklines=true]
+%
+%\end{lstlisting}
 Entsprechend muss die Firewall gesetzt werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=iptables entries server,captionpos=b,label={lst:iptables-server-entries},breaklines=true]
@@ -160,12 +159,12 @@ COMMIT
 
 systemctl restart iptables
 \end{lstlisting}
-
-Für den Connect der Agents muss noch ein Token generiert werden:
-\begin{lstlisting}[language=bash, caption=rke2 server token,captionpos=b,label={lst:rke2-server-token},breaklines=true]
-\end{lstlisting}
-
-\paragraph{agents}
+%
+%Für den Connect der Agents muss noch ein Token generiert werden:
+%\begin{lstlisting}[language=bash, caption=rke2 server token,captionpos=b,label={lst:rke2-server-token},breaklines=true]
+%
+%\end{lstlisting}
+%\paragraph{agents}
 
 \paragraph{local-path-provisioner}
 Zuerst mussten auf den drei Servern der Storage bereitgestellt werden:
@@ -181,8 +180,8 @@ root@sks1185:~# mkdir /var/local-path-provisioner
 root@sks1185:~# chmod -R 777 /var/local-path-provisioner/
 \end{lstlisting}
 
-Anschliessend musste rke2 entsprechend angepasst werden.
-Damit Automatisch der local-path auf das Verzeichnis \texttt{/var/local-path-provisioner/} geht, muss dies in einem entsprechenden Manifest geschrieben werden:
+Anschliessend musste rke2 entsprechend angepasst werden.\\
+Damit automatisch der local-path auf das Verzeichnis \texttt{/var/local-path-provisioner/} geht, muss dies in einem entsprechenden Manifest geschrieben werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=local-path-provisioner definieren,captionpos=b,label={lst:local-path-provisioner.yaml},breaklines=true]
 kind: ConfigMap

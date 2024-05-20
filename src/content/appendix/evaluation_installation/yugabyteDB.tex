@@ -36,7 +36,7 @@ spec:
     path: /var/local-path-provisioner
 \end{lstlisting}
 
-Die Storage Class und das PersistentVolume muss aktiviert werden:
+Die StorageClass und das PersistentVolume muss aktiviert werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=yugabyteDB - StorageClass / PersistentVolume aktivieren,captionpos=b,label={lst:yugabytedb-storageclass-apply},breaklines=true]
 gramic@cks4040:~$ kubectl apply -f /home/gramic/PycharmProjects/rke2_settings/yugabytedb/yugabytedb/storageclass.yaml
@@ -51,6 +51,7 @@ Zuerst muss ein Namespace erstellt werden:
 kubectl create namespace yb-platform
 \end{lstlisting}
 
+Das vollständige \gls{helm} Chart Manifest:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=yaml, caption=yugabyteDB - Helm Chart Manifest,captionpos=b,label={lst:yugabytedb-values.yaml},breaklines=true]
 # Default values for yugabyte.
@@ -1139,14 +1140,14 @@ where table_schema = 'public'
 order by 3 desc;
 \end{lstlisting}
 \subsubsection{SQL Statements - Testing}
-Entsprechend dem ERD, müssen die Tabellen erstellt werden:
+Entsprechend dem ERD müssen die Tabellen erstellt werden:
 \hyperref[subsubsec:erd_self_healing_test]{Evaluation - ERD self\_healing\_test}
 Die Tabelle heisst entsprechend \texttt{self\_healing\_test}.
 Auch hier soll ein Index-Tablespace (\texttt{self\_healing\_indices\_tablespace}) und ein Daten-Tablespace (\texttt{self\_healing\_datas\_tablespace}) erstellt werden.\\
 Neu dazu kommt der Longtext-Tablespace \texttt{self\_healing\_longtexts\_tablespace}.
 Erst werden die Rollen erstellt, gefolgt von den Usern und Schemas.\\
 Die Schemas müssen entsprechend mittels \texttt{GRANT} berechtigt werden.
-Die Tabellen müssen entsprechend den Schemas erstellt werden, wobei einige Tabellen in 3 Tablets pro \texttt{tserver} gesplittet werden sollen (also insgesamt 9).
+Die Tabellen müssen entsprechend den Schemas erstellt werden, wobei einige Tabellen in 3 Tablets pro \texttt{tserver} gesplittet werden sollen (Also insgesamt 9).
 Das gesamte \texttt{CREATE}-Skript:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - CREATE-SQL,captionpos=b,label={lst:yugabytedb-self-healing-create-sql},breaklines=true]
@@ -1298,7 +1299,7 @@ select * from accountands.self_healing_accountand_protocol;
 select * from generell.self_healing_intranet_users;
 \end{lstlisting}
 
-Während dem Failover-Test müssen Daten beschrieben werden:
+Während des \Gls{Failover}-Test müssen Daten beschrieben werden:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=YugabyteDB - Self Healing Tests - Failover Data,captionpos=b,label={lst:yugabytedb-self-healing-failover-data},breaklines=true]
 insert into customer_service_officers.self_healing_accounts (account_id, firstname, lastname, birthday) VALUES (400, 'i', 'j', '01.01.2005');

@@ -6,7 +6,7 @@
     \subsection{StackGres - Citus}
     \label{subsec:stackgres_citus_benchmarking_commands}
     Pro Lauf werden erst die Daten initialisiert werden.\\
-    Wichtig ist dabei, dass keine Tablespaces mitgegeben werden da diese nicht existieren.\\
+    Wichtig ist dabei, dass keine Tablespaces mitgegeben werden, da diese nicht existieren.\\
     Anschliessend werden die Benchmarks an sich ausgeführt.\\
     Die Resultate werden weggeschrieben.
 \lstset{style=gra_codestyle}
@@ -85,7 +85,7 @@ pgbench -h 10.0.20.106 -p 5432 -c 25 -C -j 4 -v -t 280 -S -U postgres pgbench_ev
 \end{lstlisting}
 \end{flushleft}
 \begin{flushleft}
-    Die grösse der Tabellen lässt sich wie folgt auslesen:
+    Die Grösse der Tabellen lässt sich wie folgt auslesen:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=StackGres-Citus - Benchmarking - Table Size SQL,captionpos=b,label={lst:stackgres_citus-benchmarking-table-size-sql},breaklines=true]
 SELECT * FROM citus_tables;

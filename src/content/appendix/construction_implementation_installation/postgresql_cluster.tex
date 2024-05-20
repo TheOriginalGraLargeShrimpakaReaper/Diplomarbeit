@@ -59,7 +59,7 @@ export HTTPS_PROXY="http://xksgr_vks0041_inet:<Password Secure / Safe>@webproxy.
 export NO_PROXY="127.0.0.1,localhost,10.0.0.0/8,.ksgr.ch,.sivc.first-it.ch"
 # source /etc/profile.d/proxy.sh
     \end{lstlisting}
-    Auch der apt Proxy muss gesetzt werden:
+    Auch der apt-Proxy muss gesetzt werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Testsystem - apt-Proxy Settings,captionpos=b,label={lst:testsystem-installation-apt-proxy-settings},breaklines=true]
 # nano /etc/apt/apt.conf.d/proxy.conf
@@ -68,7 +68,7 @@ Acauire::https::Proxy "http://xksgr_vks0041_inet<Password Secure / Safe>@webprox
 Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
     \end{lstlisting}
     \subsection{Deployment}
-    Zuerst muss das \texttt{Inventory} angepasst hat werden:
+    Zuerst muss das \texttt{Inventory} angepasst werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Testsystem - Deployment - inventory,captionpos=b,label={lst:testsystem-deployment-inventory},breaklines=true]
 # if dcs_exists: false and dcs_type: "etcd"
@@ -114,7 +114,7 @@ ansible_python_interpreter='/usr/bin/env python3'
 
     \end{lstlisting}
     Nun muss das \texttt{main.yml} dran.
-    Wichtig sind folgende einstellungen.
+    Wichtig sind folgende Einstellungen.
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=yaml, caption=Testsystem - Deployment - main.yml,captionpos=b,label={lst:testsystem-deployment-main.yml},breaklines=true]
 ---
@@ -723,7 +723,7 @@ root@sks1000:~/postgresql_cluster# ansible all -m ping
     \begin{lstlisting}[language=bash, caption=Deploy - Anhang - deploy\_pgcluster.yml,captionpos=b,label={lst:deploy-appendix-pgcluster},breaklines=true]
 ansible-playbook deploy_pgcluster.yml
     \end{lstlisting}
-    Nach dem deployment sollte folgende Ausgabe zu sehen sein:
+    Nach dem Deployment sollte folgende Ausgabe zu sehen sein:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Deploy - Anhang - Deployt,captionpos=b,label={lst:deploy-appendix-deployt},breaklines=true]
 root@sks1000:~/postgresql_cluster# ansible-playbook deploy_pgcluster.yml
@@ -2371,7 +2371,6 @@ Acauire::https::Proxy "http://sproxy.sivc.first-it.ch:8080";
 Acquire::http::proxy::foreman.ksgr.ch "DIRECT";
     \end{lstlisting}
     Auch der Proxy muss gesetzt werden:
-    Als nächstes muss der Proxy gesetzt werden:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=bash, caption=Testsystem - sks9016 - Proxy Settings,captionpos=b,label={lst:testsystem-installation-sks9016-proxy-settings},breaklines=true]
 # nano /etc/profile.d/proxy.sh
@@ -2383,7 +2382,7 @@ export no_proxy=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/1
 export NO_PROXY=localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 # source /etc/profile.d/proxy.sh
     \end{lstlisting}
-    Firewall war keine auf dem Host installiert
+    Firewall war keine auf dem Host installiert.
     \subsection{Haproxy erweitern}
     Zuerst musste das \texttt{Inventory} um den entsprechenden Node erweitert werden:
     \lstset{style=gra_codestyle}
