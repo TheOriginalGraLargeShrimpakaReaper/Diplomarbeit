@@ -17,11 +17,11 @@
     Zusätzlich wurde ein Python Custom Sensor erstellt.\\
     Dieser nutzt die Patroni REST-API um folgende Werte abzufragen:
     \begin{description}
-        \item \textbf{Cluster Status}\hfill \\Prüft, ob der Cluster noch im Status running ist.\\Dabei wird geprüft ob der Cluster \guillemotleft running\guillemotright ist.\\Ist der Cluster pausiert, wird eine Warnung ausgegeben.\\Andernfalls wird ein Fehler geworfen.
+        \item \textbf{Cluster Status}\hfill \\Prüft, ob der Cluster noch im Status running ist.\\Dabei wird geprüft, ob der Cluster \guillemotleft running\guillemotright ist.\\Ist der Cluster pausiert, wird eine Warnung ausgegeben.\\Andernfalls wird ein Fehler geworfen.
         \item \textbf{Cluster Unlock}\hfill \\Ein Patroni Node kann nur Primary werden, wenn im DCS (in diesem Fall \gls{etcd}) der Leader-Lock gesetzt werden kann.\\In diesem Fall wird ein Fehler geworfen.
         \item \textbf{Failsafe Mode Activity}\hfill \\Zusätzlich kann der \guillemotleft\texttt{failsafe\_mode}\guillemotright aktiviert werden.\\Dann kann \Gls{PostgreSQL} trotzdem als Primary Node laufen\cite{KFMY83EB}.
         \item \textbf{Replication Lag}\hfill \\Prüft, ob das Replication Lag unterhalb dem Übergebenen Wert liegt.\\Es gibt eine Abfrage für die Warngrenze und eine Fehlergrenze.
-        \item \textbf{Replication State}\hfill \\Liest die States der Replikas aus.\\Dabei wird eine Warnung ausgegeben, wenn nicht alle Nodes im \guillemotleft\texttt{sync}\guillemotright Mode sind.\\Ein Fehler wird ausgegeben wenn keiner der Patrroni Nodes in diesem State ist.
+        \item \textbf{Replication State}\hfill \\Liest die States der Replikas aus.\\Dabei wird eine Warnung ausgegeben, wenn nicht alle Nodes im \guillemotleft\texttt{sync}\guillemotright Mode sind.\\Ein Fehler wird ausgegeben, wenn keiner der Patroni Nodes in diesem State ist.
     \end{description}
 \end{flushleft}
 \begin{flushleft}

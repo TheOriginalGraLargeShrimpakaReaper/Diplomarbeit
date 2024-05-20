@@ -5,11 +5,11 @@
 \begin{flushleft}
     \section{Weiteres Vorgehen / offene Arbeiten}
     Nach dem Abschluss der Diplomarbeit müssen noch einige notwendige Schritte vorgenommen werden.\\
-    Die Anschliessenden Arbeiten werden nach Zeitraum der Umsetzung und Dauer sortiert:
+    Die anschliessenden Arbeiten werden nach Zeitraum der Umsetzung und Dauer sortiert:
     \begin{description}
-        \item \textbf{\Gls{SIEM}}\hfill \\Das \Gls{SIEM}, in Form von Elastic, wurde installiert.\\Daher wird einer der nächsten Schritte sein, dass Logging des Testsystems an das \Gls{SIEM} anzubinden.
+        \item \textbf{\Gls{SIEM}}\hfill \\Das \Gls{SIEM} in Form von Elastic wurde installiert.\\Daher wird einer der nächsten Schritte sein, dass Logging des Testsystems an das \Gls{SIEM} anzubinden.
         \item \textbf{Backup}\hfill \\Das Testsystem muss in die Backup-Infrastruktur eingebunden werden.
-        \item \textbf{\Gls{PKI}}\hfill \\Die Ausschreibungsphase für den \Gls{PKI} wurde zwar abgeschlossen, doch das System ist noch nicht betriebsbereit.\\Sobald das System steht  ist und ein Konzept vorliegt, muss das Testsystem integriert werden.
+        \item \textbf{\Gls{PKI}}\hfill \\Die Ausschreibungsphase für den \Gls{PKI} wurde zwar abgeschlossen, doch das System ist noch nicht betriebsbereit.\\Sobald das System steht und ein Konzept vorliegt, muss das Testsystem integriert werden.
         \item \textbf{Hardening}\hfill \\Mit dem \Gls{PKI} müssen die Daten auf dem Storage als auch der Traffic verschlüsselt werden.
         \item \textbf{KSGR \Gls{Ansible}}\hfill \\Wenn das Hardening und Monitoring umgesetzt sind, muss das vitabacks / postgresql\_cluster Repository in den KSGR \Gls{Red Hat Ansible Automation Platform} eingebunden werden.\\Dazu muss ggf. ein Fork des  \Gls{GitHub} Repositories vorgenommen werden.
         \item \textbf{Maintenance-Tool}\hfill \\Das \Gls{Kubernetes} Test- und Produktivsystem des KSGR wurde noch nicht freigegeben.\\Sobald dies der Fall ist, muss das Maintenance-Tool sauber implementiert werden.\\Secrets müssen mit HashiCorp Vault\cite{ANQ2ENVU} angebunden, das Logging dem KSGR Standard angeglichen werden.

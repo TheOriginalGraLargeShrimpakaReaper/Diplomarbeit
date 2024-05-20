@@ -5,10 +5,10 @@
 \begin{flushleft}
     \subsubsection{Maintenance-Tool - AUTOVACUUM}
     \paragraph{Ziel und Zweck}
-    Folgende beiden \Gls{AUTOVACUUM}-Parameter sind entscheidend für die definition, wann \Gls{AUTOVACUUM} startet:
+    Folgende beiden \Gls{AUTOVACUUM}-Parameter sind entscheidend für die Definition, wann \Gls{AUTOVACUUM} startet:
     \begin{description}
         \item \textbf{autovacuum\_vacuum\_threshold}\hfill \\Mindestanzahl geänderter oder gelöschter Tupels die es in einer Tabelle braucht,\\damit \Gls{AUTOVACUUM} startet.\\Der Default liegt bei 50 toten Tuples.
-        \item \textbf{autovacuum\_vacuum\_scale\_factor}\hfill \\Definiert, wie Prozent der Datensätze einer Datensätze geändert oder gelöscht werden müssen, bevor vakuumiert wird.
+        \item \textbf{autovacuum\_vacuum\_scale\_factor}\hfill \\Definiert, wie Prozent der Datensätze einer Datenbank geändert oder gelöscht werden müssen, bevor vakuumiert wird.
     \end{description}
 
     Die Grundformel, wann vakuumiert wird, sieht folgendermassen aus:\\
@@ -26,7 +26,7 @@
     Da keine Mails versendet werden können, soll bei einem sich geänderten Parameter die generierte HTML-Tabelle auf das Verzeichnis des \Gls{Kubernetes} Nodes gespeichert werden.\\
     Im Produktiven Betrieb soll die Tabelle als HTML in die Mail eingefügt werden.
     \paragraph{Funktionsweise}
-    In einem ersten Schritt werden alle benötigten Parameter aus der \Gls{PostgreSQL}-Konfiguration oder den entsprechenden Katalogtabellen ausgelsen.\\
+    In einem ersten Schritt werden alle benötigten Parameter aus der \Gls{PostgreSQL}-Konfiguration oder den entsprechenden Katalogtabellen ausgelesen.\\
     Dies lässt sich mit einem SQL bewerkstelligen, welches wie folgt aufgebaut ist:
     \lstset{style=gra_codestyle}
     \begin{lstlisting}[language=sql, caption=Maintenance-Tool - Parameter - Maintenance-Tool - AUTOVACUUM,captionpos=b,label={lst:maintenannce-tool-parameter-maintenance-tool-autovacuum},breaklines=true]

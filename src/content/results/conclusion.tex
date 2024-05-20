@@ -4,40 +4,40 @@
 % Preamble
 \begin{flushleft}
     \section{Schlussfolgerung}
-    \subsection{\Gls{Kubernetes} / \Gls{rke2}}
-    \Gls{Kubernetes} mit \Gls{rke2} lässt sich vergleichsweise schnell installieren.\\
-    Damit die Containerplattform voll Funktionsfähig sein soll, braucht es noch einige Module.\\
+    \subsection{\Gls{Kubernetes} / \gls{rke2}}
+    \Gls{Kubernetes} mit \gls{rke2} lässt sich vergleichsweise schnell installieren.\\
+    Damit die Containerplattform voll funktionsfähig sein soll, braucht es noch einige Module.\\
     Mit \Gls{MetalLB} kann ein Load Balancer, den die Applikationen nutzen können, deployt werden.\\
     Wenn nicht, wie zukünftig beim KSGR ein Storagesystem wie Rook / CephFS ein Storage System aufgebaut werden soll,\\
-    kann mittels \Gls{local-path-provisioner} das Host-Storagesystem den Containern präsentiert werden.
+    kann durch \gls{local-path-provisioner} das Host-Storagesystem den Containern präsentiert werden.
 \end{flushleft}
 \begin{flushleft}
-    Für Private Zwecke oder als Evaluationssystem kann so rasch ein System aufgebaut werden.\\
+    Für private Zwecke oder als Evaluationssystem kann so rasch ein System aufgebaut werden.\\
     Für Test- oder Produktivsysteme ist dieses Setting allerdings eher weniger geeignet.
     \subsection{YugabyteDB}
     YugabyteDB bietet auch in der Open-Source Variante einiges.\\
-    Besonders die effiziente Speicherung, selbst grosser Datenmengen, hat in einer Zukunft,\\
+    Besonders die effiziente Speicherung selbst grosser Datenmengen hat in einer Zukunft,\\
     wo immer mehr Applikationen in die Cloud verschoben werden und Datenbank Storage sehr teuer wird,\\
-    einen Trumpf im ärmel.
+    einen Trumpf im Ärmel.
 \end{flushleft}
 \begin{flushleft}
-    YugabyteDB stellt als Distributed SQL System hohe Anforderungen an ein Synchrones Zeitsystem.\\
-    Auch ist YugabyteDB keine aktuelle Umsetzung von \Gls{PostgreSQL}, für Applikationen die auf eine aktuelle \Gls{PostgreSQL} Version angewiesen ist, ist YugabyteDB daher nicht geeignet.
+    YugabyteDB stellt als Distributed SQL System hohe Anforderungen an ein synchrones Zeitsystem.\\
+    Auch ist YugabyteDB keine aktuelle Umsetzung von \Gls{PostgreSQL}, für Applikationen die auf eine aktuelle \Gls{PostgreSQL}-Version angewiesen ist, ist YugabyteDB daher nicht geeignet.
     \subsection{StackGres - Citus}
     Ongres hat mit StackGres den Patroni Stack in eine CloudNative Umgebung gegossen.\\
-    Das pro Datenbank ein eigenener Cluster deployt wird, sorgt für ein maximum an Isolation.\\
+    Das pro Datenbank ein eigener Cluster deployt wird, sorgt für ein Maximum an Isolation.\\
     Durch diesen Architekturentscheid steigt aber auch der ohnehin grosse Ressourcenverbrauch des gesamten Systems nochmals stark an.
 \end{flushleft}
 \begin{flushleft}
-    Problematisch ist auch, dass einige Komponenten in einer Blackbox liegen.\\
-    Als während dem Benchmarking bei der Evaluation das Sharding immer wieder an der gleichen Stelle scheiterte,\\
+    Problematisch ist auch, das einige Komponenten in einer Blackbox liegen.\\
+    Als während des Benchmarking bei der Evaluation das Sharding immer wieder an der gleichen Stelle scheiterte,\\
     war zwar ersichtlich, dass es zu einem Java Fehler gekommen war, doch genauere Informationen liessen sich den Logs nicht entnehmen.\\
 \end{flushleft}
 \begin{flushleft}
     StackGres bietet eine direkte Integration von Citus, im Benchmarking stiess diese Infrastruktur an ihre Grenzen.\\
     Das Sharding-System Citus wiederum hat seine Stärken klar bei lesenden Zugriffen.\\
     Das alte Citus Sharding, bei dem Tabellen Distributed wurden, kann nur mit Eingriffen in die Statements der Applikation effizient genutzt werden.\\
-    Das Schema Based Sharding bietet hier einen Vorteil doch beide Sharding-Systeme können Tabellen nicht uneingeschränkt Sharden.\\
+    Das Schema Based Sharding bietet hier einen Vorteil, doch beide Sharding-Systeme können Tabellen nicht uneingeschränkt Sharden.\\
     Wurden zwischen Tabellen Foreign-Key Constraints gesetzt, können diese entweder nicht mehr Distributed werden oder aber beide müssen im gleichen Schema liegen.\\
     Es können zwar Referenced Tables, Tabellen die auf allen Shards liegen, erzeugt werden, doch diese Methode ist ineffizient beim Schreibprozess.\\
     Zudem rät Citus Data selbst, Referenced Tables nur für Referenzierte Tabellen, die für alle Distributionen und Schemas bereitstehen sollen, zu verwenden.\\
@@ -45,20 +45,20 @@
 \end{flushleft}
 \begin{flushleft}
     \subsection{Patroni}
-    Patroni mit \Gls{HAProxy} bietet die möglichkeit, einen stabilen Monolithischen \Gls{PostgreSQL HA Cluster} aufzubauen.\\
+    Patroni mit \Gls{HAProxy} bietet die Möglichkeit, einen stabilen monolithischen \Gls{PostgreSQL HA Cluster} aufzubauen.\\
     Basis bleibt dabei ein \Gls{PostgreSQL Cluster}, der von Patroni orchestriert und verwaltet wird.\\
-    Patroni benötigt allerdings Zusatztools wie einen \Gls{Connection Pooler} oder einen Proxy sowie z.B. \gls{etcd} als DCS.\\
+    Patroni benötigt allerdings Zusatztools wie einen \Gls{Connection Pooler} oder einen Proxy sowie z. B. \gls{etcd} als DCS.\\
     Der Umfang für einen Patroni Cluster steigt selbst bei einem minimalen Setting mit drei \Gls{PostgreSQL Cluster} Nodes auf vier bis fünf Server.
     \subsection{vitabacks / postgresql\_cluster}
     Das \Gls{Ansible} Repository bietet eine ganze Reihe von Playbooks, mit dem ein Patroni Cluster deployt, erweitert und verwaltet werden kann.\\
     Die Dokumentation des \Gls{GitHub} Repositories ist qualitativ hochwertig, ein Cluster ist schnell deployt.\\
-    Weitere Schritte, wie das Härten des gesamten Systems ist ebenfalls bereits angedacht und vorbereitet.
+    Weitere Schritte wie das Härten des gesamten Systems ist ebenfalls bereits angedacht und vorbereitet.
 \end{flushleft}
 \begin{flushleft}
     Der grosse Schwachpunkt ist zurzeit die Architektur.\\
     Der \Gls{Connection Pooler} wird auf dem Patroni Node installiert, geht die Verbindung zu diesem verloren, ist die Applikation Disconnected.\\
     So wird der \Gls{Connection Pooler} seiner Funktion beraubt.\\
     \Gls{HAProxy} ist zudem ein Layer 7 Proxy, der Cluster ist darauf angewiesen, dass die Applikation Lese- und Schreibanfragen trennen kann und an zwei verschiedene Ports sendet.\\
-    Im Moment laufen aber bestrebungen, mit der Software PgCat sowohl den Proxy als auch den \Gls{Connection Pooler} zu vereinen.\\
+    Im Moment laufen aber Bestrebungen, mit der Software PgCat sowohl den Proxy als auch den \Gls{Connection Pooler} zu vereinen.\\
     PgCat vereint beides in einer Open-Source-Software und ist in der Lage, die Statements zu analysieren und lesenden Verkehr auf die Replikas zu verteilen.\\
 \end{flushleft}
