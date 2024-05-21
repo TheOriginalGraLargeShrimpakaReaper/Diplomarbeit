@@ -35,6 +35,7 @@ tables_inventory:
 # - "result_goal_review"
 # - "risk_assessments_13_05_2024"
  - "anforderungskatalog"
+ - "arbeitsrapport"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -390,8 +391,8 @@ tables:
     caption-side: "below"
     position: "H"
     sparse_columns: True
-    longtable: False
-    resize_textwidth: True
+    longtable: True
+    resize_textwidth: False
     linebreak_columns:
      - "Tätigkeit"
      - "Bemerkung"
