@@ -2,6 +2,9 @@
 %! Date = 15.03.24
 
 % Preamble
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     \subsubsection{Patroni}
     \paragraph{Architektur}
@@ -16,11 +19,17 @@
     \end{figure}
     Neu wird auf \texttt{sks9016} ein \gls{etcd}-Node und der \Gls{HAProxy} installiert.
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     \paragraph{Installation}
     \label{par:patroni_installation}
     Wie schon erwähnt, wurde versucht die \gls{etcd}-Nodes auf die Patroni-Nodes zu installieren.
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Erst kam es zu einem Fehler, dass keine Verbindung zum \gls{etcd}-Node hergestellt werden konnte:
 \lstset{style=gra_codestyle}
@@ -43,6 +52,9 @@ etcd3:
 ...
 \end{lstlisting}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Der Primary-Node konnte in jeden Fall installiert und deployt werden.\\
     Sobald aber jeweils die Replika-Nodes gestartet wurden, kam es zu einem Fehler.\\
@@ -55,6 +67,9 @@ etcd3:
 %    Daraus nehme ich für die ganze Arbeit folgende Erkenntnis heraus, wenn ein System nicht lauffähig gemacht werden kann:\\
 %    \textlarger{\textit{\say{Im Zweifelsfall die Komplexität herausnehmen und das ganze System so weit vereinfachen, bis es funktioniert}}}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Passwörter können mit dem Bootstrap mitgegeben werden.\\
     Dazu muss im \texttt{postgresql}-Segment das Subsegment \texttt{authentication} erstellt werden.\\
@@ -74,6 +89,9 @@ postgresql:
 ...
 \end{lstlisting}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Zuerst lief der Cluster nur asynchron, auch die ersten beiden Benchmarks wurden so ausgeführt.\\
     Der Cluster lässt sich nämlich nicht synchron Bootstrapen, die Konfiguration muss nachträglich gemacht werden.\\
@@ -96,12 +114,18 @@ patronictl -c /etc/patroni/config.yml edit-config --apply - --force <<'JSON'
 JSON
 \end{lstlisting}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Die Vergrösserung der Disks hat nur einen begrenzten Impact.\\
     Lediglich das Verzeichnis \texttt{pg\_wal}, welches die \texttt{WAL}-Files aufnimmt, muss angepasst werden.\\
     Um die Umstellung ohne Reinstallation durchführen zu können, muss mit symlinks gearbeitet werden.\\
     Die Daten können via Tablespace auf die grösseren mounts gesetzt werden.\\
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Die vollständige Dokumentation der Evaluationsinstallation ist im \hyperref[subsec:evaluation_installation_patroni]{Anhang - Installation Patroni} zu finden.
 \end{flushleft}
