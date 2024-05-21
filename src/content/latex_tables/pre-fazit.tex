@@ -1,11 +1,20 @@
-\begin{table}[H]
+\begin{longtable}[H]{ll}
 
-\resizebox{\columnwidth}{!}{%
-
-\begin{tabular}{ll}
 \toprule
 Woche & Beschreibung / Event / Problem \\
 \midrule
+\endfirsthead
+\caption[]{Kommentare - Anmerkung} \\
+\toprule
+Woche & Beschreibung / Event / Problem \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
 KW10 & \begin{tabular}[c]{@{}l@{}}Vier ganze Tage war ich in Thalwil für die Oracle Multitenant-Schulung für das ExaCC Projekt (Ablösung HP-UX).\\Am Freiutag war ich ebenfalls fast den ganzen Tag dran.\\Weitere Termine werden folgen, das Risiko durch das Projekt tritt langsam ein.\end{tabular} \\
 KW11 & \begin{tabular}[c]{@{}l@{}}Projekt Zeitlich im Verzug.\\Nebst dem HP-UX Ablösungsprojekt schlagen auch diverse Betriebsthemen ein.\\Die analyse der PostgreSQL HA Cluster nimmt ebenfalls mehr Zeit in Anspruch, als erwartet.\end{tabular} \\
 KW12 & \begin{tabular}[c]{@{}l@{}}- HP-UX Probleme am Montag.\\  Backups sind über das Weekend nicht durchgelaufen.\\  Die ganze Montagsplanung wurde über den Haufen geworfen.\\- Besprechung bezüglich Backup.\\ Veeam Kasten steht noch nicht zur Verfügung.\end{tabular} \\
@@ -20,8 +29,5 @@ KW14 & \begin{tabular}[c]{@{}l@{}}HP-UX Probleme und ExaCC Ablöseprojekt bremst
 KW15 & \begin{tabular}[c]{@{}l@{}}Viele Termine diese Woche.\\StackGres Extension Problem gelöst.\\Patroni macht weiterhin probleme mit etcd-Server\end{tabular} \\
 KW16 & \begin{tabular}[c]{@{}l@{}}local-path-provisioner machte nochmals Probleme.\\Die ganze Zeit ohne Node-Annotation gearbeitet.\\Danach konnten auch die letzten Benchmarks gemacht werden.\end{tabular} \\
 KW17 & \begin{tabular}[c]{@{}l@{}}Gegenüberstellung fertiggestellt.\\Variantenentscheid getroffen.\\Dokumentation die letzte Zeit vernachlässigt, das rächt sich nun.\\Grossen Change Dienstag auf Mittwoch, mehr oder weniger K.O.\end{tabular} \\
-\bottomrule
-\end{tabular}
-}
 \caption{Kommentare - Anmerkung} \label{project_comments}
-\end{table}
+\end{longtable}

@@ -175,6 +175,9 @@ def create_latex_tables(panda_latex_tables_config):
 
         multicolumn = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('multicolumn')
 
+        smalltable = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('smalltable')
+        table_lines = panda_latex_tables_config.get('tables').get(table_item).get('table_styles').get('props').get('table_lines')
+
         # get the pandas (panda data)
         panda_table_data = get_data(startpath, destination, tablefilename, datafile_path, datafile, alternative_cvs_load, separator, decimal)
 
@@ -375,7 +378,8 @@ def create_latex_tables(panda_latex_tables_config):
 
         # umlaute
         # latex_table = latex_table.replace("ü", '\\"u')
-
+        if smalltable:
+            latex_table = "{\\tiny\n" + latex_table + "\n}"
 
         # write latex table to filesystem
         with open(tablefile, 'w') as wrlt:
