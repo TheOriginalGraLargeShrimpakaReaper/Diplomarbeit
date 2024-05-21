@@ -405,7 +405,7 @@ tables:
      - "Schwierigkeit"
      - "Lösungen"
     table_header: True
-    multicolumn: False
+    multicolumn: True
     smalltable: False
     table_lines: False
  projektcontrolling:
