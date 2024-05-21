@@ -1,11 +1,20 @@
-\begin{table}[H]
+\begin{longtable}[H]{rlllll}
 
-\resizebox{\columnwidth}{!}{%
-
-\begin{tabular}{rlllll}
 \toprule
 Nr. & Anforderung & Bezeichnung & Beschreibung & System & Muss / Kann \\
 \midrule
+\endfirsthead
+\caption[]{Anforderungskatalog} \\
+\toprule
+Nr. & Anforderung & Bezeichnung & Beschreibung & System & Muss / Kann \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
 1 & Systemvielfallt &  & \begin{tabular}[c]{@{}l@{}}Es muss mindestens eine Monolitisches und mindestens 2 zwei Distributed SQL Cluster ermittelt werden\end{tabular} & Beides & MUSS \\
 2 & Synergien &  & \begin{tabular}[c]{@{}l@{}}Skripte und APIs des Monolithisches Systems müssen auch in einem Distributed SQL System verwendet werden können\end{tabular} & Beides & MUSS \\
 3 & Failover & Automatismus & \begin{tabular}[c]{@{}l@{}}Das Clustersystem muss bei einem Nodeausfall automatisch auf einen anderen Node umstellt\end{tabular} & Beides & MUSS \\
@@ -39,8 +48,5 @@ Nr. & Anforderung & Bezeichnung & Beschreibung & System & Muss / Kann \\
 31 & Performance & tps - Read-Writes & \begin{tabular}[c]{@{}l@{}}Die Transaktionsrate (transactions per second / tps) für DML Transaktionen\end{tabular} & Beides & MUSS \\
 32 & Performance & Ø Latenz - Read-Only & \begin{tabular}[c]{@{}l@{}}Die Latenzzeit bei DQL Transaktionen\end{tabular} & Beides & MUSS \\
 33 & Performance & Ø Latenz - Read-Write & \begin{tabular}[c]{@{}l@{}}Die Latenzzeit bei DML Transaktionen\end{tabular} & Beides & MUSS \\
-\bottomrule
-\end{tabular}
-}
 \caption{Anforderungskatalog} \label{anforderungskatalog}
-\end{table}
+\end{longtable}
