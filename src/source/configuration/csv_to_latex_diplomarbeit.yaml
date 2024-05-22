@@ -112,6 +112,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  db_inventory_per_rdbms:
   id: "db_inventory_per_rdbms"
@@ -190,6 +191,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  db_inventory_per_os:
   id: "db_inventory_per_os"
@@ -275,6 +277,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  anforderungskatalog:
   id: "anforderungskatalog"
@@ -336,7 +339,8 @@ tables:
      - "Beschreibung"
     table_header: True
     multicolumn: True
-    smalltable: False
+    smalltable: True
+    smalltable_size: "small"
     table_lines: False
  arbeitsrapport:
   id: "arbeitsrapport"
@@ -408,6 +412,7 @@ tables:
     table_header: True
     multicolumn: True
     smalltable: True
+    smalltable_size: "tiny"
     table_lines: False
  projektcontrolling:
   id: "projektcontrolling"
@@ -489,6 +494,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  evaluation_inventory:
   id: "evaluation_inventory"
@@ -551,6 +557,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  dependencis:
   id: "dependencis"
@@ -617,6 +624,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  predecision_out:
   id: "predecision_out"
@@ -680,6 +688,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  predecision_in:
   id: "predecision_in"
@@ -743,6 +752,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  project_comments:
   id: "project_comments"
@@ -805,6 +815,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  evaluation_distributed_sql:
   id: "evaluation_distributed_sql"
@@ -865,6 +876,7 @@ tables:
     table_header: False
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  expert_discussions_overview:
    id: "expert_discussions_overview"
@@ -931,6 +943,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  expert_discussions_full_list:
    id: "expert_discussions_full_list"
@@ -997,6 +1010,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  stakeholder:
    id: "stakeholder"
@@ -1057,6 +1071,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  riskcontrolling_new_risks:
    id: "riskcontrolling_new_risks"
@@ -1123,6 +1138,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  risk_assessments_21_03_2024:
    id: "risk_assessments_21_03_2024"
@@ -1187,6 +1203,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  benchmarking_settings_mixed:
    id: "benchmarking_settings_mixed"
@@ -1247,6 +1264,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  benchmarking_settings_dql:
    id: "benchmarking_settings_dql"
@@ -1307,6 +1325,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  time_investment:
    id: "time_investment"
@@ -1368,6 +1387,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  benchmarking_formeln:
    id: "benchmarking_formeln"
@@ -1428,6 +1448,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  benchmarking_db_sizes:
    id: "benchmarking_db_sizes"
@@ -1488,6 +1509,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  benchmarking_table_sizes:
    id: "benchmarking_table_sizes"
@@ -1548,6 +1570,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  evaluation_tests_patroni:
   id: "evaluation_tests_patroni"
@@ -1612,6 +1635,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  evaluation_tests_yugabytedb:
   id: "evaluation_tests_yugabytedb"
@@ -1675,6 +1699,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  evaluation_tests_stackgres_citus:
   id: "evaluation_tests_stackgres_citus"
@@ -1739,6 +1764,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  cost_parameters:
   id: "cost_parameters"
@@ -1800,6 +1826,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  construction_inventory:
   id: "construction_inventory"
@@ -1861,6 +1888,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  construction_components:
   id: "construction_components"
@@ -1922,6 +1950,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  risk_assessments_29_04_2024:
    id: "risk_assessments_29_04_2024"
@@ -1986,6 +2015,7 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False
  construction_auxiliary_inventory:
   id: "construction_auxiliary_inventory"
@@ -2047,6 +2077,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  construction_implementation_used_ports:
   id: "construction_implementation_used_ports"
@@ -2108,6 +2139,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  construction_implementation_tests:
   id: "construction_implementation_tests"
@@ -2172,6 +2204,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  result_goal_review:
   id: "result_goal_review"
@@ -2234,6 +2267,7 @@ tables:
     table_header: True
     multicolumn: False
     smalltable: False
+    smalltable_size:
     table_lines: False
  risk_assessments_13_05_2024:
    id: "risk_assessments_13_05_2024"
@@ -2298,4 +2332,5 @@ tables:
      table_header: True
      multicolumn: False
      smalltable: False
+     smalltable_size:
      table_lines: False

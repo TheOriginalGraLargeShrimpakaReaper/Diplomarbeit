@@ -96,14 +96,15 @@
                    \labelwidth=\leftmargin}\item[\Large\ding{43}]}
   {\end{list}\end{mdframed}\par}
 
-\geometry{
-   left=2.3cm,
-   right=2.3cm,
-   top=2.13cm,
-   bottom=2cm,
-   textwidth=8cm,
-   marginpar=3cm
-}
+%\geometry{
+%   left=2.3cm,
+%   right=2.3cm,
+%   top=2.13cm,
+%   bottom=2cm,
+%   textwidth=8cm,
+%   marginpar=3cm
+%}
+
 
 %\definepapersize[a3_landscape][a3,landscape]
 
@@ -235,7 +236,18 @@
 %  \fancyfoot[R]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\thepage{}}
 %  \fancyfoot[L]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation}
 %  \fancyfoot[R]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\thepage{}}
-  \fancyfoot[L]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+  \fancyfoot[LE]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+  \fancyfoot[LO]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+  \renewcommand\thepage{\arabic{page}}
+}
+\fancypagestyle{plain}{\fancyhf{}
+%  \fancyfoot[R]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\thepage{}}
+%  \fancyfoot[L]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation}
+%  \fancyfoot[R]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\thepage{}}
+  \fancyfoot[LE]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+  \fancyfoot[LO]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
   \renewcommand\thepage{\arabic{page}}
@@ -246,12 +258,14 @@
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
   \renewcommand\thepage{\arabic{page}}
-  \fancyhead[L]{\includegraphics{source/main/ksgr}\includegraphics[width=115pt]{source/main/ibW_Logo_4fbg}}
+  \fancyhead[L]{\includegraphics[width=115pt]{source/main/ksgr}\includegraphics[width=105pt]{source/main/ibW_Logo_4fbg}}
   \fancyhead[C]{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[32em][l]{Kantonsspital Graubünden} \\ \makebox[32em][l]{Departement ICT} \\ \makebox[32em][l]{\textbf{Data Center}} \\ \makebox[32em][l]{www.ksgr.ch} \\}
   \fancyhead[R]{\fontsize{7.5pt}{0ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}\makebox[8em][l]{\textbf{Michael}} \\ \makebox[8em][l]{\textbf{Graber}} \\ \makebox[8em][l]{Datenbank Administrator} \\ \makebox[8em][l]{michael.graber@ksgr.ch} \\ \makebox[8em][l]{+41 81 256 68 25} \\}
 }
 
-\cfoot{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation \hfill \arabic{page}}
+%  \fancyfoot[LE]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+%  \fancyfoot[LO]{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation\hfill\thepage{}}
+%\cfoot{\fontsize{7.5pt}{13.8ptpt} \raggedleft\selectfont\sffamily\bfseries\color[HTML]{000000}© Kantonsspital Graubünden | PostgreSQL HA Cluster - Konzeption und Implementation \hfill \arabic{page}}
 
 %    % Headings
 
@@ -285,42 +299,62 @@
     \datum{24.05.2024}
 %    \end{flushleft}
     \maketitle
-
+    \clearpage
     \begin{managementsummary}
-        \begin{flushleft}
-            Das KSGR (Kantonsspital Graubünden) betreibt über zwanzig \Gls{PostgreSQL} Datenbanken.\\
-            Diese Datenbanken werden nicht auf einem zentralen Cluster betrieben, sondern oft als single Instanz auf diversen Servern.\\
-            In Zukunft wird das KSGR vermehrt auf \Gls{Kubernetes} setzen, was eine noch unbekannte Anzahl weiterer \Gls{PostgreSQL} Datenbanken mit sich bringen wird.\\
-            Auch sollen eine ganze Reihe \Gls{MariaDB} / \Gls{MySQL} und Oracle Datenbanken auf \Gls{PostgreSQL} migriert werden.
-        \end{flushleft}
-        \begin{flushleft}
-            Um den administrativen Aufwand zu verringern, die Anzahl der Server zu konsolidieren und um die Kontrolle zu erhöhen,\\
-            soll nun eine hochverfügbare Clusterlösung für die \Gls{PostgreSQL} Datenbanken evaluiert werden.\\
-            Ziel dieser Arbeit ist demnach, die Evaluation einer Clusterlösung aus drei Evaluationssystemen zu ermitteln und das geeignetste als Testsystem zu implementieren.\\
-            Da, dass KSGR in Zukunft stark auf die Cloud setzen wird, muss ein monolithisches und mindestens ein verteiltes System genauer untersucht werden.
-        \end{flushleft}
-        \begin{flushleft}
+%        \begin{flush}
+%            Das KSGR (Kantonsspital Graubünden) betreibt über zwanzig \Gls{PostgreSQL} Datenbanken.\\
+%            Diese Datenbanken werden nicht auf einem zentralen Cluster betrieben, sondern oft als single Instanz auf diversen Servern.\\
+%            In Zukunft wird das KSGR vermehrt auf \Gls{Kubernetes} setzen, was eine noch unbekannte Anzahl weiterer \Gls{PostgreSQL} Datenbanken mit sich bringen wird.\\
+%            Auch sollen eine ganze Reihe \Gls{MariaDB} / \Gls{MySQL} und Oracle Datenbanken auf \Gls{PostgreSQL} migriert werden.
+            Das Kantonsspital Graubünden (KSGR) betreibt über zwanzig PostgreSQL Datenbanken.\\
+            Historisch wurden diese Datenbanken als single Instanzen auf diversen Applikationsservern betrieben.\\
+            In Zukunft wird das KSGR vermehrt auf Kubernetes setzen, was weitere PostgreSQL Datenbanken mit sich bringen wird.\\
+            Zudem sollen eine ganze Reihe MariaDB / MySQL und Oracle Datenbanken auf PostgreSQL sofern möglich migriert werden.\\\\
+%        \end{\justifying}
+%        \begin{flushleft}
+%            Um den administrativen Aufwand zu verringern, die Anzahl der Server zu konsolidieren und um die Kontrolle zu erhöhen,\\
+%            soll nun eine hochverfügbare Clusterlösung für die \Gls{PostgreSQL} Datenbanken evaluiert werden.\\
+%            Ziel dieser Arbeit ist demnach, die Evaluation einer Clusterlösung aus drei Evaluationssystemen zu ermitteln und das geeignetste als Testsystem zu implementieren.\\
+%            Da, dass KSGR in Zukunft stark auf die Cloud setzen wird, muss ein monolithisches und mindestens ein verteiltes System genauer untersucht werden.
+            Um den administrativen Aufwand zu verringern, die Anzahl der Server zu minimieren und um die Kontrolle zu erhöhen, soll eine hochverfügbare Clusterlösung für die PostgreSQL Datenbanken evaluiert werden.\\
+            Ziel dieser Arbeit ist, die Evaluation einer Clusterlösung aus drei Systemen zu ermitteln und das geeignetste als Testsystem zu implementieren.\\
+            Das KSGR verfolgt eine Cloud First Strategie, daher muss ein monolithisches und mindestens ein verteiltes System genauer untersucht werden.\\
             Auf dem Markt lassen sich einige Open-Source, Closed-Source- und proprietäre Lösungen finden.\\
-            Der Scope der Arbeit lag dabei nur auf den Open-Source-Lösungen.\\
-            In der Evaluation wurden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht und jeweils als Evaluationssystem installiert und getestet.\\
-            Nach dem Testing und den Benchmark-Tests setzte sich Patroni gegen die beiden anderen Varianten durch.\\
-            YugabyteDB hat sich indes für als \Gls{PostgreSQL} Clustersystem für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden sollen.
-        \end{flushleft}
-        \begin{flushleft}
-            Im Anschluss wurde ein Patroni-Testsystem mithilfe des \Gls{Ansible}-Repositories vitabacks / postgresql\_cluster installiert.\\
-            Das \Gls{Ansible}-Repository bietet eine Reihe von Playbooks, von welchen das Deployment-Playbook, das Maintenance-Playbook sowie ein Playbook zur Erweiterung von Patroni- und Proxy Nodes getestet wurden.\\
-            Die Umsetzung mit vitabacks / postgresql\_cluster bestand die Tests.\\
-            Bis zur Produktivsetzung müssen im Nachgang der Diplomarbeit noch Arbeitspakete umgesetzt werden,\\
-            welche während der Diplomarbeit nicht umgesetzt werden konnten, da die Voraussetzungen nicht gegeben waren.
-        \end{flushleft}
+            Der Scope der Arbeit liegt dabei nur auf den Open-Source-Lösungen.\\
+            In der Evaluation werden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht.
+%        \end{flushleft}
+%        \begin{flushleft}
+%            Auf dem Markt lassen sich einige Open-Source, Closed-Source- und proprietäre Lösungen finden.\\
+%            Der Scope der Arbeit lag dabei nur auf den Open-Source-Lösungen.\\
+%            In der Evaluation wurden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht und jeweils als Evaluationssystem installiert und getestet.\\
+%            Nach dem Testing und den Benchmark-Tests setzte sich Patroni gegen die beiden anderen Varianten durch.\\
+%            YugabyteDB hat sich indes für als \Gls{PostgreSQL} Clustersystem für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden sollen.
+%        \end{flushleft}
+%        \begin{flushleft}
+%            Im Anschluss wurde ein Patroni-Testsystem mithilfe des \Gls{Ansible}-Repositories vitabacks / postgresql\_cluster installiert.\\
+%            Das \Gls{Ansible}-Repository bietet eine Reihe von Playbooks, von welchen das Deployment-Playbook, das Maintenance-Playbook sowie ein Playbook zur Erweiterung von Patroni- und Proxy Nodes getestet wurden.\\
+%            Die Umsetzung mit vitabacks / postgresql\_cluster bestand die Tests.\\
+%            Bis zur Produktivsetzung müssen im Nachgang der Diplomarbeit noch Arbeitspakete umgesetzt werden,\\
+%            welche während der Diplomarbeit nicht umgesetzt werden konnten, da die Voraussetzungen nicht gegeben waren.
+            Patroni, bzw. das \Gls{Ansible}-Repositories vitabacks / postgresql\_cluster, setzte sich mit dem geringsten Aufwand für deployment und Verwaltung sowie den höchsten Erfüllunggrad der Anforderungen.\\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{source/cost_benefit_diagram/cost_benefit_diagram}
+%        \caption{Kosten-Nutzen-Diagramm}
+        \label{fig:cost_benefit_diagram_management_summary}
+    \end{figure}
+            Für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden und eine \Gls{PostgreSQL} Datenbank voraussetzen, soll YugabyteDB zum Einsatz kommen.\\\\
+            Die Produktivsetzung wird im Nachgang der Diplomarbeit nach Erfüllung aller Voraussetzungen in diverse Arbeitspakete aufgebrochen und geplant.
+%        \end{flushleft}
     \end{managementsummary}
 
+    \pagestyle{headings}
     \clearpage
-    {
+%    {
         \hypersetup{hidelinks}
         \tableofcontents
-    }
-    \pagestyle{headings}
+%    }
+
     \thispagestyle{fancy} % kaput
 %    \input{content/abbreviations/abbreviations}
     \startThesis % Befehl muss vor dem ersten chapter stehen (Seitennummerierung!)
