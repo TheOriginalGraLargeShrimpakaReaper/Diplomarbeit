@@ -302,6 +302,10 @@ def create_latex_tables(panda_latex_tables_config):
                                                 position=table_position, na_rep='', index=pivot_table_indizes_visible,
                                                 multicolumn=multicolumn)
 
+        #   Set Table Line
+        if table_lines:
+            latex_table = latex_table.replace('\\\\\n', '\\\\ \\midrule\n')
+
         # textwidth resize
         if resize_textwidth:
             with open(tablefile, 'w') as wrlt:

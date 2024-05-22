@@ -341,7 +341,7 @@ tables:
     multicolumn: True
     smalltable: True
     smalltable_size: "small"
-    table_lines: False
+    table_lines: True
  arbeitsrapport:
   id: "arbeitsrapport"
   isbigfile:
@@ -1456,7 +1456,7 @@ tables:
    has_longtexts: False
    separator: ";"
    decimal: "."
-   caption: "Benchmark Settings - Datenbankgrössen / Skalierungsfaktor"
+   caption: "Benchmark Settings - Datenbankvolumen / Skalierungsfaktor"
    label: "benchmarking_db_sizes"
    startpath: "parentdir"
    destination_path: "content/latex_tables"
@@ -1508,8 +1508,8 @@ tables:
      linebreak_columns:
      table_header: True
      multicolumn: False
-     smalltable: False
-     smalltable_size:
+     smalltable: True
+     smalltable_size: "small"
      table_lines: False
  benchmarking_table_sizes:
    id: "benchmarking_table_sizes"
@@ -1517,7 +1517,7 @@ tables:
    has_longtexts: False
    separator: ";"
    decimal: "."
-   caption: "Benchmark Settings - Tabellengrössen / Skalierungsfaktor"
+   caption: "Benchmark Settings - Tabellenvolumen / Skalierungsfaktor"
    label: "benchmarking_table_sizes"
    startpath: "parentdir"
    destination_path: "content/latex_tables"
@@ -1569,8 +1569,8 @@ tables:
      linebreak_columns:
      table_header: True
      multicolumn: False
-     smalltable: False
-     smalltable_size:
+     smalltable: True
+     smalltable_size: "small"
      table_lines: False
  evaluation_tests_patroni:
   id: "evaluation_tests_patroni"

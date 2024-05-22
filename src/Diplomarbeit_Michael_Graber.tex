@@ -301,7 +301,7 @@
     \maketitle
     \clearpage
     \begin{managementsummary}
-%        \begin{flush}
+        \begin{flushleft}
 %            Das KSGR (Kantonsspital Graubünden) betreibt über zwanzig \Gls{PostgreSQL} Datenbanken.\\
 %            Diese Datenbanken werden nicht auf einem zentralen Cluster betrieben, sondern oft als single Instanz auf diversen Servern.\\
 %            In Zukunft wird das KSGR vermehrt auf \Gls{Kubernetes} setzen, was eine noch unbekannte Anzahl weiterer \Gls{PostgreSQL} Datenbanken mit sich bringen wird.\\
@@ -309,9 +309,9 @@
             Das Kantonsspital Graubünden (KSGR) betreibt über zwanzig PostgreSQL Datenbanken.\\
             Historisch wurden diese Datenbanken als single Instanzen auf diversen Applikationsservern betrieben.\\
             In Zukunft wird das KSGR vermehrt auf Kubernetes setzen, was weitere PostgreSQL Datenbanken mit sich bringen wird.\\
-            Zudem sollen eine ganze Reihe MariaDB / MySQL und Oracle Datenbanken auf PostgreSQL sofern möglich migriert werden.\\\\
-%        \end{\justifying}
-%        \begin{flushleft}
+            Zudem sollen eine ganze Reihe MariaDB / MySQL und Oracle Datenbanken auf PostgreSQL sofern möglich migriert werden.
+        \end{flushleft}
+        \begin{flushleft}
 %            Um den administrativen Aufwand zu verringern, die Anzahl der Server zu konsolidieren und um die Kontrolle zu erhöhen,\\
 %            soll nun eine hochverfügbare Clusterlösung für die \Gls{PostgreSQL} Datenbanken evaluiert werden.\\
 %            Ziel dieser Arbeit ist demnach, die Evaluation einer Clusterlösung aus drei Evaluationssystemen zu ermitteln und das geeignetste als Testsystem zu implementieren.\\
@@ -322,8 +322,8 @@
             Auf dem Markt lassen sich einige Open-Source, Closed-Source- und proprietäre Lösungen finden.\\
             Der Scope der Arbeit liegt dabei nur auf den Open-Source-Lösungen.\\
             In der Evaluation werden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht.
-%        \end{flushleft}
-%        \begin{flushleft}
+        \end{flushleft}
+        \begin{flushleft}
 %            Auf dem Markt lassen sich einige Open-Source, Closed-Source- und proprietäre Lösungen finden.\\
 %            Der Scope der Arbeit lag dabei nur auf den Open-Source-Lösungen.\\
 %            In der Evaluation wurden die drei Systeme Patroni, StackGres und YugabyteDB genauer untersucht und jeweils als Evaluationssystem installiert und getestet.\\
@@ -343,9 +343,9 @@
 %        \caption{Kosten-Nutzen-Diagramm}
         \label{fig:cost_benefit_diagram_management_summary}
     \end{figure}
-            Für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden und eine \Gls{PostgreSQL} Datenbank voraussetzen, soll YugabyteDB zum Einsatz kommen.\\\\
+            Für Applikationen, die in Zukunft auf \Gls{Kubernetes} betrieben werden und eine \Gls{PostgreSQL} Datenbank voraussetzen, soll YugabyteDB zum Einsatz kommen.\\
             Die Produktivsetzung wird im Nachgang der Diplomarbeit nach Erfüllung aller Voraussetzungen in diverse Arbeitspakete aufgebrochen und geplant.
-%        \end{flushleft}
+        \end{flushleft}
     \end{managementsummary}
 
     \pagestyle{headings}
