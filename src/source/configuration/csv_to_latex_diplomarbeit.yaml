@@ -34,6 +34,7 @@ tables_inventory:
  - "construction_implementation_tests"
  - "result_goal_review"
  - "risk_assessments_13_05_2024"
+ - "solution_list"
 tables:
  db_inventory:
   id: "db_inventory"
@@ -413,7 +414,7 @@ tables:
     multicolumn: True
     smalltable: True
     smalltable_size: "tiny"
-    table_lines: False
+    table_lines: True
  projektcontrolling:
   id: "projektcontrolling"
   isbigfile:
@@ -816,7 +817,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  evaluation_distributed_sql:
   id: "evaluation_distributed_sql"
   isbigfile:
@@ -1504,11 +1505,11 @@ tables:
      position: "H"
      sparse_columns: True
      longtable: False
-     resize_textwidth: True
+     resize_textwidth: False
      linebreak_columns:
      table_header: True
      multicolumn: False
-     smalltable: True
+     smalltable: False
      smalltable_size: "small"
      table_lines: False
  benchmarking_table_sizes:
@@ -1565,11 +1566,11 @@ tables:
      position: "H"
      sparse_columns: True
      longtable: False
-     resize_textwidth: True
+     resize_textwidth: False
      linebreak_columns:
      table_header: True
      multicolumn: False
-     smalltable: True
+     smalltable: False
      smalltable_size: "small"
      table_lines: False
  evaluation_tests_patroni:
@@ -2334,3 +2335,64 @@ tables:
      smalltable: False
      smalltable_size:
      table_lines: False
+ solution_list:
+  id: "solution_list"
+  isbigfile:
+  has_longtexts: False
+  separator: ";"
+  decimal: "."
+  caption: "Anbieter und Systeme"
+  label: "solution_list"
+  startpath: "parentdir"
+  destination_path: "content/latex_tables"
+  datafile_path: "source/tables"
+  datafile: "solution_list.csv"
+  tablefilename: "solution_list.tex"
+  decimal_format:
+  group_by:
+  group_by_function:
+  agg_funtion:
+  agg_colums:
+  drop_columns:
+  column_operations:
+   datas:
+   operations:
+    dauer_summe:
+     operation_function:
+     axis_number:
+     columns:
+  pivot:
+   pivot_columns:
+   pivot_values:
+  pivot_table:
+   pivot_index:
+    pivot_indizes_visible: False
+    pivot_rename_indizes:
+   pivot_columns:
+   pivot_values:
+   pivot_agg_func:
+  rename_columns:
+  where_clausel:
+  sorting:
+   order_by:
+   sort_acending: True
+   sort_inplace: True
+  margins:
+   margin: False
+   margin_name:
+   non_pivot_margin_column:
+   non_pivot_margin_function:
+  table_styles:
+   selector: "caption"
+   props:
+    caption-side: "below"
+    position: "H"
+    sparse_columns: True
+    longtable: False
+    resize_textwidth: False
+    linebreak_columns:
+    table_header: True
+    multicolumn: False
+    smalltable: False
+    smalltable_size:
+    table_lines: False
