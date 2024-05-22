@@ -400,13 +400,14 @@ tables:
     longtable: True
     resize_textwidth: False
     linebreak_columns:
+     - "Subphase"
      - "Tätigkeit"
      - "Bemerkung"
      - "Schwierigkeit"
      - "Lösungen"
     table_header: True
     multicolumn: True
-    smalltable: False
+    smalltable: True
     table_lines: False
  projektcontrolling:
   id: "projektcontrolling"

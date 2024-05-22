@@ -65,6 +65,7 @@ def cost_benefit_diagram (cost_benefit_config, cost_benefit_data):
     # Extract the Datas
     labels, values = zip(*cost_benefit_data.items())
     x, y = zip(*values)
+    # x, y = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
     # Create Scatter-Diagram
     plt.scatter(x, y, color=cost_benefit_config.get('scatter-point-color'))
@@ -75,10 +76,15 @@ def cost_benefit_diagram (cost_benefit_config, cost_benefit_data):
     # Y-Lines
     plt.axvline(x=cost_benefit_config.get('x-axis-line-pos'), color=cost_benefit_config.get('x-axis-line-color'), linestyle=cost_benefit_config.get('x-axis-line-type'), label=cost_benefit_config.get('x-axis-line-label'))
 
+
     # Add Labels
     plt.xlabel(cost_benefit_config.get('x-axis-title'))
     plt.ylabel(cost_benefit_config.get('y-axis-title'))
     plt.title(cost_benefit_config.get('title'))
+
+    #   Set Ticks
+    plt.yticks((10, 20, 30, 40, 50, 60, 70, 80, 90, 100))
+    plt.xticks((10, 20, 30, 40, 50, 60, 70, 80, 90, 100))
 
     # Labling Data Points
     for label, x_point, y_point in zip(labels, x, y):
