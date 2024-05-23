@@ -304,7 +304,8 @@ def create_latex_tables(panda_latex_tables_config):
 
         #   Set Table Line
         if table_lines:
-            latex_table = latex_table.replace('\\\\\n', '\\\\ \\midrule\n')
+            # latex_table = latex_table.replace('\\\\\n', '\\\\ \\midrule\n')
+            latex_table = latex_table.replace('\\\\\n', '\\\\ \\hdashline[0.5pt/5pt]\n')
 
         # textwidth resize
         if resize_textwidth:

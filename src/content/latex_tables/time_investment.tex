@@ -1,29 +1,91 @@
+%\begin{table}[H]
+%
+%\resizebox{\columnwidth}{!}{%
+%
+%\begin{tabular}{llrrrr}
+%\toprule
+%Phase & Subphase & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB \\
+%\midrule
+%\rotatebox{90}{Initialer Aufwand} & Basisinstallation & 5.0 & 6.0 & 4.0 & 5.0 \\
+% & Basiskonfiguration & 5.0 & 5.0 & 5.0 & 5.0 \\
+% & Backup Konfiguration & 1.0 & 1.0 & 1.0 & 2.0 \\
+% & Monitoring Konfiguration & 2.0 & 2.0 & 2.0 & 2.0 \\
+%Secuirty Aufwand & private container registry Integration & 0.0 & 0.0 & 1.0 & 1.0 \\
+% & PKI Integration & 3.0 & 3.0 & 3.0 & 3.0 \\
+%Erweiterungsaufwand & Automatisierung Backup & 1.0 & 1.0 & 4.0 & 4.0 \\
+% & Automatisierung Skalierung & 8.0 & 4.0 & 8.0 & 2.0 \\
+% & Self-Healing & 8.0 & 4.0 & 16.0 & 0.0 \\
+% & Auto-Recovery & 8.0 & 4.0 & 16.0 & 2.0 \\
+% & DB Self-Service & 16.0 & 16.0 & 16.0 & 16.0 \\
+%Operationsaufwand / 5 Jahre & Switchover & 50.0 & 25.0 & 50.0 & 0.0 \\
+% & Node Recovery & 50.0 & 25.0 & 100.0 & 25.0 \\
+% & Backup Recovery & 50.0 & 25.0 & 50.0 & 25.0 \\
+% & Quorum erweitern & 30.0 & 20.0 & 5.0 & 5.0 \\
+% &  & 237.0 & 141.0 & 281.0 & 97.0 \\
+%\bottomrule
+%\end{tabular}
+%}
+%\caption{Gemessene und Extrapolierte Aufwände Bsp.} \label{time_investment}
+%\end{table}
+%\begin{table}[]
+%\centering
+%\resizebox{\columnwidth}{!}{%
+%\begin{tabular}{@{}lllllll@{}}
+%\toprule
+%Phase                                           & Suphase                                & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB & Filter \\ \midrule
+%\multirow{4}{*}{Initialer Aufwand}              & Basisinstallation                      & 600               & 720                          & 480               & 600        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Basiskonfiguration                     & 600               & 600                          & 600               & 600        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Backup Konfiguration                   & 120               & 120                          & 120               & 240        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Monitoring Konfiguration               & 240               & 240                          & 240               & 240        & 1      \\ \hdashline[0.5pt/5pt]
+%\multirow{2}{*}{Secuirty Aufwand}               & private container registry Integration & 0                 & 0                            & 120               & 120        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & PKI Integration                        & 360               & 360                          & 360               & 360        & 1      \\ \hdashline[0.5pt/5pt]
+%\multirow{5}{*}{Erweiterungsaufwand}            & Automatisierung Backup                 & 120               & 120                          & 480               & 480        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Automatisierung Skalierung             & 960               & 480                          & 960               & 240        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Self-Healing                           & 960               & 480                          & 1920              & 0          & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Auto-Recovery                          & 960               & 480                          & 1920              & 240        & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & DB Self-Service                        & 1920              & 1920                         & 1920              & 1920       & 1      \\ \hdashline[0.5pt/5pt]
+%\multirow{4}{*}{Operationsaufwand / Pro Aktion} & Switchover                             & 120               & 60                           & 120               & 0          & 2      \\ \hdashline[0.5pt/5pt]
+%                                                & Node Recovery                          & 240               & 120                          & 480               & 120        & 2      \\ \hdashline[0.5pt/5pt]
+%                                                & Backup Recovery                        & 240               & 120                          & 240               & 120        & 2      \\ \hdashline[0.5pt/5pt]
+%                                                & Quorum erweitern                       & 720               & 480                          & 120               & 120        & 2      \\ \hdashline[0.5pt/5pt]
+%\multirow{4}{*}{Operationsaufwand / 5 Jahre}    & Switchover                             & 6000              & 3000                         & 6000              & 0          & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Node Recovery                          & 6000              & 3000                         & 12000             & 3000       & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Backup Recovery                        & 6000              & 3000                         & 6000              & 3000       & 1      \\ \hdashline[0.5pt/5pt]
+%                                                & Quorum erweitern                       & 3600              & 2400                         & 600               & 600        & 1      \\ \bottomrule
+%\end{tabular}%
+%}
+%\caption{Gemessene und Extrapolierte Aufwände}
+%\label{tab:time_investment}
+%\end{table}
+
 \begin{table}[H]
-
+\centering
 \resizebox{\columnwidth}{!}{%
-
-\begin{tabular}{llrrrr}
+\begin{tabular}{@{}llllll@{}}
 \toprule
-Phase & Subphase & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB \\
-\midrule
-\rotatebox{90}{Initialer Aufwand} & Basisinstallation & 5.0 & 6.0 & 4.0 & 5.0 \\
- & Basiskonfiguration & 5.0 & 5.0 & 5.0 & 5.0 \\
- & Backup Konfiguration & 1.0 & 1.0 & 1.0 & 2.0 \\
- & Monitoring Konfiguration & 2.0 & 2.0 & 2.0 & 2.0 \\
-Secuirty Aufwand & private container registry Integration & 0.0 & 0.0 & 1.0 & 1.0 \\
- & PKI Integration & 3.0 & 3.0 & 3.0 & 3.0 \\
-Erweiterungsaufwand & Automatisierung Backup & 1.0 & 1.0 & 4.0 & 4.0 \\
- & Automatisierung Skalierung & 8.0 & 4.0 & 8.0 & 2.0 \\
- & Self-Healing & 8.0 & 4.0 & 16.0 & 0.0 \\
- & Auto-Recovery & 8.0 & 4.0 & 16.0 & 2.0 \\
- & DB Self-Service & 16.0 & 16.0 & 16.0 & 16.0 \\
-Operationsaufwand / 5 Jahre & Switchover & 50.0 & 25.0 & 50.0 & 0.0 \\
- & Node Recovery & 50.0 & 25.0 & 100.0 & 25.0 \\
- & Backup Recovery & 50.0 & 25.0 & 50.0 & 25.0 \\
- & Quorum erweitern & 30.0 & 20.0 & 5.0 & 5.0 \\
- &  & 237.0 & 141.0 & 281.0 & 97.0 \\
-\bottomrule
-\end{tabular}
+Phase                                           & Subphase                               & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB \\ \midrule
+\multirow{4}{*}{Initialer Aufwand}              & Basisinstallation                      & 5                 & 6                            & 4                 & 5          \\
+                                                & Basiskonfiguration                     & 5                 & 5                            & 5                 & 5          \\
+                                                & Backup Konfiguration                   & 1                 & 1                            & 1                 & 2          \\
+                                                & Monitoring Konfiguration               & 2                 & 2                            & 2                 & 2          \\
+\multirow{2}{*}{Secuirty Aufwand}               & private container registry Integration & 0                 & 0                            & 1                 & 1          \\
+                                                & PKI Integration                        & 3                 & 3                            & 3                 & 3          \\
+\multirow{5}{*}{Erweiterungsaufwand}            & Automatisierung Backup                 & 1                 & 1                            & 4                 & 4          \\
+                                                & Automatisierung Skalierung             & 8                 & 4                            & 8                 & 2          \\
+                                                & Self-Healing                           & 8                 & 4                            & 16                & 0          \\
+                                                & Auto-Recovery                          & 8                 & 4                            & 16                & 2          \\
+                                                & DB Self-Service                        & 16                & 16                           & 16                & 16         \\
+\multirow{4}{*}{Operationsaufwand / Pro Aktion} & Switchover                             & 1                 & 0.5                          & 1                 & 0          \\
+                                                & Node Recovery                          & 2                 & 1                            & 4                 & 1          \\
+                                                & Backup Recovery                        & 2                 & 1                            & 2                 & 1          \\
+                                                & Quorum erweitern                       & 6                 & 4                            & 1                 & 1          \\
+\multirow{4}{*}{Operationsaufwand / 5 Jahre}    & Switchover                             & 50                & 25                           & 50                & 0          \\
+                                                & Node Recovery                          & 50                & 25                           & 100               & 25         \\
+                                                & Backup Recovery                        & 50                & 25                           & 50                & 25         \\
+                                                & Quorum erweitern                       & 30                & 20                           & 5                 & 5          \\ \midrule
+\multicolumn{2}{l}{Gesamtaufwand}                                                        & 129.75            & 105.75                       & 204.5             & 122        \\ \bottomrule
+\end{tabular}%
 }
-\caption{Gemessene und Extrapolierte Aufwände Bsp.} \label{time_investment}
+\caption{Gemessene und Extrapolierte Aufwände}
+\label{tab:time_investment}
 \end{table}

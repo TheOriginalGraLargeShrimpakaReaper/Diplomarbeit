@@ -18,7 +18,7 @@ tables_inventory:
  - "risk_assessments_21_03_2024"
  - "benchmarking_settings_mixed"
  - "benchmarking_settings_dql"
- - "time_investment"
+# - "time_investment"
  - "benchmarking_formeln"
  - "benchmarking_db_sizes"
  - "benchmarking_table_sizes"
@@ -1334,7 +1334,7 @@ tables:
    has_longtexts: False
    separator: ";"
    decimal: "."
-   caption: "Gemessene und Extrapolierte Aufwände Bsp."
+   caption: "Gemessene und Extrapolierte Aufwände"
    label: "time_investment"
    startpath: "parentdir"
    destination_path: "content/latex_tables"

@@ -1,0 +1,35 @@
+%! Author = gramic
+%! Date = 23.05.24
+
+% Preamble
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Phase                                           & Suphase                                & Patroni - vanilla & Patroni - postgresql-cluster & StackGres - Citus & YugabyteDB \\ \midrule
+\multirow{4}{*}{Initialer Aufwand}              & Basisinstallation                      & 600               & 720                          & 480               & 600        \\
+                                                & Basiskonfiguration                     & 600               & 600                          & 600               & 600        \\
+                                                & Backup Konfiguration                   & 120               & 120                          & 120               & 240        \\
+                                                & Monitoring Konfiguration               & 240               & 240                          & 240               & 240        \\
+\multirow{2}{*}{Secuirty Aufwand}               & private container registry Integration & 0                 & 0                            & 120               & 120        \\
+                                                & PKI Integration                        & 360               & 360                          & 360               & 360        \\
+\multirow{5}{*}{Erweiterungsaufwand}            & Automatisierung Backup                 & 120               & 120                          & 480               & 480        \\
+                                                & Automatisierung Skalierung             & 960               & 480                          & 960               & 240        \\
+                                                & Self-Healing                           & 960               & 480                          & 1920              & 0          \\
+                                                & Auto-Recovery                          & 960               & 480                          & 1920              & 240        \\
+                                                & DB Self-Service                        & 1920              & 1920                         & 1920              & 1920       \\
+\multirow{4}{*}{Operationsaufwand / Pro Aktion} & Switchover                             & 120               & 60                           & 120               & 0          \\
+                                                & Node Recovery                          & 240               & 120                          & 480               & 120        \\
+                                                & Backup Recovery                        & 240               & 120                          & 240               & 120        \\
+                                                & Quorum erweitern                       & 720               & 480                          & 120               & 120        \\
+\multirow{4}{*}{Operationsaufwand / 5 Jahre}    & Switchover                             & 6000              & 3000                         & 6000              & 0          \\
+                                                & Node Recovery                          & 6000              & 3000                         & 12000             & 3000       \\
+                                                & Backup Recovery                        & 6000              & 3000                         & 6000              & 3000       \\
+                                                & Quorum erweitern                       & 3600              & 2400                         & 600               & 600        \\ \midrule
+\multicolumn{2}{l}{Gesamtaufwand}                                                        & 15570             & 12810                        & 24300             & 14400      \\ \bottomrule
+\end{tabular}%
+}
+\caption{Gemessene und Extrapolierte Kosten}
+\label{tab:cost_investment}
+\end{table}
