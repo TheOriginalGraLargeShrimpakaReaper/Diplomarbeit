@@ -2,14 +2,15 @@
 %! Date = 08.04.24
 
 % Preamble
+\clearpage
 \begin{flushleft}
     \subsection{Testing Evaluationssysteme}
     %\input{content/implementation/evaluation/evaluation_testing/evaluation_testcases}
     %\input{content/implementation/evaluation/evaluation_testing/yugabyteDB}
     \subsubsection{Patroni}
-    Patroni funktionierte wie gewollt.\\
-    Da kein Connection Pooler auf dem Proxy-Host installiert wurde, kam nicht alles erfüllt werden.\\
-    Wichtig dazu ist zu sagen, dass die REST-API und das Command vollständig funktioniert.\\
+    Patroni funktionierte wie gewollt.
+    Da kein \Gls{Connection Pooler} auf dem Proxy-Host installiert wurde, kam nicht alles erfüllt werden.
+    Wichtig dazu ist zu sagen, dass die REST-API und das Command vollständig funktioniert.
     Ein Switchover wurde mit folgendem Command ausgeführt:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Testing - Switchover,captionpos=b,label={lst:testing_patroni_switchover},breaklines=true]
@@ -50,23 +51,31 @@ Which member do you want to reinitialize [postgres03, postgres01]? []: postgres0
 Are you sure you want to reinitialize members postgres01? [y/N]: y
 Success: reinitialize for member postgres01
 \end{lstlisting}
+\end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=landscape,pagesize}
+\recalctypearea
+\begin{flushleft}
     Das vollständige Ergebnis:
     \input{content/latex_tables/evaluation_tests_patroni}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     \subsubsection{StackGres -Citus}
-    StackGres kann nicht alle Anforderungen erfüllen.\\
-    Obwohl es mit \texttt{envoy} und \texttt{pgBouncer} einen Proxy und einen Connection Pooler gibt,\\
-    scheint dies nicht über die Coordinator-Nodes selbst zu gehen.\\
+    StackGres kann nicht alle Anforderungen erfüllen.
+    Obwohl es mit \texttt{envoy} und \texttt{pgBouncer} einen Proxy und einen \Gls{Connection Pooler} gibt,
+    scheint dies nicht über die Coordinator-Nodes selbst zu gehen.
     Daher brechen bestehende Connections ab oder laufen irgendwann in ein Timeout, wenn \Gls{Kubernetes} Nodes nicht schnell genug heruntergefahren werden.
 \end{flushleft}
 \begin{flushleft}
     Aufgrund des Sharding und das in sich geschlossenen \Gls{Kubernetes}-Environments wurde auf separate Tablespaces verzichtet.
 \end{flushleft}
 \begin{flushleft}
-    Zuerst wurde versucht, das Sharding mit Version 12 eingeführte Schema Based Sharding umzusetzen.\\
-    Wie beim Benchmarking auch, zeigten sich schnell die Grenzen des Citrus-Sharding.\\
-    Sobald ein Foreign-Key zwischen zwei Tabellen, die in verschiedenen Schemas liegen, existiert, kann kein Schema Based Sharding mehr ausgeführt werden.\\
+    Zuerst wurde versucht, das Sharding mit Version 12 eingeführte Schema Based Sharding umzusetzen.
+    Wie beim Benchmarking auch, zeigten sich schnell die Grenzen des Citus-Sharding.
+    Sobald ein Foreign-Key zwischen zwei Tabellen, die in verschiedenen Schemas liegen, existiert, kann kein Schema Based Sharding mehr ausgeführt werden.
     Auch hier besteht die Lösung darin, Reference Tables zu erstellen.
 \end{flushleft}
 \begin{flushleft}

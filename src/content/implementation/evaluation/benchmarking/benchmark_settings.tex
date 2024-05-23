@@ -2,10 +2,11 @@
 %! Date = 22.03.24
 
 % Preamble
+\clearpage
 \begin{flushleft}
     \subsubsection{Benchmark Settings}
     \label{subsubsec:benchmark_settings}
-    Das Mass aller Dinge ist die Zabbix-DB.\\
+    Das Mass aller Dinge ist die Zabbix-DB. \\
     Sie wird vorerst die grössten Zugriffszahlen, das höchste Datenwachstum und die meisten Transaktionen erzeugen.\\
     Es werden alle Switches sowie der grösste Teil der Router erfasst, es sind im Moment etwas mehr als 32'000 Items erfasst.\\
     Ein Item kann ein Gerät, ein Port oder mehrere States pro Port sein:
@@ -15,19 +16,18 @@
         \caption{Benchmark Settings - Zabbix - Systeminformationen}
         \label{fig:sks0970_zabbix_system_information}
     \end{figure}
-    Pro Sekunde werden ca.
-    950 Datenpunkte abgeholt.
-\end{flushleft}
-\begin{flushleft}
-    Da der Grossteil der Netzwerksysteme aber erfasst sind, wird die Anzahl Items nicht mehr stark anwachsen.
-\end{flushleft}
-\begin{flushleft}
+    Pro Sekunde werden ca. 950 Datenpunkte abgeholt.\\
+%\end{flushleft}
+%\begin{flushleft}
+    Da der Grossteil der Netzwerksysteme aber erfasst sind, wird die Anzahl Items nicht mehr stark anwachsen.\\
+%\end{flushleft}
+%\begin{flushleft}
     Auf die Datenbank wird sehr stark zugegriffen.
     Es werden bis zu 23 Connections pro Sekunde ausgeführt:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/benchmarking/sks0970_zabbix_mariadb_connections_per_second_graph}
-        \caption{Benchmark Settings - Zabbix - Connections per Seconds}
+        \caption{Benchmark Settings - Zabbix - Connections per Second}
         \label{fig:sks0970_zabbix_mariadb_connections_per_second_graph}
     \end{figure}
 \end{flushleft}
@@ -37,14 +37,14 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/benchmarking/sks0970_zabbix_mariadb_queries_per_second_graph}
-        \caption{Benchmark Settings - Zabbix - Queries per Seconds}
+        \caption{Benchmark Settings - Zabbix - Queries per Second}
         \label{fig:sks0970_zabbix_mariadb_queries_per_second_graph}
     \end{figure}
-    Reine Client anfragen waren nichtsdestotrotz über 4'000 Queries pro Sekunde:
+    Reine Client Anfragen waren nichtsdestotrotz über 4'000 Queries pro Sekunde:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/benchmarking/sks0970_zabbix_mariadb_questions_per_second_graph}
-        \caption{Benchmark Settings - Zabbix - Client Queries per Seconds}
+        \caption{Benchmark Settings - Zabbix - Client Queries per Second}
         \label{fig:sks0970_zabbix_mariadb_questions_per_second_graph}
     \end{figure}
 \end{flushleft}
@@ -74,7 +74,7 @@
     Wird eine \texttt{1} eingeben, so werden \texttt{100'000} Records angelegt.\\
 
     Um nun auf ein gewisses Volumen zu kommen, gibt es verschiedene Formeln.\\
-    Die als beste stellte sich folgende heraus\cite{DKXU3QRC}:\\
+    Als beste stellte sich folgende heraus \cite{DKXU3QRC}:\\
     \input{content/latex_tables/benchmarking_formeln}
 \end{flushleft}
 \begin{flushleft}
@@ -93,7 +93,7 @@
     Entsprechend wachsen die Anzahl Records wie folgt an:\\
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\linewidth]{source/pandas_data_chart_plotter/row_counts}
+        \includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/row_counts}
         \caption{Benchmark Settings - Anzahl Records / Skalierungsfaktor}
         \label{fig:row_counts}
     \end{figure}

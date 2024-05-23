@@ -4,8 +4,8 @@
 % Preamble
 \subsubsection{High Availability und Replikation}
 \begin{flushleft}
-    Wenn eine Datenbank HA (High Availability), also hochverfügbarsein soll, braucht es eine Primäre und mindestens eine Sekundäre- oder \Gls{Failover}-Datenbank.
-    Um Datenverlust zu vermeiden, müssen die Daten permanent von der primären auf die sekundäre Datenbank synchronisiert werden, dies nennt man Replikation\cite{D9RDXENY}.
+    Wenn eine Datenbank HA (High Availability), also hochverfügbar sein soll, braucht es eine primäre und mindestens eine sekundäre- oder \Gls{Failover}-Datenbank.
+    Um Datenverlust zu vermeiden, müssen die Daten permanent von der primären auf die sekundäre Datenbank synchronisiert werden, dies nennt man Replikation \cite{D9RDXENY}.
     Dabei wird zwischen den folgenden beiden Replikationen unterschieden:
 \end{flushleft}
 \begin{flushleft}
@@ -13,7 +13,7 @@
     Wenn bei einer synchronen Replikation eine Transaktion abgesetzt wird, wird der Commit auf der primären Seite erst gesetzt, wenn die Änderung auf der sekundären Seite oder den sekundären Seiten ebenfalls eingetragen und committet ist.
     Bis zu diesem Moment ist die Transaktion nicht als committet.
     
-    Dies wird dann zum Problem, wenn keine Verbindung mehr zu mindesten einer sekundären Seite vorhanden ist.
+    Dies wird dann zum Problem, wenn keine Verbindung mehr zu mindestens einer sekundären Seite vorhanden ist.
     Zudem wird die synchrone Replikation bei hohen Latenzen zum Bottleneck der Datenbank.
 \end{flushleft}
 \begin{flushleft}

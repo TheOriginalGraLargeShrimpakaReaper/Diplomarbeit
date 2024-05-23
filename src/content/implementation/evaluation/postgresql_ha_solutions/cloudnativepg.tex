@@ -2,6 +2,7 @@
 %! Date = 05.12.23
 
 % Preamble
+\clearpage
 \begin{flushleft}
     \subsubsection{CloudNativePG}
     CloudNativePG ist eine Containerlösung für PostgreSQL auf Kubernetes.\\
@@ -49,7 +50,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Dabei werden die Read-write workloads an den primären Node gesendet:
+    Dabei werden die read-write workloads an den primären Node gesendet:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-rw}
@@ -58,7 +59,7 @@
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Read-only workloads werden mit Round robin an die Replikas zugewiesen:
+    Read-only workloads werden per round robin an die Replikas zugewiesen:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/cloudnativepg/cloudnativepg-architecture-read-only}
@@ -73,13 +74,13 @@
     \paragraph{Maintenance}
     Das Projekt hat viele offene Issues.\\
     Der Code wird aber gut gepflegt, nicht mehr verwendeter Code wird auch regelmässig entfernt.\\
-    Hin und wieder müssen grössere Aufräumaktionen gestartet, zudem finden die Commits immer wieder am Monatsende statt.\\
+    Hin und wieder müssen grössere Aufräumaktionen gestartet, zudem finden die Commits immer am Monatsende statt.\\
     Dafür erfüllt das Projekt die meisten Community Standards.\\
     Die Vollständige Dokumentation ist im \hyperref[subsec:maintenance_cloudnativepg]{Anhang - Maintenance} zu finden.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Synergien und Mehrwert}
-    CloudNativePG bleibt ein monolithisches System,\\welches aber keine Möglichkeit bietet,\\auch auf einem normalen Serversetting betrieben zu werden.
+    CloudNativePG bleibt ein monolithisches System, welches aber keine Möglichkeit bietet, auch auf einem normalen Serversetting betrieben zu werden.
 \end{flushleft}
 \begin{flushleft}
     Daher bietet CloudNativePG weder einen Benefit durch seine Architektur noch mit der Möglichkeit,\\Synergien nutzen zu können.

@@ -11,7 +11,7 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Core-Features}
-    Die wichtigsten Features von StackGres sind\cite{G3XQA8PI}:
+    Die wichtigsten Features von StackGres sind \cite{G3XQA8PI}:
     \begin{itemize}
         \item k8s Integration
         \item Deklaratives k8s CRD
@@ -32,11 +32,11 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Proxy}
-    StackGres hat den Proxy bereits mit envoy\cite{QAGSHVBL} implementiert.
+    StackGres hat den Proxy bereits mit envoy \cite{QAGSHVBL} implementiert.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Pooling}
-    PgBounder\cite{ATBELZ2X} ist bereits integriert, es braucht also keinen weiteren \Gls{Connection Pooler}.
+    PgBounder \cite{ATBELZ2X} ist bereits integriert, es braucht also keinen weiteren \Gls{Connection Pooler}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{API / Skripte}
@@ -74,7 +74,7 @@
         Citus bietet zwei Sharding-Modelle an.
         \begin{flushleft}
             \textbf{Row-based sharding}\\
-            Beim diesen Sharding werden Tabellen anhand einer Distribution Column aufgeteilt\cite{2Y5FA36C, FDUUL9IM}:
+            Beim diesen Sharding werden Tabellen anhand einer Distribution Column aufgeteilt \cite{2Y5FA36C, FDUUL9IM}:
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/citus_row-based-sharding}
@@ -84,9 +84,9 @@
         \end{flushleft}
         \begin{flushleft}
             \textbf{Schema-based sharding}\\
-            Beim Schema Based Sharding werden die Tabellen horizontal partitioniert oder gleich ganze Tabellen in den Shard gepackt.\\
-            Die Schards werden dabei nach Schema aufgeteilt, wobei ein Schema, wobei ein Schema auf einem Node verbleibt.\\
-            Dadurch braucht es im Prinzip keine Anpassung an den Tabellen und Applikationen.\\
+            Beim Schema-based sharding werden die Tabellen horizontal partitioniert oder gleich ganze Tabellen in den Shard gepackt.
+            Die Shards werden dabei nach Schema aufgeteilt, wobei ein Schema auf einem Node verbleibt.
+            Dadurch braucht es im Prinzip keine Anpassung an den Tabellen und Applikationen.
             Das Prinzip wird unten aufgezeigt:
             \begin{figure}[H]
                 \centering
@@ -98,18 +98,18 @@
         \begin{flushleft}
             \textbf{Schlussfolgerung}\\
             Beide Sharding-Methoden haben eine grosse Schwäche.\\
-            In Version 7.2 konnte noch ein Replikationsfaktor angegeben werden\cite{8W58EW47},\\
-            ab Version 11 wurde auch diese Variante gestrichen und man konnte noch eine 1:1 Replikation auf einen Worker fahren\cite{JWYDYYWQ}.\\
+            In Version 7.2 konnte noch ein Replikationsfaktor angegeben werden \cite{8W58EW47},\\
+            ab Version 11 wurde auch diese Variante gestrichen und man konnte noch eine 1:1 Replikation auf einen Worker fahren \cite{JWYDYYWQ}.\\
             Spätestens mit Version 12 steht auch dies nicht mehr zur Verfügung, man muss eine Replication auf alle \Gls{Kubernetes} Nodes erzeugen.\\
 %            Sie sind nicht vollständig ACID-Konform (\autoref{subsubsec:acid}) da Datenverlust entstehen kann, wenn ein Node wegfällt.
             Sie sind nicht vollständig ACID-Konform da Datenverlust entstehen kann, wenn ein Node wegfällt.
             Dies muss aber bei der Evaluation mit Hilfe von Tests noch bestätigt werden.
         \end{flushleft}
         \begin{flushleft}
-            Die Shards müssen aber stand heute mit entsprechenden mit Replikation gesichert werden\cite{4GDXA49I}.\\
-            Daraus ergibt sich aber ein nicht zu vernachlässigbarer Mehraufwand, wenn man self-healing Nodes implementieren möchte.\\
-            Jeder Node ist für sich genommen, eine eigene Zone, um sicherzustellen, dass es zu keinem Datenverlust kommt,\\
-            müsste jeder Shared-Node in eine der jeweiligen Zonen repliziert werden.\\
+            Die Shards müssen aber stand heute mit entsprechenden mit Replikation gesichert werden  \cite{4GDXA49I}.
+            Daraus ergibt sich aber ein nicht zu vernachlässigbarer Mehraufwand, wenn man self-healing Nodes implementieren möchte.
+            Jeder Node ist für sich genommen, eine eigene Zone. Um sicherzustellen, dass es zu keinem Datenverlust kommt,
+            müsste jeder Shared-Node in eine der jeweiligen Zonen repliziert werden.
             Das heisst, es müssten \(Shard-Nodes^2 \) Replika-Nodes erstellt werden, hier ein Schematisches-Beispiel mit drei Shard-Nodes:
             \begin{figure}[H]
                 \centering
@@ -118,15 +118,15 @@
                 \label{fig:stackgres_shard_replication}
             \end{figure}
             Die Automation und nur schon die Konfiguration für das Mitskalieren, dürfte einiges an Zeit in Anspruch nehmen.\\
-            Eine nicht unwesentliche Folge wäre ein starker Rückgang des Throughput's und Performance-Einbussen.
+            Eine nicht unwesentliche Folge wäre ein starker Rückgang des Throughputs und Performance-Einbussen.
         \end{flushleft}
         \begin{flushleft}
-            Alternativ kann ein klassischer Replika-Server verwendet werden, wo die ganze Datenbank gesichert wird.\\
-            Bis alle Daten wieder in den StackGres-Citus-Cluster zurückgeholt wurden, das Re-Balancing abgeschlossen ist usw.,\\
+            Alternativ kann ein klassischer Replika-Server verwendet werden, wo die ganze Datenbank gesichert wird.
+            Bis alle Daten wieder in den StackGres-Citus-Cluster zurückgeholt wurden, das Re-Balancing abgeschlossen ist usw.,
             muss der ganze Cluster für die User unerreichbar sein, da dieser in dieser Zeit nicht mehr konsistent ist.
         \end{flushleft}
         \begin{flushleft}
-            Dieser zweite Ansatz bietet zwar Vorteile beim Throughput, doch im Fehlerfall ist ein HA-Betrieb nur noch begrenzt garantiert werden.
+            Dieser zweite Ansatz bietet zwar Vorteile beim Throughput, doch im Fehlerfall kann ein HA-Betrieb nur noch begrenzt garantiert werden.
         \end{flushleft}
     \end{flushleft}
 \end{flushleft}

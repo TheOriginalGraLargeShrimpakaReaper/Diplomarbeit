@@ -30,7 +30,7 @@ watch --interval=30 patronictl -c /etc/patroni/config.yml list
 \begin{flushleft}
     \paragraph{StackGres - Citus}
     Beim Benchmarking zeigten sich die Grenzen des Citus Shardings.\\
-    Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde\cite{6CJFR7RM}.\\
+    Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde \cite{6CJFR7RM}.\\
     Das hat einen besonderen Grund.\\
     Wenn die Tabellen mit Hilfe von des SELECT-Statements \texttt{create\_distributed\_table}, einem Sharding unterzogen werden sollen, kommt es zu einer Fehlermeldung.\\
     Die Shards würden mit folgenden SQL-Statements erzeugt:
@@ -63,7 +63,7 @@ SELECT create_reference_table('pgbench_history');
 \end{lstlisting}
     Referenzierte Tabellen werden auf alle Shards repliziert und erfüllen somit die Anforderung an das Sharding.\\
     Diese Art des Sharding wäre allerdings nur für kleinere Tabellen, Multi-Tenant Sharding (wenn Tabellen bei allen Tenants verfügbar sein sollen),\\
-    Tabellen, die mit verschiedenen Distributed Tables gejoint werden oder wenn eben, wie in unserem Fall, Foreign-Key Constraints im Spiel sind\cite{KPPLMKD4}.
+    Tabellen, die mit verschiedenen Distributed Tables gejoint werden oder wenn eben, wie in unserem Fall, Foreign-Key Constraints im Spiel sind \cite{KPPLMKD4}.
 \end{flushleft}
 \begin{flushleft}
     Aber auch in diesem Fall muss das Sharding im Nachgang des \texttt{pgbench}-Inits gemacht werden.\\

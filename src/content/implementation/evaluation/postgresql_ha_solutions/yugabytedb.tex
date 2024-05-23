@@ -5,11 +5,11 @@
 \begin{flushleft}
     \subsubsection{YugabyteDB - Distributed SQL 101}
     YugabyteDB - Distributed SQL 101 ist eine nahezu komplett \Gls{PostgreSQL} kompatible Datenbank.
-    Sie ist eine Distributed SQL Datenbank, also eine verteilte Datenbank\cite{ZXD6D9KU}.
+    Sie ist eine Distributed SQL Datenbank, also eine verteilte Datenbank \cite{ZXD6D9KU}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Core-Features}
-    Die wichtigsten Features von YugabyteDB sind\cite{N6QKEPAC}:
+    Die wichtigsten Features von YugabyteDB sind \cite{N6QKEPAC}:
     \begin{itemize}
         \item \Gls{PostgreSQL} kompatibel
         \item \Gls{Cassandra}-Kompatibilität
@@ -21,7 +21,7 @@
 \begin{flushleft}
     \paragraph{Replikation}
     Die Replikation erfolgt auf Sharding-Ebene mithilfe des Raft-Protokolls.\\
-    Raft wird im \hyperref[subsec:subsec:mraft_consensus]{Anhang - Raft-Consensus} beschrieben.
+    Raft wird im \hyperref[subsec:mraft_consensus]{Anhang - Raft-Consensus} beschrieben.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Proxy}
@@ -29,11 +29,11 @@
 \end{flushleft}
 \begin{flushleft}
     \paragraph{Pooling}
-    YugabyteDB hat einen \Gls{Connection Pooler} mit dem YSQL Connection Manager integriert\cite{2FQ8JXD7}.
+    YugabyteDB hat einen \Gls{Connection Pooler} mit dem YSQL Connection Manager integriert \cite{2FQ8JXD7}.
 \end{flushleft}
 \begin{flushleft}
     \paragraph{API / Skripte}
-    YugabyteDB bietet eigene APIs\cite{ZXXLVVYW} und CLIs\cite{8846IPNK} für das Verwalten an.
+    YugabyteDB bietet eigene APIs \cite{ZXXLVVYW} und CLIs \cite{8846IPNK} für das Verwalten an.
 \end{flushleft}
 \begin{flushleft}
     Diese können auch abgesichert zu werden.
@@ -108,7 +108,7 @@
     Dies wird dann sinnvoll, wenn eine gewisse Ausfalltoleranz erreicht werden soll.
     Fällt ein Tablet Peer oder ein Node in einer Zone aus, so wird die ganze Zone sofort als nicht mehr arbeitsfähig angesehen.
     Entsprechend werden in allen Nodes die Tablet-Leader stillgelegt und auf die übrigen Zonen verteilt.
-    YuganyteDB nennt dies \texttt{Zone outage Tolerance}\cite{PTKCP8A4}.
+    YuganyteDB nennt dies \texttt{Zone outage Tolerance} \cite{PTKCP8A4}.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/yugabytedb/yugabytedb-zone-outage-tolerance}
