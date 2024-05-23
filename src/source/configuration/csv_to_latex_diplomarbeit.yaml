@@ -552,8 +552,8 @@ tables:
     caption-side: "below"
     position: "H"
     sparse_columns: True
-    longtable: True
-    resize_textwidth: False
+    longtable: False
+    resize_textwidth: True
     linebreak_columns:
     table_header: True
     multicolumn: False
@@ -1637,7 +1637,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  evaluation_tests_yugabytedb:
   id: "evaluation_tests_yugabytedb"
   isbigfile:
@@ -1701,7 +1701,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  evaluation_tests_stackgres_citus:
   id: "evaluation_tests_stackgres_citus"
   isbigfile:
@@ -1766,7 +1766,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  cost_parameters:
   id: "cost_parameters"
   isbigfile:
@@ -1828,7 +1828,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  construction_inventory:
   id: "construction_inventory"
   isbigfile:
@@ -2206,7 +2206,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  result_goal_review:
   id: "result_goal_review"
   isbigfile:
@@ -2269,7 +2269,7 @@ tables:
     multicolumn: False
     smalltable: False
     smalltable_size:
-    table_lines: False
+    table_lines: True
  risk_assessments_13_05_2024:
    id: "risk_assessments_13_05_2024"
    isbigfile:

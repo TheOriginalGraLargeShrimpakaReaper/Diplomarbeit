@@ -1,28 +1,22 @@
-\begin{longtable}[H]{lllll}
+\begin{table}[H]
 
+\resizebox{\columnwidth}{!}{%
+
+\begin{tabular}{llllll}
 \toprule
-Server & Typ & Funktion & Full Qualified Device Name & IP \\
+Server & Typ & Lösung & Funktion & Full Qualified Device Name & IP \\
 \midrule
-\endfirsthead
-\caption[]{Evaluationssyssteme} \\
-\toprule
-Server & Typ & Funktion & Full Qualified Device Name & IP \\
-\midrule
-\endhead
-\midrule
-\multicolumn{5}{r}{Continued on next page} \\
-\midrule
-\endfoot
+sks1183 & Distributed SQL & StackGres / YugabyteDB & Server & sks1183.ksgr.ch & 10.0.20.97 \\
+sks1184 & Distributed SQL & StackGres / YugabyteDB & Agent & sks1184.ksgr.ch & 10.0.20.104 \\
+sks1185 & Distributed SQL & StackGres / YugabyteDB & Agent & sks1185.ksgr.ch &  10.0.20.105 \\
+sks1232 & Monolith & Patroni & Server & sks1232.ksgr.ch & 10.0.20.110 \\
+sks1233 & Monolith & Patroni & Server & sks1233.ksgr.ch & 10.0.20.111 \\
+sks1234 & Monolith & Patroni & Server & sks1234.ksgr.ch & 10.0.20.112 \\
+sks9016 & Benchmark Server & StackGres / YugabyteDB / Patroni & Client & sks9016.ksgr.ch & 10.0.21.216 \\
+vks0032 & Distributed SQL & StackGres / YugabyteDB & Virteulle IP & vks0032.ksgr.ch & 10.0.20.106 \\
+vks0040 & Monolith & Patroni & Virteulle IP & vks0040.ksgr.ch & 10.0.20.113 \\
 \bottomrule
-\endlastfoot
-sks1183 & Distributed SQL & Server & sks1183.ksgr.ch & 10.0.20.97 \\
-sks1184 & Distributed SQL & Agent & sks1184.ksgr.ch & 10.0.20.104 \\
-sks1185 & Distributed SQL & Agent & sks1185.ksgr.ch &  10.0.20.105 \\
-sks1232 & Monolith & Server & sks1232.ksgr.ch & 10.0.20.110 \\
-sks1233 & Monolith & Server & sks1233.ksgr.ch & 10.0.20.111 \\
-sks1234 & Monolith & Server & sks1234.ksgr.ch & 10.0.20.112 \\
-sks9016 & Benchmark Server & Client & sks9016.ksgr.ch & 10.0.21.216 \\
-vks0032 & Distributed SQL & Virteulle IP & vks0032.ksgr.ch & 10.0.20.106 \\
-vks0040 & Monolith & Virteulle IP & vks0040.ksgr.ch & 10.0.20.113 \\
+\end{tabular}
+}
 \caption{Evaluationssyssteme} \label{evaluation_inventory}
-\end{longtable}
+\end{table}

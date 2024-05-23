@@ -13,30 +13,30 @@
 \recalctypearea
 \begin{flushleft}
     \subsection{SQL Optimierungen - Indizes tracken und verwalten}
-    Um Indizes effektiv setzen zu können, muss der Ausführungsplan, der Explaining Plan eines SQL Statements analysiert werden.\\
-    EXPLAIN kann allerdings nur ausgeführt werden, wenn ein Statement angehängt wird\cite{A4Y646W7}.\\
+    Um Indizes effektiv setzen zu können, muss der Ausführungsplan, der Explaining Plan eines SQL Statements analysiert werden.
+    EXPLAIN kann allerdings nur ausgeführt werden, wenn ein Statement angehängt wird \cite{A4Y646W7}.
 \end{flushleft}
 \begin{flushleft}
-    Bevor also ein Explaining Plane analysiert werden kann, muss dieser erst generiert werden.\\
+    Bevor also ein Explaining Plane analysiert werden kann, muss dieser erst generiert werden.
     Dazu müssen die Statements gespeichert werden und abschliessend das Query ausgeführt werden.
 \end{flushleft}
 \begin{flushleft}
-    EXPLAIN bietet weit mehr Informationen.\\
-    Wie der EXPLAIN für das automatische Setzen von Indizes benutzt werden kann,\\
+    EXPLAIN bietet weit mehr Informationen.
+    Wie der EXPLAIN für das automatische Setzen von Indizes benutzt werden kann,
     benötigt viel Analyse und ein Konzept.
 \end{flushleft}
 \begin{flushleft}
-    Es lassen sich zwar nicht benutzte Indizes auslesen und auch löschen.\\
-    Aus Erfahrung mit \Gls{Oracle Database} zeigte sich aber, dass das Löschen eines Index einen gesamten Ausführungsplan umwerfen kann.\\
+    Es lassen sich zwar nicht benutzte Indizes auslesen und auch löschen.
+    Aus Erfahrung mit \Gls{Oracle Database} zeigte sich aber, dass das Löschen eines Index einen gesamten Ausführungsplan umwerfen kann.
     Ohne eine Analyse mit EXPLAIN ist das Risiko für eine solche Aktion zu gross.
 \end{flushleft}
 \begin{flushleft}
-    Alles in allem bräuchte es für dieses Ziel ein Performance Warehouse.\\
-    Also eine Datenbank, die EXPLAIN Resultate, Systemparameter und weitere Metriken speichert.\\
-    Nur so lassen sich SQL Statements sauber analysieren und optimieren.\\
+    Alles in allem bräuchte es für dieses Ziel ein Performance Warehouse.
+    Also eine Datenbank, die EXPLAIN Resultate, Systemparameter und weitere Metriken speichert.
+    Nur so lassen sich SQL Statements sauber analysieren und optimieren.
     Dieses Unterfangen wäre ein eigenes Thema für eine Diplomarbeit.
     \subsection{Testziele}
-    Das erste Teilziel lautete \guillemotleft Der PostgreSQL Cluster muss immer lauffähig sein, solange noch ein Node up ist, unabhängig davon, welche Nodes des PostgreSQL HA Clusters down ist\guillemotright,\\
+    Das erste Teilziel lautete \guillemotleft Der PostgreSQL Cluster muss immer lauffähig sein, solange noch ein Node up ist, unabhängig davon, welche Nodes des PostgreSQL HA Clusters down ist\guillemotright,
     ist mit einem \Gls{Quorum} System nicht machbar resp. ein \Gls{Quorum} System verhindert genau das.
 \end{flushleft}
 \begin{flushleft}

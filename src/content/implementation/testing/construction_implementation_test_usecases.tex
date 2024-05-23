@@ -7,9 +7,9 @@
     \begin{description}
         \item \textbf{Basistests}\hfill \\
         \begin{enumerate}
-            \item Es wird eine Verbindung auf die \texttt{postgres}- und \texttt{gramic\_test} DB\\ auf dem Host \texttt{vks0041.ksgr.ch} oder IP \texttt{10.0.22.178} auf die Ports \texttt{5000} und \texttt{5001} hergestellt
-            \item Es werden Daten aus den Tabellen beide Datenbanken ausgelesen
-            \item Auf die DB \texttt{gramic\_test} wird mit \texttt{pgbench} ein 5GiB-Init auf den Host \texttt{vks0041.ksgr.ch} oder IP \texttt{10.0.22.178} und Port \texttt{5000} ausgeführt
+            \item Es wird eine Verbindung auf die \texttt{postgres}- und \texttt{gramic\_test} DB\\ auf dem Host \texttt{vks0041.ksgr.ch} oder IP \texttt{10.0.22.178} auf die Ports \texttt{5000} und \texttt{5001} hergestellt.
+            \item Es werden Daten aus den Tabellen beide Datenbanken ausgelesen.
+            \item Auf die DB \texttt{gramic\_test} wird mit \texttt{pgbench} ein 5GiB-Init auf den Host \texttt{vks0041.ksgr.ch} oder IP \texttt{10.0.22.178} und Port \texttt{5000} ausgeführt.
         \end{enumerate}
         \item \textbf{Failover}\hfill \\
         \begin{enumerate}[resume]
@@ -19,14 +19,14 @@
         \end{enumerate}
         \item \textbf{Switchover}\hfill \\
         \begin{enumerate}[resume]
-            \item Mit dem \texttt{patronictl}-Command wird der Switchover gesetzt
+            \item Mit dem \texttt{patronictl}-Command wird der Switchover gesetzt.
 %            \item Während dem Switchover muss ein mixed \texttt{pgbench} abgesetzt werden
         \end{enumerate}
         \item \textbf{Restore}\hfill \\
         \begin{enumerate}[resume]
             \item Der Primary Node Server muss gestoppt werden, ein mixed \texttt{pgbench} abgesetzt werden und der Server wieder gestartet werden.
             \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der der Node wiederhergestellt\\und abschliessend mit Hilfe von Switchover wieder als Primary gesetzt.
-            \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der Replica-Node wiederhergestellt
+            \item Mit dem \texttt{patronictl}-Command und Parameter \texttt{reinit} wird der Replica-Node wiederhergestellt.
             \item Vor, während und nach dem Restore müssen Tabellen mit Foreign-Key-Constraints und Daten geprüft werden.
 %            \item Während dem Restore muss ein \texttt{pgbench} mixed Benchmark abgesetzt werden
         \end{enumerate}
@@ -39,7 +39,7 @@
             \item Mit \Gls{Ansible} sollen folgende Parameter angepasst werden:
             \begin{itemize}
                 \item Das \texttt{pg\_hba.conf} File.\\So dass der \Gls{HAProxy} Node \texttt{10.0.28.16} erweitert werden kann.
-                \item Die Patroni REST-API soll für den jeweiligen Host von aussen ansprechbar sein.\\Entsprechend muss der Eintrag gesetzt werden
+                \item Die Patroni REST-API soll für den jeweiligen Host von aussen ansprechbar sein.\\Entsprechend muss der Eintrag gesetzt werden.
             \end{itemize}
         \end{enumerate}
         \item \textbf{Ansible - Patroni Node Extend}\hfill \\

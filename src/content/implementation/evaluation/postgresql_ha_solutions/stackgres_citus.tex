@@ -23,6 +23,7 @@
         \item Integrierter Proxy
     \end{itemize}
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     \paragraph{Replikation}
     StackGres bietet asynchrone und synchrone Replikation, Gruppenreplikation sowie kaskadierende Replikation an.
@@ -52,11 +53,12 @@
         StackGres packt \Gls{PostgreSQL}, Patroni, PgBouncer und envoy in einen \Gls{Kubernetes} Pod:
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.4\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_pod_architecture}
+            \includegraphics[width=0.3\linewidth]{source/implementation/evaluation/postgresql_ha_solutions/stackgres/stackgres_pod_architecture}
             \caption{Stackgres - Grundarchitektur}
             \label{fig:stackgres_pod_architecture}
         \end{figure}
     \end{flushleft}
+    \clearpage
     \begin{flushleft}
         \subparagraph{Citus Coordinator und Workers}
         Citus arbeitet mit einem Coordinator-Node, der jedes Query analysiert und an einen Worker-Node weitergibt.\\
@@ -82,6 +84,7 @@
                 \label{fig:citus_row-based-sharding}
             \end{figure}
         \end{flushleft}
+        \clearpage
         \begin{flushleft}
             \textbf{Schema-based sharding}\\
             Beim Schema-based sharding werden die Tabellen horizontal partitioniert oder gleich ganze Tabellen in den Shard gepackt.

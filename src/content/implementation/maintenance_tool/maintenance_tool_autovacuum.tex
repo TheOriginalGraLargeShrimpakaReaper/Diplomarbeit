@@ -24,7 +24,7 @@
 \begin{flushleft}
     Die Aufgabe von diesem Maintenance-Skripts ist es also nun, einmal pro Tag den autovacuum\_vacuum\_scale\_factor neu zu berechnen.\\
     Da keine Mails versendet werden können, soll bei einem sich geänderten Parameter die generierte HTML-Tabelle auf das Verzeichnis des \Gls{Kubernetes} Nodes gespeichert werden.\\
-    Im Produktiven Betrieb soll die Tabelle als HTML in die Mail eingefügt werden.
+    Im produktiven Betrieb soll die Tabelle als HTML in die Mail eingefügt werden.
     \paragraph{Funktionsweise}
     In einem ersten Schritt werden alle benötigten Parameter aus der \Gls{PostgreSQL}-Konfiguration oder den entsprechenden Katalogtabellen ausgelesen.\\
     Dies lässt sich mit einem SQL bewerkstelligen, welches wie folgt aufgebaut ist:

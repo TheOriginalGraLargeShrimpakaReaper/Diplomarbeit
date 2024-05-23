@@ -2,27 +2,34 @@
 %! Date = 26.03.24
 
 % Preamble
+\clearpage
 \begin{flushleft}
     \paragraph{Gegebene Parameter und Annahmen}
-    Es wird mit fünf Jahren gerechnet.\\
-    Daher werden also die Zeitaufwände der Betriebstasks pro Jahr berechnet und mit fünf multipliziert.\\
+    Es wird mit fünf Jahren gerechnet.
+    Daher werden also die Zeitaufwände der Betriebstasks pro Jahr berechnet und mit fünf multipliziert.
 %    Es wurden also folgende Annahmen getroffen resp. folgende Parameter sind gegeben:
     Folgende getroffenen Annahmen und Parameter sind gesetzt:
     \input{content/latex_tables/cost_parameters}
     \paragraph{Varianten}
-    Patroni wurde in zwei Varianten aufgeteilt.\\
-    Einmal die Vanilla-Version, die manuell aufgesetzt und verwaltet wird.\\
+    Patroni wurde in zwei Varianten aufgeteilt.
+    Einmal die Vanilla-Version, die manuell aufgesetzt und verwaltet wird.
     Also so wie es bei der Evaluation gemacht wurde.
 \end{flushleft}
 \begin{flushleft}
-    Es gibt allerdings ein \Gls{GitHub}-Repository, welches die ganze Installation in \Gls{Ansible}-Playbooks verpackt hat.\\
-    Der ganze Prozess wurde analysiert und die Aufwände auch für diese Variante geschätzt.\\
-    An der Punkteverteilung ändert sich entsprechend nichts, da die Architektur die gleiche ist.\\
+    Es gibt allerdings ein \Gls{GitHub}-Repository, welches die ganze Installation in \Gls{Ansible}-Playbooks verpackt hat.
+    Der ganze Prozess wurde analysiert und die Aufwände auch für diese Variante geschätzt.
+    An der Punkteverteilung ändert sich entsprechend nichts, da die Architektur die gleiche ist, nämlich \texttt{vitabaks/postgresql\_cluster} \cite{HIQVBEPF}.
     Diese Variante wird nachfolgend \texttt{Patroni - postgresql\_cluster} oder vereinfacht nur \texttt{postgresql\_cluster} genannt.
+\end{flushleft}
+\clearpage
+\begin{flushleft}
     \paragraph{Zeitvergleiche}
-    Die Zeiten wurden entsprechend den Erfahrungen mit den drei evaluierten Systemen geschätzt.\\
+    Die Zeiten wurden entsprechend den Erfahrungen mit den drei evaluierten Systemen geschätzt.
     Folgende Aufwände wurden gemessen, geschätzt und extrapoliert:
     \input{content/latex_tables/time_investment}
+\end{flushleft}
+\begin{flushleft}
+    \clearpage
     Die Aufwände für die Betriebstasks wie das Erweitern des Quorums, das Wiederherstellen von Nodes und dem Recovery wurde wie folgt geschätzt:
     \begin{figure}[H]
         \centering
@@ -31,6 +38,7 @@
         \label{fig:time_investment_action}
     \end{figure}
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     Daraus ergeben sich folgende gesamten Zeitaufwände, wenn sie auf 5 Jahre extrapoliert werden:
     \begin{figure}[H]
@@ -40,11 +48,12 @@
         \label{fig:time_investment}
     \end{figure}
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     In der Summe müssen für die jeweiligen Varianten also mit folgenden Aufwänden gerechnet werden:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/time_investment_summe}
+        \includegraphics[width=0.65\linewidth]{source/pandas_data_chart_plotter/time_investment_summe}
         \caption{Zeitaufwände summiert}
         \label{fig:time_investment_summe}
     \end{figure}
@@ -56,7 +65,7 @@
     Für die Betriebstasks wurden daher mit folgenden Kosten gerechnet:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/cost_investment_action}
+        \includegraphics[width=0.65\linewidth]{source/pandas_data_chart_plotter/cost_investment_action}
         \caption{Kostenaufwände pro Betriebstask}
         \label{fig:cost_investment_action}
     \end{figure}
@@ -77,11 +86,11 @@
     Die totalen geschätzten Kosten würden sich im Vergleich wie folgt entwickeln:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\linewidth]{source/pandas_data_chart_plotter/cost_investment_summe}
+        \includegraphics[width=0.75\linewidth]{source/pandas_data_chart_plotter/cost_investment_summe}
         \caption{Kostenaufwände Total}
         \label{fig:cost_investment_summe}
     \end{figure}
 \end{flushleft}
-\begin{flushleft}
-    \paragraph{Schlussfolgerung}
-\end{flushleft}
+%\begin{flushleft}
+%    \paragraph{Schlussfolgerung}
+%\end{flushleft}

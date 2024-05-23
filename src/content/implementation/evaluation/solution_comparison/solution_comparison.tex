@@ -2,6 +2,7 @@
 %! Date = 29.12.23
 
 % Preamble
+\clearpage
 \begin{flushleft}
     \subsubsection{Kosten-Nutzen}
     Patroni, in seinen beiden Ausprägungen als normales Patroni und mit dem \texttt{postgresql\_cluster}-Ansible \Gls{GitHub}-Repository\\
@@ -18,8 +19,8 @@
     Dies resultiert auf den tiefen Installationskosten und der schnellen Erweiterungen.
 \end{flushleft}
 \begin{flushleft}
-    Da, dass Repository schon einiges an Ansible-Playbooks mitbringt, ist auch der Erweiterungsaufwand gering.\\
-    YugabyteDB liegt auf Platz zwei, gefolgt vom klassischen (Vanilla) Patroni.
+    Da, das Repository schon einiges an Ansible-Playbooks mitbringt, ist auch der Erweiterungsaufwand gering.\\
+    YugabyteDB liegt auf Platz zwei, gefolgt vom klassischen (Vanilla)-Patroni.
 \end{flushleft}
 \begin{flushleft}
     Auf dem letzten Platz landet StackGres - Citus, dies weil die Erstellung eines Clusters sehr viel Zeit benötigt.
@@ -30,6 +31,7 @@
         \label{fig:cost_benefit_ranking}
     \end{figure}
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     Daraus ergibt sich folgendes Kosten-Nutzen-Diagramm:
     \begin{figure}[H]
@@ -40,5 +42,5 @@
     \end{figure}
     StackGres - Citus scheidet direkt aus, da es nur 77\% der geforderten Punktezahl erreicht.\\
     Aber auch das klassische Patroni scheidet aus,\\
-    dies, weil die Kosten im Verhältnis zur besten Variante (\texttt{postgresql\_cluster}) ebenfalls unter der 80\% Marke liegt.
+    dies, weil die Kosten im Verhältnis zur besten Variante (\texttt{postgresql\_cluster}) ebenfalls unter der 80-Prozent-Marke liegt.
 \end{flushleft}

@@ -63,7 +63,7 @@ Success: reinitialize for member postgres01
 \KOMAoptions{paper=A4,paper=portrait,pagesize}
 \recalctypearea
 \begin{flushleft}
-    \subsubsection{StackGres -Citus}
+    \subsubsection{StackGres - Citus}
     StackGres kann nicht alle Anforderungen erfüllen.
     Obwohl es mit \texttt{envoy} und \texttt{pgBouncer} einen Proxy und einen \Gls{Connection Pooler} gibt,
     scheint dies nicht über die Coordinator-Nodes selbst zu gehen.
@@ -78,7 +78,11 @@ Success: reinitialize for member postgres01
     Sobald ein Foreign-Key zwischen zwei Tabellen, die in verschiedenen Schemas liegen, existiert, kann kein Schema Based Sharding mehr ausgeführt werden.
     Auch hier besteht die Lösung darin, Reference Tables zu erstellen.
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=landscape,pagesize}
+\recalctypearea
 \begin{flushleft}
+    Das vollständige Ergebnis:
     \input{content/latex_tables/evaluation_tests_stackgres_citus}
     Die genauen Details sind im \hyperref[subsec:appendix_testing_stackgres_citus]{Anhang - StackGres - Citus Testing} zu finden.
 \end{flushleft}
@@ -88,14 +92,17 @@ Success: reinitialize for member postgres01
     \input{content/latex_tables/evaluation_tests_yugabytedb}
     Was es aber bei einer Testinstallation zu prüfen gilt, ist die Zeiteinstellung.
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
-    Während des Testing kam es immer wieder vor, dass ein Node Probleme mit der Zeit bekam.\\
-    Dies fiel immer dann auf, wenn ein Node (meistens \texttt{sks1184}), heruntergefahren und später rebooted wurde.\\
-    Der Fehler trat auch erst auf, als die Nodes aus einem Grund aus einem Snapshot wiederhergestellt werden mussten.\\
-    YugabyteDB stellt dann oft mehr als 500ms Zeitunterschied zwischen dem Tablet-Leader und dem Follower fest.\\
-    Sobald dies zutritt, ist der Server Node nicht mehr arbeitsfähig, da die Zeit für die Synchronisation der Daten benötigt wird\cite{BYH9Z3MS}.\\
-    Oft kam auch die Meldung, dass \texttt{chronyc} nicht mehr auf dem Pod installiert sei.\\
-    Auf dem Servern scheinen die Zeiten aber synchron zu sein, eine genaue Ursache konnte nicht gefunden werden.\\
+    Während des Testing kam es immer wieder vor, dass ein Node Probleme mit der Zeit bekam.
+    Dies fiel immer dann auf, wenn ein Node (meistens \texttt{sks1184}), heruntergefahren und später rebooted wurde.
+    Der Fehler trat auch erst auf, als die Nodes aus einem Grund aus einem Snapshot wiederhergestellt werden mussten.
+    YugabyteDB stellt dann oft mehr als 500ms Zeitunterschied zwischen dem Tablet-Leader und dem Follower fest.
+    Sobald dies zutrifft, ist der Server Node nicht mehr arbeitsfähig, da die Zeit für die Synchronisation der Daten benötigt wird \cite{BYH9Z3MS}.
+    Oft kam auch die Meldung, dass \texttt{chronyc} nicht mehr auf dem Pod installiert sei.
+    Auf dem Servern scheinen die Zeiten aber synchron zu sein, eine genaue Ursache konnte nicht gefunden werden.
     Eine mögliche Ursache ist eine unsaubere Konfiguration von \gls{rke2}.
 \end{flushleft}
 \begin{flushleft}

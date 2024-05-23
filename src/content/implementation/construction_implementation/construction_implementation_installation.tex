@@ -16,7 +16,7 @@
     \begin{description}
         \item \textbf{Clustername}\hfill \\Der Clustename lautet \guillemotleft k8s-core-psql\guillemotright.\\Dazu muss folgender Eintrag gesetzt werden: \texttt{patroni\_cluster\_name: \"k8s-core-psql\"}
         \item \textbf{\Gls{DCS}-Typ}\hfill \\Es stehen \gls{etcd} oder \Gls{Consul} zur Auswahl, entsprechend wird \gls{etcd} ausgewählt.\\Es könnten auch bestehende \gls{etcd}-Nodes verwendet werden.
-        \item \textbf{Load Balancing}\hfill \\Grundsätzlich funktionierte der Cluster auch ohne Load Balancer.\\Allerdings muss in diesem Fall \Gls{HAProxy} als Load Balancer eingesetzt werden.
+        \item \textbf{Load Balancing}\hfill \\Grundsätzlich funktionierte der Cluster auch ohne Load Balancer.\\Um die Ziele zu erfüllen muss in diesem Fall \Gls{HAProxy} als Load Balancer eingesetzt werden.
         \item \textbf{Virtual IP}\hfill \\Auch kann definiert werden ob eine Virtuelle IP verwendet wird.\\Ohne Load Balancer würde die virtuelle IP dem Primary Patroni Node zugewiesen.
         \item \textbf{\Gls{Connection Pooler}}\hfill \\\texttt{PgBounder} kann aktiviert oder deaktiviert werden, entsprechend wurde dieser aktiviert.\\Die Konfiguration wurde belassen.\\Ein andererer \Gls{Connection Pooler} steht nicht zur verfügung.
         \item \textbf{PostgreSQL - User}\hfill \\Alle notwendigen User können bereits definiert werden.

@@ -1,7 +1,7 @@
 Art;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis
-Failover;1;Automatismus;Wird ein Node vom Netz genommen,\\muss es zu einem Rebalancing kommen;Eingetroffen
+Failover;1;Automatismus;Wird ein Node vom Netz genommen,\\muss es zu einem Rebalancing kommen.;Eingetroffen
 Failover;2;Connection-Stabilität;Bestehende Connections dürfen nicht getrennt werden.;Eingetroffen
-Failover;3;Geschwindigkeit;Der Failover muss so schnell stattfinden,\\dass offene Connections nicht wegen eines Timeouts geschlossen werden.;Eingetroffen
-Sharding;4;Datenkonsistenz\\und Datenintegrität;Daten sind Konsistent und Inetger.;Eingetroffen
-Sharding;5;Schutz vor Datenverlust;Die Daten müssen Konsistent und schnell auf die Tablets verteilt werden;Eingtetroffen
-Self Healing;6;Node stellt sich selber wieder her;Tablet wird automatisch synchronisiert;Eingtetroffen
+Failover;3;Geschwindigkeit;Der Failover muss so schnell stattfinden,\\damit offene Connections nicht wegen eines Timeouts geschlossen werden.;Eingetroffen
+Sharding;4;Datenkonsistenz und Datenintegrität;Daten sind Konsistent und Inetger.;Eingetroffen
+Sharding;5;Schutz vor Datenverlust;Die Daten müssen Konsistent und schnell auf die Tablets verteilt werden.;Eingtetroffen
+Self Healing;6;Node stellt sich selber wieder her;Tablet wird automatisch synchronisiert.;Eingtetroffen

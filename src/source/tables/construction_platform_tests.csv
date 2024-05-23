@@ -1,12 +1,12 @@
 Art;Test Case Nr.;Test Case;Erwartetes Ergebnis;Eingetretenes Ergebnis;Begründung
 Basistests;1;Connection;Verbindung auf \texttt{vks0041.ksgr.ch} oder \texttt{10.0.22.178}\\und Port \texttt{5000} und \texttt{5001} konnten ausgeführt werden.;Eingetroffen;
 Basistests;2;SELECT;Tabellen können ausgelesen werden;Eingetroffen;
-Basistests;3;pgbench Init gramic\_test;Tabellen werden erstellt und Daten geschrieben.\\Keiner der Nodes fällt aus oder\\kann wegen eines zu grossen lags nicht mehr Synchronisiert werden.;Eingetroffen;
+Basistests;3;pgbench Init gramic\_test;Tabellen werden erstellt und Daten geschrieben.\\Keiner der Nodes fällt aus oder\\kann wegen eines zu grossen Lags nicht mehr synchronisiert werden.;Eingetroffen;
 Failover;4;Automatismus;Wird der Primary Server vom Netz genommen,\\führt Patroni einen Failover auf einen Replika-Node;Eingetroffen;
 Switchover;5;Skript / API;Mit dem Patroni Commandset wird er Switchover ausgeführt;Eingetroffen;
 Restore;6;Automatismus;Ein gestoppter Node wird, wenn nicht zuviel Zeit vergangen ist,\\automatisch restored;Eingetroffen;
-Restore;7;Skript / API;Mit dem Patroni Commandset der Primary-Node Wiederhergestellt;Eingetroffen;
-Restore;8;Skript / API;Mit dem Patroni Commandset ein Replika-Node Wiederhergestellt;Eingetroffen;
+Restore;7;Skript / API;Mit dem Patroni Commandset der Primary-Node wiederhergestellt;Eingetroffen;
+Restore;8;Skript / API;Mit dem Patroni Commandset ein Replika-Node wiederhergestellt;Eingetroffen;
 Restore;9;Datensicherheit;Beim Restore des Primary-Nodes dürfen keine Daten, \\die seit dem Failover gechrieben wurden,\\darf es zu keinem Datenverlust kommen;Eingetroffen;
 Ansible;10;Deploy;Der gesamte Cluster kann mit dem Playbook \texttt{deploy\_pgcluster.yml} deployt werden;Eingetroffen;
 Ansible;11;Maintenance;Das \texttt{pg\_hba.conf} wurde um den Hosteintrag \texttt{10.0.28.16} wurde mittels Playbook \texttt{config\_pgcluster.yml} erweitert.\\Die Patroni REST-API hört nun auf die Node-IP.;Eingetroffen;

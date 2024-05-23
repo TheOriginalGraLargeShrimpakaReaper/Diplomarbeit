@@ -41,6 +41,7 @@
     \end{figure}
     Auch Memory und Storage muss eingerechnet werden, besonders wenn pro Shard noch mehrere Instanzen deployt werden sollen.
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     Dazu kommt noch eine weitere Eigenheit von StackGres.
     Pro Datenbank wird standardmässig ein Cluster erstellt mit jeweils mindestens einem Coordinator und dem ganzen Stack der daran hängt:
@@ -92,6 +93,7 @@ extensions:
     Soll das Web-GUI und die REST-API permanent von aussen verfügbar sein, muss auf dem rest-api Pod ein permanentes Forwarding implementiert werden.
     Umsetzen lässt sich dies mit Hilfe der entsprechenden Keys im \texttt{values.yaml} oder den Parametern beim Deploy.
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     \paragraph{Cluster Deployment}
     Mit der Installation von StackGres steht noch keine Datenbank, es steht nur der Operator- und REST-API Pod.

@@ -5,17 +5,17 @@
 \begin{flushleft}
     \subsubsection{Benchmarking - Vorgehen}
     \paragraph{YugabyteDB}
-    Zuerst muss die Datenbank erstellt und die Tablespaces erzeugt werden, die genauen Schritte sind im \hyperref[subsubsec:yugabytedb_benchmarking_sql]{Anhang - YugabyteDB Benchmark SQL} zu finden.\\
-    Anschliessend muss pro Lauf erst initialisiert werden, dann kann mit dem eigentlichen Benchmarking gestartet werden.\\
+    Zuerst muss die Datenbank erstellt und die Tablespaces erzeugt werden, die genauen Schritte sind im \hyperref[subsubsec:yugabytedb_benchmarking_sql]{Anhang - YugabyteDB Benchmark SQL} zu finden.
+    Anschliessend muss pro Lauf erst initialisiert werden, dann kann mit dem eigentlichen Benchmarking gestartet werden.
     Alle Benchmarking-Commands sind im \hyperref[subsec:yugabytedb_benchmarking_commands]{Anhang - YugabyteDB Benchmarking Commands} zu finden.
     \paragraph{Patroni}
-    Als die 250GiB DB getestet wurde, zeigte sich, dass die Parameter nicht darauf optimiert waren.\\
-    Die Standby-Server konnten die \texttt{WAL}-Files nicht mehr abarbeiten, so stauten sich auf dem primären Node die Files und die Disk lief jeweils voll.\\
-    Es wurde an verschiedenen Stellschrauben geschraubt, etwa an der Anzahl Worker, der Grösse der \texttt{WAL}-Files und anderen.\\
+    Als die 250GiB DB getestet wurde, zeigte sich, dass die Parameter nicht darauf optimiert waren.
+    Die Standby-Server konnten die \texttt{WAL}-Files nicht mehr abarbeiten, so stauten sich auf dem primären Node die Files und die Disk lief jeweils voll.
+    Es wurde an verschiedenen Stellschrauben geschraubt, etwa an der Anzahl Worker, der Grösse der \texttt{WAL}-Files und anderen.
     Mit den Anpassungen wurde die Datenmenge gestemmt.
 \end{flushleft}
 \begin{flushleft}
-    Filesystem und Cluster mussten beim Initialisieren der letzten Benchmarks permanent überwacht werden.\\
+    Filesystem und Cluster mussten beim Initialisieren der letzten Benchmarks permanent überwacht werden.
     Dafür wurden folgende Commands verwendet:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=bash, caption=Patroni - Benchmarking - Monitoring,captionpos=b,label={lst:benchmarking_patroni_monitoring},breaklines=true]
@@ -29,10 +29,10 @@ watch --interval=30 patronictl -c /etc/patroni/config.yml list
 \end{flushleft}
 \begin{flushleft}
     \paragraph{StackGres - Citus}
-    Beim Benchmarking zeigten sich die Grenzen des Citus Shardings.\\
-    Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde \cite{6CJFR7RM}.\\
-    Das hat einen besonderen Grund.\\
-    Wenn die Tabellen mit Hilfe von des SELECT-Statements \texttt{create\_distributed\_table}, einem Sharding unterzogen werden sollen, kommt es zu einer Fehlermeldung.\\
+    Beim Benchmarking zeigten sich die Grenzen des Citus Shardings.
+    Bereits beim Lesen der Anleitung fiel auf, dass für das Sharding der Tabellen \texttt{pgbench\_accounts} und \texttt{pgbench\_history} jeweils neu initialisiert wurde \cite{6CJFR7RM}.
+    Das hat einen besonderen Grund.
+    Wenn die Tabellen mit Hilfe von des SELECT-Statements \texttt{create\_distributed\_table}, einem Sharding unterzogen werden sollen, kommt es zu einer Fehlermeldung.
     Die Shards würden mit folgenden SQL-Statements erzeugt:
 \lstset{style=gra_codestyle}
 \begin{lstlisting}[language=sql, caption=Citus - Benchmarking - Distributed Table Sharding,captionpos=b,label={lst:benchmarking_distributed_table_sharding},breaklines=true]
@@ -41,16 +41,17 @@ SELECT create_distributed_table('pgbench_tellers', 'tid');
 SELECT create_distributed_table('pgbench_accounts', 'aid');
 SELECT create_distributed_table('pgbench_history', 'aid');
 \end{lstlisting}
-    Ursache ist, dass eine Distributed Table keine Foreign Key Constraints erlaubt.\\
-    \texttt{pgbench} erzeugt aber gleich mehrere davon:\\
+    \clearpage
+    Ursache ist, dass eine Distributed Table keine Foreign Key Constraints erlaubt.
+    \texttt{pgbench} erzeugt aber gleich mehrere davon:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/implementation/evaluation/benchmarking/stackgres_citus/pgbench_accounts}
         \caption{Benchmarking - ERD pgbench}
         \label{fig:pgbench_accounts}
     \end{figure}
-    Ein Schema-Based Sharding ist nicht möglich, da \texttt{pgbench} nur die DB als Parameter übernimmt.\\
-    Die Tabellen werden zudem immer dropped, bevor sie neu erzeugt und gefüllt werden, das Sharding kann daher nur im Nachgang gemacht werden.\\
+    Ein Schema-Based Sharding ist nicht möglich, da \texttt{pgbench} nur die DB als Parameter übernimmt.
+    Die Tabellen werden zudem immer dropped, bevor sie neu erzeugt und gefüllt werden, das Sharding kann daher nur im Nachgang gemacht werden.
 \end{flushleft}
 \begin{flushleft}
     Die Lösung für das Benchmarking bestand also darin, sogenannte Reference Tables zu erstellen:
@@ -61,32 +62,32 @@ SELECT create_reference_table('pgbench_tellers');
 SELECT create_reference_table('pgbench_accounts');
 SELECT create_reference_table('pgbench_history');
 \end{lstlisting}
-    Referenzierte Tabellen werden auf alle Shards repliziert und erfüllen somit die Anforderung an das Sharding.\\
-    Diese Art des Sharding wäre allerdings nur für kleinere Tabellen, Multi-Tenant Sharding (wenn Tabellen bei allen Tenants verfügbar sein sollen),\\
+    Referenzierte Tabellen werden auf alle Shards repliziert und erfüllen somit die Anforderung an das Sharding.
+    Diese Art des Sharding wäre allerdings nur für kleinere Tabellen, Multi-Tenant Sharding (wenn Tabellen bei allen Tenants verfügbar sein sollen),
     Tabellen, die mit verschiedenen Distributed Tables gejoint werden oder wenn eben, wie in unserem Fall, Foreign-Key Constraints im Spiel sind \cite{KPPLMKD4}.
 \end{flushleft}
 \begin{flushleft}
-    Aber auch in diesem Fall muss das Sharding im Nachgang des \texttt{pgbench}-Inits gemacht werden.\\
-    Bei den kleinen Tabellen geht das relativ flot, doch gerade bei der Tabelle \texttt{pgbench\_accounts} dauert es sehr lange.\\
-    Lang genug, dass eine eigene Betrachtung beim Benchmarking angezeigt wurde.\\
+    Aber auch in diesem Fall muss das Sharding im Nachgang des \texttt{pgbench}-Inits gemacht werden.
+    Bei den kleinen Tabellen geht das relativ flott, doch gerade bei der Tabelle \texttt{pgbench\_accounts} dauert es sehr lange.
+    Lang genug, dass eine eigene Betrachtung beim Benchmarking angezeigt wurde.
     Leider zeigte sich auch bei den mixed-Benchmarks anders als bei den dql-Benchmarks, dass diese Art des Sharding nicht sehr performant ist.
 \end{flushleft}
 \begin{flushleft}
-    Wie bei Patroni und YugabyteDB auch, musste für den letzten Benchmark die StorageClass auf die neue Disk verlegt werden.\\
+    Wie bei Patroni und YugabyteDB auch, musste für den letzten Benchmark die StorageClass auf die neue Disk verlegt werden.
     Aber anders als bei YugabyteDB reichten 250GiB nicht mehr, wie bei Patroni lag die Ursache beim Generieren der Primary- und Foreign-Keys.
 \end{flushleft}
 \begin{flushleft}
-    Es zeigte sich aber auch rasch, dass der Coordinator die gleiche Grösse annahm wie die Shard-Pods.\\
-    Das führte dazu, dass beim letzten Benchmark nur noch 2 Shard-Instanzen deployt werden konnten,\\
-    da sonst bei jeder Disk nochmals mindestens 350GiB hinzugefügt hätte werden müssen (da sich der Coordinator den Node mit einem Shard geteilt hätte und der Coordinator auf jedem Node erscheinen könnte).\\
-    Es hätten also für die Evaluation 3 x 700GiB (plus noch 3 x 50GiB für den Rest), sprich 3 x 750GiB, allokiert werden müssen.\\
+    Es zeigte sich aber auch rasch, dass der Coordinator die gleiche Grösse annahm wie die Shard-Pods.
+    Das führte dazu, dass beim letzten Benchmark nur noch 2 Shard-Instanzen deployt werden konnten,
+    da sonst bei jeder Disk nochmals mindestens 350GiB hinzugefügt hätte werden müssen (da sich der Coordinator den Node mit einem Shard geteilt hätte und der Coordinator auf jedem Node erscheinen könnte).
+    Es hätten also für die Evaluation 3 x 700GiB (plus noch 3 x 50GiB für den Rest), sprich 3 x 750GiB, allokiert werden müssen.
     Auf diesen Mehraufwand wurde verzichtet, um das \Gls{SAN} und somit das Daily Business nicht zu stark zu belasten.
 \end{flushleft}
 \begin{flushleft}
-    Allerdings war es nicht möglich, die Shards mit rund 250GiB auszuführen.\\
-    Trotz grösserer Disk und mehr Ressourcen auf den Shards und Coordinators brach das Sharding der Tabelle \texttt{pgbench\_accounts} immer ab.\\
-    Die PostgreSQL-Instanz wurde optimiert, das heisst, es wurden so viele Parameter wie möglich der Patroni-Evaluation gesetzt, allerdings gab es von seitens StackGres Einschränkungen.\\
-    Das SQL lief für jeweils knapp 13 Minuten, ehe es zu einem Disconnect im Java-Code von einem der beiden Shards kam.\\
+    Allerdings war es nicht möglich, die Shards mit rund 250GiB auszuführen.
+    Trotz grösserer Disk und mehr Ressourcen auf den Shards und Coordinators brach das Sharding der Tabelle \texttt{pgbench\_accounts} immer ab.
+    Die PostgreSQL-Instanz wurde optimiert, das heisst, es wurden so viele Parameter wie möglich der Patroni-Evaluation gesetzt, allerdings gab es von seitens StackGres Einschränkungen.
+    Das SQL lief für jeweils knapp 13 Minuten, ehe es zu einem Disconnect im Java-Code von einem der beiden Shards kam.
     Die Vermutung liegt nahe, dass es ein Memory-Leak im Code gibt, s lassen sich aber nicht genug Informationen aus den Logs gewinnen, um die Fehlerursache und eine mögliche Lösung zu finden.
     \begin{warning}
         Aufgrund von diesem Fehler ist das Benchmarking für StackGres unvollständig.
@@ -94,14 +95,17 @@ SELECT create_reference_table('pgbench_history');
 \end{flushleft}
 \begin{flushleft}
     Alle Benchmarking-Commands und SQLs zur Ermittlung der Grösse sind im \hyperref[subsec:stackgres_citus_benchmarking_commands]{Anhang - StackGres - Citus Benchmarking Commands} zu finden.
+\end{flushleft}
+\clearpage
+\begin{flushleft}
     \subsubsection{Benchmarks}
-    Der Vergleich zwischen den verschiedenen Varianten.\\
+    Der Vergleich zwischen den verschiedenen Varianten.
 \end{flushleft}
 %\begin{flushleft}
 %
 %\end{flushleft}
 \begin{flushleft}
-    Bei den Transaktionen pro Sekunden gilt, je höher der Wert, umso besser das Ergebnis.\\
+    Bei den Transaktionen pro Sekunden gilt, je höher der Wert, umso besser das Ergebnis.
 %    Zuerst die Ergebnisse mit den mixed-Transaktionen:
 %    \begin{figure}[H]
 %        \centering
@@ -126,7 +130,7 @@ SELECT create_reference_table('pgbench_history');
         \caption{Benchmarks - tps}
         \label{fig:tps_varianten}
     \end{figure}
-    Bei der Latenz ist es genau andersrum, je höher der Wert, desto schlechter schnitt die Variante ab.\\
+    Bei der Latenz ist es genau andersrum, je höher der Wert, desto schlechter schnitt die Variante ab.
 %    Auch hier zuerst wieder die mixed-Transaktionen:
 %    \begin{figure}[H]
 %        \centering
@@ -153,7 +157,7 @@ SELECT create_reference_table('pgbench_history');
     \end{figure}
 \end{flushleft}
 \begin{flushleft}
-    Die ersten beiden Läufe mit Patroni wurde erst nur mit der asynchronen Standard-Replikation von Patroni vorgenommen.\\
+    Die ersten beiden Läufe mit Patroni wurde erst nur mit der asynchronen Standard-Replikation von Patroni vorgenommen.
     Später wurden die Benchmarks mit der synchronen Replikation wiederholt.\\
     Daraus ergab sich die Möglichkeit, beide Methoden direkt zu vergleichen:
     \begin{figure}[H]
@@ -174,6 +178,7 @@ SELECT create_reference_table('pgbench_history');
     \end{figure}
     Die asynchrone Replikation ist dabei ein klein wenig schneller als die synchrone Replikation.
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     Ein weiterer Benchmark sind die Fehler, die bei den DML-Transktionen beim mixed-Benchnmark auftreten können.
     \begin{figure}[H]
@@ -190,22 +195,22 @@ SELECT create_reference_table('pgbench_history');
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/initializing_time_sec}
-        \caption{Benchmarks - Initialisierungszeit - sekunden}
+        \caption{Benchmarks - Initialisierungszeit - Sekunden}
         \label{fig:initializing_time_sec}
     \end{figure}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/initializing_time_min}
-        \caption{Benchmarks - Initialisierungszeit - minuten}
+        \caption{Benchmarks - Initialisierungszeit - Minuten}
         \label{fig:initializing_time_min}
     \end{figure}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{source/pandas_data_chart_plotter/initializing_time_hour}
-        \caption{Benchmarks - Initialisierungszeit - stunden}
+        \caption{Benchmarks - Initialisierungszeit - Stunden}
         \label{fig:initializing_time_hour}
     \end{figure}
-    Dabei fällt auf, mit Patroni werden die Tabellen am schnellsten geladen.\\
-    StackGres selber generiert ebenfalls wesentlich schneller als YugabyteDB.\\
+    Dabei fällt auf, mit Patroni werden die Tabellen am schnellsten geladen.
+    StackGres selber generiert ebenfalls wesentlich schneller als YugabyteDB.
     Werden dann aber die Tabellen in Shards aufgeteilt, verändert sich die Initialisierungszeit zuungunsten von StackGres - Citus.
 \end{flushleft}

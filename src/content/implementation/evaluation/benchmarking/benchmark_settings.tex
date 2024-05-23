@@ -58,6 +58,9 @@
         \label{fig:sks0970_zabbix_mariadb_size_graph}
     \end{figure}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=landscape,pagesize}
+\recalctypearea
 \begin{flushleft}
     Nun kommen noch die kleineren DBs hinzu.
     Heisst, für den Mixed Benchmark (DML und DQL \Gls{Transaktion}en) werden folgende Werte und Parameter gesetzt:
@@ -67,6 +70,9 @@
     Für den DQL-Only Benchmark wird mit folgenden Konfigurationen gearbeitet:
     \input{content/latex_tables/benchmarking_settings_dql}
 \end{flushleft}
+\clearpage
+\KOMAoptions{paper=A4,paper=portrait,pagesize}
+\recalctypearea
 \begin{flushleft}
     Bei \texttt{pgbench} kann nicht das Volumen angegeben werden.\\
     Es muss der Skalierungsfaktor angepasst werden.\\
@@ -88,6 +94,7 @@
     Der Skalierungsfaktor für die Tabellen ist folgendermassen aufgebaut:\\
     \input{content/latex_tables/benchmarking_table_sizes}
 \end{flushleft}
+\clearpage
 \begin{flushleft}
     Der Skalierungsfaktor wird pro 100'000 gerechnet, gebe ich also den Faktor 1 ein, werden 100'000 Zeilen in der Tabelle \texttt{pgbench\_accounts} resp. \texttt{ysql\_bench\_accounts} erzeugt.\\
     Entsprechend wachsen die Anzahl Records wie folgt an:\\
