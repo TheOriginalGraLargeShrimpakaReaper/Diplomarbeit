@@ -1,12 +1,12 @@
-ID;Risiko;Assessment-Datum;WS;SM;Status;Ergriffene Massnahmen;Wirksamkeit;Begründung
+ID;Risiko;Assessment-Datum;WS;SM;Dringlichkeit;Ergriffene Massnahmen;Wirksamkeit;Begründung
 1;Fehlende Ressourcen;21.03.2024;3;4;hoch;Dokumentation ausserhalb Arbeitszeit;begrenzt;Mentale Ressourcen setzen Limits.
 2;HP-UX Ablöseprojekt;21.03.2024;5;4;sehr hoch;Ressourcen reserviert;begrenzt;ExaCC Server werden mitten während der Diplomarbeit geliefert.\\Von KSGR Seite fehlt eine Stellvertretung.\\Mithilfe notwendig.
 3;Alte Infrastruktur kann\\ungeplant sämtliche Ressourcen binden;21.03.2024;4;4;hoch;Externe Partner sensibilisiert;wirksam;Externe Partner können meinen Teil der Aufgaben  bei Problemen abfedern.\\Allerdings nicht vollständig
 4;Schwächen beim\\Selbstmanagement\\und in der Selbstorganisation;21.03.2024;3;3;hoch;- Projektplanung erstellt.\\- Arbeitspakete geplant;begrenzt;Nicht an alle Tasks gedacht, wie z.B. Risikocontrolling.
-5;Scope verlust während des Projekts;21.03.2024;2;2;mittelmässig;Ziele SMART definiert;wirksam;Ziele sind klar definiert.\\Allerdings gibt es zwangsweise gewisse Unschärfen.
+5;Scope Verlust während des Projekts;21.03.2024;2;2;mittel;Ziele SMART definiert;wirksam;Ziele sind klar definiert.\\Allerdings gibt es zwangsweise gewisse Unschärfen.
 6;Scope Creep;21.03.2024;2;3;hoch;Ziele SMART definiert;wirksam;Vorauswahl getroffen, nur noch drei Evaluiert.
 7;SIEM / Log Plattform\\nicht betriebsbereit;21.03.2024;5;1;sehr hoch;keine;;SIEM wird nicht rechtzeitig stehen.\\Das Schadensmass ist aber zu gering,\\damit Massnahmen ergriffen werden müssten.
-8;Foreman nicht betriebsbereit;21.03.2024;1;1;erledigt;keine;;Foreman ist in Betrieb
+8;Foreman nicht betriebsbereit;21.03.2024;1;1;erledigt;keine;;Foreman ist in Betrieb.
 9;Veeam Kasten K10\cite{P24LQGDK} nicht betriebsbereit;21.03.2024;5;1;sehr hoch;keine;;Es muss nur ein Testsystem aufgebaut werden.\\Da dies Patroni ist, wird YugabyteDB später installiert.
 10;Kubernetes Testumgebung;29.04.2024;5;1;sehr hoch;keine;;Es muss nur ein Testsystem aufgebaut werden.\\Da dies Patroni ist, wird YugabyteDB später installiert.
 11;Verzug;29.04.2024;4;5;sehr hoch;;;
