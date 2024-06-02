@@ -73,7 +73,7 @@ Nr.;Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;T
 ;17.04.2024;10:00;11:00;1;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;YugabyteDB Benchmaking / Testing;Grosse Volumes testen;;
 ;17.04.2024;12:30;19:00;6.5;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Deployment / Testing;;Table Distribution und Schema based Sharding nicht tauglich.\\Foreign-Key-Constraints werfen fehler.;Referenced Tables
 ;19.04.2024;08:00;11:00;3;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;StackGres Benchmarking;Auch pgbench muss manuell ausgeführt werden;;
-;19.04.2024;12:00;14:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Analyse vitabaks/postgresql\_cluster\\ / Architektur;Analyse von vitabaks/postgresql\_cluster auf \Gls{GitHub}.\\Aufbau analog ursprüngliche Evaluationsplattform von Patroni.\\Architektur entsprechend zeichnen.;;
+;19.04.2024;12:00;14:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Analyse vitabaks/postgresql\_cluster\\ / Architektur;Analyse von vitabaks/postgresql\_cluster auf \Gls{GitHub}.\\Aufbau analog ursprüngliche Evaluationsplattform von Patroni.\\Architektur entsprechend zeichnen.;;
 ;19.04.2024;14:00;20:00;6;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni  Installation / Testing;;etcd-Server bereitet Probleme;Vereinfachen soweit möglich
 ;19.04.2024;20:00;21:00;1;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Patroni Test Server DMT / Auftrag;DMT Einträge für Patroni Testserver erstellt.\\Ticket an Niculin Fürst für Foreman Job.;;
 ;20.04.2024;10:00;12:00;2;0;0;0;Evaluation;Analyse PostgreSQL HA Cluster Lösungen;Patroni Benchmarking;;;
@@ -86,26 +86,26 @@ Nr.;Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;T
 ;26.04.2024;13:30;14:30;1;0;0;0;Evaluation;Variantenentscheid;;;;
 ;26.04.2024;14:30;17:30;3;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;;;
 ;29.04.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Basisinfrastruktur;Anpassungen / Passwörter;Prequenteries umgesetzt.\\Snapshots auf \Gls{VMware vSphere} gesetzt.\\Passwörter gesetzt und im Password Secure (Safe) erfasst.\\Ansible installation auf sks9016;;
-;29.04.2024;11:00;11:30;0.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
-;29.04.2024;12:30;14:00;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
+;29.04.2024;11:00;11:30;0.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
+;29.04.2024;12:30;14:00;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Konfigurieren;vars/main.yml und Inventory;;
 ;29.04.2024;14:30;15:30;1;0;0;0;Dokumentation;Dokumentation;Projektcontrolling Arbeiten;;;
-;29.04.2024;16:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Installation;;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
-;30.04.2024;07:00;08:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
-;30.04.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;29.04.2024;16:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;30.04.2024;07:00;08:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
+;30.04.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Mit Proxy-Settings experimentiert;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;
 ;30.04.2024;15:00;16:30;1.5;0;0;0;Troubleshooting und Lösungsfindung;Troubleshooting und Lösungsfindung;Installation;Umstellen lassen auf Init7 ohne Proxy dafür mit Firewall Rules.\\\Gls{GitHub} verursacht Probleme.;\Gls{GitHub}-Repository von \gls{etcd}\\und PostgreSQL apt-Repository nicht erreichbar.;Proxy Settings im Ansible vars/main.yml setzen
-;30.04.2024;17:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Installation;Grundsätzlich Funktionsfähig;pg\_hba.conf Fehler;
-;01.05.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
+;30.04.2024;17:45;18:00;1.25;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Grundsätzlich Funktionsfähig;pg\_hba.conf Fehler;
+;01.05.2024;09:00;10:00;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Installation;Funktionsfähig. Installation abgeschlossen.\\Installation selber läuft kaum länger als 15min;pg\_hba.conf Fehler;PostgreSQL Passwort File erweitert.\\pg\_hba.conf rekonfiguriert.
 ;01.05.2024;10:00;10:15;0.25;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport;;
 ;01.05.2024;14:15;16:15;2;0;0;0;Aufbau und Implementation Testsystem;Technical Review;Review vitabaks/postgresql\_cluster\\System;;;
-;03.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;\Gls{PRTG} Sensor bauen;;;
-;03.05.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Beginn Bau Maintenance-Tool - Bloated Tables;;
+;03.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;\Gls{PRTG} Sensor bauen;;;
+;03.05.2024;10:30;11:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Beginn Bau Maintenance-Tool - Bloated Tables;;
 ;03.05.2024;12:30;13:45;1.25;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
 ;03.05.2024;15:30;17:00;2.5;0;0;0;Testing;Testing Testsystem;Testing vitabaks/postgresql\_cluster;;;
 ;03.05.2024;17:00;19:00;2;0;0;0;Testing;Protokollierung;;;;
-;06.05.2024;07:30;10:00;2.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Bau Maintenance-Tool - Bloated Tables;;
-;06.05.2024;10:00;11:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Beginn Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
-;06.05.2024;13:30;14:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
-;09.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration\\PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;06.05.2024;07:30;10:00;2.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool - Bloated Tables;Bau Maintenance-Tool - Bloated Tables;;
+;06.05.2024;10:00;11:30;1.5;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Beginn Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;06.05.2024;13:30;14:30;1;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
+;09.05.2024;07:00;09:00;2;0;0;0;Aufbau und Implementation Testsystem;Installation und Konfiguration PostgreSQL HA Cluster;Maintenance-Tool -  \Gls{AUTOVACUUM};Bau Maintenance-Tool - \Gls{AUTOVACUUM};;
 ;09.05.2024;12:30;15:00;2.5;0;0;0;Testing;Testing Testsystem;Testing Maintenance-Tool;;;
 ;09.05.2024;15:00;17:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
 ;09.05.2024;19:00;21:00;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Maintenance-Tool Dokumentieren;;
@@ -114,7 +114,7 @@ Nr.;Datum;Von;Bis;Dauer [h];Geplante Dauer [h];dauer_summe;Hide;Phase;Subphase;T
 ;12.05.2024;16:15;16:15;1;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
 ;12.05.2024;17:45;18:15;0.5;0;0;0;Resultate;Zielüberprüfung;Ziele überprüft;;;
 ;12.05.2024;19:30;20:30;1;0;0;0;Resultate;Schlussfolgerung;Schlussfolgerung geschrieben;;;
-;12.05.2024;20:30;21:00;0.5;0;0;0;Resultate;Weiteres Vorgehen\\/ offene Arbeiten;Weiteres vorgehen erfasst;;;
+;12.05.2024;20:30;21:00;0.5;0;0;0;Resultate;Weiteres Vorgehen / offene Arbeiten;Weiteres vorgehen erfasst;;;
 ;12.05.2024;21:00;21:45;0.75;0;0;0;Resultate;Persönliches Fazit;Persönliches Fazit niedergeschrieben;;;
 ;12.05.2024;07:30;09:30;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Arbeitsrapport / Abschlussbericht KSGR;;
 ;13.05.2024;09:30;11:30;2;0;0;0;Dokumentation;Dokumentation;Dokumentation erweitern;Design;;

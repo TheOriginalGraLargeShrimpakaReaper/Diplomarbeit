@@ -3,7 +3,7 @@ tables_inventory:
  - "db_inventory_per_rdbms"
  - "db_inventory_per_os"
  - "anforderungskatalog"
- - "arbeitsrapport"
+# - "arbeitsrapport"
  - "projektcontrolling"
  - "evaluation_inventory"
  - "dependencis"
@@ -492,6 +492,7 @@ tables:
     longtable: False
     resize_textwidth: True
     linebreak_columns:
+     - "Subphase"
     table_header: True
     multicolumn: False
     smalltable: False
