@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-06-03T18:30:16.060Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="I7C0hULN-QzsUv5WDzp5" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-06-03T18:41:26.749Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ACDAvwU38p6KPEi6vd9K" version="23.1.5" type="device">
   <diagram name="Page-1" id="LRn8TLaNKPoY7hggMyDW">
-    <mxGraphModel dx="19499" dy="3120" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="19499" dy="3372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -3751,17 +3751,17 @@
             <mxPoint x="-14030" y="2090" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="unpfgFRxWPGz0LzSJZmm-1370" value="&lt;ul style=&quot;font-size: 80px;&quot;&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Beste Performance&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Robust&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=80;fontStyle=0;verticalAlign=middle;align=left;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
-          <mxGeometry x="-14020" y="2130" width="1140" height="250" as="geometry" />
+        <mxCell id="unpfgFRxWPGz0LzSJZmm-1370" value="&lt;ul style=&quot;font-size: 80px;&quot;&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Beste Performance&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Robust&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Viele Varianten möglich&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=80;fontStyle=0;verticalAlign=middle;align=left;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="-14020" y="2130" width="1140" height="340" as="geometry" />
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1371" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;strokeWidth=4;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-9412" y="2468" as="targetPoint" />
-            <mxPoint x="-14032" y="2478" as="sourcePoint" />
+            <mxPoint x="-9412" y="2662" as="targetPoint" />
+            <mxPoint x="-14032" y="2672" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1428" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=69;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-14040" y="2502" width="1145" height="570" as="geometry" />
+          <mxGeometry x="-14040" y="2696" width="1145" height="570" as="geometry" />
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1429" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=75;fontStyle=1;align=left;" vertex="1" parent="unpfgFRxWPGz0LzSJZmm-1428">
           <mxGeometry width="1145" height="95" as="geometry" />
@@ -3872,7 +3872,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1453" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=75;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-12852" y="2501" width="1145" height="570" as="geometry" />
+          <mxGeometry x="-12852" y="2695" width="1145" height="570" as="geometry" />
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1454" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=75;fontStyle=1;align=left;" vertex="1" parent="unpfgFRxWPGz0LzSJZmm-1453">
           <mxGeometry width="1145" height="95" as="geometry" />
@@ -3983,7 +3983,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1478" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=75;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-11689" y="2501" width="1145" height="570" as="geometry" />
+          <mxGeometry x="-11689" y="2695" width="1145" height="570" as="geometry" />
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1479" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=75;fontStyle=1;align=left;" vertex="1" parent="unpfgFRxWPGz0LzSJZmm-1478">
           <mxGeometry width="1145" height="95" as="geometry" />
@@ -4094,7 +4094,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1503" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=75;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-10516" y="2500" width="1145" height="570" as="geometry" />
+          <mxGeometry x="-10516" y="2694" width="1145" height="570" as="geometry" />
         </mxCell>
         <mxCell id="unpfgFRxWPGz0LzSJZmm-1504" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=75;fontStyle=1;align=left;" vertex="1" parent="unpfgFRxWPGz0LzSJZmm-1503">
           <mxGeometry width="1145" height="95" as="geometry" />
@@ -4203,6 +4203,15 @@
           <mxGeometry x="935" width="210" height="95" as="geometry">
             <mxRectangle width="210" height="95" as="alternateBounds" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="unpfgFRxWPGz0LzSJZmm-1528" value="&lt;ul style=&quot;font-size: 80px;&quot;&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Beste Performance&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Robust&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Umfangreiches GitHub Ansible&lt;br&gt;Repository&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Schnelle Operationen&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=80;fontStyle=0;verticalAlign=middle;align=left;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="-12847" y="2130" width="1140" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="unpfgFRxWPGz0LzSJZmm-1529" value="&lt;ul style=&quot;font-size: 80px;&quot;&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Schlechte Schreibperformance&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Hoher Ressourcenverbrauch&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Citus Sharding limitiert&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Connection Pooler Fehler&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Fehler beim Benchmarking&lt;br&gt;mit 230GiB&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=80;fontStyle=0;verticalAlign=middle;align=left;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="-10509.5" y="2130" width="1140" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="unpfgFRxWPGz0LzSJZmm-1530" value="&lt;ul style=&quot;font-size: 80px;&quot;&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Schlechte Performance&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Ansprüche an Zeitsystem&lt;/li&gt;&lt;li style=&quot;font-size: 80px;&quot;&gt;Sparsam bei Speicher&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=80;fontStyle=0;verticalAlign=middle;align=left;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
+          <mxGeometry x="-11680" y="2130" width="1140" height="530" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
